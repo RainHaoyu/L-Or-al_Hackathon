@@ -1,0 +1,2901 @@
+{
+  "$comment": "香水库 v2：1 款黄金算例（柠檬烯标样，复现 v3 报告 CEL=5.0/AEL=100/比值=20）+ 20 款欧莱雅集团真实香水（YSL/Lancôme/Viktor&Rolf/Mugler/Margiela REPLICA/Armani/Valentino/Prada/Azzaro/Ralph Lauren）。INCI 全表与香调金字塔均带来源链接（官网/官方零售商/inkeedecoder/Ulta + Fragrantica）。allergen_concentrations 为 INCI 命中致敏原清单，typical_pct 为文献均值估计（非该产品实测）。families 占比由金字塔香材×层权重聚合，雷达五维由家族先验混合而来。",
+  "built_at": "2026-09-17",
+  "count": 21,
+  "brands": [
+    "Azzaro",
+    "Giorgio Armani",
+    "Lancôme",
+    "Maison Margiela",
+    "Mugler",
+    "Prada",
+    "Ralph Lauren",
+    "Valentino",
+    "Viktor & Rolf",
+    "Yves Saint Laurent"
+  ],
+  "perfumes": [
+    {
+      "id": "golden-limonene",
+      "is_golden": true,
+      "brand": "Golden Case",
+      "name": "柠檬烯标样（黄金算例）",
+      "concentration_type": "EDP",
+      "barcode": "0000000000001",
+      "families": {
+        "citrus": 1.0
+      },
+      "radar": {
+        "fresh": 0.95,
+        "sweet": 0.4,
+        "rich": 0.3,
+        "warm": 0.4,
+        "lasting": 0.2
+      },
+      "pyramid": {
+        "top": [
+          {
+            "name": "柠檬烯",
+            "weight": 0.6
+          },
+          {
+            "name": "柑橘皮",
+            "weight": 0.4
+          }
+        ],
+        "heart": [
+          {
+            "name": "柠檬烯",
+            "weight": 1.0
+          }
+        ],
+        "base": [
+          {
+            "name": "麝香基底",
+            "weight": 1.0
+          }
+        ]
+      },
+      "allergen_concentrations": {
+        "d-Limonene": 5.0
+      },
+      "ige_materials": [],
+      "source": "golden_case"
+    },
+    {
+      "id": "ysl-libre-edp",
+      "brand": "Yves Saint Laurent",
+      "name": "Libre",
+      "concentration_type": "EDP",
+      "year": 2019,
+      "perfumer": [
+        "Anne Flipo",
+        "Carlos Benaïm"
+      ],
+      "fragrantica_family": "Amber Fougère",
+      "pyramid": {
+        "top": [
+          "Lavender",
+          "Mandarin Orange",
+          "Black Currant",
+          "Petitgrain"
+        ],
+        "heart": [
+          "Lavender",
+          "Orange Blossom",
+          "Jasmine"
+        ],
+        "base": [
+          "Madagascar Vanilla",
+          "Musk",
+          "Cedar",
+          "Ambergris"
+        ]
+      },
+      "families": {
+        "oriental": 23.5,
+        "woody": 23.5,
+        "floral": 23.1,
+        "citrus": 16.7,
+        "gourmand": 13.1
+      },
+      "radar": {
+        "fresh": 4.3,
+        "sweet": 5.4,
+        "rich": 6.8,
+        "warm": 7.1,
+        "lasting": 6.4
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum / Fragrance",
+        "Aqua / Water",
+        "Limonene",
+        "Linalool",
+        "Benzyl Salicylate",
+        "Hydroxycitronellal",
+        "Benzyl Alcohol",
+        "Ethylhexyl Salicylate",
+        "Butyl Methoxydibenzoylmethane",
+        "Coumarin",
+        "Geraniol",
+        "Methyl Anthranilate",
+        "Citronellol",
+        "Citral",
+        "Isoeugenol",
+        "Alpha-Isomethyl Ionone",
+        "Farnesol",
+        "Ci 14700 / Red 4",
+        "Ci 19140 / Yellow 5",
+        "Ci 60730 / Ext. Violet 2"
+      ],
+      "inci_source": "https://www.ulta.com/p/libre-eau-de-parfum-pimprod2008599",
+      "pyramid_source": "https://www.fragrantica.asia/perfume/Yves-Saint-Laurent/Libre-56077.html",
+      "allergen_concentrations": {
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Isoeugenol": {
+          "typical_pct": 0.03286,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.11,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Farnesol": {
+          "typical_pct": 0.04652,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.2,
+          "banned_eu": false,
+          "oxidation_prone": true
+        }
+      },
+      "ige_materials_hint": [
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "INCI 取自 Ulta（与 YSL 美官网一致，21 项，EU 版标签会含 Parfum/Fragrance 与 Aqua）。Fragrantica 中文名'东方香型森林调'即英文 Amber Fougère。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "ysl-black-opium-edp",
+      "brand": "Yves Saint Laurent",
+      "name": "Black Opium",
+      "concentration_type": "EDP",
+      "year": 2014,
+      "perfumer": [
+        "Nathalie Lorson",
+        "Marie Salamagne",
+        "Olivier Cresp",
+        "Honorine Blanc"
+      ],
+      "fragrantica_family": "Amber Vanilla",
+      "pyramid": {
+        "top": [
+          "Pear",
+          "Pink Pepper",
+          "Orange Blossom"
+        ],
+        "heart": [
+          "Coffee",
+          "Jasmine",
+          "Bitter Almond",
+          "Licorice"
+        ],
+        "base": [
+          "Vanilla",
+          "Patchouli",
+          "Cashmere Wood",
+          "Cedar"
+        ]
+      },
+      "families": {
+        "floral": 25.3,
+        "gourmand": 22.7,
+        "woody": 20.0,
+        "oriental": 18.7,
+        "citrus": 13.3
+      },
+      "radar": {
+        "fresh": 4.2,
+        "sweet": 6.0,
+        "rich": 6.9,
+        "warm": 7.1,
+        "lasting": 6.3
+      },
+      "inci_full": [
+        "Alcohol",
+        "Water",
+        "Benzyl Salicylate",
+        "Benzyl Alcohol",
+        "Hydroxycitronellal",
+        "Butyl Methoxydibenzoylmethane",
+        "Hexyl Cinnamal",
+        "Limonene",
+        "Linalool",
+        "Geraniol",
+        "Citronellol",
+        "Cinnamyl Alcohol",
+        "Methyl Anthranilate",
+        "Amyl Cinnamal",
+        "Citral",
+        "Coumarin",
+        "Benzyl Benzoate",
+        "Ci 15985 (Yellow 6)",
+        "Ci 17200 (Red 33)"
+      ],
+      "inci_source": "https://inkeedecoder.com/products/ysl-beauty-black-opium-eau-de-parfum",
+      "pyramid_source": "https://www.fragrantica.asia/perfume/Yves-Saint-Laurent/Black-Opium-25324.html",
+      "allergen_concentrations": {
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hexyl Cinnamal": {
+          "typical_pct": 0.06711,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 9.9,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Cinnamyl Alcohol": {
+          "typical_pct": 0.00121,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Amyl Cinnamal": {
+          "typical_pct": 0.0417,
+          "basis": "lu2021_jfda_perfume_mean",
+          "ifra_cat4_limit_pct": 7.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "美国标签格式：不含 'Parfum/Fragrance' 一项且用 'Water' 而非 'Aqua'（与 YSL 美官网一致）；EU 版标签会含 Parfum/Fragrance。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "ysl-lhomme-edt",
+      "brand": "Yves Saint Laurent",
+      "name": "L'Homme",
+      "concentration_type": "EDT",
+      "year": 2006,
+      "perfumer": [
+        "Anne Flipo",
+        "Pierre Wargnye",
+        "Dominique Ropion",
+        "Juliette Karagueuzoglou"
+      ],
+      "fragrantica_family": "Woody Floral Musk",
+      "pyramid": {
+        "top": [
+          "Ginger",
+          "Bergamot",
+          "Lemon"
+        ],
+        "heart": [
+          "Spices",
+          "Violet Leaf",
+          "White Pepper",
+          "Basil"
+        ],
+        "base": [
+          "Tonka Bean",
+          "Cedar",
+          "Tahitian Vetiver"
+        ]
+      },
+      "families": {
+        "woody": 30.3,
+        "oriental": 23.0,
+        "citrus": 20.3,
+        "fougere": 16.2,
+        "gourmand": 10.2
+      },
+      "radar": {
+        "fresh": 4.7,
+        "sweet": 4.3,
+        "rich": 7.0,
+        "warm": 6.9,
+        "lasting": 6.8
+      },
+      "inci_full": [
+        "Alcohol",
+        "Water",
+        "Ethylhexyl Methoxycinnamate",
+        "Limonene",
+        "Butyl Methoxydibenzoylmethane",
+        "Butylphenyl Methylpropional",
+        "Coumarin",
+        "Linalool",
+        "Propylene Glycol",
+        "Geraniol",
+        "Alpha-Isomethyl Ionone",
+        "Citral",
+        "Tris(Tetramethylhydroxypiperidinol) Citrate",
+        "Isoeugenol",
+        "Citronellol",
+        "Disodium Edta",
+        "Cinnamal",
+        "Ci 15985 (Yellow 6)",
+        "Ci 19140 (Yellow 5)"
+      ],
+      "inci_source": "https://www.ulta.com/p/lhomme-eau-de-toilette-VP12563",
+      "pyramid_source": "https://www.fragrantica.asia/perfume/Yves-Saint-Laurent/L-Homme-734.html",
+      "allergen_concentrations": {
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Butylphenyl Methylpropional": {
+          "typical_pct": 0.40268,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.4,
+          "banned_eu": true,
+          "oxidation_prone": false
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Isoeugenol": {
+          "typical_pct": 0.03286,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.11,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Cinnamal": {
+          "typical_pct": null,
+          "basis": "unknown_conc",
+          "ifra_cat4_limit_pct": 0.25,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "美国标签格式：不含 'Parfum/Fragrance'、用 'Water'；EU 版标签为 Alcohol Denat./Parfum/Aqua 起头。Fragrantica 家族中文'木质花香麝香调'即 Woody Floral Musk。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "lancome-la-vie-est-belle-edp",
+      "brand": "Lancôme",
+      "name": "La Vie Est Belle",
+      "concentration_type": "EDP",
+      "year": 2012,
+      "perfumer": [
+        "Olivier Polge",
+        "Dominique Ropion",
+        "Anne Flipo"
+      ],
+      "fragrantica_family": "Floral Fruity Gourmand",
+      "pyramid": {
+        "top": [
+          "Black Currant",
+          "Pear"
+        ],
+        "heart": [
+          "Iris",
+          "Jasmine",
+          "Orange Blossom"
+        ],
+        "base": [
+          "Praline",
+          "Vanilla",
+          "Patchouli",
+          "Tonka Bean"
+        ]
+      },
+      "families": {
+        "floral": 27.3,
+        "gourmand": 26.8,
+        "woody": 20.5,
+        "oriental": 14.6,
+        "citrus": 10.7
+      },
+      "radar": {
+        "fresh": 4.1,
+        "sweet": 6.2,
+        "rich": 6.9,
+        "warm": 7.2,
+        "lasting": 6.3
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum / Fragrance",
+        "Aqua / Water",
+        "Linalool",
+        "Benzyl Salicylate",
+        "Limonene",
+        "Methyl Anthranilate",
+        "Tris(Tetramethylhydroxypiperidinol) Citrate",
+        "Ethylhexyl Methoxycinnamate",
+        "Butyl Methoxydibenzoylmethane",
+        "Ci 14700 (Red 4)",
+        "Ci 17200 (Red 33)",
+        "Ci 47005 (Yellow 1)",
+        "Geraniol",
+        "Alpha-Isomethyl Ionone",
+        "Coumarin",
+        "Farnesol",
+        "Citral",
+        "Citronellol",
+        "Benzyl Alcohol",
+        "Benzyl Benzoate"
+      ],
+      "inci_source": "https://inkeedecoder.com/products/lancome-la-vie-est-belle",
+      "pyramid_source": "https://www.fragrantica.asia/perfume/Lancome/La-Vie-Est-Belle-14982.html",
+      "allergen_concentrations": {
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Farnesol": {
+          "typical_pct": 0.04652,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.2,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "INCI 来自 inkeedecoder（EU 标签格式，含 Parfum/Aqua）。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "lancome-idole-edp",
+      "brand": "Lancôme",
+      "name": "Idôle",
+      "concentration_type": "EDP",
+      "year": 2019,
+      "perfumer": [
+        "Shyamala Maisondieu",
+        "Adriana Medina-Baez",
+        "Nadège Le Garlantezec",
+        "Sonia Constant"
+      ],
+      "fragrantica_family": "Chypre Floral",
+      "pyramid": {
+        "top": [
+          "Pear",
+          "Bergamot",
+          "Pink Pepper"
+        ],
+        "heart": [
+          "Rose",
+          "Jasmine"
+        ],
+        "base": [
+          "White Musk",
+          "Vanilla",
+          "Patchouli",
+          "Cedar"
+        ]
+      },
+      "families": {
+        "floral": 33.0,
+        "woody": 25.1,
+        "citrus": 16.8,
+        "oriental": 16.8,
+        "gourmand": 8.4
+      },
+      "radar": {
+        "fresh": 4.6,
+        "sweet": 5.3,
+        "rich": 6.4,
+        "warm": 6.8,
+        "lasting": 6.2
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum / Fragrance",
+        "Aqua / Water / Eau",
+        "Methyl Anthranilate",
+        "Tris(Tetramethylhydroxypiperidinol) Citrate",
+        "Ethylhexyl Salicylate",
+        "Butyl Methoxydibenzoylmethane",
+        "CI 14700 (Red 4)",
+        "CI 60730 (Ext. Violet 2)",
+        "Linalool",
+        "Geraniol",
+        "Eugenol",
+        "Alpha-Isomethyl Ionone",
+        "Methyl-2-Octynoate",
+        "Coumarin",
+        "Farnesol",
+        "Limonene",
+        "Hydroxycitronellal",
+        "Citral",
+        "Citronellol",
+        "Hexyl Cinnamal",
+        "Benzyl Alcohol",
+        "Benzyl Benzoate",
+        "Benzyl Salicylate"
+      ],
+      "inci_source": "https://www.ulta.com/p/idole-eau-de-parfum-pimprod2008623",
+      "pyramid_source": "https://www.fragrantica.asia/perfume/Lancome/Idole-55795.html",
+      "allergen_concentrations": {
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Eugenol": {
+          "typical_pct": 0.01404,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Farnesol": {
+          "typical_pct": 0.04652,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.2,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Hexyl Cinnamal": {
+          "typical_pct": 0.06711,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 9.9,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）",
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "inkeedecoder 上的 'Lancôme Idôle Parfum' 是 Parfum 浓度版而非 EDP，故 EDP 的 INCI 取自 Ulta。Idôle EDP 紫外线过滤剂为 Ethylhexyl Salicylate + Avobenzone。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "viktor-rolf-flowerbomb-edp",
+      "brand": "Viktor & Rolf",
+      "name": "Flowerbomb",
+      "concentration_type": "EDP",
+      "year": 2005,
+      "perfumer": [
+        "Olivier Polge",
+        "Carlos Benaïm",
+        "Domitille Michalon Bertier",
+        "Dominique Ropion"
+      ],
+      "fragrantica_family": "Amber Floral",
+      "pyramid": {
+        "top": [
+          "Tea",
+          "Bergamot",
+          "Osmanthus"
+        ],
+        "heart": [
+          "Orchid",
+          "Jasmine",
+          "Rose",
+          "Freesia",
+          "African Orange Blossom"
+        ],
+        "base": [
+          "Patchouli",
+          "Musk",
+          "Vanilla"
+        ]
+      },
+      "families": {
+        "floral": 39.6,
+        "oriental": 22.2,
+        "woody": 14.9,
+        "gourmand": 12.4,
+        "citrus": 10.9
+      },
+      "radar": {
+        "fresh": 4.3,
+        "sweet": 6.0,
+        "rich": 6.6,
+        "warm": 7.0,
+        "lasting": 6.2
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum / Fragrance",
+        "Aqua / Water",
+        "Benzyl Salicylate",
+        "Linalool",
+        "Butyl Methoxydibenzoylmethane",
+        "Ethylhexyl Methoxycinnamate",
+        "Limonene",
+        "Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate",
+        "Coumarin",
+        "Benzyl Alcohol",
+        "Benzyl Benzoate",
+        "Citral",
+        "Ci 19140 (Yellow 5)",
+        "Ci 60730 (Ext. Violet 2)",
+        "Ci 17200 (Red 33)"
+      ],
+      "inci_source": "https://inkeedecoder.com/products/viktor-rolf-flowerbomb-perfume",
+      "pyramid_source": "https://www.fragrantica.asia/perfume/Viktor-Rolf/Flowerbomb-1460.html",
+      "allergen_concentrations": {
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        }
+      },
+      "ige_materials_hint": [
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）",
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "Fragrantica 家族中文'东方型花香调'即 Amber Floral（旧称 Oriental Floral）。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "mugler-angel-edp",
+      "brand": "Mugler",
+      "name": "Angel",
+      "concentration_type": "EDP",
+      "year": 1992,
+      "perfumer": [
+        "Olivier Cresp",
+        "Yves de Chirin"
+      ],
+      "fragrantica_family": "Amber Vanilla",
+      "pyramid": {
+        "top": [
+          "Melon",
+          "Coconut",
+          "Mandarin Orange",
+          "Cassia",
+          "Jasmine",
+          "Bergamot",
+          "Cotton Candy"
+        ],
+        "heart": [
+          "Honey",
+          "Apricot",
+          "Blackberry",
+          "Plum",
+          "Orchid",
+          "Peach",
+          "Jasmine",
+          "Lily-of-the-Valley",
+          "Red Berries",
+          "Rose"
+        ],
+        "base": [
+          "Tonka Bean",
+          "Amber",
+          "Patchouli",
+          "Musk",
+          "Vanilla",
+          "Dark Chocolate",
+          "Caramel"
+        ]
+      },
+      "families": {
+        "gourmand": 37.7,
+        "floral": 24.1,
+        "oriental": 20.5,
+        "woody": 17.7
+      },
+      "radar": {
+        "fresh": 3.3,
+        "sweet": 6.9,
+        "rich": 7.6,
+        "warm": 7.7,
+        "lasting": 6.8
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum / Fragrance",
+        "Aqua / Water / Eau",
+        "Butylphenyl Methylpropional",
+        "Ethylhexyl Methoxycinnamate",
+        "Butyl Methoxydibenzoylmethane",
+        "Ethylhexyl Salicylate",
+        "BHT",
+        "Coumarin",
+        "Limonene",
+        "Linalool",
+        "Geraniol",
+        "Amyl Cinnamal",
+        "Citronellol",
+        "Benzyl Salicylate",
+        "Citral",
+        "Farnesol",
+        "Hexyl Cinnamal",
+        "Eugenol",
+        "Benzyl Benzoate",
+        "Isoeugenol",
+        "Ci 60730 (Ext. Violet 2)",
+        "Ci 19140 (Yellow 5)",
+        "Ci 42090 (Blue 1)",
+        "Ci 17200 (Red 33)"
+      ],
+      "inci_source": "https://www.mugler.com/fragrance/angel-eau-de-parfum-perfume/M010101003.html",
+      "pyramid_source": "https://www.fragrantica.asia/perfume/Thierry-Mugler/Angel-704.html",
+      "allergen_concentrations": {
+        "Butylphenyl Methylpropional": {
+          "typical_pct": 0.40268,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.4,
+          "banned_eu": true,
+          "oxidation_prone": false
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Amyl Cinnamal": {
+          "typical_pct": 0.0417,
+          "basis": "lu2021_jfda_perfume_mean",
+          "ifra_cat4_limit_pct": 7.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Farnesol": {
+          "typical_pct": 0.04652,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.2,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Hexyl Cinnamal": {
+          "typical_pct": 0.06711,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 9.9,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Eugenol": {
+          "typical_pct": 0.01404,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Isoeugenol": {
+          "typical_pct": 0.03286,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.11,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）",
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "year=1992 为首发年份；当前在售版配方 INCI 取自 mugler.com 官方页（25 项，含 Butylphenyl Methylpropional）。香调金字塔为 Fragrantica 经典版结构。警告：inkeedecoder 的 'Mugler Angel Perfume' 条目实为沐浴露配方，不可用作香水 INCI。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "margiela-jazz-club-edt",
+      "brand": "Maison Margiela",
+      "name": "REPLICA Jazz Club",
+      "concentration_type": "EDT",
+      "year": 2013,
+      "perfumer": [
+        "Alienor Massenet"
+      ],
+      "fragrantica_family": "Leather",
+      "pyramid": {
+        "top": [
+          "Pink Pepper",
+          "Neroli",
+          "Lemon"
+        ],
+        "heart": [
+          "Rum",
+          "Java Vetiver Oil",
+          "Clary Sage"
+        ],
+        "base": [
+          "Tobacco Leaf",
+          "Vanilla Bean",
+          "Styrax"
+        ]
+      },
+      "families": {
+        "gourmand": 34.8,
+        "citrus": 18.3,
+        "oriental": 18.3,
+        "woody": 16.4,
+        "floral": 12.2
+      },
+      "radar": {
+        "fresh": 4.3,
+        "sweet": 6.3,
+        "rich": 7.0,
+        "warm": 7.2,
+        "lasting": 6.1
+      },
+      "inci_full": [
+        "Alcohol",
+        "Water",
+        "Fragrance",
+        "Ethylhexyl Methoxycinnamate",
+        "Coumarin",
+        "Limonene",
+        "Ethylhexyl Salicylate",
+        "Butyl Methoxydibenzoylmethane",
+        "Linalool",
+        "Citral",
+        "Geraniol",
+        "CI 15985/Yellow 6",
+        "Cinnamal",
+        "Hydroxycitronellal",
+        "Eugenol",
+        "Citronellol",
+        "CI 19140/Yellow 5",
+        "CI 17200/Red 33",
+        "CI 42090/Blue 1"
+      ],
+      "inci_source": "https://inkeedecoder.com/products/maison-margiela-replica-jazz-club-eau-de-toilette",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Jazz-Club-20541.html",
+      "allergen_concentrations": {
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Cinnamal": {
+          "typical_pct": null,
+          "basis": "unknown_conc",
+          "ifra_cat4_limit_pct": 0.25,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Eugenol": {
+          "typical_pct": 0.01404,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        }
+      },
+      "ige_materials_hint": [
+        "苏合香"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "Fragrantica 现行分类为 Leather（第三方常称 Amber Spicy）。美国市售版 INCI；源页末项 'C1 62585/2' 为录入错误已剔除。2013 发布新闻的 base 还列 Tonka Bean，现行条目以 Tobacco Leaf/Vanilla Bean/Styrax 为准。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "margiela-by-the-fireplace-edt",
+      "brand": "Maison Margiela",
+      "name": "REPLICA By the Fireplace",
+      "concentration_type": "EDT",
+      "year": 2015,
+      "perfumer": [
+        "Marie Salamagne"
+      ],
+      "fragrantica_family": "Woody",
+      "pyramid": {
+        "top": [
+          "Cloves",
+          "Pink Pepper",
+          "Orange Blossom"
+        ],
+        "heart": [
+          "Chestnut",
+          "Guaiac Wood",
+          "Juniper"
+        ],
+        "base": [
+          "Vanilla",
+          "Peru Balsam",
+          "Cashmeran"
+        ]
+      },
+      "families": {
+        "gourmand": 23.8,
+        "oriental": 22.8,
+        "floral": 19.9,
+        "citrus": 18.2,
+        "woody": 15.4
+      },
+      "radar": {
+        "fresh": 4.4,
+        "sweet": 6.1,
+        "rich": 6.8,
+        "warm": 7.1,
+        "lasting": 6.1
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum/Fragrance",
+        "Aqua/Water/Eau",
+        "Benzyl Alcohol",
+        "Ethylhexyl Salicylate",
+        "Butyl Methoxydibenzoylmethane",
+        "Linalool",
+        "Isoeugenol",
+        "Benzyl Benzoate",
+        "Eugenol",
+        "Limonene",
+        "Tris(Tetramethylhydroxypiperidinol) Citrate",
+        "Benzyl Cinnamate",
+        "CI 15985/Yellow 6",
+        "Geraniol",
+        "CI 19140/Yellow 5",
+        "CI 17200/Red 33",
+        "CI 60730/Ext. Violet 2"
+      ],
+      "inci_source": "https://www.parfumdo.com/en/417012-replica-by-the-fireplace-eau-de-toilette.html",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/By-the-Fireplace-31623.html",
+      "allergen_concentrations": {
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Isoeugenol": {
+          "typical_pct": 0.03286,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.11,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Eugenol": {
+          "typical_pct": 0.01404,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Cinnamate": {
+          "typical_pct": 0.00924,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        }
+      },
+      "ige_materials_hint": [
+        "秘鲁香脂"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "INCI 来自 Parfumdo（EU 版，配方号 875655 14）；unisex，Woody 类。FragIndex 镜像 middle 额外含 Cade Oil，以 Fragrantica 官方条目为准。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "margiela-sailing-day-edt",
+      "brand": "Maison Margiela",
+      "name": "REPLICA Sailing Day",
+      "concentration_type": "EDT",
+      "year": 2017,
+      "perfumer": [
+        "Violaine Collas"
+      ],
+      "fragrantica_family": "Aquatic",
+      "pyramid": {
+        "top": [
+          "Sea Notes",
+          "Aldehydes",
+          "Coriander",
+          "Red Pepper"
+        ],
+        "heart": [
+          "Juniper",
+          "Iris",
+          "Amyl Salicylate",
+          "Rose"
+        ],
+        "base": [
+          "Red Seaweed",
+          "Ambergris",
+          "Cedarwood",
+          "Amberwood"
+        ]
+      },
+      "families": {
+        "woody": 25.1,
+        "floral": 24.7,
+        "aquatic": 17.6,
+        "oriental": 17.6,
+        "fougere": 15.0
+      },
+      "radar": {
+        "fresh": 5.0,
+        "sweet": 4.1,
+        "rich": 6.2,
+        "warm": 6.2,
+        "lasting": 6.6
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum/Fragrance",
+        "Aqua/Water/Eau",
+        "Benzyl Salicylate",
+        "Linalool",
+        "Benzyl Alcohol",
+        "Butyl Methoxydibenzoylmethane",
+        "Limonene",
+        "Geraniol",
+        "Citronellol",
+        "Citral",
+        "Tris(Tetramethylhydroxypiperidinol) Citrate",
+        "Benzyl Benzoate",
+        "CI 60730/Ext. Violet 2",
+        "CI 42090/Blue 1"
+      ],
+      "inci_source": "https://www.my-origines.com/sv/sailing-day-59L23X04.html",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Sailing-Day-47891.html",
+      "allergen_concentrations": {
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "2017 年发布（非 2021）。base 采用品牌官方/FragIndex 命名，Fragrantica 简写为 Seaweed/Ambergris/Amber。INCI 为 MyOrigines EU 版（含防晒剂与色素）。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "armani-acqua-di-gio-edt",
+      "brand": "Giorgio Armani",
+      "name": "Acqua di Giò Eau de Toilette",
+      "concentration_type": "EDT",
+      "year": 1996,
+      "perfumer": [
+        "Alberto Morillas",
+        "Annick Menardo",
+        "Christian Dussoulier"
+      ],
+      "fragrantica_family": "Chypre Aquatic",
+      "pyramid": {
+        "top": [
+          "Lime",
+          "Lemon",
+          "Bergamot",
+          "Jasmine",
+          "Orange",
+          "Mandarin Orange",
+          "Neroli"
+        ],
+        "heart": [
+          "Sea Notes",
+          "Jasmine",
+          "Calone",
+          "Rosemary",
+          "Peach",
+          "Freesia"
+        ],
+        "base": [
+          "White Musk",
+          "Cedar",
+          "Oakmoss",
+          "Patchouli",
+          "Amber"
+        ]
+      },
+      "families": {
+        "citrus": 27.0,
+        "woody": 25.5,
+        "floral": 24.2,
+        "aquatic": 13.1,
+        "oriental": 10.2
+      },
+      "radar": {
+        "fresh": 5.9,
+        "sweet": 4.2,
+        "rich": 5.3,
+        "warm": 5.8,
+        "lasting": 5.3
+      },
+      "inci_full": [
+        "Alcohol",
+        "Aqua/Water",
+        "Parfum/Fragrance",
+        "BHT",
+        "Linalool",
+        "Geraniol",
+        "Eugenol",
+        "Alpha-Isomethyl Ionone",
+        "Cinnamyl Alcohol",
+        "Limonene",
+        "Citral",
+        "Citronellol",
+        "Butylphenyl Methylpropional",
+        "Benzyl Salicylate"
+      ],
+      "inci_source": "https://inkeedecoder.com/products/giorgio-armani-acqua-di-gio-eau-de-toilette",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-410.html",
+      "allergen_concentrations": {
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Eugenol": {
+          "typical_pct": 0.01404,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Cinnamyl Alcohol": {
+          "typical_pct": 0.00121,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Butylphenyl Methylpropional": {
+          "typical_pct": 0.40268,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.4,
+          "banned_eu": true,
+          "oxidation_prone": false
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "橡苔提取物",
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）",
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "1996 经典男款。Fragrantica 现页面标签 'Chypre Aquatic'（描述旧文案作 Aromatic Aquatic）。美国市售版 INCI 仅 14 项（无 UV 过滤剂/色素），含欧盟已禁用的 Lilial——提示旧版/美版配方。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "armani-acqua-di-gio-profondo-edp",
+      "brand": "Giorgio Armani",
+      "name": "Acqua di Giò Profondo",
+      "concentration_type": "EDP",
+      "year": 2020,
+      "perfumer": [
+        "Alberto Morillas"
+      ],
+      "fragrantica_family": "Aromatic Fougere",
+      "pyramid": {
+        "top": [
+          "Sea Notes",
+          "Aquozone",
+          "Bergamot",
+          "Green Mandarin"
+        ],
+        "heart": [
+          "Rosemary",
+          "Lavender",
+          "Cypress",
+          "Mastic or Lentisque"
+        ],
+        "base": [
+          "Mineral notes",
+          "Musk",
+          "Patchouli",
+          "Amber"
+        ]
+      },
+      "families": {
+        "woody": 29.0,
+        "aquatic": 23.5,
+        "fougere": 20.2,
+        "oriental": 18.9,
+        "citrus": 8.4
+      },
+      "radar": {
+        "fresh": 5.6,
+        "sweet": 3.1,
+        "rich": 6.0,
+        "warm": 5.8,
+        "lasting": 6.5
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum/Fragrance",
+        "Aqua/Water",
+        "Limonene",
+        "Linalool",
+        "Alpha-Isomethyl Ionone",
+        "Citronellol",
+        "Benzyl Salicylate",
+        "Geraniol",
+        "Benzyl Alcohol",
+        "Citral",
+        "Coumarin",
+        "Benzyl Benzoate",
+        "Cinnamyl Alcohol",
+        "Farnesol"
+      ],
+      "inci_source": "https://www.giorgioarmanibeauty-usa.com/fragrances/mens-cologne/acqua-di-gio/acqua-di-gio-profondo-eau-de-parfum/A2267.html",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Profondo-59532.html",
+      "allergen_concentrations": {
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Cinnamyl Alcohol": {
+          "typical_pct": 0.00121,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Farnesol": {
+          "typical_pct": 0.04652,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.2,
+          "banned_eu": false,
+          "oxidation_prone": true
+        }
+      },
+      "ige_materials_hint": [
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "2020 原版 EDP（区别于 2024 新版与 Profondo Parfum）。INCI 为 Armani Beauty 美国官网现行配方。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "armani-si-edp",
+      "brand": "Giorgio Armani",
+      "name": "Sì Eau de Parfum",
+      "concentration_type": "EDP",
+      "year": 2013,
+      "perfumer": [
+        "Christine Nagel"
+      ],
+      "fragrantica_family": "Chypre Fruity",
+      "pyramid": {
+        "top": [
+          "Cassis"
+        ],
+        "heart": [
+          "May Rose",
+          "Freesia"
+        ],
+        "base": [
+          "Vanilla",
+          "Patchouli",
+          "Woody Notes",
+          "Ambroxan"
+        ]
+      },
+      "families": {
+        "floral": 28.6,
+        "oriental": 25.2,
+        "woody": 25.2,
+        "gourmand": 21.0
+      },
+      "radar": {
+        "fresh": 3.3,
+        "sweet": 6.0,
+        "rich": 7.5,
+        "warm": 7.7,
+        "lasting": 7.1
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum/Fragrance",
+        "Aqua/Water",
+        "Benzyl Salicylate",
+        "Benzyl Alcohol",
+        "Ethylhexyl Methoxycinnamate",
+        "Linalool",
+        "Limonene",
+        "Butyl Methoxydibenzoylmethane",
+        "Ethylhexyl Salicylate",
+        "Hydroxycitronellal",
+        "Hexyl Cinnamal",
+        "Geraniol",
+        "Cinnamyl Alcohol",
+        "BHT",
+        "Alpha-Isomethyl Ionone",
+        "Citronellol",
+        "Eugenol",
+        "Citral",
+        "Benzyl Benzoate",
+        "Farnesol",
+        "Coumarin",
+        "CI 14700/Red 4",
+        "CI 19140/Yellow 5",
+        "CI 15510/Orange 4"
+      ],
+      "inci_source": "https://inkeedecoder.com/products/giorgio-armani-si-eau-de-parfum",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Giorgio-Armani/Si-18453.html",
+      "allergen_concentrations": {
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hexyl Cinnamal": {
+          "typical_pct": 0.06711,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 9.9,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Cinnamyl Alcohol": {
+          "typical_pct": 0.00121,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Eugenol": {
+          "typical_pct": 0.01404,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Farnesol": {
+          "typical_pct": 0.04652,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.2,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "2013 女士款。前调仅 Cassis 一味（Fragrantica 原文单数）。品牌官方将 Ambroxan 表述为 Orcanox™。25 项含 3 种 UV 过滤剂与 3 种色素（美国版）。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "mugler-alien-edp",
+      "brand": "Mugler",
+      "name": "Alien Eau de Parfum",
+      "concentration_type": "EDP",
+      "year": 2005,
+      "perfumer": [
+        "Dominique Ropion",
+        "Laurent Bruyère"
+      ],
+      "fragrantica_family": "Oriental Woody",
+      "pyramid": {
+        "top": [
+          "Jasmine Sambac"
+        ],
+        "heart": [
+          "Cashmeran"
+        ],
+        "base": [
+          "White Amber"
+        ]
+      },
+      "families": {
+        "woody": 50.0,
+        "oriental": 27.8,
+        "floral": 22.2
+      },
+      "radar": {
+        "fresh": 3.2,
+        "sweet": 4.2,
+        "rich": 7.8,
+        "warm": 7.8,
+        "lasting": 8.0
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum/Fragrance",
+        "Aqua/Water/Eau",
+        "Benzyl Salicylate",
+        "Benzyl Alcohol",
+        "Ethylhexyl Salicylate",
+        "Butyl Methoxydibenzoylmethane",
+        "Coumarin",
+        "Geraniol",
+        "Methyl Anthranilate",
+        "Alpha-Isomethyl Ionone",
+        "Citronellol",
+        "Citral",
+        "Benzyl Benzoate",
+        "CI 60730/Ext. Violet 2",
+        "CI 17200/Red 33"
+      ],
+      "inci_source": "https://www.mugler.com/fragrance/womens-fragrances/alien/alien-eau-de-parfum/M010401002.html",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Mugler/Alien-707.html",
+      "allergen_concentrations": {
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "Fragrantica 摘要原文 'Oriental Woody'（新体系称 Amber Woody）。INCI 为 Mugler 官网现行美国配方（2019 后改版：无 Linalool、无 Ethylhexyl Methoxycinnamate）。金字塔为极简三调结构。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "valentino-donna-born-in-roma-edp",
+      "brand": "Valentino",
+      "name": "Donna Born in Roma",
+      "concentration_type": "EDP",
+      "year": 2019,
+      "perfumer": [],
+      "fragrantica_family": "Amber Floral",
+      "pyramid": {
+        "top": [
+          "Black Currant",
+          "Pink Pepper",
+          "Bergamot"
+        ],
+        "heart": [
+          "Jasmine",
+          "Jasmine Sambac",
+          "Jasmine Tea"
+        ],
+        "base": [
+          "Vanilla",
+          "Cashmeran",
+          "Woody Notes"
+        ]
+      },
+      "families": {
+        "floral": 39.6,
+        "woody": 20.1,
+        "gourmand": 16.8,
+        "citrus": 13.4,
+        "oriental": 10.1
+      },
+      "radar": {
+        "fresh": 4.6,
+        "sweet": 5.9,
+        "rich": 6.3,
+        "warm": 6.8,
+        "lasting": 5.9
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum / Fragrance",
+        "Aqua / Water / Eau",
+        "Tetramethyl Acetyloctahydronaphthalenes",
+        "Benzyl Salicylate",
+        "Vanillin",
+        "Linalyl Acetate",
+        "Hydroxycitronellal",
+        "Benzyl Alcohol",
+        "Limonene",
+        "Butyl Methoxydibenzoylmethane"
+      ],
+      "inci_source": "https://www.valentino-beauty.us/fragrances/fragrances-women/fragrances-women-born-in-roma/born-in-roma-donna-eau-de-parfum-MPL00468.html (+ Ulta/Amazon 交叉)",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Valentino/Donna-Born-in-Roma-50920.html",
+      "allergen_concentrations": {
+        "Tetramethyl Acetyloctahydronaphthalenes": {
+          "typical_pct": null,
+          "basis": "unknown_conc",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Vanillin": {
+          "typical_pct": null,
+          "basis": "unknown_conc",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Linalyl Acetate": {
+          "typical_pct": null,
+          "basis": "unknown_conc",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        }
+      },
+      "ige_materials_hint": [
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "INCI 为 Ulta（8 项）与 Amazon（11 项，含 Tetramethyl Acetyloctahydronaphthalenes/Vanillin/Linalyl Acetate）合并的最全版本。官方主调 Sambac Jasmine/Cashmeran/Bourbon Vanilla。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "valentino-uomo-born-in-roma-edt",
+      "brand": "Valentino",
+      "name": "Uomo Born in Roma",
+      "concentration_type": "EDT",
+      "year": 2019,
+      "perfumer": [],
+      "fragrantica_family": "Aromatic Fougère",
+      "pyramid": {
+        "top": [
+          "Mineral Notes",
+          "Violet Leaf",
+          "Salt"
+        ],
+        "heart": [
+          "Sage",
+          "Ginger"
+        ],
+        "base": [
+          "Woody Notes",
+          "Vetiver"
+        ]
+      },
+      "families": {
+        "aquatic": 32.6,
+        "woody": 30.7,
+        "fougere": 12.2,
+        "citrus": 12.2,
+        "oriental": 12.2
+      },
+      "radar": {
+        "fresh": 6.1,
+        "sweet": 2.9,
+        "rich": 5.4,
+        "warm": 5.3,
+        "lasting": 5.9
+      },
+      "inci_full": [
+        "Alcohol",
+        "Aqua / Water / Eau",
+        "Parfum / Fragrance",
+        "Limonene",
+        "Benzyl Salicylate",
+        "Linalool",
+        "Coumarin",
+        "Citronellol",
+        "Benzyl Alcohol",
+        "Geraniol",
+        "Alpha-Isomethyl Ionone",
+        "Isoeugenol"
+      ],
+      "inci_source": "https://www.valentino-beauty.us/fragrances/fragrances-men/fragrances-men-born-in-roma/born-in-roma-uomo-eau-de-toilette-MPL00475.html (+ Ulta/FragranceNet)",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Valentino/Uomo-Born-in-Roma-51717.html",
+      "allergen_concentrations": {
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Isoeugenol": {
+          "typical_pct": 0.03286,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.11,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "官方页 10 项，FragranceNet 增补 Alpha-Isomethyl Ionone 与 Isoeugenol（EU 标注口径差异）。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "prada-luna-rossa-edt",
+      "brand": "Prada",
+      "name": "Luna Rossa",
+      "concentration_type": "EDT",
+      "year": 2012,
+      "perfumer": [
+        "Daniela Andrier"
+      ],
+      "fragrantica_family": "Aromatic Fougère",
+      "pyramid": {
+        "top": [
+          "Lavender",
+          "Bitter Orange"
+        ],
+        "heart": [
+          "Mint",
+          "Clary Sage"
+        ],
+        "base": [
+          "Ambrette",
+          "Ambroxan"
+        ]
+      },
+      "families": {
+        "fougere": 44.7,
+        "woody": 19.7,
+        "floral": 19.7,
+        "citrus": 15.8
+      },
+      "radar": {
+        "fresh": 6.2,
+        "sweet": 3.7,
+        "rich": 5.7,
+        "warm": 5.6,
+        "lasting": 6.2
+      },
+      "inci_full": [
+        "Alcohol Denat",
+        "Parfum (Fragrance)",
+        "Aqua (Water)",
+        "Limonene",
+        "Linalool",
+        "Ethylhexyl Methoxycinnamate",
+        "Coumarin",
+        "Butylphenyl Methylpropional",
+        "Alpha-Isomethyl Ionone"
+      ],
+      "inci_source": "https://www.prada-beauty.com/fragrance/luna-rossa/luna-rossa-eau-de-toilette/MPL01360.html (+ olfastory)",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Prada/Luna-Rossa-15754.html",
+      "allergen_concentrations": {
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Butylphenyl Methylpropional": {
+          "typical_pct": 0.40268,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.4,
+          "banned_eu": true,
+          "oxidation_prone": false
+        },
+        "Alpha-Isomethyl Ionone": {
+          "typical_pct": 0.18595,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 30.0,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "2012 初版配方含 Butylphenyl Methylpropional（Lilial，2022 起 EU 禁用，新批次已移除）；部分批次另含 Citral/Citronellol/Geraniol。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "azzaro-chrome-edt",
+      "brand": "Azzaro",
+      "name": "Chrome",
+      "concentration_type": "EDT",
+      "year": 1996,
+      "perfumer": [
+        "Gérard Anthony"
+      ],
+      "fragrantica_family": "Citrus Aromatic",
+      "pyramid": {
+        "top": [
+          "Lemon",
+          "Rosemary",
+          "Bergamot",
+          "Neroli",
+          "Pineapple"
+        ],
+        "heart": [
+          "Jasmine",
+          "Oakmoss",
+          "Cyclamen",
+          "Coriander"
+        ],
+        "base": [
+          "Musk",
+          "Oakmoss",
+          "Woodsy Notes",
+          "Amber"
+        ]
+      },
+      "families": {
+        "woody": 31.7,
+        "fougere": 21.6,
+        "citrus": 18.5,
+        "floral": 15.0,
+        "oriental": 13.2
+      },
+      "radar": {
+        "fresh": 5.2,
+        "sweet": 3.9,
+        "rich": 6.4,
+        "warm": 6.4,
+        "lasting": 6.6
+      },
+      "inci_full": [
+        "Alcohol",
+        "Parfum / Fragrance",
+        "Aqua / Water / Eau",
+        "Limonene",
+        "Linalool",
+        "Ethylhexyl Methoxycinnamate",
+        "Ethylhexyl Salicylate",
+        "Butyl Methoxydibenzoylmethane",
+        "Coumarin",
+        "Hydroxycitronellal",
+        "Benzyl Benzoate",
+        "Evernia Prunastri Extract",
+        "Citral",
+        "Benzyl Alcohol",
+        "Geraniol",
+        "Isoeugenol"
+      ],
+      "inci_source": "https://www.ingredients-parfum.com/azzaro-chrome-eau-de-toilette/ (+ skinsort 22 项口径)",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Azzaro/Chrome-788.html",
+      "allergen_concentrations": {
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Benzoate": {
+          "typical_pct": 0.01489,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.8,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Evernia Prunastri Extract": {
+          "typical_pct": null,
+          "basis": "unknown_conc",
+          "ifra_cat4_limit_pct": 0.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Isoeugenol": {
+          "typical_pct": 0.03286,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.11,
+          "banned_eu": false,
+          "oxidation_prone": false
+        }
+      },
+      "ige_materials_hint": [
+        "橡苔提取物",
+        "玫瑰净油（金字塔层面为玫瑰香材，仅净油工艺才具 IgE 风险）",
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "skinsort 计 22 项，本表收录 16 项已核验项（余项为色料/稳定剂类）。含橡苔提取物（Evernia Prunastri Extract）——馥奇调标志原料，EU 限用致敏原。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "prada-paradoxe-edp",
+      "brand": "Prada",
+      "name": "Paradoxe",
+      "concentration_type": "EDP",
+      "year": 2022,
+      "perfumer": [],
+      "fragrantica_family": "Amber Floral",
+      "pyramid": {
+        "top": [
+          "Pear",
+          "Tangerine",
+          "Bergamot"
+        ],
+        "heart": [
+          "Orange Blossom",
+          "Neroli",
+          "Jasmine Sambac"
+        ],
+        "base": [
+          "Bourbon Vanilla",
+          "Amber",
+          "White Musk",
+          "Benzoin"
+        ]
+      },
+      "families": {
+        "citrus": 26.0,
+        "floral": 23.6,
+        "oriental": 21.6,
+        "gourmand": 14.4,
+        "woody": 14.4
+      },
+      "radar": {
+        "fresh": 4.9,
+        "sweet": 5.6,
+        "rich": 6.3,
+        "warm": 6.7,
+        "lasting": 5.7
+      },
+      "inci_full": [
+        "Alcohol Denat",
+        "Parfum / Fragrance",
+        "Aqua / Water / Eau",
+        "Limonene",
+        "Linalool",
+        "Benzyl Salicylate",
+        "Benzyl Alcohol",
+        "Methyl Anthranilate",
+        "Ethylhexyl Salicylate",
+        "Butyl Methoxydibenzoylmethane",
+        "Salicylic Acid",
+        "Coumarin",
+        "Hydroxycitronellal",
+        "Citronellol",
+        "Geraniol",
+        "Citral",
+        "Tris(Tetramethylhydroxypiperidinol) Citrate",
+        "Farnesol",
+        "CI 17200 (Red 33)"
+      ],
+      "inci_source": "https://www.prada-beauty.com/fragrance/paradoxe/paradoxe-eau-de-parfum/MPL01610.html (+ skinsort/olfastory)",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Prada/Prada-Paradoxe-75668.html",
+      "allergen_concentrations": {
+        "d-Limonene": {
+          "typical_pct": 0.38633,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Linalool": {
+          "typical_pct": 0.22627,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": null,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Benzyl Salicylate": {
+          "typical_pct": 0.1128,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 7.3,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Benzyl Alcohol": {
+          "typical_pct": 0.01009,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Coumarin": {
+          "typical_pct": 0.01599,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.5,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Hydroxycitronellal": {
+          "typical_pct": 0.02766,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 2.1,
+          "banned_eu": false,
+          "oxidation_prone": false
+        },
+        "Citronellol": {
+          "typical_pct": 0.10053,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 12.0,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Geraniol": {
+          "typical_pct": 0.16305,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 4.7,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Citral": {
+          "typical_pct": 0.08118,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 0.6,
+          "banned_eu": false,
+          "oxidation_prone": true
+        },
+        "Farnesol": {
+          "typical_pct": 0.04652,
+          "basis": "lim2018_107perfumes_women_mean",
+          "ifra_cat4_limit_pct": 1.2,
+          "banned_eu": false,
+          "oxidation_prone": true
+        }
+      },
+      "ige_materials_hint": [
+        "安息香树脂",
+        "茉莉净油"
+      ],
+      "barcode": null,
+      "evidence_level": "inci_documented",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "19 项，官方页与零售商一致。Salicylic Acid 为配方稳定剂（非去角质用途）。",
+      "retrieved": "2026-09-17"
+    },
+    {
+      "id": "ralph-lauren-polo-blue-edt",
+      "brand": "Ralph Lauren",
+      "name": "Polo Blue",
+      "concentration_type": "EDT",
+      "year": 2003,
+      "perfumer": [
+        "Christophe Laudamiel",
+        "Pierre Negrin"
+      ],
+      "fragrantica_family": "Aromatic Aquatic",
+      "pyramid": {
+        "top": [
+          "Cucumber",
+          "Melon",
+          "Mandarin Orange"
+        ],
+        "heart": [
+          "Basil",
+          "Sage",
+          "Geranium"
+        ],
+        "base": [
+          "Suede",
+          "Woodsy Notes",
+          "Musk",
+          "Patchouli"
+        ]
+      },
+      "families": {
+        "woody": 32.4,
+        "fougere": 25.9,
+        "oriental": 21.5,
+        "aquatic": 11.5,
+        "floral": 8.7
+      },
+      "radar": {
+        "fresh": 4.7,
+        "sweet": 3.6,
+        "rich": 6.9,
+        "warm": 6.6,
+        "lasting": 7.3
+      },
+      "inci_full": [],
+      "inci_source": "https://www.ralphlaurenfragrances.com/en_US/men/polo-blue (403 拦截，EDP 版前缀 Alcohol/Aqua/Parfum/Limonene 已确认)",
+      "pyramid_source": "https://www.fragrantica.com/perfume/Ralph-Lauren/Polo-Blue-1198.html",
+      "allergen_concentrations": {},
+      "ige_materials_hint": [],
+      "barcode": null,
+      "evidence_level": "data_gap_inci",
+      "conc_note": "Parfum 内部配比属商业机密：typical_pct 为文献实测均值（Lim 2018 n=107 / Lu 2021 n=14），仅作 CEL 点估计输入，非该产品实测值",
+      "notes_on_data": "data_gap：官方站 403、聚合站截断，完整 INCI 待人工补录；仅收录已确认的官方 EDP 版前 4 项。金字塔已双源核验。",
+      "retrieved": "2026-09-17"
+    }
+  ]
+}

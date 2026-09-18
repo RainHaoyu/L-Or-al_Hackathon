@@ -1,0 +1,110 @@
+[
+  {
+    "id": "valentino-donna-born-in-roma-edp",
+    "brand": "Valentino",
+    "name": "Donna Born in Roma",
+    "concentration_type": "EDP",
+    "year": 2019,
+    "perfumer": [],
+    "fragrantica_family": "Amber Floral",
+    "pyramid": {
+      "top": ["Black Currant", "Pink Pepper", "Bergamot"],
+      "heart": ["Jasmine", "Jasmine Sambac", "Jasmine Tea"],
+      "base": ["Vanilla", "Cashmeran", "Woody Notes"]
+    },
+    "inci_full": ["Alcohol", "Parfum / Fragrance", "Aqua / Water / Eau", "Tetramethyl Acetyloctahydronaphthalenes", "Benzyl Salicylate", "Vanillin", "Linalyl Acetate", "Hydroxycitronellal", "Benzyl Alcohol", "Limonene", "Butyl Methoxydibenzoylmethane"],
+    "inci_source": "https://www.valentino-beauty.us/fragrances/fragrances-women/fragrances-women-born-in-roma/born-in-roma-donna-eau-de-parfum-MPL00468.html (+ Ulta/Amazon 交叉)",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Valentino/Donna-Born-in-Roma-50920.html",
+    "notes_on_data": "INCI 为 Ulta（8 项）与 Amazon（11 项，含 Tetramethyl Acetyloctahydronaphthalenes/Vanillin/Linalyl Acetate）合并的最全版本。官方主调 Sambac Jasmine/Cashmeran/Bourbon Vanilla。"
+  },
+  {
+    "id": "valentino-uomo-born-in-roma-edt",
+    "brand": "Valentino",
+    "name": "Uomo Born in Roma",
+    "concentration_type": "EDT",
+    "year": 2019,
+    "perfumer": [],
+    "fragrantica_family": "Aromatic Fougère",
+    "pyramid": {
+      "top": ["Mineral Notes", "Violet Leaf", "Salt"],
+      "heart": ["Sage", "Ginger"],
+      "base": ["Woody Notes", "Vetiver"]
+    },
+    "inci_full": ["Alcohol", "Aqua / Water / Eau", "Parfum / Fragrance", "Limonene", "Benzyl Salicylate", "Linalool", "Coumarin", "Citronellol", "Benzyl Alcohol", "Geraniol", "Alpha-Isomethyl Ionone", "Isoeugenol"],
+    "inci_source": "https://www.valentino-beauty.us/fragrances/fragrances-men/fragrances-men-born-in-roma/born-in-roma-uomo-eau-de-toilette-MPL00475.html (+ Ulta/FragranceNet)",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Valentino/Uomo-Born-in-Roma-51717.html",
+    "notes_on_data": "官方页 10 项，FragranceNet 增补 Alpha-Isomethyl Ionone 与 Isoeugenol（EU 标注口径差异）。"
+  },
+  {
+    "id": "prada-luna-rossa-edt",
+    "brand": "Prada",
+    "name": "Luna Rossa",
+    "concentration_type": "EDT",
+    "year": 2012,
+    "perfumer": ["Daniela Andrier"],
+    "fragrantica_family": "Aromatic Fougère",
+    "pyramid": {
+      "top": ["Lavender", "Bitter Orange"],
+      "heart": ["Mint", "Clary Sage"],
+      "base": ["Ambrette", "Ambroxan"]
+    },
+    "inci_full": ["Alcohol Denat", "Parfum (Fragrance)", "Aqua (Water)", "Limonene", "Linalool", "Ethylhexyl Methoxycinnamate", "Coumarin", "Butylphenyl Methylpropional", "Alpha-Isomethyl Ionone"],
+    "inci_source": "https://www.prada-beauty.com/fragrance/luna-rossa/luna-rossa-eau-de-toilette/MPL01360.html (+ olfastory)",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Prada/Luna-Rossa-15754.html",
+    "notes_on_data": "2012 初版配方含 Butylphenyl Methylpropional（Lilial，2022 起 EU 禁用，新批次已移除）；部分批次另含 Citral/Citronellol/Geraniol。"
+  },
+  {
+    "id": "azzaro-chrome-edt",
+    "brand": "Azzaro",
+    "name": "Chrome",
+    "concentration_type": "EDT",
+    "year": 1996,
+    "perfumer": ["Gérard Anthony"],
+    "fragrantica_family": "Citrus Aromatic",
+    "pyramid": {
+      "top": ["Lemon", "Rosemary", "Bergamot", "Neroli", "Pineapple"],
+      "heart": ["Jasmine", "Oakmoss", "Cyclamen", "Coriander"],
+      "base": ["Musk", "Oakmoss", "Woodsy Notes", "Amber"]
+    },
+    "inci_full": ["Alcohol", "Parfum / Fragrance", "Aqua / Water / Eau", "Limonene", "Linalool", "Ethylhexyl Methoxycinnamate", "Ethylhexyl Salicylate", "Butyl Methoxydibenzoylmethane", "Coumarin", "Hydroxycitronellal", "Benzyl Benzoate", "Evernia Prunastri Extract", "Citral", "Benzyl Alcohol", "Geraniol", "Isoeugenol"],
+    "inci_source": "https://www.ingredients-parfum.com/azzaro-chrome-eau-de-toilette/ (+ skinsort 22 项口径)",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Azzaro/Chrome-788.html",
+    "notes_on_data": "skinsort 计 22 项，本表收录 16 项已核验项（余项为色料/稳定剂类）。含橡苔提取物（Evernia Prunastri Extract）——馥奇调标志原料，EU 限用致敏原。"
+  },
+  {
+    "id": "prada-paradoxe-edp",
+    "brand": "Prada",
+    "name": "Paradoxe",
+    "concentration_type": "EDP",
+    "year": 2022,
+    "perfumer": [],
+    "fragrantica_family": "Amber Floral",
+    "pyramid": {
+      "top": ["Pear", "Tangerine", "Bergamot"],
+      "heart": ["Orange Blossom", "Neroli", "Jasmine Sambac"],
+      "base": ["Bourbon Vanilla", "Amber", "White Musk", "Benzoin"]
+    },
+    "inci_full": ["Alcohol Denat", "Parfum / Fragrance", "Aqua / Water / Eau", "Limonene", "Linalool", "Benzyl Salicylate", "Benzyl Alcohol", "Methyl Anthranilate", "Ethylhexyl Salicylate", "Butyl Methoxydibenzoylmethane", "Salicylic Acid", "Coumarin", "Hydroxycitronellal", "Citronellol", "Geraniol", "Citral", "Tris(Tetramethylhydroxypiperidinol) Citrate", "Farnesol", "CI 17200 (Red 33)"],
+    "inci_source": "https://www.prada-beauty.com/fragrance/paradoxe/paradoxe-eau-de-parfum/MPL01610.html (+ skinsort/olfastory)",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Prada/Prada-Paradoxe-75668.html",
+    "notes_on_data": "19 项，官方页与零售商一致。Salicylic Acid 为配方稳定剂（非去角质用途）。"
+  },
+  {
+    "id": "ralph-lauren-polo-blue-edt",
+    "brand": "Ralph Lauren",
+    "name": "Polo Blue",
+    "concentration_type": "EDT",
+    "year": 2003,
+    "perfumer": ["Christophe Laudamiel", "Pierre Negrin"],
+    "fragrantica_family": "Aromatic Aquatic",
+    "pyramid": {
+      "top": ["Cucumber", "Melon", "Mandarin Orange"],
+      "heart": ["Basil", "Sage", "Geranium"],
+      "base": ["Suede", "Woodsy Notes", "Musk", "Patchouli"]
+    },
+    "inci_full": [],
+    "inci_source": "https://www.ralphlaurenfragrances.com/en_US/men/polo-blue (403 拦截，EDP 版前缀 Alcohol/Aqua/Parfum/Limonene 已确认)",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Ralph-Lauren/Polo-Blue-1198.html",
+    "notes_on_data": "data_gap：官方站 403、聚合站截断，完整 INCI 待人工补录；仅收录已确认的官方 EDP 版前 4 项。金字塔已双源核验。"
+  }
+]

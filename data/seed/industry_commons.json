@@ -1,0 +1,802 @@
+{
+  "$comment": "香水品类共性统计：doevent/perfume（HF, MIT, 26,319 款 Fragrantica 社区数据）聚合。note=香材出现率（按款计，去重）；家族= Fragrantica 大类映射到本项目 7 家族（CHYPRE→fougere, LEATHER→oriental）。欧莱雅子集含 12 个授权线品牌。用途：① 香调金字塔→家族占比的先验 ② 高频香材→可视化映射优先级 ③ 欧莱雅特异性（lift）叙事。",
+  "built_at": "2026-09-17",
+  "source": {
+    "dataset": "https://huggingface.co/datasets/doevent/perfume (perfumes.csv)",
+    "rows_parsed": 26319,
+    "note": "原文件列名错位：'ingredients' 列实为香材列表，'fragrances' 列为家族描述符"
+  },
+  "industry": {
+    "family_distribution_pct": {
+      "floral": 40.9,
+      "woody": 26.8,
+      "fougere": 13.2,
+      "oriental": 13.0,
+      "citrus": 6.1
+    },
+    "top_notes": [
+      {
+        "note": "Musk",
+        "pct_of_perfumes": 46.6,
+        "count": 12270
+      },
+      {
+        "note": "Bergamot",
+        "pct_of_perfumes": 34.3,
+        "count": 9037
+      },
+      {
+        "note": "Amber",
+        "pct_of_perfumes": 28.8,
+        "count": 7580
+      },
+      {
+        "note": "Patchouli",
+        "pct_of_perfumes": 28.4,
+        "count": 7486
+      },
+      {
+        "note": "Sandalwood",
+        "pct_of_perfumes": 28.4,
+        "count": 7462
+      },
+      {
+        "note": "Vanilla",
+        "pct_of_perfumes": 27.9,
+        "count": 7342
+      },
+      {
+        "note": "Jasmine",
+        "pct_of_perfumes": 25.0,
+        "count": 6575
+      },
+      {
+        "note": "Cedarwood",
+        "pct_of_perfumes": 23.9,
+        "count": 6295
+      },
+      {
+        "note": "Rose",
+        "pct_of_perfumes": 21.7,
+        "count": 5707
+      },
+      {
+        "note": "Vetiver",
+        "pct_of_perfumes": 14.8,
+        "count": 3908
+      },
+      {
+        "note": "Mandarin",
+        "pct_of_perfumes": 14.5,
+        "count": 3821
+      },
+      {
+        "note": "Lemon",
+        "pct_of_perfumes": 14.4,
+        "count": 3780
+      },
+      {
+        "note": "Tonka Bean",
+        "pct_of_perfumes": 13.1,
+        "count": 3453
+      },
+      {
+        "note": "Orange Blossom",
+        "pct_of_perfumes": 12.2,
+        "count": 3220
+      },
+      {
+        "note": "Iris / Orris",
+        "pct_of_perfumes": 11.8,
+        "count": 3106
+      },
+      {
+        "note": "Cardamom",
+        "pct_of_perfumes": 10.8,
+        "count": 2852
+      },
+      {
+        "note": "Lavender",
+        "pct_of_perfumes": 10.6,
+        "count": 2787
+      },
+      {
+        "note": "Pink Pepper",
+        "pct_of_perfumes": 10.4,
+        "count": 2736
+      },
+      {
+        "note": "Grapefruit",
+        "pct_of_perfumes": 9.8,
+        "count": 2573
+      },
+      {
+        "note": "Woody Notes",
+        "pct_of_perfumes": 9.3,
+        "count": 2451
+      },
+      {
+        "note": "Leather",
+        "pct_of_perfumes": 8.7,
+        "count": 2284
+      },
+      {
+        "note": "Incense / Olibanum",
+        "pct_of_perfumes": 8.4,
+        "count": 2209
+      },
+      {
+        "note": "Geranium",
+        "pct_of_perfumes": 8.4,
+        "count": 2206
+      },
+      {
+        "note": "Lily Of The Valley",
+        "pct_of_perfumes": 8.3,
+        "count": 2180
+      },
+      {
+        "note": "Violet",
+        "pct_of_perfumes": 8.2,
+        "count": 2171
+      },
+      {
+        "note": "Oud / Agarwood",
+        "pct_of_perfumes": 7.3,
+        "count": 1927
+      },
+      {
+        "note": "Ylang-ylang",
+        "pct_of_perfumes": 7.2,
+        "count": 1900
+      },
+      {
+        "note": "Ciste Labdanum",
+        "pct_of_perfumes": 7.0,
+        "count": 1838
+      },
+      {
+        "note": "Neroli",
+        "pct_of_perfumes": 6.4,
+        "count": 1696
+      },
+      {
+        "note": "Saffron",
+        "pct_of_perfumes": 6.4,
+        "count": 1683
+      },
+      {
+        "note": "Peach",
+        "pct_of_perfumes": 6.2,
+        "count": 1621
+      },
+      {
+        "note": "Clary Sage",
+        "pct_of_perfumes": 6.1,
+        "count": 1593
+      },
+      {
+        "note": "Ginger",
+        "pct_of_perfumes": 6.1,
+        "count": 1593
+      },
+      {
+        "note": "Cinnamon",
+        "pct_of_perfumes": 6.0,
+        "count": 1591
+      },
+      {
+        "note": "Oakmoss",
+        "pct_of_perfumes": 5.9,
+        "count": 1555
+      },
+      {
+        "note": "Pear",
+        "pct_of_perfumes": 5.8,
+        "count": 1515
+      },
+      {
+        "note": "Freesia",
+        "pct_of_perfumes": 5.7,
+        "count": 1513
+      },
+      {
+        "note": "Benzoin",
+        "pct_of_perfumes": 5.7,
+        "count": 1503
+      },
+      {
+        "note": "Nutmeg",
+        "pct_of_perfumes": 5.7,
+        "count": 1499
+      },
+      {
+        "note": "Cashmeran (Woody musky)",
+        "pct_of_perfumes": 5.5,
+        "count": 1453
+      }
+    ],
+    "family_top_notes": {
+      "floral": [
+        {
+          "note": "Musk",
+          "pct": 7.7
+        },
+        {
+          "note": "Jasmine",
+          "pct": 4.8
+        },
+        {
+          "note": "Vanilla",
+          "pct": 4.3
+        },
+        {
+          "note": "Rose",
+          "pct": 4.0
+        },
+        {
+          "note": "Bergamot",
+          "pct": 4.0
+        },
+        {
+          "note": "Sandalwood",
+          "pct": 4.0
+        },
+        {
+          "note": "Amber",
+          "pct": 3.4
+        },
+        {
+          "note": "Cedarwood",
+          "pct": 2.5
+        },
+        {
+          "note": "Orange Blossom",
+          "pct": 2.5
+        },
+        {
+          "note": "Patchouli",
+          "pct": 2.5
+        },
+        {
+          "note": "Mandarin",
+          "pct": 2.3
+        },
+        {
+          "note": "Iris / Orris",
+          "pct": 1.9
+        },
+        {
+          "note": "Lily Of The Valley",
+          "pct": 1.8
+        },
+        {
+          "note": "Lemon",
+          "pct": 1.5
+        },
+        {
+          "note": "Violet",
+          "pct": 1.5
+        }
+      ],
+      "fougere": [
+        {
+          "note": "Patchouli",
+          "pct": 5.4
+        },
+        {
+          "note": "Bergamot",
+          "pct": 5.1
+        },
+        {
+          "note": "Musk",
+          "pct": 4.9
+        },
+        {
+          "note": "Lavender",
+          "pct": 4.4
+        },
+        {
+          "note": "Amber",
+          "pct": 3.6
+        },
+        {
+          "note": "Cedarwood",
+          "pct": 3.3
+        },
+        {
+          "note": "Sandalwood",
+          "pct": 3.1
+        },
+        {
+          "note": "Vetiver",
+          "pct": 2.7
+        },
+        {
+          "note": "Geranium",
+          "pct": 2.5
+        },
+        {
+          "note": "Lemon",
+          "pct": 2.4
+        },
+        {
+          "note": "Jasmine",
+          "pct": 2.3
+        },
+        {
+          "note": "Oakmoss",
+          "pct": 2.3
+        },
+        {
+          "note": "Vanilla",
+          "pct": 2.0
+        },
+        {
+          "note": "Clary Sage",
+          "pct": 2.0
+        },
+        {
+          "note": "Cardamom",
+          "pct": 2.0
+        }
+      ],
+      "woody": [
+        {
+          "note": "Musk",
+          "pct": 4.7
+        },
+        {
+          "note": "Patchouli",
+          "pct": 4.6
+        },
+        {
+          "note": "Bergamot",
+          "pct": 4.5
+        },
+        {
+          "note": "Sandalwood",
+          "pct": 4.1
+        },
+        {
+          "note": "Cedarwood",
+          "pct": 4.0
+        },
+        {
+          "note": "Amber",
+          "pct": 4.0
+        },
+        {
+          "note": "Vanilla",
+          "pct": 3.1
+        },
+        {
+          "note": "Vetiver",
+          "pct": 2.8
+        },
+        {
+          "note": "Oud / Agarwood",
+          "pct": 2.3
+        },
+        {
+          "note": "Cardamom",
+          "pct": 2.3
+        },
+        {
+          "note": "Rose",
+          "pct": 2.1
+        },
+        {
+          "note": "Jasmine",
+          "pct": 2.1
+        },
+        {
+          "note": "Tonka Bean",
+          "pct": 2.0
+        },
+        {
+          "note": "Lemon",
+          "pct": 1.8
+        },
+        {
+          "note": "Incense / Olibanum",
+          "pct": 1.7
+        }
+      ],
+      "citrus": [
+        {
+          "note": "Musk",
+          "pct": 7.2
+        },
+        {
+          "note": "Bergamot",
+          "pct": 6.9
+        },
+        {
+          "note": "Lemon",
+          "pct": 4.8
+        },
+        {
+          "note": "Cedarwood",
+          "pct": 3.5
+        },
+        {
+          "note": "Mandarin",
+          "pct": 3.3
+        },
+        {
+          "note": "Jasmine",
+          "pct": 3.0
+        },
+        {
+          "note": "Amber",
+          "pct": 2.8
+        },
+        {
+          "note": "Vetiver",
+          "pct": 2.7
+        },
+        {
+          "note": "Grapefruit",
+          "pct": 2.6
+        },
+        {
+          "note": "Neroli",
+          "pct": 2.4
+        },
+        {
+          "note": "Patchouli",
+          "pct": 2.3
+        },
+        {
+          "note": "Sandalwood",
+          "pct": 2.2
+        },
+        {
+          "note": "Orange Blossom",
+          "pct": 2.2
+        },
+        {
+          "note": "Petitgrain",
+          "pct": 2.0
+        },
+        {
+          "note": "Rose",
+          "pct": 1.7
+        }
+      ],
+      "oriental": [
+        {
+          "note": "Vanilla",
+          "pct": 5.3
+        },
+        {
+          "note": "Musk",
+          "pct": 4.6
+        },
+        {
+          "note": "Amber",
+          "pct": 4.5
+        },
+        {
+          "note": "Patchouli",
+          "pct": 4.0
+        },
+        {
+          "note": "Bergamot",
+          "pct": 4.0
+        },
+        {
+          "note": "Leather",
+          "pct": 3.7
+        },
+        {
+          "note": "Sandalwood",
+          "pct": 3.1
+        },
+        {
+          "note": "Tonka Bean",
+          "pct": 2.5
+        },
+        {
+          "note": "Cedarwood",
+          "pct": 2.4
+        },
+        {
+          "note": "Incense / Olibanum",
+          "pct": 2.4
+        },
+        {
+          "note": "Rose",
+          "pct": 2.2
+        },
+        {
+          "note": "Jasmine",
+          "pct": 2.1
+        },
+        {
+          "note": "Ciste Labdanum",
+          "pct": 1.9
+        },
+        {
+          "note": "Cardamom",
+          "pct": 1.8
+        },
+        {
+          "note": "Saffron",
+          "pct": 1.7
+        }
+      ]
+    }
+  },
+  "loreal": {
+    "brands": [
+      "Azzaro",
+      "Cacharel",
+      "Diesel",
+      "Giorgio Armani",
+      "Lancome",
+      "Maison Margiela",
+      "Mugler",
+      "Paloma Picasso",
+      "Prada",
+      "Ralph Lauren",
+      "Shu Uemura",
+      "Valentino",
+      "Viktor & Rolf",
+      "Yves Saint Laurent"
+    ],
+    "perfumes_in_dataset": 823,
+    "family_distribution_pct": {
+      "floral": 41.4,
+      "woody": 23.5,
+      "fougere": 18.6,
+      "oriental": 11.3,
+      "citrus": 5.2
+    },
+    "top_notes": [
+      {
+        "note": "Musk",
+        "pct_of_perfumes": 37.8,
+        "count": 311
+      },
+      {
+        "note": "Bergamot",
+        "pct_of_perfumes": 37.1,
+        "count": 305
+      },
+      {
+        "note": "Patchouli",
+        "pct_of_perfumes": 31.5,
+        "count": 259
+      },
+      {
+        "note": "Vanilla",
+        "pct_of_perfumes": 25.4,
+        "count": 209
+      },
+      {
+        "note": "Cedarwood",
+        "pct_of_perfumes": 24.3,
+        "count": 200
+      },
+      {
+        "note": "Orange Blossom",
+        "pct_of_perfumes": 20.9,
+        "count": 172
+      },
+      {
+        "note": "Sandalwood",
+        "pct_of_perfumes": 19.0,
+        "count": 156
+      },
+      {
+        "note": "Jasmine",
+        "pct_of_perfumes": 19.0,
+        "count": 156
+      },
+      {
+        "note": "Mandarin",
+        "pct_of_perfumes": 18.5,
+        "count": 152
+      },
+      {
+        "note": "Amber",
+        "pct_of_perfumes": 18.5,
+        "count": 152
+      },
+      {
+        "note": "Rose",
+        "pct_of_perfumes": 15.3,
+        "count": 126
+      },
+      {
+        "note": "Vetiver",
+        "pct_of_perfumes": 15.2,
+        "count": 125
+      },
+      {
+        "note": "Jasmine (Sambac)",
+        "pct_of_perfumes": 12.6,
+        "count": 104
+      },
+      {
+        "note": "Iris / Orris",
+        "pct_of_perfumes": 12.4,
+        "count": 102
+      },
+      {
+        "note": "Pink Pepper",
+        "pct_of_perfumes": 12.2,
+        "count": 100
+      },
+      {
+        "note": "Tonka Bean",
+        "pct_of_perfumes": 11.8,
+        "count": 97
+      },
+      {
+        "note": "Pear",
+        "pct_of_perfumes": 11.4,
+        "count": 94
+      },
+      {
+        "note": "Ginger",
+        "pct_of_perfumes": 10.3,
+        "count": 85
+      },
+      {
+        "note": "Cardamom",
+        "pct_of_perfumes": 10.2,
+        "count": 84
+      },
+      {
+        "note": "Lemon",
+        "pct_of_perfumes": 10.1,
+        "count": 83
+      },
+      {
+        "note": "Blackcurrant Bud",
+        "pct_of_perfumes": 10.1,
+        "count": 83
+      },
+      {
+        "note": "Lavender",
+        "pct_of_perfumes": 10.0,
+        "count": 82
+      },
+      {
+        "note": "Clary Sage",
+        "pct_of_perfumes": 9.7,
+        "count": 80
+      },
+      {
+        "note": "Grapefruit",
+        "pct_of_perfumes": 9.4,
+        "count": 77
+      },
+      {
+        "note": "Geranium",
+        "pct_of_perfumes": 8.7,
+        "count": 72
+      },
+      {
+        "note": "Benzoin",
+        "pct_of_perfumes": 8.7,
+        "count": 72
+      },
+      {
+        "note": "Neroli",
+        "pct_of_perfumes": 8.1,
+        "count": 67
+      },
+      {
+        "note": "Incense / Olibanum",
+        "pct_of_perfumes": 7.8,
+        "count": 64
+      },
+      {
+        "note": "Woody Notes",
+        "pct_of_perfumes": 7.4,
+        "count": 61
+      },
+      {
+        "note": "Leather",
+        "pct_of_perfumes": 7.0,
+        "count": 58
+      }
+    ],
+    "distinctive_notes_lift": [
+      {
+        "note": "Jasmine (Sambac)",
+        "loreal_pct": 12.6,
+        "industry_pct": 4.3,
+        "lift": 2.94
+      },
+      {
+        "note": "Pear",
+        "loreal_pct": 11.4,
+        "industry_pct": 5.8,
+        "lift": 1.98
+      },
+      {
+        "note": "Blackcurrant Bud",
+        "loreal_pct": 10.1,
+        "industry_pct": 5.4,
+        "lift": 1.87
+      },
+      {
+        "note": "Orange Blossom",
+        "loreal_pct": 20.9,
+        "industry_pct": 12.2,
+        "lift": 1.71
+      },
+      {
+        "note": "Ginger",
+        "loreal_pct": 10.3,
+        "industry_pct": 6.1,
+        "lift": 1.71
+      },
+      {
+        "note": "Clary Sage",
+        "loreal_pct": 9.7,
+        "industry_pct": 6.1,
+        "lift": 1.61
+      },
+      {
+        "note": "Benzoin",
+        "loreal_pct": 8.7,
+        "industry_pct": 5.7,
+        "lift": 1.53
+      },
+      {
+        "note": "Mandarin",
+        "loreal_pct": 18.5,
+        "industry_pct": 14.5,
+        "lift": 1.27
+      },
+      {
+        "note": "Neroli",
+        "loreal_pct": 8.1,
+        "industry_pct": 6.4,
+        "lift": 1.26
+      },
+      {
+        "note": "Pink Pepper",
+        "loreal_pct": 12.2,
+        "industry_pct": 10.4,
+        "lift": 1.17
+      },
+      {
+        "note": "Patchouli",
+        "loreal_pct": 31.5,
+        "industry_pct": 28.4,
+        "lift": 1.11
+      },
+      {
+        "note": "Bergamot",
+        "loreal_pct": 37.1,
+        "industry_pct": 34.3,
+        "lift": 1.08
+      },
+      {
+        "note": "Iris / Orris",
+        "loreal_pct": 12.4,
+        "industry_pct": 11.8,
+        "lift": 1.05
+      },
+      {
+        "note": "Geranium",
+        "loreal_pct": 8.7,
+        "industry_pct": 8.4,
+        "lift": 1.04
+      },
+      {
+        "note": "Cedarwood",
+        "loreal_pct": 24.3,
+        "industry_pct": 23.9,
+        "lift": 1.02
+      }
+    ]
+  }
+}

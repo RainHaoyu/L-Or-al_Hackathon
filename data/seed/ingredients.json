@@ -1,0 +1,2028 @@
+{
+  "$comment": "原料词典：数据层 docx 三级分类（天然/合成单体/功能辅料）+ 26K 数据集高频香材的结构化版本。families 与 families.json 严格对齐（可视化映射锚点）；layer_hint 为金字塔层倾向（top/heart/base）；inci 字段用于成分表命中（与 allergens.json 的 INCI 匹配面互补）。",
+  "built_at": "2026-09-17",
+  "sources": [
+    "数据层/香水成分数据及过敏香料.docx（分类底稿）",
+    "doevent/perfume 高频香材",
+    "Fragrantica 香材命名惯例"
+  ],
+  "count": 180,
+  "items": [
+    {
+      "key": "Rose",
+      "name_zh": "玫瑰",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Rose Oil/Rose Extract",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Jasmine",
+      "name_zh": "茉莉",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Jasminum Officinale Oil",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Jasmine (Sambac)",
+      "name_zh": "茉莉（沙巴克）",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Orange Blossom",
+      "name_zh": "橙花",
+      "category": "natural_floral",
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "layer_hint": "heart",
+      "inci": "Citrus Aurantium Amara Flower Oil",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Tuberose",
+      "name_zh": "晚香玉",
+      "category": "natural_floral",
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Polianthes Tuberosa Extract",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Ylang-Ylang",
+      "name_zh": "依兰依兰",
+      "category": "natural_floral",
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Cananga Odorata Flower Oil",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Iris",
+      "name_zh": "鸢尾",
+      "category": "natural_floral",
+      "families": [
+        "floral",
+        "woody"
+      ],
+      "layer_hint": "heart",
+      "inci": "Iris Pallida Root Extract",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Violet",
+      "name_zh": "紫罗兰",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Lavender",
+      "name_zh": "薰衣草",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Lavandula Angustifolia Oil",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Magnolia",
+      "name_zh": "木兰",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Osmanthus",
+      "name_zh": "桂花",
+      "category": "natural_floral",
+      "families": [
+        "floral",
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Narcissus",
+      "name_zh": "水仙",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Narcissus Poeticus Extract",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Geranium",
+      "name_zh": "天竺葵",
+      "category": "natural_herbal",
+      "families": [
+        "floral",
+        "fougere"
+      ],
+      "layer_hint": "heart",
+      "inci": "Pelargonium Graveolens Flower Oil",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Lily-of-the-Valley",
+      "name_zh": "铃兰",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Freesia",
+      "name_zh": "小苍兰",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Peony",
+      "name_zh": "牡丹",
+      "category": "natural_floral",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Carnation",
+      "name_zh": "康乃馨",
+      "category": "natural_floral",
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Chamomile",
+      "name_zh": "洋甘菊",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Bergamot",
+      "name_zh": "佛手柑",
+      "category": "natural_citrus",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Citrus Aurantium Bergamia Peel Oil",
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Lemon",
+      "name_zh": "柠檬",
+      "category": "natural_citrus",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Citrus Limon Peel Oil",
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Mandarin",
+      "name_zh": "橘子",
+      "category": "natural_citrus",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Citrus Aurantium Dulcis Peel Oil",
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Orange",
+      "name_zh": "甜橙",
+      "category": "natural_citrus",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Citrus Sinensis Peel Oil",
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Grapefruit",
+      "name_zh": "西柚",
+      "category": "natural_citrus",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Lime",
+      "name_zh": "青柠",
+      "category": "natural_citrus",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Pear",
+      "name_zh": "梨",
+      "category": "natural_fruit",
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Blackcurrant Bud",
+      "name_zh": "黑加仑芽",
+      "category": "natural_fruit",
+      "families": [
+        "citrus",
+        "floral"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Blackcurrant",
+      "name_zh": "黑加仑",
+      "category": "natural_fruit",
+      "families": [
+        "floral",
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Peach",
+      "name_zh": "桃子",
+      "category": "natural_fruit",
+      "families": [
+        "floral",
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Apple",
+      "name_zh": "苹果",
+      "category": "natural_fruit",
+      "families": [
+        "floral",
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Raspberry",
+      "name_zh": "树莓",
+      "category": "natural_fruit",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Coconut",
+      "name_zh": "椰子",
+      "category": "natural_fruit",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Plum",
+      "name_zh": "李子",
+      "category": "natural_fruit",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Cherry",
+      "name_zh": "樱桃",
+      "category": "natural_fruit",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Sandalwood",
+      "name_zh": "檀香",
+      "category": "natural_woody",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Santalum Album Oil",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Cedarwood",
+      "name_zh": "雪松",
+      "category": "natural_woody",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Juniperus Virginiana Oil",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Cedar",
+      "name_zh": "雪松木",
+      "category": "natural_woody",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Cedrus Atlantica Wood Oil",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Vetiver",
+      "name_zh": "香根草",
+      "category": "natural_woody",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Patchouli",
+      "name_zh": "广藿香",
+      "category": "natural_woody",
+      "families": [
+        "woody",
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": "Pogostemon Cablin Oil",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Oud (Agarwood)",
+      "name_zh": "沉香",
+      "category": "natural_woody",
+      "families": [
+        "woody",
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Guaiac Wood",
+      "name_zh": "愈创木",
+      "category": "natural_woody",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Palo Santo",
+      "name_zh": "圣木",
+      "category": "natural_woody",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Pine",
+      "name_zh": "松木",
+      "category": "natural_woody",
+      "families": [
+        "woody",
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Pinene",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Fir",
+      "name_zh": "冷杉",
+      "category": "natural_woody",
+      "families": [
+        "woody",
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Cashmeran",
+      "name_zh": "卡什米兰（绒木香）",
+      "category": "synthetic_woody",
+      "families": [
+        "woody",
+        "floral"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Frankincense",
+      "name_zh": "乳香",
+      "category": "natural_resin",
+      "families": [
+        "oriental",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Myrrh",
+      "name_zh": "没药",
+      "category": "natural_resin",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Benzoin",
+      "name_zh": "安息香",
+      "category": "natural_resin",
+      "families": [
+        "oriental",
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Amber",
+      "name_zh": "琥珀（龙涎香调）",
+      "category": "accord_amber",
+      "families": [
+        "oriental",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Labdanum",
+      "name_zh": "岩玫瑰膏香",
+      "category": "natural_resin",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Opoponax",
+      "name_zh": "甜没药",
+      "category": "natural_resin",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Elemi",
+      "name_zh": "榄香脂",
+      "category": "natural_resin",
+      "families": [
+        "woody",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Incense",
+      "name_zh": "焚香",
+      "category": "natural_resin",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Mint",
+      "name_zh": "薄荷",
+      "category": "natural_herbal",
+      "families": [
+        "fougere",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Mentha Piperita Oil",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Spearmint",
+      "name_zh": "留兰香",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Mentha Viridis Leaf Oil",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Basil",
+      "name_zh": "罗勒",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Rosemary",
+      "name_zh": "迷迭香",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Sage",
+      "name_zh": "鼠尾草",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Clary Sage",
+      "name_zh": "快乐鼠尾草",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Thyme",
+      "name_zh": "百里香",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Coriander",
+      "name_zh": "香菜籽",
+      "category": "natural_spice",
+      "families": [
+        "citrus",
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Cardamom",
+      "name_zh": "小豆蔻",
+      "category": "natural_spice",
+      "families": [
+        "oriental",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Cinnamon",
+      "name_zh": "肉桂",
+      "category": "natural_spice",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Cinnamomum Cassia Leaf Oil",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Clove",
+      "name_zh": "丁香",
+      "category": "natural_spice",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Eugenia Caryophyllus Bud Oil",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Pink Pepper",
+      "name_zh": "粉红胡椒",
+      "category": "natural_spice",
+      "families": [
+        "citrus",
+        "floral"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Pepper",
+      "name_zh": "黑胡椒",
+      "category": "natural_spice",
+      "families": [
+        "oriental",
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Nutmeg",
+      "name_zh": "肉豆蔻",
+      "category": "natural_spice",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Saffron",
+      "name_zh": "藏红花",
+      "category": "natural_spice",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Ginger",
+      "name_zh": "生姜",
+      "category": "natural_spice",
+      "families": [
+        "citrus",
+        "oriental"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Juniper",
+      "name_zh": "杜松",
+      "category": "natural_herbal",
+      "families": [
+        "fougere",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Eucalyptus",
+      "name_zh": "桉树",
+      "category": "natural_herbal",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Eucalyptus Globulus Leaf Oil",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Green Notes",
+      "name_zh": "绿叶香",
+      "category": "natural_green",
+      "families": [
+        "fougere",
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Fig Leaf",
+      "name_zh": "无花果叶",
+      "category": "natural_green",
+      "families": [
+        "woody",
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Tea",
+      "name_zh": "茶香",
+      "category": "natural_green",
+      "families": [
+        "fougere",
+        "floral"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Tobacco",
+      "name_zh": "烟草",
+      "category": "natural_amber",
+      "families": [
+        "gourmand",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Musk",
+      "name_zh": "麝香",
+      "category": "animalic_musk",
+      "families": [
+        "woody",
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "White Musk",
+      "name_zh": "白麝香",
+      "category": "synthetic_musk",
+      "families": [
+        "woody",
+        "floral"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Civet",
+      "name_zh": "灵猫香",
+      "category": "animalic",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Castoreum",
+      "name_zh": "海狸香",
+      "category": "animalic",
+      "families": [
+        "oriental",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Ambergris",
+      "name_zh": "龙涎香",
+      "category": "animalic_amber",
+      "families": [
+        "oriental",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Vanilla",
+      "name_zh": "香草",
+      "category": "gourmand",
+      "families": [
+        "gourmand",
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": "Vanillin",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Tonka Bean",
+      "name_zh": "零陵香豆",
+      "category": "gourmand",
+      "families": [
+        "gourmand",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Coumarin",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Praline",
+      "name_zh": "果仁糖",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Caramel",
+      "name_zh": "焦糖",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Chocolate",
+      "name_zh": "巧克力",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Coffee",
+      "name_zh": "咖啡",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Almond",
+      "name_zh": "杏仁",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": "Benzaldehyde",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Honey",
+      "name_zh": "蜂蜜",
+      "category": "gourmand",
+      "families": [
+        "gourmand",
+        "floral"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Rum",
+      "name_zh": "朗姆酒",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Whiskey",
+      "name_zh": "威士忌",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Cotton Candy",
+      "name_zh": "棉花糖",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Licorice",
+      "name_zh": "甘草",
+      "category": "gourmand",
+      "families": [
+        "gourmand",
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Anethole",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Marshmallow",
+      "name_zh": "棉花软糖",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Sea Notes",
+      "name_zh": "海洋香",
+      "category": "fresh_marine",
+      "families": [
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 aquatic 规则驱动"
+    },
+    {
+      "key": "Salt",
+      "name_zh": "海盐",
+      "category": "fresh_marine",
+      "families": [
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 aquatic 规则驱动"
+    },
+    {
+      "key": "Marine",
+      "name_zh": "海洋",
+      "category": "fresh_marine",
+      "families": [
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 aquatic 规则驱动"
+    },
+    {
+      "key": "Water Notes",
+      "name_zh": "水香",
+      "category": "fresh_marine",
+      "families": [
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 aquatic 规则驱动"
+    },
+    {
+      "key": "Calone",
+      "name_zh": "西瓜酮（海洋香）",
+      "category": "synthetic_marine",
+      "families": [
+        "aquatic",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 aquatic 规则驱动"
+    },
+    {
+      "key": "Ozonic Notes",
+      "name_zh": "臭氧感",
+      "category": "fresh_marine",
+      "families": [
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 aquatic 规则驱动"
+    },
+    {
+      "key": "Linalool",
+      "name_zh": "芳樟醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "fougere",
+        "floral"
+      ],
+      "layer_hint": "top",
+      "inci": "Linalool",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Geraniol",
+      "name_zh": "香叶醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Geraniol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Citronellol",
+      "name_zh": "香茅醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Citronellol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Phenylethyl Alcohol",
+      "name_zh": "苯乙醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Anisyl Alcohol",
+      "name_zh": "大茴香醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral",
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": "Anisyl Alcohol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Benzyl Alcohol",
+      "name_zh": "苯甲醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "top",
+      "inci": "Benzyl Alcohol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Cinnamyl Alcohol",
+      "name_zh": "肉桂醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Cinnamyl Alcohol",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Amylcinnamyl Alcohol",
+      "name_zh": "戊基肉桂醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Amylcinnamyl Alcohol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Hydroxycitronellol",
+      "name_zh": "羟基香茅醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Dihydromyrcenol",
+      "name_zh": "二氢月桂烯醇",
+      "category": "synthetic_terpene_alcohol",
+      "families": [
+        "fougere",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Menthol",
+      "name_zh": "薄荷脑",
+      "category": "synthetic_alcohol",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Menthol",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Terpineol",
+      "name_zh": "松油醇",
+      "category": "synthetic_terpene_alcohol",
+      "families": [
+        "floral",
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Terpineol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Citral",
+      "name_zh": "柠檬醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Citral",
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Cinnamal",
+      "name_zh": "肉桂醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Cinnamal",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Amyl Cinnamal",
+      "name_zh": "戊基肉桂醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Amyl Cinnamal",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Hexyl Cinnamal",
+      "name_zh": "己基肉桂醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Hexyl Cinnamal",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Hydroxycitronellal",
+      "name_zh": "羟基香茅醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Hydroxycitronellal",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Lilial",
+      "name_zh": "铃兰醛（已禁用）",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Butylphenyl Methylpropional",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Lyral",
+      "name_zh": "新铃兰醛（已禁用）",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Hydroxyisohexyl-3-Cyclohexene-Carboxaldehyde",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Aldehydes",
+      "name_zh": "醛香（脂肪醛系列）",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Vanillin",
+      "name_zh": "香兰素",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": "Vanillin",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Ethyl Vanillin",
+      "name_zh": "乙基香兰素",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Floralozone",
+      "name_zh": "花氧醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "floral",
+        "aquatic"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Linalyl Acetate",
+      "name_zh": "乙酸芳樟酯",
+      "category": "synthetic_ester",
+      "families": [
+        "fougere",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Linalyl Acetate",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Benzyl Salicylate",
+      "name_zh": "水杨酸苄酯",
+      "category": "synthetic_ester",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "base",
+      "inci": "Benzyl Salicylate",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Benzyl Benzoate",
+      "name_zh": "苯甲酸苄酯",
+      "category": "synthetic_ester",
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": "Benzyl Benzoate",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Benzyl Acetate",
+      "name_zh": "乙酸苄酯",
+      "category": "synthetic_ester",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Geranyl Acetate",
+      "name_zh": "乙酸香叶酯",
+      "category": "synthetic_ester",
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "layer_hint": "heart",
+      "inci": "Geranyl Acetate",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Eugenyl Acetate",
+      "name_zh": "乙酸丁香酚酯",
+      "category": "synthetic_ester",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Eugenyl Acetate",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Isoeugenyl Acetate",
+      "name_zh": "乙酸异丁香酚酯",
+      "category": "synthetic_ester",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Isoeugenyl Acetate",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Methyl Salicylate",
+      "name_zh": "水杨酸甲酯",
+      "category": "synthetic_ester",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Methyl Salicylate",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Amyl Salicylate",
+      "name_zh": "水杨酸戊酯",
+      "category": "synthetic_ester",
+      "families": [
+        "floral",
+        "fougere"
+      ],
+      "layer_hint": "heart",
+      "inci": "Amyl Salicylate",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Gamma-Lactones",
+      "name_zh": "内酯类（椰子/桃）",
+      "category": "synthetic_ester",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Alpha-Isomethyl Ionone",
+      "name_zh": "α-异甲基紫罗兰酮",
+      "category": "synthetic_ketone",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Alpha-Isomethyl Ionone",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Ionones",
+      "name_zh": "紫罗兰酮类",
+      "category": "synthetic_ketone",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Methyl Ionones",
+      "name_zh": "甲基紫罗兰酮类",
+      "category": "synthetic_ketone",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Methyl Ionones",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Dihydrojasmonate (Hedione)",
+      "name_zh": "二氢茉莉酮酸甲酯",
+      "category": "synthetic_ester",
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "layer_hint": "heart",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Methyl Cedryl Ketone (Acetyl Cedrene)",
+      "name_zh": "乙酰柏木烯",
+      "category": "synthetic_ketone",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Acetyl Cedrene",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Galaxolide (HHCB)",
+      "name_zh": "佳乐麝香",
+      "category": "synthetic_polycyclic_musk",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Hexamethylindanopyran",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Habanolide",
+      "name_zh": "哈巴麝香",
+      "category": "synthetic_macrocyclic_musk",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Ethylene Brassylate",
+      "name_zh": "乙烯基十三烷二酸酯（麝香-T）",
+      "category": "synthetic_macrocyclic_musk",
+      "families": [
+        "woody",
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Ambroxan (Ambrox)",
+      "name_zh": "降龙涎香醚",
+      "category": "synthetic_amber",
+      "families": [
+        "woody",
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Iso E Super (OTNE)",
+      "name_zh": "超级木香（OTNE）",
+      "category": "synthetic_woody_amber",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Tetramethyl Acetyloctahydronaphthalenes",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Ambrettolide",
+      "name_zh": "黄葵内酯",
+      "category": "synthetic_macrocyclic_musk",
+      "families": [
+        "woody",
+        "floral"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Cetalox",
+      "name_zh": "龙涎醚",
+      "category": "synthetic_amber",
+      "families": [
+        "woody",
+        "oriental"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Sclareol",
+      "name_zh": "硬尾醇",
+      "category": "natural_resin",
+      "families": [
+        "woody",
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": "Sclareol",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Sandalore",
+      "name_zh": "檀香醚",
+      "category": "synthetic_sandalwood",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Trimethylcyclopentenyl Methylisopentenol",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Sulfonyl Musk",
+      "name_zh": "磺酰麝香",
+      "category": "synthetic_musk",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "d-Limonene",
+      "name_zh": "柠檬烯",
+      "category": "synthetic_terpene",
+      "families": [
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "d-Limonene",
+      "visual_anchor": "色板/动效由 families.json 的 citrus 规则驱动"
+    },
+    {
+      "key": "Pinene",
+      "name_zh": "蒎烯",
+      "category": "synthetic_terpene",
+      "families": [
+        "woody",
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Pinene",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Beta-Caryophyllene",
+      "name_zh": "β-石竹烯",
+      "category": "synthetic_terpene",
+      "families": [
+        "woody",
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Beta-Caryophyllene",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Eucalyptol",
+      "name_zh": "桉叶油素",
+      "category": "synthetic_ether",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Coumarin",
+      "name_zh": "香豆素",
+      "category": "synthetic_lactone",
+      "families": [
+        "gourmand",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Coumarin",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Eugenol",
+      "name_zh": "丁香酚",
+      "category": "synthetic_phenol",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Eugenol",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Isoeugenol",
+      "name_zh": "异丁香酚",
+      "category": "synthetic_phenol",
+      "families": [
+        "oriental"
+      ],
+      "layer_hint": "heart",
+      "inci": "Isoeugenol",
+      "visual_anchor": "色板/动效由 families.json 的 oriental 规则驱动"
+    },
+    {
+      "key": "Farnesol",
+      "name_zh": "法尼醇",
+      "category": "synthetic_terpene_alcohol",
+      "families": [
+        "floral"
+      ],
+      "layer_hint": "heart",
+      "inci": "Farnesol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Anethole",
+      "name_zh": "茴香脑",
+      "category": "synthetic_phenol_ether",
+      "families": [
+        "fougere",
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": "Anethole",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Methyl 2-Octynoate",
+      "name_zh": "甲基辛炔酸酯",
+      "category": "synthetic_ester",
+      "families": [
+        "aquatic",
+        "floral"
+      ],
+      "layer_hint": "top",
+      "inci": "Methyl 2-octynoate",
+      "visual_anchor": "色板/动效由 families.json 的 aquatic 规则驱动"
+    },
+    {
+      "key": "Oakmoss",
+      "name_zh": "橡苔",
+      "category": "natural_moss",
+      "families": [
+        "fougere",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Evernia Prunastri Extract",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Treemoss",
+      "name_zh": "树苔",
+      "category": "natural_moss",
+      "families": [
+        "fougere",
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Evernia Furfuracea Extract",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Carvone",
+      "name_zh": "香芹酮",
+      "category": "synthetic_ketone",
+      "families": [
+        "fougere",
+        "citrus"
+      ],
+      "layer_hint": "top",
+      "inci": "Carvone",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Benzaldehyde",
+      "name_zh": "苯甲醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": "Benzaldehyde",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Salicylaldehyde",
+      "name_zh": "水杨醛",
+      "category": "synthetic_aldehyde",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "top",
+      "inci": "Salicylaldehyde",
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Muguet Alcohol (Trimethylbenzenepropanol)",
+      "name_zh": "铃兰醇",
+      "category": "synthetic_alcohol",
+      "families": [
+        "floral",
+        "woody"
+      ],
+      "layer_hint": "heart",
+      "inci": "Trimethylbenzenepropanol",
+      "visual_anchor": "色板/动效由 families.json 的 floral 规则驱动"
+    },
+    {
+      "key": "Santalol",
+      "name_zh": "檀香醇",
+      "category": "synthetic_terpene_alcohol",
+      "families": [
+        "woody"
+      ],
+      "layer_hint": "base",
+      "inci": "Santalol",
+      "visual_anchor": "色板/动效由 families.json 的 woody 规则驱动"
+    },
+    {
+      "key": "Camphor",
+      "name_zh": "樟脑",
+      "category": "synthetic_ketone",
+      "families": [
+        "fougere"
+      ],
+      "layer_hint": "top",
+      "inci": "Camphor",
+      "visual_anchor": "色板/动效由 families.json 的 fougere 规则驱动"
+    },
+    {
+      "key": "Vanilla Bourbon",
+      "name_zh": "波本香草",
+      "category": "gourmand",
+      "families": [
+        "gourmand"
+      ],
+      "layer_hint": "base",
+      "inci": null,
+      "visual_anchor": "色板/动效由 families.json 的 gourmand 规则驱动"
+    },
+    {
+      "key": "Alcohol Denat.",
+      "name_zh": "变性乙醇",
+      "category": "functional_solvent",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Alcohol Denat.",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Parfum (Fragrance)",
+      "name_zh": "香精（未披露混合物）",
+      "category": "functional_fragrance_blend",
+      "families": [],
+      "layer_hint": "core",
+      "inci": "Parfum",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Aqua (Water)",
+      "name_zh": "水",
+      "category": "functional_solvent",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Aqua",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Propylene Glycol",
+      "name_zh": "丙二醇",
+      "category": "functional_humectant",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Propylene Glycol",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Dipropylene Glycol",
+      "name_zh": "二丙二醇",
+      "category": "functional_solvent",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Dipropylene Glycol",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "BHT",
+      "name_zh": "二丁基羟基甲苯（抗氧化剂）",
+      "category": "functional_antioxidant",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "BHT",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Tocopherol",
+      "name_zh": "生育酚（抗氧化剂）",
+      "category": "functional_antioxidant",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Tocopherol",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Disodium EDTA",
+      "name_zh": "EDTA 二钠（螯合剂）",
+      "category": "functional_chelator",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Disodium EDTA",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Citric Acid",
+      "name_zh": "柠檬酸（pH 调节）",
+      "category": "functional_ph",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Citric Acid",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Ethylhexyl Salicylate",
+      "name_zh": "水杨酸乙基己酯（UV 吸收）",
+      "category": "functional_uv",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Ethylhexyl Salicylate",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Butyl Methoxydibenzoylmethane",
+      "name_zh": "阿伏苯宗（UVA 防护）",
+      "category": "functional_uv",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Butyl Methoxydibenzoylmethane",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Tris(Tetramethylhydroxypiperidinol) Citrate",
+      "name_zh": "柠檬酸三(四甲基羟基哌啶醇)酯（光稳定）",
+      "category": "functional_uv",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": null,
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Benzophenone-4",
+      "name_zh": "二苯酮-4（UV 吸收）",
+      "category": "functional_uv",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Benzophenone-4",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Phenoxyethanol",
+      "name_zh": "苯氧乙醇（防腐）",
+      "category": "functional_preservative",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": "Phenoxyethanol",
+      "visual_anchor": "无香调色彩（辅料）"
+    },
+    {
+      "key": "Limnanthes Alba Seed Oil",
+      "name_zh": "白芒花籽油（润肤）",
+      "category": "functional_emollient",
+      "families": [],
+      "layer_hint": "carrier",
+      "inci": null,
+      "visual_anchor": "无香调色彩（辅料）"
+    }
+  ]
+}

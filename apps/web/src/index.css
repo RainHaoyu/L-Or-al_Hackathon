@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* 欧莱雅黑客松官方 KV 色板（黑底美妆科技风） */
+  --color-void: #0a0a0a;        /* 页面底 */
+  --color-panel: #17171c;       /* 卡片 */
+  --color-panel-2: #1e1e24;     /* 悬浮/嵌套 */
+  --color-ink: #f5f5f7;         /* 主文字 */
+  --color-ink-2: #9ca3af;       /* 次要文字 */
+  --color-ink-3: #6b7280;       /* 弱文字 */
+  --color-grad-a: #e8467c;      /* 玫瑰粉 */
+  --color-grad-b: #8a2be2;      /* 紫罗兰 */
+  --color-grad-c: #00c2ff;      /* 电光蓝 */
+  --color-gold: #f5d76e;        /* 香槟金点缀 */
+  --color-ok: #6ee7b7;          /* 绿灯（暗底适配） */
+  --color-warn: #fcd34d;        /* 黄灯 */
+  --color-danger: #fda4af;      /* 红灯 */
+}
+
+:root {
+  --grad: linear-gradient(90deg, #e8467c 0%, #8a2be2 52%, #00c2ff 100%);
+  color-scheme: dark;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+  color: var(--color-ink);
+  background: var(--color-void);
+}
+
+body { margin: 0; min-height: 100vh; background: var(--color-void); }
+
+::selection { background: rgba(138, 43, 226, 0.55); color: #fff; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #2e2e36; border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 无障碍：跟随系统减少动效 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 触控目标 ≥44px（手机端主操作） */
+@media (max-width: 767px) {
+  button, a, input[type="checkbox"] { min-height: 44px; }
+}
+
+/* —— 渐变工具类 —— */
+.grad-bg { background: var(--grad); }
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 渐变描边容器：外层渐变 + 内层面板色（.grad-ring 内再放内容即可） */
+.grad-ring {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-panel), var(--color-panel)) padding-box,
+    var(--grad) border-box;
+}
+.grad-ring-gold {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-panel), var(--color-panel)) padding-box,
+    linear-gradient(120deg, #f5d76e, #b8860b) border-box;
+}
+
+.glow { box-shadow: 0 0 24px rgba(138, 43, 226, 0.35), 0 0 60px rgba(232, 70, 124, 0.12); }
+.glow-soft { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45); }
+
+/* 渐变光带分隔线 */
+.light-band {
+  height: 2px;
+  border-radius: 999px;
+  background: var(--grad);
+  opacity: 0.9;
+}
+
+/* 香调粒子画布（Canvas 实现见 vision 模块） */
+.scent-canvas { border-radius: 1rem; display: block; width: 100%; }
+
+/* Hero 底部光晕装饰 */
+.hero-aura {
+  background:
+    radial-gradient(60% 90% at 20% 0%, rgba(232, 70, 124, 0.18), transparent 60%),
+    radial-gradient(50% 80% at 80% 10%, rgba(0, 194, 255, 0.14), transparent 55%),
+    radial-gradient(45% 70% at 55% -10%, rgba(138, 43, 226, 0.22), transparent 60%);
+}

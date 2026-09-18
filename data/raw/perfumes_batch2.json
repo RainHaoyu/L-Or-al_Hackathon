@@ -1,0 +1,128 @@
+[
+  {
+    "id": "margiela-jazz-club-edt",
+    "brand": "Maison Margiela",
+    "name": "REPLICA Jazz Club",
+    "concentration_type": "EDT",
+    "year": 2013,
+    "perfumer": ["Alienor Massenet"],
+    "fragrantica_family": "Leather",
+    "pyramid": {
+      "top": ["Pink Pepper", "Neroli", "Lemon"],
+      "heart": ["Rum", "Java Vetiver Oil", "Clary Sage"],
+      "base": ["Tobacco Leaf", "Vanilla Bean", "Styrax"]
+    },
+    "inci_full": ["Alcohol", "Water", "Fragrance", "Ethylhexyl Methoxycinnamate", "Coumarin", "Limonene", "Ethylhexyl Salicylate", "Butyl Methoxydibenzoylmethane", "Linalool", "Citral", "Geraniol", "CI 15985/Yellow 6", "Cinnamal", "Hydroxycitronellal", "Eugenol", "Citronellol", "CI 19140/Yellow 5", "CI 17200/Red 33", "CI 42090/Blue 1"],
+    "inci_source": "https://inkeedecoder.com/products/maison-margiela-replica-jazz-club-eau-de-toilette",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Jazz-Club-20541.html",
+    "notes_on_data": "Fragrantica 现行分类为 Leather（第三方常称 Amber Spicy）。美国市售版 INCI；源页末项 'C1 62585/2' 为录入错误已剔除。2013 发布新闻的 base 还列 Tonka Bean，现行条目以 Tobacco Leaf/Vanilla Bean/Styrax 为准。"
+  },
+  {
+    "id": "margiela-by-the-fireplace-edt",
+    "brand": "Maison Margiela",
+    "name": "REPLICA By the Fireplace",
+    "concentration_type": "EDT",
+    "year": 2015,
+    "perfumer": ["Marie Salamagne"],
+    "fragrantica_family": "Woody",
+    "pyramid": {
+      "top": ["Cloves", "Pink Pepper", "Orange Blossom"],
+      "heart": ["Chestnut", "Guaiac Wood", "Juniper"],
+      "base": ["Vanilla", "Peru Balsam", "Cashmeran"]
+    },
+    "inci_full": ["Alcohol", "Parfum/Fragrance", "Aqua/Water/Eau", "Benzyl Alcohol", "Ethylhexyl Salicylate", "Butyl Methoxydibenzoylmethane", "Linalool", "Isoeugenol", "Benzyl Benzoate", "Eugenol", "Limonene", "Tris(Tetramethylhydroxypiperidinol) Citrate", "Benzyl Cinnamate", "CI 15985/Yellow 6", "Geraniol", "CI 19140/Yellow 5", "CI 17200/Red 33", "CI 60730/Ext. Violet 2"],
+    "inci_source": "https://www.parfumdo.com/en/417012-replica-by-the-fireplace-eau-de-toilette.html",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/By-the-Fireplace-31623.html",
+    "notes_on_data": "INCI 来自 Parfumdo（EU 版，配方号 875655 14）；unisex，Woody 类。FragIndex 镜像 middle 额外含 Cade Oil，以 Fragrantica 官方条目为准。"
+  },
+  {
+    "id": "margiela-sailing-day-edt",
+    "brand": "Maison Margiela",
+    "name": "REPLICA Sailing Day",
+    "concentration_type": "EDT",
+    "year": 2017,
+    "perfumer": ["Violaine Collas"],
+    "fragrantica_family": "Aquatic",
+    "pyramid": {
+      "top": ["Sea Notes", "Aldehydes", "Coriander", "Red Pepper"],
+      "heart": ["Juniper", "Iris", "Amyl Salicylate", "Rose"],
+      "base": ["Red Seaweed", "Ambergris", "Cedarwood", "Amberwood"]
+    },
+    "inci_full": ["Alcohol", "Parfum/Fragrance", "Aqua/Water/Eau", "Benzyl Salicylate", "Linalool", "Benzyl Alcohol", "Butyl Methoxydibenzoylmethane", "Limonene", "Geraniol", "Citronellol", "Citral", "Tris(Tetramethylhydroxypiperidinol) Citrate", "Benzyl Benzoate", "CI 60730/Ext. Violet 2", "CI 42090/Blue 1"],
+    "inci_source": "https://www.my-origines.com/sv/sailing-day-59L23X04.html",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Sailing-Day-47891.html",
+    "notes_on_data": "2017 年发布（非 2021）。base 采用品牌官方/FragIndex 命名，Fragrantica 简写为 Seaweed/Ambergris/Amber。INCI 为 MyOrigines EU 版（含防晒剂与色素）。"
+  },
+  {
+    "id": "armani-acqua-di-gio-edt",
+    "brand": "Giorgio Armani",
+    "name": "Acqua di Giò Eau de Toilette",
+    "concentration_type": "EDT",
+    "year": 1996,
+    "perfumer": ["Alberto Morillas", "Annick Menardo", "Christian Dussoulier"],
+    "fragrantica_family": "Chypre Aquatic",
+    "pyramid": {
+      "top": ["Lime", "Lemon", "Bergamot", "Jasmine", "Orange", "Mandarin Orange", "Neroli"],
+      "heart": ["Sea Notes", "Jasmine", "Calone", "Rosemary", "Peach", "Freesia"],
+      "base": ["White Musk", "Cedar", "Oakmoss", "Patchouli", "Amber"]
+    },
+    "inci_full": ["Alcohol", "Aqua/Water", "Parfum/Fragrance", "BHT", "Linalool", "Geraniol", "Eugenol", "Alpha-Isomethyl Ionone", "Cinnamyl Alcohol", "Limonene", "Citral", "Citronellol", "Butylphenyl Methylpropional", "Benzyl Salicylate"],
+    "inci_source": "https://inkeedecoder.com/products/giorgio-armani-acqua-di-gio-eau-de-toilette",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-410.html",
+    "notes_on_data": "1996 经典男款。Fragrantica 现页面标签 'Chypre Aquatic'（描述旧文案作 Aromatic Aquatic）。美国市售版 INCI 仅 14 项（无 UV 过滤剂/色素），含欧盟已禁用的 Lilial——提示旧版/美版配方。"
+  },
+  {
+    "id": "armani-acqua-di-gio-profondo-edp",
+    "brand": "Giorgio Armani",
+    "name": "Acqua di Giò Profondo",
+    "concentration_type": "EDP",
+    "year": 2020,
+    "perfumer": ["Alberto Morillas"],
+    "fragrantica_family": "Aromatic Fougere",
+    "pyramid": {
+      "top": ["Sea Notes", "Aquozone", "Bergamot", "Green Mandarin"],
+      "heart": ["Rosemary", "Lavender", "Cypress", "Mastic or Lentisque"],
+      "base": ["Mineral notes", "Musk", "Patchouli", "Amber"]
+    },
+    "inci_full": ["Alcohol", "Parfum/Fragrance", "Aqua/Water", "Limonene", "Linalool", "Alpha-Isomethyl Ionone", "Citronellol", "Benzyl Salicylate", "Geraniol", "Benzyl Alcohol", "Citral", "Coumarin", "Benzyl Benzoate", "Cinnamyl Alcohol", "Farnesol"],
+    "inci_source": "https://www.giorgioarmanibeauty-usa.com/fragrances/mens-cologne/acqua-di-gio/acqua-di-gio-profondo-eau-de-parfum/A2267.html",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Profondo-59532.html",
+    "notes_on_data": "2020 原版 EDP（区别于 2024 新版与 Profondo Parfum）。INCI 为 Armani Beauty 美国官网现行配方。"
+  },
+  {
+    "id": "armani-si-edp",
+    "brand": "Giorgio Armani",
+    "name": "Sì Eau de Parfum",
+    "concentration_type": "EDP",
+    "year": 2013,
+    "perfumer": ["Christine Nagel"],
+    "fragrantica_family": "Chypre Fruity",
+    "pyramid": {
+      "top": ["Cassis"],
+      "heart": ["May Rose", "Freesia"],
+      "base": ["Vanilla", "Patchouli", "Woody Notes", "Ambroxan"]
+    },
+    "inci_full": ["Alcohol", "Parfum/Fragrance", "Aqua/Water", "Benzyl Salicylate", "Benzyl Alcohol", "Ethylhexyl Methoxycinnamate", "Linalool", "Limonene", "Butyl Methoxydibenzoylmethane", "Ethylhexyl Salicylate", "Hydroxycitronellal", "Hexyl Cinnamal", "Geraniol", "Cinnamyl Alcohol", "BHT", "Alpha-Isomethyl Ionone", "Citronellol", "Eugenol", "Citral", "Benzyl Benzoate", "Farnesol", "Coumarin", "CI 14700/Red 4", "CI 19140/Yellow 5", "CI 15510/Orange 4"],
+    "inci_source": "https://inkeedecoder.com/products/giorgio-armani-si-eau-de-parfum",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Giorgio-Armani/Si-18453.html",
+    "notes_on_data": "2013 女士款。前调仅 Cassis 一味（Fragrantica 原文单数）。品牌官方将 Ambroxan 表述为 Orcanox™。25 项含 3 种 UV 过滤剂与 3 种色素（美国版）。"
+  },
+  {
+    "id": "mugler-alien-edp",
+    "brand": "Mugler",
+    "name": "Alien Eau de Parfum",
+    "concentration_type": "EDP",
+    "year": 2005,
+    "perfumer": ["Dominique Ropion", "Laurent Bruyère"],
+    "fragrantica_family": "Oriental Woody",
+    "pyramid": {
+      "top": ["Jasmine Sambac"],
+      "heart": ["Cashmeran"],
+      "base": ["White Amber"]
+    },
+    "inci_full": ["Alcohol", "Parfum/Fragrance", "Aqua/Water/Eau", "Benzyl Salicylate", "Benzyl Alcohol", "Ethylhexyl Salicylate", "Butyl Methoxydibenzoylmethane", "Coumarin", "Geraniol", "Methyl Anthranilate", "Alpha-Isomethyl Ionone", "Citronellol", "Citral", "Benzyl Benzoate", "CI 60730/Ext. Violet 2", "CI 17200/Red 33"],
+    "inci_source": "https://www.mugler.com/fragrance/womens-fragrances/alien/alien-eau-de-parfum/M010401002.html",
+    "pyramid_source": "https://www.fragrantica.com/perfume/Mugler/Alien-707.html",
+    "notes_on_data": "Fragrantica 摘要原文 'Oriental Woody'（新体系称 Amber Woody）。INCI 为 Mugler 官网现行美国配方（2019 后改版：无 Linalool、无 Ethylhexyl Methoxycinnamate）。金字塔为极简三调结构。"
+  }
+]

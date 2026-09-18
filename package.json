@@ -1,0 +1,12 @@
+{
+  "name": "unbounded",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "api": "cd services/api && uv run uvicorn app.main:app --reload --port 8000",
+    "test": "cd services/api && uv run pytest -q"
+  }
+}

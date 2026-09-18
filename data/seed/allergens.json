@@ -1,0 +1,3489 @@
+{
+  "$comment": "致敏原总库 v2（EU 2023/1545 全量覆盖）。计数口径：条例需单独标注的致敏原共 82 个（26 旧 + 56 新，新条目组合展开后），本库以 71 个条目级（glossary）组织、inci_names 展开共 103 个 INCI 匹配名供成分表命中。NESIL 优先级：RIFM 官方 WoE > CNIH 人体 NOEL（Na et al. 2022 Dermatitis 33(2):161 Table 2）> LLNA EC3 > demo_estimate。IFRA Cat4 为 scentspiracy 汇编值（secondary_compiled），三闸门取最严判定故不影响安全侧。typical_conc_pct 来自 Lu 2021 JFDA 实测（n=14 香水）。引擎约定：nesil_source=='documented' 不叠加 demo 惩罚；'demo_estimate' 叠加 config.saf.demo_estimate_penalty。",
+  "built_at": "2026-09-17",
+  "count": 71,
+  "count_documented_nesil": 35,
+  "inci_name_match_surface": 103,
+  "sources": {
+    "eu_regulation": "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+    "nesil_primary": "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+    "citral_nesil": "https://pubmed.ncbi.nlm.nih.gov/18353514/ (Lalko J. et al. 2008, citral human NOEL 1400 μg/cm²)",
+    "geraniol_nesil": "Api A.M. et al. 2022 Food Chem Toxicol, geraniol WoE NESIL 11 000 μg/cm²",
+    "ifra_cat4_compiled": "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+    "perfume_measured_conc": "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+  },
+  "items": [
+    {
+      "inci": "Amyl Cinnamal",
+      "inci_raw": "Amyl cinnamal",
+      "name_zh": "戊基肉桂醛",
+      "cas": "122-40-7",
+      "tier": "strong",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 23600.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 7.0,
+      "clinical_noel": null,
+      "note": "茉莉花香;强迟发型致敏",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 67,
+      "inci_names": [
+        "Amyl Cinnamal"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 23622.0,
+      "human_loel": 47244.0,
+      "llna_ec3": 2942.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "2/14",
+        "min": 0.0081,
+        "max": 0.0752,
+        "mean": 0.0417
+      }
+    },
+    {
+      "inci": "Amylcinnamyl Alcohol",
+      "inci_raw": "Amylcinnamyl alcohol",
+      "name_zh": "戊基肉桂醇",
+      "cas": "101-85-9",
+      "tier": "medium",
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "nesil": 3500.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 1.5,
+      "clinical_noel": null,
+      "note": "甜花香;氧化转为戊基肉桂醛致敏",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 68,
+      "inci_names": [
+        "Amylcinnamyl Alcohol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 3543.0,
+      "human_loel": 7085.0,
+      "llna_ec3": 6250.0,
+      "woe_potency": "Very weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.00024,
+          "median": 0.0,
+          "max": 0.00658
+        },
+        "men_n31": {
+          "mean": 0.00016,
+          "median": 0.0,
+          "max": 0.00197
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Anisyl Alcohol",
+      "inci_raw": "Anisyl alcohol",
+      "name_zh": "大茴香醇",
+      "cas": "105-13-5",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "gourmand"
+      ],
+      "nesil": 1500.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.21,
+      "clinical_noel": null,
+      "note": "茴香甜香;致敏相对低",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 69,
+      "inci_names": [
+        "Anisyl Alcohol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 1771.0,
+      "human_loel": null,
+      "llna_ec3": 1475.0,
+      "woe_potency": "Moderate",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.01827,
+          "median": 0.0,
+          "max": 0.25197
+        },
+        "men_n31": {
+          "mean": 0.01126,
+          "median": 0.0,
+          "max": 0.28733
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Benzyl Alcohol",
+      "inci_raw": "Benzyl alcohol",
+      "name_zh": "苯甲醇",
+      "cas": "100-51-6",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 5900.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 2.5,
+      "clinical_noel": null,
+      "note": "花香溶剂;轻度致敏,也作防腐剂",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 45,
+      "inci_names": [
+        "Benzyl Alcohol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 5905.0,
+      "human_loel": 8858.0,
+      "llna_ec3": 12500.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.01009,
+          "median": 0.0,
+          "max": 0.40947
+        },
+        "men_n31": {
+          "mean": 0.00334,
+          "median": 0.00067,
+          "max": 0.01834
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "7/14",
+        "min": 0.0009,
+        "max": 0.0294,
+        "mean": 0.0128
+      }
+    },
+    {
+      "inci": "Benzyl Benzoate",
+      "inci_raw": "Benzyl benzoate",
+      "name_zh": "苯甲酸苄酯",
+      "cas": "120-51-4",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "woody"
+      ],
+      "nesil": 59000.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 4.8,
+      "clinical_noel": null,
+      "note": "定香剂;花香、东方调",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 83,
+      "inci_names": [
+        "Benzyl Benzoate"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 59050.0,
+      "human_loel": 118110.0,
+      "llna_ec3": 12500.0,
+      "woe_potency": "Very weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.01489,
+          "median": 0.00157,
+          "max": 0.49339
+        },
+        "men_n31": {
+          "mean": 0.02248,
+          "median": 0.0,
+          "max": 0.56239
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "7/14",
+        "min": 0.0058,
+        "max": 0.4699,
+        "mean": 0.0856
+      }
+    },
+    {
+      "inci": "Benzyl Cinnamate",
+      "inci_raw": "Benzyl cinnamate",
+      "name_zh": "肉桂酸苄酯",
+      "cas": "103-41-3",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental",
+        "gourmand"
+      ],
+      "nesil": 4700.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 2.0,
+      "clinical_noel": null,
+      "note": "蜂蜜香、香膏感",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 79,
+      "inci_names": [
+        "Benzyl Cinnamate"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 4724.0,
+      "human_loel": 9449.0,
+      "llna_ec3": 4600.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.00924,
+          "median": 0.0,
+          "max": 0.16957
+        },
+        "men_n31": {
+          "mean": 0.01346,
+          "median": 0.0,
+          "max": 0.10735
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Benzyl Salicylate",
+      "inci_raw": "Benzyl salicylate",
+      "name_zh": "水杨酸苄酯",
+      "cas": "118-58-1",
+      "tier": "medium",
+      "high_frequency": true,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "woody"
+      ],
+      "nesil": 17700.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 7.3,
+      "clinical_noel": null,
+      "note": "晚香玉、白花定香剂;香水高频",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 78,
+      "inci_names": [
+        "Benzyl Salicylate"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 17715.0,
+      "human_loel": 23622.0,
+      "llna_ec3": 725.0,
+      "woe_potency": "Very weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.1128,
+          "median": 0.0,
+          "max": 0.64737
+        },
+        "men_n31": {
+          "mean": 0.08896,
+          "median": 0.0,
+          "max": 0.81529
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "6/14",
+        "min": 0.002,
+        "max": 1.3973,
+        "mean": 0.3346
+      }
+    },
+    {
+      "inci": "Cinnamal",
+      "inci_raw": "Cinnamal (Cinnamaldehyde)",
+      "name_zh": "肉桂醛",
+      "cas": "104-55-2",
+      "tier": "strong",
+      "high_frequency": true,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": 591.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.25,
+      "clinical_noel": null,
+      "note": "辛香肉桂;强 IV 型致敏原",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 70,
+      "inci_names": [
+        "Cinnamal"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 591.0,
+      "human_loel": 775.0,
+      "llna_ec3": 262.0,
+      "woe_potency": "Moderate",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Cinnamyl Alcohol",
+      "inci_raw": "Cinnamyl alcohol",
+      "name_zh": "肉桂醇",
+      "cas": "104-54-1",
+      "tier": "medium",
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": 3000.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.6,
+      "clinical_noel": null,
+      "note": "香脂辛香;皮肤氧化成肉桂醛起致敏",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 102,
+      "inci_names": [
+        "Cinnamyl Alcohol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 2953.0,
+      "human_loel": 4724.0,
+      "llna_ec3": 5250.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.00121,
+          "median": 0.0,
+          "max": 0.03089
+        },
+        "men_n31": {
+          "mean": 0.00084,
+          "median": 0.0,
+          "max": 0.01623
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "4/14",
+        "min": 0.0102,
+        "max": 0.1789,
+        "mean": 0.0775
+      }
+    },
+    {
+      "inci": "Citral",
+      "inci_raw": "Citral",
+      "name_zh": "柠檬醛",
+      "cas": "5392-40-5",
+      "tier": "medium",
+      "high_frequency": true,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "nesil": 1400.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.6,
+      "clinical_noel": null,
+      "note": "柑橘、柠檬草;易氧化致敏",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 86,
+      "inci_names": [
+        "Citral"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 1417.0,
+      "human_loel": 3876.0,
+      "llna_ec3": 1414.0,
+      "woe_potency": "Moderate",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.08118,
+          "median": 0.00319,
+          "max": 3.42152
+        },
+        "men_n31": {
+          "mean": 0.01647,
+          "median": 0.01185,
+          "max": 0.08032
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "qra_worst_case_ael_cel_ratio": 0.19,
+      "qra_note": "Lim 2018 最坏情形（女香 max 浓度）AEL/CEL<1，QRA1 口径下存在致敏诱导风险",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "11/14",
+        "min": 0.0007,
+        "max": 0.0196,
+        "mean": 0.0094
+      }
+    },
+    {
+      "inci": "Citronellol",
+      "inci_raw": "Citronellol",
+      "name_zh": "香茅醇",
+      "cas": "106-22-9",
+      "tier": "medium",
+      "high_frequency": true,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 29500.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 12.0,
+      "clinical_noel": null,
+      "note": "玫瑰、天竺葵;氧化产物致敏升高",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 77,
+      "inci_names": [
+        "Citronellol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 29525.0,
+      "human_loel": 47244.0,
+      "llna_ec3": 10875.0,
+      "woe_potency": "Very weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.10053,
+          "median": 0.02534,
+          "max": 0.78971
+        },
+        "men_n31": {
+          "mean": 0.05474,
+          "median": 0.02703,
+          "max": 0.4254
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "11/14",
+        "min": 0.0004,
+        "max": 0.81,
+        "mean": 0.22
+      }
+    },
+    {
+      "inci": "Coumarin",
+      "inci_raw": "Coumarin",
+      "name_zh": "香豆素",
+      "cas": "91-64-5",
+      "tier": "low",
+      "high_frequency": true,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "gourmand"
+      ],
+      "nesil": 3500.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 1.5,
+      "clinical_noel": null,
+      "note": "零陵香豆、美食调;接触性皮炎 + 光敏感个案",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 75,
+      "inci_names": [
+        "Coumarin"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 3543.0,
+      "human_loel": 8858.0,
+      "llna_ec3": 12500.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.01599,
+          "median": 0.0,
+          "max": 0.18482
+        },
+        "men_n31": {
+          "mean": 0.06168,
+          "median": 0.0,
+          "max": 0.33375
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "10/14",
+        "min": 0.0014,
+        "max": 0.4535,
+        "mean": 0.0559
+      }
+    },
+    {
+      "inci": "Eugenol",
+      "inci_raw": "Eugenol",
+      "name_zh": "丁香酚",
+      "cas": "97-53-0",
+      "tier": "strong",
+      "high_frequency": true,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "nesil": 5900.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 2.5,
+      "clinical_noel": null,
+      "note": "丁香、康乃馨;顶级强 IV 型致敏,氧化加剧",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 74,
+      "inci_names": [
+        "Eugenol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 5906.0,
+      "human_loel": 11811.0,
+      "llna_ec3": 2703.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.01404,
+          "median": 0.00533,
+          "max": 0.24745
+        },
+        "men_n31": {
+          "mean": 0.0069,
+          "median": 0.00358,
+          "max": 0.03033
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "4/14",
+        "min": 0.004,
+        "max": 0.02,
+        "mean": 0.0106
+      }
+    },
+    {
+      "inci": "Farnesol",
+      "inci_raw": "Farnesol",
+      "name_zh": "法尼醇",
+      "cas": "4602-84-0",
+      "tier": "medium",
+      "high_frequency": true,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "nesil": 2700.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 1.2,
+      "clinical_noel": null,
+      "note": "晚香玉、多种精油;易氧化",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 80,
+      "inci_names": [
+        "Farnesol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 2755.0,
+      "human_loel": 6897.0,
+      "llna_ec3": 1200.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.04652,
+          "median": 0.00903,
+          "max": 0.39942
+        },
+        "men_n31": {
+          "mean": 0.05767,
+          "median": 0.03315,
+          "max": 0.22376
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Geraniol",
+      "inci_raw": "Geraniol",
+      "name_zh": "香叶醇",
+      "cas": "106-24-1",
+      "tier": "medium",
+      "high_frequency": true,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 11800.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 4.7,
+      "clinical_noel": null,
+      "note": "玫瑰天竺葵;香水最高频致敏之一,氧化后致敏暴涨",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": null,
+      "inci_names": [
+        "Geraniol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 11811.0,
+      "human_loel": null,
+      "llna_ec3": 3525.0,
+      "woe_potency": "Very weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.16305,
+          "median": 0.02538,
+          "max": 0.89977
+        },
+        "men_n31": {
+          "mean": 0.11468,
+          "median": 0.00227,
+          "max": 0.84583
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "12/14",
+        "min": 0.0043,
+        "max": 0.3688,
+        "mean": 0.0914
+      }
+    },
+    {
+      "inci": "Hexyl Cinnamal",
+      "inci_raw": "Hexyl cinnamal",
+      "name_zh": "己基肉桂醛",
+      "cas": "101-86-0",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 23600.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 9.9,
+      "clinical_noel": null,
+      "note": "茉莉甜花香;广泛用于香水",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 92,
+      "inci_names": [
+        "Hexyl Cinnamal"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 23622.0,
+      "human_loel": null,
+      "llna_ec3": 2372.0,
+      "woe_potency": "Very weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.06711,
+          "median": 0.01003,
+          "max": 0.46749
+        },
+        "men_n31": {
+          "mean": 0.02625,
+          "median": 0.0,
+          "max": 0.19396
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "5/14",
+        "min": 0.0075,
+        "max": 1.7868,
+        "mean": 0.4664
+      }
+    },
+    {
+      "inci": "Hydroxycitronellal",
+      "inci_raw": "Hydroxycitronellal",
+      "name_zh": "羟基香茅醛",
+      "cas": "107-75-5",
+      "tier": "strong",
+      "high_frequency": true,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 5000.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 2.1,
+      "clinical_noel": null,
+      "note": "铃兰白花;经典强接触致敏原",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 76,
+      "inci_names": [
+        "Hydroxycitronellal"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 4960.0,
+      "human_loel": 5814.0,
+      "llna_ec3": 5612.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.02766,
+          "median": 0.0,
+          "max": 0.46717
+        },
+        "men_n31": {
+          "mean": 0.05115,
+          "median": 0.0,
+          "max": 0.41055
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "9/14",
+        "min": 0.0083,
+        "max": 0.404,
+        "mean": 0.0926
+      }
+    },
+    {
+      "inci": "Hydroxyisohexyl-3-Cyclohexene-Carboxaldehyde",
+      "inci_raw": "Hydroxyisohexyl-3-Cyclohexene-Carboxaldehyde (HICC)",
+      "name_zh": "新铃兰醛",
+      "cas": "31906-04-4",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": true,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 4000.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.2,
+      "clinical_noel": null,
+      "note": "合成白花;欧盟现已禁用",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 89,
+      "inci_names": [
+        "Hydroxyisohexyl-3-Cyclohexene-Carboxaldehyde"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 4000.0,
+      "human_loel": 6259.0,
+      "llna_ec3": 4275.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.27683,
+          "median": 0.0,
+          "max": 2.71062
+        },
+        "men_n31": {
+          "mean": 0.19242,
+          "median": 0.06445,
+          "max": 0.93153
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "qra_worst_case_ael_cel_ratio": 0.67,
+      "qra_note": "Lim 2018 最坏情形（女香 max 浓度）AEL/CEL<1，QRA1 口径下存在致敏诱导风险",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "1/14",
+        "min": 0.0204,
+        "max": 0.0204,
+        "mean": 0.0204
+      }
+    },
+    {
+      "inci": "Isoeugenol",
+      "inci_raw": "Isoeugenol",
+      "name_zh": "异丁香酚",
+      "cas": "97-54-1",
+      "tier": "strong",
+      "high_frequency": true,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": 250.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.11,
+      "clinical_noel": null,
+      "note": "丁香衍生物;极强迟发型致敏,IFRA 严格限用",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 73,
+      "inci_names": [
+        "Isoeugenol"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 250.0,
+      "human_loel": 775.0,
+      "llna_ec3": 498.0,
+      "woe_potency": "Moderate",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.03286,
+          "median": 0.00427,
+          "max": 0.86399
+        },
+        "men_n31": {
+          "mean": 0.00501,
+          "median": 0.0,
+          "max": 0.02561
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "qra_worst_case_ael_cel_ratio": 0.13,
+      "qra_note": "Lim 2018 最坏情形（女香 max 浓度）AEL/CEL<1，QRA1 口径下存在致敏诱导风险",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "5/14",
+        "min": 0.0036,
+        "max": 0.013,
+        "mean": 0.0079
+      },
+      "eu_limit_pct": 0.02
+    },
+    {
+      "inci": "Linalool",
+      "inci_raw": "Linalool",
+      "name_zh": "芳樟醇",
+      "cas": "78-70-6",
+      "tier": "strong",
+      "high_frequency": true,
+      "oxidation_prone": true,
+      "k_ox_per_day": 0.0175,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "citrus",
+        "fougere"
+      ],
+      "nesil": 15000.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": null,
+      "clinical_noel": null,
+      "note": "薰衣草橙花柑橘;本体弱致敏,空气氧化过氧化物强致敏",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 82,
+      "inci_names": [
+        "Linalool"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 14998.0,
+      "human_loel": 23622.0,
+      "llna_ec3": 15000.0,
+      "woe_potency": "NS（本体非致敏原，氧化产物致敏）",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.22627,
+          "median": 0.15537,
+          "max": 2.18454
+        },
+        "men_n31": {
+          "mean": 0.2617,
+          "median": 0.16472,
+          "max": 0.83147
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA 无最终产品致敏限量，氧化管控（抗氧化剂/过氧化值声明）",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "14/14",
+        "min": 0.0007,
+        "max": 0.6574,
+        "mean": 0.1557
+      }
+    },
+    {
+      "inci": "d-Limonene",
+      "inci_raw": "d-Limonene",
+      "name_zh": "柠檬烯",
+      "cas": "5989-27-5",
+      "tier": "medium",
+      "high_frequency": true,
+      "oxidation_prone": true,
+      "k_ox_per_day": 0.03,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "citrus"
+      ],
+      "nesil": 10000.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": null,
+      "clinical_noel": null,
+      "note": "柑橘果皮;氧化生成过氧化物,IV 型过敏原",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": null,
+      "inci_names": [
+        "d-Limonene"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 10000.0,
+      "human_loel": null,
+      "llna_ec3": 10075.0,
+      "woe_potency": "NS（本体非致敏原，氧化产物致敏）",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.38633,
+          "median": 0.24941,
+          "max": 2.61968
+        },
+        "men_n31": {
+          "mean": 0.50082,
+          "median": 0.44621,
+          "max": 1.73523
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA 无最终产品致敏限量，氧化管控（抗氧化剂/过氧化值声明）",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "13/14",
+        "min": 0.0084,
+        "max": 0.5603,
+        "mean": 0.1748
+      }
+    },
+    {
+      "inci": "Methyl 2-octynoate",
+      "inci_raw": "Methyl-2-octynoate(Methyl heptine carbonate)",
+      "name_zh": "甲基-2-辛炔酸酯",
+      "cas": "111-12-6",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "aquatic"
+      ],
+      "nesil": 120.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.047,
+      "clinical_noel": null,
+      "note": "紫罗兰叶,水生青香;使用量低",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 84,
+      "inci_names": [
+        "Methyl 2-octynoate"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 118.0,
+      "human_loel": null,
+      "llna_ec3": 125.0,
+      "woe_potency": "Strong",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.00722,
+          "median": 0.00121,
+          "max": 0.09544
+        },
+        "men_n31": {
+          "mean": 0.00142,
+          "median": 0.0,
+          "max": 0.01657
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "qra_worst_case_ael_cel_ratio": 0.57,
+      "qra_note": "Lim 2018 最坏情形（女香 max 浓度）AEL/CEL<1，QRA1 口径下存在致敏诱导风险",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Alpha-Isomethyl Ionone",
+      "inci_raw": "α-Isomethyl ionone",
+      "name_zh": "α-异甲基紫罗兰酮",
+      "cas": "127-51-5",
+      "tier": "medium",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 71000.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 30.0,
+      "clinical_noel": null,
+      "note": "紫罗兰香;香水高频",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 85,
+      "inci_names": [
+        "Alpha-Isomethyl Ionone"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 70860.0,
+      "human_loel": 106290.0,
+      "llna_ec3": 5450.0,
+      "woe_potency": "Very weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.18595,
+          "median": 0.00991,
+          "max": 1.51027
+        },
+        "men_n31": {
+          "mean": 0.21688,
+          "median": 0.0,
+          "max": 1.11052
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "9/14",
+        "min": 0.0105,
+        "max": 0.4124,
+        "mean": 0.1822
+      }
+    },
+    {
+      "inci": "Butylphenyl Methylpropional",
+      "inci_raw": "Butylphenyl Methylpropional (Lilial)",
+      "name_zh": "铃兰醛",
+      "cas": "80-54-6",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": true,
+      "reproductive_flag": true,
+      "families": [
+        "floral"
+      ],
+      "nesil": 4100.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 1.4,
+      "clinical_noel": null,
+      "note": "铃兰;欧盟现已禁用",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 81,
+      "inci_names": [
+        "Butylphenyl Methylpropional"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "Lim DS et al. 2018, J Toxicol Environ Health A 81(22):1173-1185, doi:10.1080/15287394.2018.1543232（107 款喷雾香水 HPLC-UV 实测；Table 1 官方 WoE NESIL 引自 Api et al. 2008 RTP 52:3-23；Table 3 浓度 mg/kg）",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)",
+        "https://www.jfda-online.com/cgi/viewcontent.cgi?article=3373&context=journal (Lu et al. 2021 JFDA 29(4) Table 4，单位 mg/g→%除以10000)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "rifm_woe_api2008",
+      "human_noel": 4125.0,
+      "human_loel": 29528.0,
+      "llna_ec3": 2372.0,
+      "woe_potency": "Weak",
+      "evidence_level": "peer_reviewed",
+      "measured_conc_pct": {
+        "study": "Lim 2018 (n=107 spray perfumes, HPLC-UV)",
+        "women_n76": {
+          "mean": 0.40268,
+          "median": 0.21081,
+          "max": 3.49453
+        },
+        "men_n31": {
+          "mean": 0.11293,
+          "median": 0.03871,
+          "max": 0.68679
+        },
+        "unit_note": "mg/kg ÷ 10000 = % (w/w)"
+      },
+      "qra_worst_case_ael_cel_ratio": 0.53,
+      "qra_note": "Lim 2018 最坏情形（女香 max 浓度）AEL/CEL<1，QRA1 口径下存在致敏诱导风险",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编",
+      "typical_conc_pct": {
+        "product": "perfume/deodorant spray (n=14, Lu 2021 JFDA)",
+        "detected": "2/14",
+        "min": 0.765,
+        "max": 1.5305,
+        "mean": 1.1477
+      }
+    },
+    {
+      "inci": "Evernia Prunastri Extract",
+      "inci_raw": "Oakmoss extract",
+      "name_zh": "橡苔提取物",
+      "cas": "90028-68-5",
+      "tier": "strong",
+      "high_frequency": true,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": 700.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.1,
+      "clinical_noel": null,
+      "note": "西普 / 馥奇调;天然混合物,强致敏,IFRA 大幅限用",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 90,
+      "inci_names": [
+        "Evernia Prunastri Extract"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 700.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Moderate",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Evernia Furfuracea Extract",
+      "inci_raw": "Treemoss extract",
+      "name_zh": "树苔提取物",
+      "cas": "90028-67-4",
+      "tier": "low",
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental",
+        "fougere"
+      ],
+      "nesil": 700.0,
+      "nesil_source": "documented",
+      "ifra_limit_pct": 0.1,
+      "clinical_noel": null,
+      "note": "同橡苔,天然树脂苔藓混合物;高致敏",
+      "eu_2023_1545_group": "existing",
+      "eu_annex_iii_entry": 91,
+      "inci_names": [
+        "Evernia Furfuracea Extract"
+      ],
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)",
+        "https://www.scentspiracy.com/blog/ifra-limits (IFRA Cat4 汇编，需与官方 per-material 页核对)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 700.0,
+      "human_loel": 1417.0,
+      "llna_ec3": null,
+      "woe_potency": "Moderate",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_basis": "IFRA Cat4（水醇类淡香水/香水），scentspiracy 汇编"
+    },
+    {
+      "inci": "Acetyl Cedrene",
+      "inci_raw": "Acetyl Cedrene",
+      "inci_names": [
+        "Acetyl Cedrene"
+      ],
+      "name_zh": "乙酰基柏木烯",
+      "cas": "32388-55-9",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 327,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "合成柏木木质香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Amyl Salicylate",
+      "inci_raw": "Amyl Salicylate",
+      "inci_names": [
+        "Amyl Salicylate"
+      ],
+      "name_zh": "水杨酸戊酯",
+      "cas": "2050-08-0",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 328,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 35430.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "三叶草青花香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 35430.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Very weak"
+    },
+    {
+      "inci": "Anethole",
+      "inci_raw": "Anethole",
+      "inci_names": [
+        "Anethole"
+      ],
+      "name_zh": "茴香脑",
+      "cas": "104-46-1",
+      "cas_extra": [
+        "4180-23-8"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 329,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": 5509.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "茴香甘草香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 5509.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Weak"
+    },
+    {
+      "inci": "Benzaldehyde",
+      "inci_raw": "Benzaldehyde",
+      "inci_names": [
+        "Benzaldehyde"
+      ],
+      "name_zh": "苯甲醛",
+      "cas": "100-52-7",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 330,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "gourmand"
+      ],
+      "nesil": 590.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "杏仁樱桃香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 590.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Weak"
+    },
+    {
+      "inci": "Camphor",
+      "inci_raw": "Camphor",
+      "inci_names": [
+        "Camphor"
+      ],
+      "name_zh": "樟脑",
+      "cas": "76-22-2",
+      "cas_extra": [
+        "21368-68-3",
+        "464-49-3",
+        "464-48-2"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 331,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "樟脑凉香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Beta-Caryophyllene",
+      "inci_raw": "Beta-Caryophyllene",
+      "inci_names": [
+        "Beta-Caryophyllene"
+      ],
+      "name_zh": "β-石竹烯",
+      "cas": "87-44-5",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 332,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody",
+        "oriental"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "丁香胡椒木香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Carvone",
+      "inci_raw": "Carvone",
+      "inci_names": [
+        "Carvone"
+      ],
+      "name_zh": "香芹酮",
+      "cas": "99-49-0",
+      "cas_extra": [
+        "6485-40-1",
+        "2244-16-8"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 333,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere",
+        "citrus"
+      ],
+      "nesil": 2657.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "留兰香/葛缕子",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 2657.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Weak"
+    },
+    {
+      "inci": "Dimethyl Phenethyl Acetate",
+      "inci_raw": "Dimethyl Phenethyl Acetate",
+      "inci_names": [
+        "Dimethyl Phenethyl Acetate"
+      ],
+      "name_zh": "二甲基苯乙基乙酸酯",
+      "cas": "151-05-3",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 334,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "青绿花香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Hexadecanolactone",
+      "inci_raw": "Hexadecanolactone",
+      "inci_names": [
+        "Hexadecanolactone"
+      ],
+      "name_zh": "环十六内酯",
+      "cas": "109-29-5",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 335,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "大环麝香奶油香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Hexamethylindanopyran",
+      "inci_raw": "Hexamethylindanopyran",
+      "inci_names": [
+        "Hexamethylindanopyran"
+      ],
+      "name_zh": "佳乐麝香",
+      "cas": "1222-05-5",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 336,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "多环麝香（HHCB）",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Linalyl Acetate",
+      "inci_raw": "Linalyl Acetate",
+      "inci_names": [
+        "Linalyl Acetate"
+      ],
+      "name_zh": "乙酸芳樟酯",
+      "cas": "115-95-7",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 337,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere",
+        "citrus"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "薰衣草/香柠檬酯香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Menthol",
+      "inci_raw": "Menthol",
+      "inci_names": [
+        "Menthol"
+      ],
+      "name_zh": "薄荷脑",
+      "cas": "89-78-1",
+      "cas_extra": [
+        "1490-04-6",
+        "2216-51-5",
+        "15356-60-2"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 338,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "薄荷凉香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Trimethylcyclopentenyl Methylisopentenol",
+      "inci_raw": "Trimethylcyclopentenyl Methylisopentenol",
+      "inci_names": [
+        "Trimethylcyclopentenyl Methylisopentenol"
+      ],
+      "name_zh": "三甲基环戊烯基甲基异戊烯醇",
+      "cas": "67801-20-1",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 339,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "合成檀香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Salicylaldehyde",
+      "inci_raw": "Salicylaldehyde",
+      "inci_names": [
+        "Salicylaldehyde"
+      ],
+      "name_zh": "水杨醛",
+      "cas": "90-02-8",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 340,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "gourmand"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "杏仁样药草香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Santalol",
+      "inci_raw": "Santalol",
+      "inci_names": [
+        "Santalol"
+      ],
+      "name_zh": "檀香醇",
+      "cas": "11031-45-1",
+      "cas_extra": [
+        "115-71-9",
+        "77-42-9"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 341,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "檀香 α+β",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Sclareol",
+      "inci_raw": "Sclareol",
+      "inci_names": [
+        "Sclareol"
+      ],
+      "name_zh": "硬尾醇",
+      "cas": "515-03-7",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 342,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody",
+        "gourmand"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "鼠尾草琥珀龙涎",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Terpineol",
+      "inci_raw": "Terpineol",
+      "inci_names": [
+        "Terpineol"
+      ],
+      "name_zh": "松油醇",
+      "cas": "8000-41-7",
+      "cas_extra": [
+        "98-55-5",
+        "138-87-4"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 343,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "丁香/松木花香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Tetramethyl Acetyloctahydronaphthalenes",
+      "inci_raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "inci_names": [
+        "Tetramethyl Acetyloctahydronaphthalenes"
+      ],
+      "name_zh": "甲基环甘菊酮类（Iso E Super 类）",
+      "cas": "54464-57-2",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 344,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": 47244.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "OTNE 类木质龙涎",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 47244.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Very weak"
+    },
+    {
+      "inci": "Trimethylbenzenepropanol",
+      "inci_raw": "Trimethylbenzenepropanol",
+      "inci_names": [
+        "Trimethylbenzenepropanol"
+      ],
+      "name_zh": "三甲基苯丙醇",
+      "cas": "103694-68-4",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 345,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "woody"
+      ],
+      "nesil": 9917.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "合成铃兰/檀香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 9917.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Very weak"
+    },
+    {
+      "inci": "Vanillin",
+      "inci_raw": "Vanillin",
+      "inci_names": [
+        "Vanillin"
+      ],
+      "name_zh": "香兰素",
+      "cas": "121-33-5",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 346,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "gourmand"
+      ],
+      "nesil": 5314.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "香草豆香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih",
+      "human_noel": 5314.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Very weak"
+    },
+    {
+      "inci": "Cananga Odorata Flower Oil",
+      "inci_raw": "Cananga Odorata Flower Oil",
+      "inci_names": [
+        "Cananga Odorata Flower Extract",
+        "Cananga Odorata Flower Oil"
+      ],
+      "name_zh": "依兰依兰花油/提取物",
+      "cas": "83863-30-3",
+      "cas_extra": [
+        "8006-81-3",
+        "68606-83-7",
+        "93686-30-7"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 347,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "oriental"
+      ],
+      "nesil": 1771.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "依兰白花；净油有 IgE 蛋白残留风险",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih_absolute",
+      "human_noel": 1771.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Moderate（依兰净油数据）"
+    },
+    {
+      "inci": "Cinnamomum Cassia Leaf Oil",
+      "inci_raw": "Cinnamomum Cassia Leaf Oil",
+      "inci_names": [
+        "Cinnamomum Cassia Leaf Oil"
+      ],
+      "name_zh": "桂皮叶油",
+      "cas": "8007-80-5",
+      "cas_extra": [
+        "84961-46-6"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 348,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "中国肉桂辛香，含肉桂醛",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Cinnamomum Zeylanicum Bark Oil",
+      "inci_raw": "Cinnamomum Zeylanicum Bark Oil",
+      "inci_names": [
+        "Cinnamomum Zeylanicum Bark Oil"
+      ],
+      "name_zh": "锡兰肉桂皮油",
+      "cas": "8015-91-6",
+      "cas_extra": [
+        "84649-98-9"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 349,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "锡兰肉桂辛香，含肉桂醛/丁香酚",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Citrus Aurantium Amara Flower Oil",
+      "inci_raw": "Citrus Aurantium Amara Flower Oil",
+      "inci_names": [
+        "Citrus Aurantium Amara Flower Oil",
+        "Citrus Aurantium Dulcis Flower Oil"
+      ],
+      "name_zh": "苦/甜橙花油",
+      "cas": "72968-50-4",
+      "cas_extra": [
+        "8028-48-6",
+        "8016-38-4"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 350,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "橙花（苦橙花）",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Citrus Aurantium Amara Peel Oil",
+      "inci_raw": "Citrus Aurantium Amara Peel Oil",
+      "inci_names": [
+        "Citrus Aurantium Amara Peel Oil",
+        "Citrus Aurantium Dulcis Peel Oil",
+        "Citrus Sinensis Peel Oil"
+      ],
+      "name_zh": "苦/甜橙皮油",
+      "cas": "68916-04-1",
+      "cas_extra": [
+        "97766-30-8",
+        "8028-48-6",
+        "8008-57-9"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 351,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "citrus"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "苦橙/甜橙皮精油",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Citrus Aurantium Bergamia Peel Oil",
+      "inci_raw": "Citrus Aurantium Bergamia Peel Oil",
+      "inci_names": [
+        "Citrus Aurantium Bergamia Peel Oil"
+      ],
+      "name_zh": "香柠檬皮油",
+      "cas": "8007-75-8",
+      "cas_extra": [
+        "89957-91-5",
+        "68648-33-9",
+        "85049-52-1"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 352,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "citrus"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "佛手柑；含呋喃香豆素光毒风险（IFRA 另有限量）",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Citrus Limon Peel Oil",
+      "inci_raw": "Citrus Limon Peel Oil",
+      "inci_names": [
+        "Citrus Limon Peel Oil"
+      ],
+      "name_zh": "柠檬皮油",
+      "cas": "84929-31-7",
+      "cas_extra": [
+        "8008-56-8"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 353,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "citrus"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "柠檬精油，富含柠檬烯",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Cymbopogon Citratus Leaf Oil",
+      "inci_raw": "Cymbopogon Citratus Leaf Oil",
+      "inci_names": [
+        "Cymbopogon Schoenanthus Oil",
+        "Cymbopogon Flexuosus Oil",
+        "Cymbopogon Citratus Leaf Oil"
+      ],
+      "name_zh": "柠檬草油",
+      "cas": "8007-02-1",
+      "cas_extra": [
+        "89998-16-3",
+        "91844-92-7"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 354,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "citrus"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "柠檬草，富含柠檬醛",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Eucalyptus Globulus Leaf Oil",
+      "inci_raw": "Eucalyptus Globulus Leaf Oil",
+      "inci_names": [
+        "Eucalyptus Globulus Leaf Oil",
+        "Eucalyptus Globulus Leaf/Twig Oil"
+      ],
+      "name_zh": "蓝桉叶油",
+      "cas": "97926-40-4",
+      "cas_extra": [
+        "8000-48-4"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 355,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "桉叶脑凉香，鼻炎人群呼吸道刺激提示",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Eugenia Caryophyllus Leaf Oil",
+      "inci_raw": "Eugenia Caryophyllus Leaf Oil",
+      "inci_names": [
+        "Eugenia Caryophyllus Leaf Oil",
+        "Eugenia Caryophyllus Flower Oil",
+        "Eugenia Caryophyllus Stem Oil",
+        "Eugenia Caryophyllus Bud Oil"
+      ],
+      "name_zh": "丁香油（叶/花/茎/蕾）",
+      "cas": "8000-34-8",
+      "cas_extra": [
+        "8015-97-2",
+        "84961-50-2"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 356,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "丁香精油，富含丁香酚",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Jasminum Officinale Oil",
+      "inci_raw": "Jasminum Officinale Oil",
+      "inci_names": [
+        "Jasminum Grandiflorum Flower Extract",
+        "Jasminum Officinale Oil",
+        "Jasminum Officinale Flower Extract"
+      ],
+      "name_zh": "茉莉油/提取物",
+      "cas": "84776-64-7",
+      "cas_extra": [
+        "90045-94-6",
+        "8022-96-6",
+        "8024-43-9"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 357,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": 1400.0,
+      "nesil_source": "documented",
+      "evidence_level": "peer_reviewed",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "茉莉；净油 IgE 蛋白残留风险",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17",
+      "nesil_basis": "na2022_cnih_absolute",
+      "human_noel": 1400.0,
+      "human_loel": null,
+      "llna_ec3": null,
+      "woe_potency": "Moderate（茉莉净油数据）"
+    },
+    {
+      "inci": "Juniperus Virginiana Oil",
+      "inci_raw": "Juniperus Virginiana Oil",
+      "inci_names": [
+        "Juniperus Virginiana Oil",
+        "Juniperus Virginiana Wood Oil"
+      ],
+      "name_zh": "弗吉尼亚雪松木油",
+      "cas": "8000-27-9",
+      "cas_extra": [
+        "85085-41-2"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 358,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "铅笔雪松木香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Laurus Nobilis Leaf Oil",
+      "inci_raw": "Laurus Nobilis Leaf Oil",
+      "inci_names": [
+        "Laurus Nobilis Leaf Oil"
+      ],
+      "name_zh": "月桂叶油",
+      "cas": "8002-41-3",
+      "cas_extra": [
+        "8007-48-5",
+        "84603-73-6"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 359,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "月桂辛青香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Lavandula Angustifolia Oil",
+      "inci_raw": "Lavandula Angustifolia Oil",
+      "inci_names": [
+        "Lavandula Hybrida Oil",
+        "Lavandula Hybrida Extract",
+        "Lavandula Hybrida Flower Extract",
+        "Lavandula Intermedia Flower/Leaf/Stem Extract",
+        "Lavandula Intermedia Flower/Leaf/Stem Oil",
+        "Lavandula Intermedia Oil",
+        "Lavandula Angustifolia Oil",
+        "Lavandula Angustifolia Flower/Leaf/Stem Extract"
+      ],
+      "name_zh": "薰衣草/杂交薰衣草油",
+      "cas": "84776-65-8",
+      "cas_extra": [
+        "8022-15-9",
+        "93455-96-0",
+        "93455-97-1",
+        "92623-76-2",
+        "8000-28-0",
+        "90063-37-9"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 360,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "薰衣草，富含芳樟醇/乙酸芳樟酯；花粉蛋白 IgE 交叉风险",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Mentha Piperita Oil",
+      "inci_raw": "Mentha Piperita Oil",
+      "inci_names": [
+        "Mentha Piperita Oil"
+      ],
+      "name_zh": "椒样薄荷油",
+      "cas": "8006-90-4",
+      "cas_extra": [
+        "84082-70-2"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 361,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "薄荷精油，富含薄荷脑",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Mentha Viridis Leaf Oil",
+      "inci_raw": "Mentha Viridis Leaf Oil",
+      "inci_names": [
+        "Mentha Viridis Leaf Oil"
+      ],
+      "name_zh": "留兰香油",
+      "cas": "8008-79-5",
+      "cas_extra": [
+        "84696-51-5"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 362,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "留兰香，富含香芹酮",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Narcissus Poeticus Extract",
+      "inci_raw": "Narcissus Poeticus Extract",
+      "inci_names": [
+        "Narcissus Poeticus Extract",
+        "Narcissus Pseudonarcissus Flower Extract",
+        "Narcissus Jonquilla Extract",
+        "Narcissus Tazetta Extract"
+      ],
+      "name_zh": "水仙提取物",
+      "cas": "90064-26-9",
+      "cas_extra": [
+        "68917-12-4",
+        "90064-27-0",
+        "90064-25-8"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 363,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "水仙花香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Pelargonium Graveolens Flower Oil",
+      "inci_raw": "Pelargonium Graveolens Flower Oil",
+      "inci_names": [
+        "Pelargonium Graveolens Flower Oil"
+      ],
+      "name_zh": "天竺葵花油",
+      "cas": "90082-51-2",
+      "cas_extra": [
+        "8000-46-2"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 364,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "玫瑰-青绿天竺葵，富含香叶醇/香茅醇",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Pogostemon Cablin Oil",
+      "inci_raw": "Pogostemon Cablin Oil",
+      "inci_names": [
+        "Pogostemon Cablin Oil"
+      ],
+      "name_zh": "广藿香油",
+      "cas": "8014-09-3",
+      "cas_extra": [
+        "84238-39-1"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 365,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "广藿香土木香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Rosa Damascena Flower Oil",
+      "inci_raw": "Rosa Damascena Flower Oil",
+      "inci_names": [
+        "Rosa Damascena Flower Oil",
+        "Rosa Damascena Flower Extract",
+        "Rosa Alba Flower Oil",
+        "Rosa Alba Flower Extract",
+        "Rosa Canina Flower Oil",
+        "Rosa Centifolia Flower Oil",
+        "Rosa Centifolia Flower Extract",
+        "Rosa Gallica Flower Oil",
+        "Rosa Rugosa Flower Oil"
+      ],
+      "name_zh": "玫瑰花油/提取物（多组）",
+      "cas": "8007-01-0",
+      "cas_extra": [
+        "90106-38-0",
+        "93334-48-6",
+        "84696-47-9",
+        "84604-12-6",
+        "84604-13-7",
+        "92347-25-6"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 366,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "玫瑰；净油 IgE 蛋白残留风险",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Santalum Album Oil",
+      "inci_raw": "Santalum Album Oil",
+      "inci_names": [
+        "Santalum Album Oil"
+      ],
+      "name_zh": "檀香油",
+      "cas": "8006-87-9",
+      "cas_extra": [
+        "84787-70-2"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 367,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "medium",
+      "is_natural_extract": true,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "印度檀香木香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Eugenyl Acetate",
+      "inci_raw": "Eugenyl Acetate",
+      "inci_names": [
+        "Eugenyl Acetate"
+      ],
+      "name_zh": "乙酸丁香酚酯",
+      "cas": "93-28-7",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 368,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "丁香辛甜香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Geranyl Acetate",
+      "inci_raw": "Geranyl Acetate",
+      "inci_names": [
+        "Geranyl Acetate"
+      ],
+      "name_zh": "乙酸香叶酯",
+      "cas": "105-87-3",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 369,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "floral",
+        "citrus"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "玫瑰薰衣草果香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Isoeugenyl Acetate",
+      "inci_raw": "Isoeugenyl Acetate",
+      "inci_names": [
+        "Isoeugenyl Acetate"
+      ],
+      "name_zh": "乙酸异丁香酚酯",
+      "cas": "93-29-8",
+      "cas_extra": [],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 370,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": false,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "oriental"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "康乃馨辛香",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    },
+    {
+      "inci": "Pinene",
+      "inci_raw": "Pinene",
+      "inci_names": [
+        "Alpha-Pinene",
+        "Beta-Pinene"
+      ],
+      "name_zh": "蒎烯（α+β）",
+      "cas": "80-56-8",
+      "cas_extra": [
+        "7785-70-8",
+        "127-91-3",
+        "18172-67-3"
+      ],
+      "eu_2023_1545_group": "new",
+      "eu_annex_iii_entry": 371,
+      "label_threshold_pct": {
+        "leave_on": 0.001,
+        "rinse_off": 0.01
+      },
+      "tier": "low",
+      "is_natural_extract": false,
+      "high_frequency": false,
+      "oxidation_prone": true,
+      "k_ox_per_day": null,
+      "banned_eu": false,
+      "reproductive_flag": false,
+      "families": [
+        "woody",
+        "fougere"
+      ],
+      "nesil": null,
+      "nesil_source": "demo_estimate",
+      "evidence_level": "regulatory_list",
+      "ifra_limit_pct": null,
+      "ifra_limit_basis": null,
+      "clinical_noel": null,
+      "note": "松木萜烯；氧化生成过氧化物（EU 要求过氧化值<10 mmol/L）",
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1545/oj/eng",
+        "https://pubmed.ncbi.nlm.nih.gov/35147224/ (Na M. et al., Dermatitis 2022;33(2):161-175, Table 2, RIFM CNIH NOEL)"
+      ],
+      "retrieved": "2026-09-17"
+    }
+  ]
+}

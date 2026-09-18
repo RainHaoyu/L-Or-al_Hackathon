@@ -1,0 +1,126 @@
+{
+  "$comment": "由 scripts/clean_data.py 从《IgE致敏原表格.xlsx》生成（IgE Ⅰ 型速发风险，用于鼻炎人群提示）",
+  "items": [
+    {
+      "name_zh": "秘鲁香脂",
+      "inci": "Balsam of Peru",
+      "source_type": "树脂",
+      "families": [
+        "fougere"
+      ],
+      "families_zh": "东方调、西普调",
+      "ige_risk": "medium",
+      "note": "可同时诱发 IgE-I 型 + IV 型迟发,临床报告最多"
+    },
+    {
+      "name_zh": "安息香树脂",
+      "inci": "Benzoin resin",
+      "source_type": "树脂 / 净油",
+      "families": [
+        "gourmand"
+      ],
+      "families_zh": "东方调、美食调",
+      "ige_risk": "medium_low",
+      "note": "树脂蛋白可诱发速发荨麻疹、呼吸道过敏"
+    },
+    {
+      "name_zh": "苏合香",
+      "inci": "Storax",
+      "source_type": "树脂",
+      "families": [
+        "fougere"
+      ],
+      "families_zh": "西普调、东方调",
+      "ige_risk": "low",
+      "note": "树脂蛋白杂质,个案报道"
+    },
+    {
+      "name_zh": "没药",
+      "inci": "Myrrh",
+      "source_type": "树脂",
+      "families": [
+        "woody"
+      ],
+      "families_zh": "焚香、木质东方调",
+      "ige_risk": "low",
+      "note": "个案 IgE 速发报道"
+    },
+    {
+      "name_zh": "乳香",
+      "inci": "Frankincense",
+      "source_type": "树脂",
+      "families": [
+        "woody"
+      ],
+      "families_zh": "焚香、木质调",
+      "ige_risk": "low",
+      "note": "个案 IgE 速发报道"
+    },
+    {
+      "name_zh": "茉莉净油",
+      "inci": "Jasmine absolute",
+      "source_type": "溶剂萃取净油",
+      "families": [
+        "floral"
+      ],
+      "families_zh": "白花、花香调",
+      "ige_risk": "low",
+      "note": "蒸馏茉莉油蛋白残留极低,风险远低于净油"
+    },
+    {
+      "name_zh": "玫瑰净油",
+      "inci": "Rose absolute",
+      "source_type": "溶剂萃取净油",
+      "families": [
+        "floral"
+      ],
+      "families_zh": "花香调",
+      "ige_risk": "low",
+      "note": "同上,蒸馏玫瑰油风险低"
+    },
+    {
+      "name_zh": "晚香玉净油",
+      "inci": "Tuberose absolute",
+      "source_type": "溶剂萃取净油",
+      "families": [
+        "floral"
+      ],
+      "families_zh": "白花、东方调",
+      "ige_risk": "low",
+      "note": "蛋白杂质诱发"
+    },
+    {
+      "name_zh": "依兰依兰净油",
+      "inci": "Ylang-ylang absolute",
+      "source_type": "溶剂萃取净油",
+      "families": [
+        "floral"
+      ],
+      "families_zh": "白花、东方调",
+      "ige_risk": "low",
+      "note": "蛋白杂质诱发"
+    },
+    {
+      "name_zh": "原料类型",
+      "inci": "代表原料",
+      "source_type": "诱发机制",
+      "families": [
+        "floral"
+      ],
+      "families_zh": "常见表现",
+      "ige_risk": "medium",
+      "note": ""
+    },
+    {
+      "name_zh": "含花粉蛋白的植物提取物",
+      "inci": "薰衣草、洋甘菊、金合欢等",
+      "source_type": "原料带入微量花粉蛋白,与花粉过敏人群交叉反应",
+      "families": [
+        "floral"
+      ],
+      "families_zh": "吸入香水挥发物后诱发过敏性鼻炎",
+      "ige_risk": "medium",
+      "note": ""
+    }
+  ]
+}

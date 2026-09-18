@@ -1,0 +1,63 @@
+{
+  "$comment": "QRA2 引擎与系统配置（后台可热调整，见 /api/v1/admin/configs）",
+  "engine_version": "qra2@1.0.0",
+  "simulation": {
+    "n_iterations": 10000,
+    "seed": 20260828,
+    "sampler": "latin_hypercube"
+  },
+  "exposure_distributions": {
+    "$unit_note": "沿用 v3/策划案V1 算例口径：CEL 单位 μg/cm²/day",
+    "amount_density_m": { "type": "lognormal", "median": 0.5, "cv": 0.4, "unit": "mg/cm2" },
+    "application_area_A": { "type": "triangular", "min": 50, "mode": 100, "max": 200, "unit": "cm2" },
+    "daily_frequency_f": { "type": "discrete", "values": [1, 2, 3], "probs": [0.5, 0.35, 0.15] },
+    "concentration_c": { "type": "uniform_relative", "lo": 0.8, "hi": 1.2 },
+    "retention_eta": { "type": "beta", "alpha": 20.0, "beta_param": 2.0 }
+  },
+  "saf": {
+    "default_leave_on": 100,
+    "inter_species": 10,
+    "intra_species": 10,
+    "product_scenario": [1, 10],
+    "demo_estimate_penalty": 3
+  },
+  "aggregate_exposure": {
+    "$comment": "QRA2 聚合暴露共使用权重（策划案V1 预留接口的落地配置）",
+    "products": {
+      "perfume": 1.0,
+      "body_lotion": 0.8,
+      "shampoo": 0.3
+    }
+  },
+  "percentile_policy": {
+    "$comment": "最脆弱的人，用最保守的分位线保护",
+    "healthy": "P90",
+    "sensitive": "P99",
+    "pregnant": "P99",
+    "rhinitis": "P99",
+    "anosmic": "P99"
+  },
+  "populations": {
+    "healthy": { "alpha": 1.0, "beta": 1.0, "note": "健康成人基线" },
+    "sensitive": { "alpha": 2.0, "beta": 1.5, "cross_reaction_check": true, "note": "敏感肌：阈值收缩50%，叠加交叉反应检查" },
+    "pregnant": { "alpha": 1.0, "beta": 1.0, "reproductive_check": true, "note": "孕妇：查生殖毒性/禁用成分（如 Lilial 2022 欧盟禁用）" },
+    "rhinitis": { "alpha": 1.0, "beta": 1.2, "respiratory_flag": true, "note": "过敏性鼻炎：标注高挥发性成分呼吸道刺激" },
+    "anosmic": { "alpha": 1.0, "beta": 1.0, "oxidation_emphasis": true, "note": "失嗅人群：感知缺失由交互层补偿，强调氧化变质预警" }
+  },
+  "oxidation": {
+    "$comment": "D = 1 - exp(-k_eff·t)，k_eff = k_ox · Q10^((T-25)/10) · (1 + L)，估算模型需明标",
+    "k_ox_per_day": { "limonene": 0.03, "linalool": 0.0175 },
+    "k_ox_documented_range": { "limonene": [0.01, 0.05], "linalool": [0.005, 0.03] },
+    "q10": 2.0,
+    "temp_ref_c": 25,
+    "light_factor_max": 1.0,
+    "thresholds": { "low": 0.2, "high": 0.5 }
+  },
+  "ifra_gate": {
+    "near_limit_factor": 0.8,
+    "$comment": "浓度 ≥ 限值→红灯；≥ 限值80%→黄灯（接近限值）"
+  },
+  "confidence": {
+    "recognition_manual_fallback": 0.7
+  }
+}

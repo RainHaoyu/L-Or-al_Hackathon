@@ -1,0 +1,66 @@
+{
+  "$comment": "香调→视觉映射规则库（依据 v3 §1.2：Gilbert 1996 / Spence 2020 跨模态研究，7 种香调；色块宽度=香调占比权重，时序=前中后调图层，强度=透明度）",
+  "floral": {
+    "key": "floral",
+    "name_zh": "花香调",
+    "palette": ["#F6C6D5", "#D8B4D8", "#E75480"],
+    "gradient_direction": 135,
+    "motion": { "type": "bloom", "particle_count": 60, "speed": 0.4, "shape": "petal", "label": "柔和绽放" },
+    "mood": { "valence": 0.7, "arousal": 0.5, "label": "温柔·浪漫" },
+    "radar_prior": { "fresh": 0.5, "sweet": 0.7, "rich": 0.5, "warm": 0.6, "lasting": 0.5 }
+  },
+  "woody": {
+    "key": "woody",
+    "name_zh": "木质调",
+    "palette": ["#8B6F47", "#C19A6B", "#5C4033"],
+    "gradient_direction": 160,
+    "motion": { "type": "settle", "particle_count": 40, "speed": 0.15, "shape": "grain", "label": "缓慢沉淀" },
+    "mood": { "valence": 0.5, "arousal": 0.25, "label": "沉稳·安宁" },
+    "radar_prior": { "fresh": 0.3, "sweet": 0.2, "rich": 0.8, "warm": 0.8, "lasting": 0.9 }
+  },
+  "citrus": {
+    "key": "citrus",
+    "name_zh": "柑橘调",
+    "palette": ["#FFE066", "#FFA500", "#FFF3B0"],
+    "gradient_direction": 120,
+    "motion": { "type": "sparkle", "particle_count": 90, "speed": 0.9, "shape": "dot", "label": "跳跃闪亮" },
+    "mood": { "valence": 0.9, "arousal": 0.85, "label": "明快·活力" },
+    "radar_prior": { "fresh": 0.95, "sweet": 0.4, "rich": 0.3, "warm": 0.4, "lasting": 0.2 }
+  },
+  "oriental": {
+    "key": "oriental",
+    "name_zh": "东方调",
+    "palette": ["#5D3A9B", "#D4AF37", "#8B0000"],
+    "gradient_direction": 200,
+    "motion": { "type": "envelop", "particle_count": 70, "speed": 0.25, "shape": "smoke", "label": "层层包裹" },
+    "mood": { "valence": 0.6, "arousal": 0.55, "label": "神秘·浓郁" },
+    "radar_prior": { "fresh": 0.2, "sweet": 0.6, "rich": 0.95, "warm": 0.9, "lasting": 0.85 }
+  },
+  "aquatic": {
+    "key": "aquatic",
+    "name_zh": "水生调",
+    "palette": ["#66CDAA", "#4682B4", "#BFE8F5"],
+    "gradient_direction": 110,
+    "motion": { "type": "flow", "particle_count": 80, "speed": 0.5, "shape": "wave", "label": "流动涟漪" },
+    "mood": { "valence": 0.6, "arousal": 0.35, "label": "清净·自由" },
+    "radar_prior": { "fresh": 0.9, "sweet": 0.2, "rich": 0.2, "warm": 0.2, "lasting": 0.3 }
+  },
+  "gourmand": {
+    "key": "gourmand",
+    "name_zh": "美食调",
+    "palette": ["#FF9966", "#C68E17", "#FFE4B5"],
+    "gradient_direction": 150,
+    "motion": { "type": "melt", "particle_count": 55, "speed": 0.3, "shape": "drop", "label": "甜蜜融化" },
+    "mood": { "valence": 0.85, "arousal": 0.5, "label": "甜美·温暖" },
+    "radar_prior": { "fresh": 0.3, "sweet": 0.95, "rich": 0.8, "warm": 0.8, "lasting": 0.6 }
+  },
+  "fougere": {
+    "key": "fougere",
+    "name_zh": "馥奇调",
+    "palette": ["#7A8B5E", "#8B6F47", "#A9C47F"],
+    "gradient_direction": 145,
+    "motion": { "type": "sway", "particle_count": 60, "speed": 0.35, "shape": "leaf", "label": "草木摇曳" },
+    "mood": { "valence": 0.6, "arousal": 0.45, "label": "干练·清爽" },
+    "radar_prior": { "fresh": 0.7, "sweet": 0.3, "rich": 0.6, "warm": 0.5, "lasting": 0.7 }
+  }
+}

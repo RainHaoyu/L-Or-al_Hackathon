@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ysl-libre-edp",
+    "brand": "Yves Saint Laurent",
+    "name": "Libre",
+    "concentration_type": "EDP",
+    "year": 2019,
+    "perfumer": ["Anne Flipo", "Carlos Benaïm"],
+    "fragrantica_family": "Amber Fougère",
+    "pyramid": {
+      "top": ["Lavender", "Mandarin Orange", "Black Currant", "Petitgrain"],
+      "heart": ["Lavender", "Orange Blossom", "Jasmine"],
+      "base": ["Madagascar Vanilla", "Musk", "Cedar", "Ambergris"]
+    },
+    "inci_full": ["Alcohol", "Parfum / Fragrance", "Aqua / Water", "Limonene", "Linalool", "Benzyl Salicylate", "Hydroxycitronellal", "Benzyl Alcohol", "Ethylhexyl Salicylate", "Butyl Methoxydibenzoylmethane", "Coumarin", "Geraniol", "Methyl Anthranilate", "Citronellol", "Citral", "Isoeugenol", "Alpha-Isomethyl Ionone", "Farnesol", "Ci 14700 / Red 4", "Ci 19140 / Yellow 5", "Ci 60730 / Ext. Violet 2"],
+    "inci_source": "https://www.ulta.com/p/libre-eau-de-parfum-pimprod2008599",
+    "pyramid_source": "https://www.fragrantica.asia/perfume/Yves-Saint-Laurent/Libre-56077.html",
+    "notes_on_data": "INCI 取自 Ulta（与 YSL 美官网一致，21 项，EU 版标签会含 Parfum/Fragrance 与 Aqua）。Fragrantica 中文名'东方香型森林调'即英文 Amber Fougère。"
+  },
+  {
+    "id": "ysl-black-opium-edp",
+    "brand": "Yves Saint Laurent",
+    "name": "Black Opium",
+    "concentration_type": "EDP",
+    "year": 2014,
+    "perfumer": ["Nathalie Lorson", "Marie Salamagne", "Olivier Cresp", "Honorine Blanc"],
+    "fragrantica_family": "Amber Vanilla",
+    "pyramid": {
+      "top": ["Pear", "Pink Pepper", "Orange Blossom"],
+      "heart": ["Coffee", "Jasmine", "Bitter Almond", "Licorice"],
+      "base": ["Vanilla", "Patchouli", "Cashmere Wood", "Cedar"]
+    },
+    "inci_full": ["Alcohol", "Water", "Benzyl Salicylate", "Benzyl Alcohol", "Hydroxycitronellal", "Butyl Methoxydibenzoylmethane", "Hexyl Cinnamal", "Limonene", "Linalool", "Geraniol", "Citronellol", "Cinnamyl Alcohol", "Methyl Anthranilate", "Amyl Cinnamal", "Citral", "Coumarin", "Benzyl Benzoate", "Ci 15985 (Yellow 6)", "Ci 17200 (Red 33)"],
+    "inci_source": "https://inkeedecoder.com/products/ysl-beauty-black-opium-eau-de-parfum",
+    "pyramid_source": "https://www.fragrantica.asia/perfume/Yves-Saint-Laurent/Black-Opium-25324.html",
+    "notes_on_data": "美国标签格式：不含 'Parfum/Fragrance' 一项且用 'Water' 而非 'Aqua'（与 YSL 美官网一致）；EU 版标签会含 Parfum/Fragrance。"
+  },
+  {
+    "id": "ysl-lhomme-edt",
+    "brand": "Yves Saint Laurent",
+    "name": "L'Homme",
+    "concentration_type": "EDT",
+    "year": 2006,
+    "perfumer": ["Anne Flipo", "Pierre Wargnye", "Dominique Ropion", "Juliette Karagueuzoglou"],
+    "fragrantica_family": "Woody Floral Musk",
+    "pyramid": {
+      "top": ["Ginger", "Bergamot", "Lemon"],
+      "heart": ["Spices", "Violet Leaf", "White Pepper", "Basil"],
+      "base": ["Tonka Bean", "Cedar", "Tahitian Vetiver"]
+    },
+    "inci_full": ["Alcohol", "Water", "Ethylhexyl Methoxycinnamate", "Limonene", "Butyl Methoxydibenzoylmethane", "Butylphenyl Methylpropional", "Coumarin", "Linalool", "Propylene Glycol", "Geraniol", "Alpha-Isomethyl Ionone", "Citral", "Tris(Tetramethylhydroxypiperidinol) Citrate", "Isoeugenol", "Citronellol", "Disodium Edta", "Cinnamal", "Ci 15985 (Yellow 6)", "Ci 19140 (Yellow 5)"],
+    "inci_source": "https://www.ulta.com/p/lhomme-eau-de-toilette-VP12563",
+    "pyramid_source": "https://www.fragrantica.asia/perfume/Yves-Saint-Laurent/L-Homme-734.html",
+    "notes_on_data": "美国标签格式：不含 'Parfum/Fragrance'、用 'Water'；EU 版标签为 Alcohol Denat./Parfum/Aqua 起头。Fragrantica 家族中文'木质花香麝香调'即 Woody Floral Musk。"
+  },
+  {
+    "id": "lancome-la-vie-est-belle-edp",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle",
+    "concentration_type": "EDP",
+    "year": 2012,
+    "perfumer": ["Olivier Polge", "Dominique Ropion", "Anne Flipo"],
+    "fragrantica_family": "Floral Fruity Gourmand",
+    "pyramid": {
+      "top": ["Black Currant", "Pear"],
+      "heart": ["Iris", "Jasmine", "Orange Blossom"],
+      "base": ["Praline", "Vanilla", "Patchouli", "Tonka Bean"]
+    },
+    "inci_full": ["Alcohol", "Parfum / Fragrance", "Aqua / Water", "Linalool", "Benzyl Salicylate", "Limonene", "Methyl Anthranilate", "Tris(Tetramethylhydroxypiperidinol) Citrate", "Ethylhexyl Methoxycinnamate", "Butyl Methoxydibenzoylmethane", "Ci 14700 (Red 4)", "Ci 17200 (Red 33)", "Ci 47005 (Yellow 1)", "Geraniol", "Alpha-Isomethyl Ionone", "Coumarin", "Farnesol", "Citral", "Citronellol", "Benzyl Alcohol", "Benzyl Benzoate"],
+    "inci_source": "https://inkeedecoder.com/products/lancome-la-vie-est-belle",
+    "pyramid_source": "https://www.fragrantica.asia/perfume/Lancome/La-Vie-Est-Belle-14982.html",
+    "notes_on_data": "INCI 来自 inkeedecoder（EU 标签格式，含 Parfum/Aqua）。"
+  },
+  {
+    "id": "lancome-idole-edp",
+    "brand": "Lancôme",
+    "name": "Idôle",
+    "concentration_type": "EDP",
+    "year": 2019,
+    "perfumer": ["Shyamala Maisondieu", "Adriana Medina-Baez", "Nadège Le Garlantezec", "Sonia Constant"],
+    "fragrantica_family": "Chypre Floral",
+    "pyramid": {
+      "top": ["Pear", "Bergamot", "Pink Pepper"],
+      "heart": ["Rose", "Jasmine"],
+      "base": ["White Musk", "Vanilla", "Patchouli", "Cedar"]
+    },
+    "inci_full": ["Alcohol", "Parfum / Fragrance", "Aqua / Water / Eau", "Methyl Anthranilate", "Tris(Tetramethylhydroxypiperidinol) Citrate", "Ethylhexyl Salicylate", "Butyl Methoxydibenzoylmethane", "CI 14700 (Red 4)", "CI 60730 (Ext. Violet 2)", "Linalool", "Geraniol", "Eugenol", "Alpha-Isomethyl Ionone", "Methyl-2-Octynoate", "Coumarin", "Farnesol", "Limonene", "Hydroxycitronellal", "Citral", "Citronellol", "Hexyl Cinnamal", "Benzyl Alcohol", "Benzyl Benzoate", "Benzyl Salicylate"],
+    "inci_source": "https://www.ulta.com/p/idole-eau-de-parfum-pimprod2008623",
+    "pyramid_source": "https://www.fragrantica.asia/perfume/Lancome/Idole-55795.html",
+    "notes_on_data": "inkeedecoder 上的 'Lancôme Idôle Parfum' 是 Parfum 浓度版而非 EDP，故 EDP 的 INCI 取自 Ulta。Idôle EDP 紫外线过滤剂为 Ethylhexyl Salicylate + Avobenzone。"
+  },
+  {
+    "id": "viktor-rolf-flowerbomb-edp",
+    "brand": "Viktor & Rolf",
+    "name": "Flowerbomb",
+    "concentration_type": "EDP",
+    "year": 2005,
+    "perfumer": ["Olivier Polge", "Carlos Benaïm", "Domitille Michalon Bertier", "Dominique Ropion"],
+    "fragrantica_family": "Amber Floral",
+    "pyramid": {
+      "top": ["Tea", "Bergamot", "Osmanthus"],
+      "heart": ["Orchid", "Jasmine", "Rose", "Freesia", "African Orange Blossom"],
+      "base": ["Patchouli", "Musk", "Vanilla"]
+    },
+    "inci_full": ["Alcohol", "Parfum / Fragrance", "Aqua / Water", "Benzyl Salicylate", "Linalool", "Butyl Methoxydibenzoylmethane", "Ethylhexyl Methoxycinnamate", "Limonene", "Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate", "Coumarin", "Benzyl Alcohol", "Benzyl Benzoate", "Citral", "Ci 19140 (Yellow 5)", "Ci 60730 (Ext. Violet 2)", "Ci 17200 (Red 33)"],
+    "inci_source": "https://inkeedecoder.com/products/viktor-rolf-flowerbomb-perfume",
+    "pyramid_source": "https://www.fragrantica.asia/perfume/Viktor-Rolf/Flowerbomb-1460.html",
+    "notes_on_data": "Fragrantica 家族中文'东方型花香调'即 Amber Floral（旧称 Oriental Floral）。"
+  },
+  {
+    "id": "mugler-angel-edp",
+    "brand": "Mugler",
+    "name": "Angel",
+    "concentration_type": "EDP",
+    "year": 1992,
+    "perfumer": ["Olivier Cresp", "Yves de Chirin"],
+    "fragrantica_family": "Amber Vanilla",
+    "pyramid": {
+      "top": ["Melon", "Coconut", "Mandarin Orange", "Cassia", "Jasmine", "Bergamot", "Cotton Candy"],
+      "heart": ["Honey", "Apricot", "Blackberry", "Plum", "Orchid", "Peach", "Jasmine", "Lily-of-the-Valley", "Red Berries", "Rose"],
+      "base": ["Tonka Bean", "Amber", "Patchouli", "Musk", "Vanilla", "Dark Chocolate", "Caramel"]
+    },
+    "inci_full": ["Alcohol", "Parfum / Fragrance", "Aqua / Water / Eau", "Butylphenyl Methylpropional", "Ethylhexyl Methoxycinnamate", "Butyl Methoxydibenzoylmethane", "Ethylhexyl Salicylate", "BHT", "Coumarin", "Limonene", "Linalool", "Geraniol", "Amyl Cinnamal", "Citronellol", "Benzyl Salicylate", "Citral", "Farnesol", "Hexyl Cinnamal", "Eugenol", "Benzyl Benzoate", "Isoeugenol", "Ci 60730 (Ext. Violet 2)", "Ci 19140 (Yellow 5)", "Ci 42090 (Blue 1)", "Ci 17200 (Red 33)"],
+    "inci_source": "https://www.mugler.com/fragrance/angel-eau-de-parfum-perfume/M010101003.html",
+    "pyramid_source": "https://www.fragrantica.asia/perfume/Thierry-Mugler/Angel-704.html",
+    "notes_on_data": "year=1992 为首发年份；当前在售版配方 INCI 取自 mugler.com 官方页（25 项，含 Butylphenyl Methylpropional）。香调金字塔为 Fragrantica 经典版结构。警告：inkeedecoder 的 'Mugler Angel Perfume' 条目实为沐浴露配方，不可用作香水 INCI。"
+  }
+]

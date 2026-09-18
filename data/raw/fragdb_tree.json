@@ -1,0 +1,493 @@
+{
+  "sha": "2c3ae74494add26109bc893525923f2c6f0d76f1",
+  "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/2c3ae74494add26109bc893525923f2c6f0d76f1",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "05d4f768dcfaf33092467445e810e07182f8eb90",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/05d4f768dcfaf33092467445e810e07182f8eb90"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6a1550c1f26c0fdf3b3f235e62c7d2054fc3bde4",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/6a1550c1f26c0fdf3b3f235e62c7d2054fc3bde4"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d7c175366360c36595cd45ee4c32d7dd18818c2",
+      "size": 953,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/4d7c175366360c36595cd45ee4c32d7dd18818c2"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40ade32b2054a5d855e8b20b5b3ffcb3ce606934",
+      "size": 1081,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/40ade32b2054a5d855e8b20b5b3ffcb3ce606934"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/question.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0e9769946425ef9495ed9d379bdc4ea772ce435",
+      "size": 877,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/b0e9769946425ef9495ed9d379bdc4ea772ce435"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9386cff177ab184b1216b0da46eb7f895418e1b",
+      "size": 818,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/c9386cff177ab184b1216b0da46eb7f895418e1b"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cf967d494ca64373f7bec0bcd1b651a95a7e34f",
+      "size": 593,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/7cf967d494ca64373f7bec0bcd1b651a95a7e34f"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9fe09b2585cfdc5470addd927fcf0d702562db8",
+      "size": 20032,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/b9fe09b2585cfdc5470addd927fcf0d702562db8"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74218e6376fbce30e14435457fb38ea4c07041b8",
+      "size": 1933,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/74218e6376fbce30e14435457fb38ea4c07041b8"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21b4be75c250e5a480572b1ffaf6f71e7b40e750",
+      "size": 1807,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/21b4be75c250e5a480572b1ffaf6f71e7b40e750"
+    },
+    {
+      "path": "DATA_DICTIONARY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "958bc26c4936e0b013d548b040284aa5506ab372",
+      "size": 9317,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/958bc26c4936e0b013d548b040284aa5506ab372"
+    },
+    {
+      "path": "LICENSE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3771bf00eae1befe9f56e5c04cc6063eaf80390a",
+      "size": 3471,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/3771bf00eae1befe9f56e5c04cc6063eaf80390a"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab91f06b53403881205969f8a550dd82cdc89b57",
+      "size": 20956,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/ab91f06b53403881205969f8a550dd82cdc89b57"
+    },
+    {
+      "path": "SAMPLE_PREVIEW.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5770aa1f1d803dda1272a98f535ee649078c36c6",
+      "size": 5680,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/5770aa1f1d803dda1272a98f535ee649078c36c6"
+    },
+    {
+      "path": "SECURITY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59b7d6653a6b8c4d2353f799c0da8fd38833424b",
+      "size": 1449,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/59b7d6653a6b8c4d2353f799c0da8fd38833424b"
+    },
+    {
+      "path": "SPEC.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e5dfd273a816b8d3206f43e93d04146e4ff3fba",
+      "size": 27374,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/1e5dfd273a816b8d3206f43e93d04146e4ff3fba"
+    },
+    {
+      "path": "assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3fc4487b7e85dd19a51a5019f0250030f0877450",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/3fc4487b7e85dd19a51a5019f0250030f0877450"
+    },
+    {
+      "path": "assets/brands_detail.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e4d12572cdac56e3b661f456739b0192640cabd",
+      "size": 91070,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/7e4d12572cdac56e3b661f456739b0192640cabd"
+    },
+    {
+      "path": "assets/brands_table.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27d6574df5caa63ce23218bb8cb20df53c94311e",
+      "size": 816904,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/27d6574df5caa63ce23218bb8cb20df53c94311e"
+    },
+    {
+      "path": "assets/detail_view.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5d6fef32c6ea1d8f896df7163d50e796deaf900",
+      "size": 371352,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/c5d6fef32c6ea1d8f896df7163d50e796deaf900"
+    },
+    {
+      "path": "assets/notes_detail.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb1e5b3bb0e186cd606a4194923f3c1df1824c7c",
+      "size": 88436,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/cb1e5b3bb0e186cd606a4194923f3c1df1824c7c"
+    },
+    {
+      "path": "assets/notes_table.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45836151ac75e2a06d11dbaf3d6aa8e4985d6208",
+      "size": 1044982,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/45836151ac75e2a06d11dbaf3d6aa8e4985d6208"
+    },
+    {
+      "path": "assets/perfumers_detail.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a30b0b5efbbf7a88dbac0cc7f6ef9fd28cbc3cd",
+      "size": 87284,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/6a30b0b5efbbf7a88dbac0cc7f6ef9fd28cbc3cd"
+    },
+    {
+      "path": "assets/perfumers_table.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7aea64c9bf42a6ce0ac6376c0db4ff58dcfb5e1",
+      "size": 1202548,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/f7aea64c9bf42a6ce0ac6376c0db4ff58dcfb5e1"
+    },
+    {
+      "path": "assets/table_view.webp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46301ce51997f30b8969acbba003a4ddd1044655",
+      "size": 1379772,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/46301ce51997f30b8969acbba003a4ddd1044655"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e0223e5e97e2d0c8f8feb1a2259b38bf43317144",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/e0223e5e97e2d0c8f8feb1a2259b38bf43317144"
+    },
+    {
+      "path": "docs/API_COMPARISON.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50983cc89cf682729225d7ad7126e98e2dc47f66",
+      "size": 6476,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/50983cc89cf682729225d7ad7126e98e2dc47f66"
+    },
+    {
+      "path": "docs/FAQ.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f070e2cbc901d24825ac14d569bb467ca8ace6de",
+      "size": 8472,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/f070e2cbc901d24825ac14d569bb467ca8ace6de"
+    },
+    {
+      "path": "docs/INTEGRATION_GUIDE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7da1e15a1b6c213efbd59a850f0ed0e8f9821785",
+      "size": 10173,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/7da1e15a1b6c213efbd59a850f0ed0e8f9821785"
+    },
+    {
+      "path": "docs/USE_CASES.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e0a3ea2b586f07dfe656a52dffcbf382763a397",
+      "size": 9130,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/6e0a3ea2b586f07dfe656a52dffcbf382763a397"
+    },
+    {
+      "path": "docs/VERSION_2.0_RELEASE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1af7266b5ed4580fb0e66363c39e03efd759bee3",
+      "size": 13399,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/1af7266b5ed4580fb0e66363c39e03efd759bee3"
+    },
+    {
+      "path": "docs/VERSION_3.0_RELEASE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0976e3bd5f44f2dc5cfd6dfd3f0755d410381e31",
+      "size": 10291,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/0976e3bd5f44f2dc5cfd6dfd3f0755d410381e31"
+    },
+    {
+      "path": "examples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1ade905a56f4665d8f64fafa6f102c815e4b9e22",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/1ade905a56f4665d8f64fafa6f102c815e4b9e22"
+    },
+    {
+      "path": "examples/javascript",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9e0f9614fa914fd8a0db4cdab7cc03539d448406",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/9e0f9614fa914fd8a0db4cdab7cc03539d448406"
+    },
+    {
+      "path": "examples/javascript/fragrance_api.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39df111a38fd503795b5562c02795874d76f77fc",
+      "size": 13527,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/39df111a38fd503795b5562c02795874d76f77fc"
+    },
+    {
+      "path": "examples/javascript/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91c7c36f8d2665986eb492bb203cf66bb3daf75f",
+      "size": 464,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/91c7c36f8d2665986eb492bb203cf66bb3daf75f"
+    },
+    {
+      "path": "examples/javascript/parse_csv.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb3088496393271c5ac0f293e0b7e4d63c6b0ac0",
+      "size": 8153,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/fb3088496393271c5ac0f293e0b7e4d63c6b0ac0"
+    },
+    {
+      "path": "examples/javascript/search_example.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60d09117f37bf5d3da91c5547718e66e57cddbf4",
+      "size": 5626,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/60d09117f37bf5d3da91c5547718e66e57cddbf4"
+    },
+    {
+      "path": "examples/python",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "94218d3b7840869c949b6ced4b3123ccec475f92",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/94218d3b7840869c949b6ced4b3123ccec475f92"
+    },
+    {
+      "path": "examples/python/load_database.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e057e96bb408f50351b711ead4e81d9e9a018823",
+      "size": 5935,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/e057e96bb408f50351b711ead4e81d9e9a018823"
+    },
+    {
+      "path": "examples/python/parse_fields.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bf0540c4c237ade4ece8a5c4b1f1da31e7e38ff",
+      "size": 11889,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/1bf0540c4c237ade4ece8a5c4b1f1da31e7e38ff"
+    },
+    {
+      "path": "examples/python/recommender.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "501524b086d0da48036d1fe015fa06d7af2dd513",
+      "size": 6022,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/501524b086d0da48036d1fe015fa06d7af2dd513"
+    },
+    {
+      "path": "examples/python/requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff8c2268eb3987a172d0d265e42557b6075ac971",
+      "size": 28,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/ff8c2268eb3987a172d0d265e42557b6075ac971"
+    },
+    {
+      "path": "examples/python/search_fragrances.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2c4c41cf4e1a2c7ae8a510f6dc29ac77bfb1b73",
+      "size": 3892,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/a2c4c41cf4e1a2c7ae8a510f6dc29ac77bfb1b73"
+    },
+    {
+      "path": "examples/r",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "28972bdfac91c3ca3e6abad1c2d37557c9c8ccfa",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/28972bdfac91c3ca3e6abad1c2d37557c9c8ccfa"
+    },
+    {
+      "path": "examples/r/analysis.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c25f702b44f280221b2fda4cee72fea69a09621f",
+      "size": 10365,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/c25f702b44f280221b2fda4cee72fea69a09621f"
+    },
+    {
+      "path": "examples/r/visualization.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "806c383ce02bb6beb101387949f2eec921496a5d",
+      "size": 8356,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/806c383ce02bb6beb101387949f2eec921496a5d"
+    },
+    {
+      "path": "examples/sql",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fece73c0d94fc51a64ed33a4646abb2fc1f659be",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/fece73c0d94fc51a64ed33a4646abb2fc1f659be"
+    },
+    {
+      "path": "examples/sql/import_instructions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a99b09131fe8dc2b29eca5e30525cdf10ba13f0d",
+      "size": 4164,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/a99b09131fe8dc2b29eca5e30525cdf10ba13f0d"
+    },
+    {
+      "path": "examples/sql/mysql_schema.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f01666357b8f04739c7b510f19dce73b49b2fb5",
+      "size": 11821,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/7f01666357b8f04739c7b510f19dce73b49b2fb5"
+    },
+    {
+      "path": "examples/sql/postgresql_schema.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "582e68442ffbc8120b65614147b3656f82e4cf76",
+      "size": 11231,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/582e68442ffbc8120b65614147b3656f82e4cf76"
+    },
+    {
+      "path": "examples/sql/sample_queries.sql",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b56f5a9992fcd3b4d7677fdab670f9dc9b3813e",
+      "size": 10321,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/7b56f5a9992fcd3b4d7677fdab670f9dc9b3813e"
+    },
+    {
+      "path": "samples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ff2138d3246d74e7c2076a7ad541e9a3682ca2b9",
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/trees/ff2138d3246d74e7c2076a7ad541e9a3682ca2b9"
+    },
+    {
+      "path": "samples/accords.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d705f149592d83958fddd440e52e2c83baebfd2",
+      "size": 3307,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/9d705f149592d83958fddd440e52e2c83baebfd2"
+    },
+    {
+      "path": "samples/brands.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b397fb806f70faa371fbbd9c1ffb00e8169a007e",
+      "size": 33955,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/b397fb806f70faa371fbbd9c1ffb00e8169a007e"
+    },
+    {
+      "path": "samples/comments_sample.parquet",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc23ad7b77672414fed4ea70a2616df206cbe18e",
+      "size": 15521,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/cc23ad7b77672414fed4ea70a2616df206cbe18e"
+    },
+    {
+      "path": "samples/fragrances.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdc7ec80bb872bbb2eae72a78cc9c5405d53e736",
+      "size": 67727,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/fdc7ec80bb872bbb2eae72a78cc9c5405d53e736"
+    },
+    {
+      "path": "samples/news_comments_sample.parquet",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0aef4541e46e231be83becd06a3d92f11af916bb",
+      "size": 6055,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/0aef4541e46e231be83becd06a3d92f11af916bb"
+    },
+    {
+      "path": "samples/news_sample.parquet",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43fa39448b96f8abd06229a2903b9564e2fdb5ef",
+      "size": 124859,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/43fa39448b96f8abd06229a2903b9564e2fdb5ef"
+    },
+    {
+      "path": "samples/notes.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c784e7fa9af31a88431fa9aa01e86639c6c96fbe",
+      "size": 12565,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/c784e7fa9af31a88431fa9aa01e86639c6c96fbe"
+    },
+    {
+      "path": "samples/perfumers.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23367674ad28c7f4bf1c7da7aefd8949bf0e54f7",
+      "size": 30431,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/23367674ad28c7f4bf1c7da7aefd8949bf0e54f7"
+    },
+    {
+      "path": "samples/translations.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa8f16c7db0e358e7676311f165f3454fa4d20e4",
+      "size": 10195,
+      "url": "https://api.github.com/repos/FragDB/fragrance-database/git/blobs/aa8f16c7db0e358e7676311f165f3454fa4d20e4"
+    }
+  ],
+  "truncated": false
+}
