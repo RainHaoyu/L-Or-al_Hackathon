@@ -305,3 +305,77 @@ SCCP 建议对已知致敏物的安全水平确定应基于临床数据和/或�
 输入香水名或成分表 → 匹配致敏原 → 计算点估计 QRA → 检查 IFRA 限量 → 计算氧化 D → 做人群分级 → 输出风险报告和基础可视化。
 
 计划中的目录结构：
+
+docs/context.md
+docs/terms.md
+docs/enums.md
+contracts/types.ts
+contracts/risk.ts
+contracts/visual.ts
+data/ingredients.csv
+data/ifra_limits.csv
+data/qra_params.csv
+data/population_rules.json
+data/scent_visual_map.json
+fixtures/qra_citral.json
+fixtures/oxidation_limonene.json
+fixtures/report_sample.json
+src/engine/qra.ts
+src/engine/monteCarlo.ts
+src/engine/oxidation.ts
+src/engine/population.ts
+src/engine/aggregate.ts
+src/services/identify.ts
+src/services/ocr.ts
+src/services/productMatch.ts
+src/visual/mapScent.ts
+src/report/buildReport.ts
+apps/web/pages/Input.tsx
+apps/web/pages/Result.tsx
+tests/qra.test.ts
+
+
+---
+
+## 路线图
+
+### P0 必须做
+
+- 数据字典、成分匹配、点估计 QRA、IFRA 闸门、氧化简易 D、人群分级、报告 JSON、基础可视化、前端输入和结果页、免责声明。
+
+### P1 后做
+
+- 蒙特卡洛 P50/P90/P99、LHS、双轨临床校验、OCR 成分表、条码扫码、失嗅模式、动态氧化。
+
+### P2 亮点后置
+
+- 聚合暴露、AI 文生图、动态粒子、瓶身拍照多模态、线下门店适配。
+
+### P3 远期
+
+- 临床数据库自动更新、监管申报、硬件具身交互。
+
+---
+
+## 贡献指南
+
+欢迎对香水安全、AI 辅助决策、无障碍交互、跨模态感知等方向感兴趣的开发者参与贡献。
+
+建议贡献方式：
+
+1. 阅读 docs/context.md 和 contracts 目录，了解项目边界与数据契约。
+2. 从 P0 任务中选择一个模块，先写测试 fixture，再实现纯函数。
+3. 提交 PR 时附上验收标准和测试结果。
+4. 不要一次性修改多个模块，保持小步提交。
+
+---
+
+## 免责声明
+
+万象Aura 提供的风险提示与建议仅用于辅助决策，不构成医疗诊断或治疗建议。如有过敏史、皮肤疾病或孕期健康问题，请咨询专业医生。香水成分与法规限量可能随时间变化，请以官方最新标准为准。
+
+---
+
+## 许可证
+
+待定。
