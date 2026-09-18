@@ -233,6 +233,9 @@ export default function App() {
               <p className="text-xs text-ink-3">
                 {productName} · 识别通道 {result.recognition_channel}
                 {result.recognition_confidence != null && `（置信度 ${result.recognition_confidence}）`}
+                {result.vision.degraded && (
+                  <span className="ml-1 text-warn">· 可视化降级（原因见「香味可视化」页）</span>
+                )}
               </p>
             </div>
           )}

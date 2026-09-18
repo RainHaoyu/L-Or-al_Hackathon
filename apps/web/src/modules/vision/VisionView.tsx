@@ -15,7 +15,20 @@ const PHASE_LABEL: Record<string, string> = { top: "前调", heart: "中调", ba
 export default function VisionView({ vision, productName }: { vision: VisionReport; productName: string }) {
   return (
     <div className="space-y-4">
+      {vision.degraded && (
+        <div role="status"
+          className="rounded-2xl bg-panel px-4 py-3 text-sm text-warn ring-1 ring-warn/40">
+          <p className="font-semibold">⚠️ 香味可视化降级</p>
+          <p className="mt-1 text-ink-2">
+            {vision.degrade_reason ?? "该产品缺少可用的香调构成信息，色彩/雷达/金字塔暂不可用。"}
+          </p>
+          <p className="mt-1 text-xs text-ink-3">
+            左侧「预警报告」与「成分明细」不受影响，仍为完整结果。
+          </p>
+        </div>
+      )}
       <PaletteBar vision={vision} />
+
       <div className="grid gap-4 md:grid-cols-2">
         <RadarChart vision={vision} />
         <Card title="香调金字塔（时序图层）">

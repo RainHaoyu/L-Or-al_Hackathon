@@ -4,7 +4,9 @@ from fastapi.testclient import TestClient
 
 from app.main import create_app
 from app.modules.ingredient.repository import get_repository, init_repository
+from app.modules.scentmap.service import ScentmapService
 from app.core.config import get_settings
+from app.schemas.api import VisionMode
 
 
 @pytest.fixture(scope="module")
@@ -140,3 +142,69 @@ def test_admin_import_and_stats(client):
     finally:
         repo.reload_allergens(original)  # 恢复，避免影响其他测试
     assert get_repository().stats()["allergens"] == len(original)
+
+
+# —— 回归：可视化必须在真实香水库上产出内容（历史 bug：20/21 款为空壳） ——
+def test_vision_non_empty_for_every_real_perfume(repo):
+    """曾经只有 golden-limonene 有可视化：pyramid 的 str 形状会抛 AttributeError，
+    再被 analyzer 的 except 静默兜底。此前测试只断言 risk，所以全部通过。"""
+    svc = ScentmapService(repo.families)
+    empty: list[str] = []
+    for product in repo.perfumes:
+        if not product.get("families"):
+            continue
+        v = svc.build_vision(product, repo, VisionMode.normal)
+        if not (v.families and v.palette and v.radar and v.pyramid):
+            empty.append(product["id"])
+    assert not empty, f"以下香水可视化仍为空：{empty}"
+
+
+def test_vision_families_all_have_rules(repo):
+    """香水用到的香调都必须能在 families.json 找到视觉规则，否则前端无配色。"""
+    unknown = sorted({k for p in repo.perfumes for k in (p.get("families") or {})}
+                     - set(repo.families))
+    assert not unknown, f"缺少视觉规则的香调：{unknown}"
+
+
+# —— 回归：真实香水 + 手动输入的 vision 必须完整且不被标记为降级 ——
+def test_analyze_real_perfume_vision_is_complete(client):
+    for pid in ("ysl-libre-edp", "lancome-la-vie-est-belle-edp", "margiela-sailing-day-edt"):
+        v = client.post("/api/v1/analyze",
+                        json={"product": {"product_id": pid}, "profile": "healthy"}
+                        ).json()["data"]["vision"]
+        assert v["families"], f"{pid} families 为空"
+        assert v["palette"], f"{pid} palette 为空"
+        assert v["radar"], f"{pid} radar 为空"
+        assert v["pyramid"], f"{pid} pyramid 为空"
+        assert v["degraded"] is False, f"{pid} 被误标为降级：{v['degrade_reason']}"
+
+
+def test_analyze_manual_ingredients_vision_not_degraded(client):
+    """手动成分表曾因 _manual_families 的 NameError 导致可视化 100% 崩溃。"""
+    v = client.post("/api/v1/analyze", json={
+        "product": {"manual_ingredients": {"d-Limonene": 5.0, "Linalool": 2.0}},
+        "profile": "healthy"}).json()["data"]["vision"]
+    assert [f["key"] for f in v["families"]] == ["citrus", "floral"]
+    assert v["palette"] and v["radar"]
+    assert v["degraded"] is False
+    assert v["synesthesia_text"], "手动输入也必须产出通感文案"
+    assert "为主的" in v["synesthesia_text"]
+    assert "，。" not in v["synesthesia_text"]
+
+
+def test_vision_degraded_flag_is_observable(client, monkeypatch):
+    """降级必须可观测：构建抛错时置 degraded=True 并给出原因，而不是交一个空壳。"""
+    def boom(*_args, **_kwargs):
+        raise RuntimeError("simulated vision failure")
+
+    # 走手动输入分支（该分支的可视化入口就是 AnalyzerService._manual_families）
+    from app.modules.orchestration.analyzer import AnalyzerService
+    monkeypatch.setattr(AnalyzerService, "_manual_families", boom, raising=True)
+    v = client.post("/api/v1/analyze", json={
+        "product": {"manual_ingredients": {"d-Limonene": 5.0}},
+        "profile": "healthy"}).json()["data"]["vision"]
+    assert v["degraded"] is True, "构建失败必须被标记为降级"
+    assert "RuntimeError" in (v["degrade_reason"] or "")
+    assert v["families"] == [] and v["palette"] == [] and v["pyramid"] == {}
+
+

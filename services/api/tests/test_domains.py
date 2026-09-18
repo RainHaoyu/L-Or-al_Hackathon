@@ -1,7 +1,11 @@
 """数据域匹配 / 可视化域 / 识别域 单元测试。"""
 import pytest
 
-from app.modules.scentmap.service import ScentmapService, synesthesia_template
+from app.modules.scentmap.service import (
+    ScentmapService,
+    infer_family_from_name,
+    synesthesia_template,
+)
 from app.schemas.api import PopulationKey, VisionMode
 
 
@@ -68,6 +72,71 @@ def test_note_family_mapping(repo):
     svc = ScentmapService(repo.families)
     assert svc._pyramid({"pyramid": {"top": [{"name": "薰衣草", "weight": 1}]}}, repo, "floral")[
         "top"][0].family == "fougere"
+
+
+# —— 回归：金字塔两种数据形状（历史 bug：str 形状整体抛错并被静默兜底） ——
+def test_pyramid_accepts_both_str_and_dict_notes(repo):
+    svc = ScentmapService(repo.families)
+    # 真实香水库的形状：字符串数组
+    pyr_str = svc._pyramid({"pyramid": {"top": ["Lavender", "Bergamot"]}}, repo, "woody")
+    assert [n.name for n in pyr_str["top"]] == ["Lavender", "Bergamot"]
+    assert all(n.weight == 1.0 for n in pyr_str["top"])
+    assert pyr_str["top"][0].family == "fougere"
+    assert pyr_str["top"][1].family == "citrus"
+    # 金标算例的形状：对象数组（显式 weight / name）
+    pyr_obj = svc._pyramid(
+        {"pyramid": {"top": [{"name": "柠檬烯", "weight": 0.6}, {"name": "柑橘皮", "weight": 0.4}]}},
+        repo, "woody")
+    assert [n.weight for n in pyr_obj["top"]] == [0.6, 0.4]
+    assert pyr_obj["top"][0].family == "citrus"
+
+
+def test_pyramid_tolerates_malformed_notes(repo):
+    """空串 / 未知类型 / 非数字 weight 都不应抛错，只跳过或降级为默认。"""
+    svc = ScentmapService(repo.families)
+    out = svc._pyramid({"pyramid": {"top": ["", "  ", 123, None, {"name": "Rose", "weight": "x"}]}},
+                       repo, "woody")
+    assert [n.name for n in out["top"]] == ["Rose"]
+    assert out["top"][0].weight == 1.0
+    assert out["top"][0].family == "floral"
+
+
+# —— 回归：英文音符的香调推断（真实香水库音符全为英文） ——
+@pytest.mark.parametrize("note,expected", [
+    ("Lavender", "fougere"),
+    ("Rose", "floral"),
+    ("Orange Blossom", "floral"),   # 长词优先，不能被 orange 判成 citrus
+    ("Bergamot", "citrus"),
+    ("Vetiver", "woody"),
+    ("Madagascar Vanilla", "gourmand"),
+    ("Sea Notes", "aquatic"),
+    ("Pink Pepper", "oriental"),
+    ("Oakmoss", "fougere"),
+    ("Cedar", "woody"),
+])
+def test_english_note_family_inference(note, expected):
+    assert infer_family_from_name(note) == expected
+
+
+def test_family_inference_falls_back_to_none_when_unknown():
+    assert infer_family_from_name("Zzz Unknown Note") is None
+    assert infer_family_from_name("") is None
+    assert infer_family_from_name(None) is None
+
+
+# —— 回归：通感文案在缺维度时不得拼出病句 ——
+def test_synesthesia_template_no_broken_sentence_when_pyramid_empty(repo):
+    svc = ScentmapService(repo.families)
+    product = repo.find_perfume(product_id="golden-limonene")
+    vision = svc.build_vision(product, repo, VisionMode.normal)
+    vision.pyramid = {}   # 模拟手动输入：无金字塔
+    text = synesthesia_template(vision, "B", "N")
+    assert "为主的" in text          # 香调来自 families，仍应成立
+    assert "——，" not in text        # 不得出现空图层导致的破折号悬挂
+    assert "，。" not in text        # 不得出现空分句
+    assert "以**" not in text
+    assert text.endswith("。")
+
 
 
 # —— recognition ——

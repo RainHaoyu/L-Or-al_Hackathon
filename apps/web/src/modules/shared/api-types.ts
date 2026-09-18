@@ -96,6 +96,10 @@ export interface VisionReport {
   pyramid: Record<string, PyramidNote[]>;
   synesthesia_text: string;
   text_source: "qwen" | "template";
+  /** 降级标记：可视化构建失败或数据不足时为 true（不静默交付空壳）。 */
+  degraded: boolean;
+  /** 降级原因，用于在界面上如实说明，而不是显示一个空壳。 */
+  degrade_reason?: string | null;
 }
 
 export interface ProductInfo {

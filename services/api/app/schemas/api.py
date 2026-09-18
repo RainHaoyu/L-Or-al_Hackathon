@@ -145,6 +145,9 @@ class VisionReport(BaseModel):
     pyramid: dict[str, list[PyramidNote]] = Field(default_factory=dict, description="前中后调图层（时序）")
     synesthesia_text: str = ""
     text_source: Literal["qwen", "template"] = "template"
+    # 降级可观测性：可视化构建失败或数据不足时置 True 并给出原因，不静默交付空壳
+    degraded: bool = False
+    degrade_reason: str | None = None
 
 
 class ProductInfo(BaseModel):

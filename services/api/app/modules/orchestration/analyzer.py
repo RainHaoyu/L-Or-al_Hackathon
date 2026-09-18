@@ -67,10 +67,13 @@ class AnalyzerService:
 
         # —— 核心②：香味可视化 ——
         vision = self._build_vision(product, req)
-        if product:
-            text, source = await self.texter.generate(vision, product.get("brand", ""), product.get("name", ""))
-            vision.synesthesia_text = text
-            vision.text_source = source  # type: ignore[assignment]
+        # 文案对所有输入通道都要生成（含纯手动成分表，此时 product 为 None）：
+        # 之前整段被 `if product:` 包住，导致手动输入 families 有值但文案是空串。
+        brand = product.get("brand", "") if product else ""
+        name = product.get("name", "") if product else "手动输入成分表"
+        text, source = await self.texter.generate(vision, brand, name)
+        vision.synesthesia_text = text
+        vision.text_source = source  # type: ignore[assignment]
 
         return AnalyzeData(
             product=ProductInfo(**{
@@ -107,21 +110,31 @@ class AnalyzerService:
             VisionMode.sensitive if req.profile == "sensitive" else VisionMode.normal)
         try:
             if product:
-                return self.scentmap.build_vision(product, self.repo, mode)
-            # 纯手动成分输入：无香水库信息时退化为按成分香调聚合的极简视图
-            pseudo = {"families": self._manual_families(req), "radar": None, "pyramid": {}}
-            return self.scentmap.build_vision(pseudo, self.repo, mode)
-        except Exception:  # 可视化失败不影响预警核心
+                vision = self.scentmap.build_vision(product, self.repo, mode)
+            else:
+                # 纯手动成分输入：无香水库信息时退化为按成分香调聚合的极简视图
+                pseudo = {"families": self._manual_families(req), "radar": None, "pyramid": {}}
+                vision = self.scentmap.build_vision(pseudo, self.repo, mode)
+        except Exception as exc:  # 可视化失败不影响预警核心（错误隔离）
             logger.exception("vision build failed")
-            return VisionReport(mode=mode)
+            # 但降级必须可观测：只隔离影响，不隐藏失败
+            return VisionReport(mode=mode, degraded=True,
+                                degrade_reason=f"可视化构建失败（{exc.__class__.__name__}）：已跳过色彩/雷达/金字塔")
+        # 兜底自检：三要素全空说明上游数据异常，同样要显式标注而不是交一个空壳
+        if not vision.families and not vision.palette and not vision.pyramid:
+            logger.warning("vision built but empty: product=%s", (product or {}).get("id"))
+            vision.degraded = True
+            vision.degrade_reason = "可视化数据不足：该产品缺少可用香调构成/金字塔信息"
+        return vision
 
     def _manual_families(self, req: AnalyzeRequest) -> dict[str, float]:
         from collections import Counter
         counter: Counter[str] = Counter()
-        for rec, _, raw in [(self.repo.find_allergen(n), c, n)
-                            for n in (req.product.manual_ingredients or {})]:
+        for name, conc in (req.product.manual_ingredients or {}).items():
+            rec = self.repo.find_allergen(name)
             if rec and rec.get("families"):
-                counter[rec["families"][0]] += 1
+                # 用浓度做权重，避免纯计数让微量成分与主成分等权
+                counter[rec["families"][0]] += max(float(conc or 0.0), 0.01)
             else:
                 counter["floral"] += 0.01
         return dict(counter) if counter else {"floral": 1.0}

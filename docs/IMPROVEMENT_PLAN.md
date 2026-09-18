@@ -35,6 +35,59 @@ package.json         npm workspaces 根
 
 ---
 
+## 0.1 进度快照
+
+> 每次迭代后更新本节。✅ 已完成 ｜ 🔄 进行中 ｜ ⬜ 未开始
+
+| 批次 | 范围 | 状态 | 结果 |
+| --- | --- | --- | --- |
+| 迁移 | 现有实现入库、旧脚手架清理 | ✅ 已完成 | 提交 `dc9a0ac` |
+| **第 1 批** | **P0-1 / P0-2 / 降级上报 / 回归测试** | ✅ **已完成** | 见下「第 1 批交付记录」 |
+| 第 2 批 | P0-3 人群分级判据 + P0-4 空集合默认色 | ⬜ 未开始 | 需先验证 5 人群能分化 |
+| 第 3 批 | 数据诚实化（P1-1 ~ P1-4） | ⬜ 未开始 | 工作量中心 |
+| 第 4 批 | 对外形状契约收敛（P1-5） | ⬜ 未开始 | 前端类型改自动生成 |
+| 第 5 批 | 前端拆页 / 三模式切换 / 免责声明 | ⬜ 未开始 | 依赖第 4 批契约 |
+| 第 6 批 | 工程可复现（安装路径、依赖固化、启动文档） | ⬜ 未开始 | 建议提前穿插 |
+
+### 第 1 批交付记录（本次）
+
+**修复内容**
+
+| 编号 | 问题 | 修复 |
+| --- | --- | --- |
+| P0-1 | `_pyramid` 只认对象数组，字符串数组抛 `AttributeError` 后被静默吞掉 → 20/21 款香水可视化空壳 | 新增 `_pyramid_note()` 归一化函数，同时接受 `str` / `dict`；单条（非列表）也容错；非字符串/字典项与空名跳过 |
+| P0-1 附带 | 英文音符香调推断全错（关键词表只有中文）→ `Lavender`→oriental、`Rose`→woody，金字塔色点系统性显示错色 | 关键词表扩到中英两组、中文优先；新增 `_norm_name()` 归一化 + `infer_family_from_name()`；**同族内具体词先于泛词**（保证 `Orange Blossom`→floral 不被 `orange`→citrus 截胡） |
+| P0-1 附带 | 文案生成整段被 `if product:` 包住 → 手动输入有 families 但文案是空串；且缺维度时会拼出「以**为主的**作品，**。」 | 文案生成移出条件分支（手动输入也用 `"手动输入成分表"` 作名）；`synesthesia_template` 对香调/雷达/金字塔/情绪逐项做缺失防御；品牌为空时不再留孤立间隔号 |
+| P0-2 | `_manual_families` 列表推导引用未定义的 `c` → 手动输入可视化 100% 崩溃 | 改为显式循环取值；并改用浓度加权（避免微量成分与主成分等权） |
+| 降级上报 | `except Exception` 静默兜底，故障不可观测 | `VisionReport` 新增 `degraded` / `degrade_reason`；构建失败与"构建成功但三要素全空"两种情况都置位并给出原因 |
+| 前端同步 | 前端无法区分"空壳"与"真的没有" | `api-types.ts` 补两字段；`VisionView` 增加降级提示卡；`App` 结果区增加 `· 可视化降级` 标记 |
+
+**验证结果**
+
+| 验收项 | 修复前 | 修复后 |
+| --- | --- | --- |
+| 可视化完整的香水数 | 1 / 21 | **21 / 21** |
+| 手动输入成分表 | 100% 抛 `NameError`（被吞） | 正常出 families / palette / radar / 文案 |
+| 手动输入文案 | 空串 / 病句 | 完整通顺（如「是一支以柑橘调、花香调为主的作品」） |
+| 金字塔英文音符香调 | 全部错（默认兜底族） | 正确（`Lavender`→fougere、`Orange Blossom`→floral、`Sea Notes`→aquatic） |
+| 降级可观测 | 不可观测（HTTP 仍 200） | `degraded=true` + `degrade_reason`，前端可见 |
+| 后端测试 | 32 条通过（但漏掉了以上全部问题） | **55 条通过**（新增 23 条针对性回归） |
+
+**新增回归测试（防止复发）**
+
+- `test_pyramid_accepts_both_str_and_dict_notes`、`test_pyramid_tolerates_malformed_notes`
+- `test_english_note_family_inference`（10 组参数化）、`test_family_inference_falls_back_to_none_when_unknown`
+- `test_synesthesia_template_no_broken_sentence_when_pyramid_empty`
+- `test_vision_non_empty_for_every_real_perfume`（全库扫描，不再只测金标算例）
+- `test_vision_families_all_have_rules`
+- `test_analyze_real_perfume_vision_is_complete`、`test_analyze_manual_ingredients_vision_not_degraded`
+- `test_vision_degraded_flag_is_observable`（monkeypatch 注入故障）
+- `test_analyze_manual_ingredients` 补 `synesthesia_text` 非空断言
+
+**未纳入本批（仍待办）**：`repository` 加载期 schema 校验（把形状问题提前到启动时报错）、P0-3 人群分级、P0-4 空集合默认色。
+
+---
+
 ## 1. 现状基线（迁移时实测）
 
 ### 1.1 已经能用的部分
@@ -102,7 +155,7 @@ safety_ratio >= 1  安全，< 1 风险
 
 优先级：**P0 = 不修就无法交付**｜**P1 = 影响可用性与可信度**｜**P2 = 工程债**
 
-### 3.1 P0-1　香调金字塔两种数据形状不兼容，导致可视化整片失效
+### 3.1 P0-1　香调金字塔两种数据形状不兼容，导致可视化整片失效　✅ 已修复（第 1 批）
 
 | 项 | 内容 |
 | --- | --- |
@@ -114,7 +167,7 @@ safety_ratio >= 1  安全，< 1 风险
 | 改进方案 | ① `_pyramid` 同时接受 `str` 与 `dict`（字符串 → `{name, weight:1.0, family:按关键词推断}`）；② 更彻底的做法：在 `repository` 加载期用 Pydantic 模型校验 `perfumes.json`，把两种形状收敛成一种，**让这类问题在启动时就炸出来而不是运行时静默** |
 | 验收 | 21/21 款香水的 `/analyze` 返回非空 `families` / `palette` / `radar` / `pyramid` |
 
-### 3.2 P0-2　手动输入成分表必定崩溃
+### 3.2 P0-2　手动输入成分表必定崩溃　✅ 已修复（第 1 批）
 
 | 项 | 内容 |
 | --- | --- |
@@ -245,12 +298,15 @@ safety_ratio >= 1  安全，< 1 风险
 
 ### 第 2 步　修掉三个致命项 + 一条安全默认值（1 天）
 
-- [ ] P0-1 `_pyramid` 兼容 `str` / `dict`；并在 `repository` 加载期加 schema 校验
-- [ ] P0-2 修 `_manual_families` 的 `NameError`
+- [x] P0-1 `_pyramid` 兼容 `str` / `dict`（第 1 批已完成；`repository` 加载期 schema 校验仍待办）
+- [x] P0-2 修 `_manual_families` 的 `NameError`（第 1 批已完成）
+- [x] **把 `except Exception` 的降级上报出来**（`vision.degraded` + `degrade_reason`，第 1 批已完成）
+- [x] 补测试：真实香水可视化非空、手动输入非空（第 1 批已完成，测试数 32 → 55）
 - [ ] P0-3 让判据真的消费 `percentile_policy`，并用真实数据验证 5 人群能分化
 - [ ] P0-4 `strictest()` 空集合不再返回 green
-- [ ] **把 `except Exception` 的降级上报出来**（如 `vision.degraded` + `degrade_reason`）
-- [ ] 补测试：真实香水可视化非空、手动输入非空、5 人群分歧、空输入不绿
+- [ ] 补测试：5 人群分歧、空输入不绿
+- [ ] `repository` 加载期 schema 校验（把数据形状问题提前到启动时报错）
+
 
 ### 第 3 步　数据诚实化（1.5 天）
 
@@ -288,14 +344,15 @@ safety_ratio >= 1  安全，< 1 风险
 
 ### 5.2 功能可用性
 
-- [ ] **21/21 款香水可视化非空**（当前 1/21）
-- [ ] **手动输入成分表可视化非空**（当前 100% 崩溃）
-- [ ] **5 人群在同一香水上能产生分歧**（当前 5 人群结论相同）
-- [ ] 空成分输入的综合结论不是 green（当前是 green）
-- [ ] 输入页可输入香水名或粘贴成分表
+- [x] **21/21 款香水可视化非空**（原 1/21）— 第 1 批已修复并回归
+- [x] **手动输入成分表可视化非空**（原 100% 崩溃）— 第 1 批已修复并回归
+- [x] **降级可观测**（原静默返回空壳）— 第 1 批已修复并回归
+- [ ] **5 人群在同一香水上能产生分歧**（当前 5 人群结论相同）— 第 2 批
+- [ ] 空成分输入的综合结论不是 green（当前是 green）— 第 2 批
+- [ ] 输入页可输入香水名或粘贴成分表（当前手动输入只支持 `INCI: 浓度%` 逐行格式）
 - [ ] 结果页展示色标 / 致敏原 / 氧化 D / 雷达图 / 文字描述
-- [ ] 三种模式可切换，失嗅模式描述更详细
-- [ ] 免责声明可见
+- [ ] 三种模式可切换，失嗅模式描述更详细（当前 mode 仅来自后端，无前端切换）
+- [ ] 免责声明可见（已具备）
 
 ### 5.3 数据可信度
 
@@ -303,6 +360,15 @@ safety_ratio >= 1  安全，< 1 风险
 - [ ] 不存在按 tier 发值的毒性数据路径
 - [ ] 浓度数据的来源语义在字段名上如实体现
 - [ ] 71 条 CAS 保持全唯一（已达标，回归守卫）
+
+### 5.4 第 1 批回归守卫（已固化在测试里）
+
+- [x] 金字塔 `str` / `dict` 两种形状都能解析，畸形输入不抛错
+- [x] 英文音符香调推断正确（含 `Orange Blossom` 不被 `orange` 截胡）
+- [x] 缺金字塔时文案不出现断句/病句
+- [x] 全库 21 款香水可视化非空（不再只测金标算例）
+- [x] 手动输入可视化不降级且文案非空
+- [x] 注入故障时 `degraded=true` 且原因可读
 
 ---
 
