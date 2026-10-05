@@ -1,0 +1,225 @@
+{
+  "source": "数据层/IFRA 51st Amendment Cat4香水禁用清单.xlsx",
+  "amendment": "IFRA 51st Amendment",
+  "limits": [
+    {
+      "cas": "5392-40-5",
+      "zh": "柠檬醛",
+      "en": "Citral",
+      "limitPct": 0.6,
+      "note": "柠檬、香茅精油含，致敏"
+    },
+    {
+      "cas": "91-64-5",
+      "zh": "香豆素",
+      "en": "Coumarin",
+      "limitPct": 1.6,
+      "note": "零陵香豆、甜橙油"
+    },
+    {
+      "cas": "106-24-1",
+      "zh": "香叶醇",
+      "en": "Geraniol",
+      "limitPct": 4.0,
+      "note": "玫瑰、天竺葵"
+    },
+    {
+      "cas": "106-22-9",
+      "zh": "香茅醇",
+      "en": "Citronellol",
+      "limitPct": 4.0,
+      "note": "玫瑰系香料"
+    },
+    {
+      "cas": "97-53-0",
+      "zh": "丁香酚",
+      "en": "Eugenol",
+      "limitPct": 0.5,
+      "note": "丁香、康乃馨"
+    },
+    {
+      "cas": "97-54-1",
+      "zh": "异丁香酚",
+      "en": "Isoeugenol",
+      "limitPct": 0.05,
+      "note": "强致敏，管控极严"
+    },
+    {
+      "cas": "104-55-2",
+      "zh": "肉桂醛",
+      "en": "Cinnamal",
+      "limitPct": 0.05,
+      "note": "肉桂"
+    },
+    {
+      "cas": "104-54-1",
+      "zh": "肉桂醇",
+      "en": "Cinnamyl alcohol",
+      "limitPct": 0.4,
+      "note": "肉桂"
+    },
+    {
+      "cas": "121-33-5",
+      "zh": "香兰素",
+      "en": "Vanillin",
+      "limitPct": 10.0,
+      "note": "香草，限值宽松"
+    },
+    {
+      "cas": "78-70-6",
+      "zh": "芳樟醇",
+      "en": "Linalool",
+      "limitPct": 10.0,
+      "note": "薰衣草、橙花"
+    },
+    {
+      "cas": "4602-84-0",
+      "zh": "法尼醇",
+      "en": "Farnesol",
+      "limitPct": 0.5,
+      "note": "茉莉、金合欢"
+    },
+    {
+      "cas": "100-51-6",
+      "zh": "苯甲醇",
+      "en": "Benzyl alcohol",
+      "limitPct": 1.0,
+      "note": "茉莉，溶剂兼香料"
+    },
+    {
+      "cas": "100-28-7",
+      "zh": "苯甲醛",
+      "en": "Benzaldehyde",
+      "limitPct": 1.0,
+      "note": "苦杏仁"
+    },
+    {
+      "cas": "138-86-3",
+      "zh": "d-柠檬烯",
+      "en": "d-Limonene",
+      "limitPct": 15.0,
+      "note": "柑橘类，氧化致敏升高"
+    },
+    {
+      "cas": "101-86-0",
+      "zh": "α-己基肉桂醛",
+      "en": "Alpha-hexyl cinnamaldehyde",
+      "limitPct": 4.0,
+      "note": "花香，经典醛香"
+    },
+    {
+      "cas": "122-40-7",
+      "zh": "戊基肉桂醛",
+      "en": "Amyl cinnamal",
+      "limitPct": 1.0,
+      "note": "茉莉醛"
+    },
+    {
+      "cas": "118-58-1",
+      "zh": "水杨酸苄酯",
+      "en": "Benzyl salicylate",
+      "limitPct": 4.0,
+      "note": "晚香玉，注意光毒"
+    },
+    {
+      "cas": "140-11-4",
+      "zh": "乙酸苄酯",
+      "en": "Benzyl acetate",
+      "limitPct": 20.0,
+      "note": "茉莉主体，限值宽松"
+    },
+    {
+      "cas": "105-87-3",
+      "zh": "乙酸香叶酯",
+      "en": "Geranyl acetate",
+      "limitPct": 20.0,
+      "note": "玫瑰香叶"
+    },
+    {
+      "cas": "105-85-1",
+      "zh": "乙酸香茅酯",
+      "en": "Citronellyl acetate",
+      "limitPct": 20.0,
+      "note": "玫瑰香"
+    }
+  ],
+  "banned": [
+    {
+      "cas": "120-58-1",
+      "zh": "葵子麝香",
+      "en": "Musk",
+      "control": "完全禁用",
+      "reason": "硝基麝香，光毒性"
+    },
+    {
+      "cas": "116-66-5",
+      "zh": "二甲苯麝香",
+      "en": "Musk",
+      "control": "完全禁用",
+      "reason": "硝基麝香"
+    },
+    {
+      "cas": "81-14-1",
+      "zh": "酮麝香",
+      "en": "Musk",
+      "control": "完全禁用",
+      "reason": "硝基麝香"
+    },
+    {
+      "cas": "80-54-6",
+      "zh": "铃兰醛",
+      "en": "Butylphenyl",
+      "control": "完全禁用",
+      "reason": "50修正案起禁用，生殖毒性"
+    },
+    {
+      "cas": "10599-70-9",
+      "zh": "海葵醛",
+      "en": "Hydroxyisohexyl",
+      "control": "完全禁用",
+      "reason": "49修正案起禁用，强致敏"
+    },
+    {
+      "cas": null,
+      "zh": "天然麝香",
+      "en": "Natural",
+      "control": "完全禁用",
+      "reason": ""
+    },
+    {
+      "cas": null,
+      "zh": "天然灵猫香",
+      "en": "Natural",
+      "control": "完全禁用",
+      "reason": ""
+    },
+    {
+      "cas": "471-28-3",
+      "zh": "当归根油",
+      "en": "Angelica",
+      "control": "完全禁用",
+      "reason": "光毒性禁用"
+    },
+    {
+      "cas": "223743-5-7",
+      "zh": "薄荷内酯",
+      "en": "Mintlactone",
+      "control": "完全禁用",
+      "reason": "51修正案新增禁用"
+    }
+  ],
+  "natural": [
+    {
+      "zh": "冷压佛手柑油",
+      "en": "Bergamot oil (cold pressed, with furocoumarins)",
+      "limitPct": 0.4,
+      "note": "脱呋喃香豆素佛手柑无此限制"
+    },
+    {
+      "zh": "芸香油",
+      "en": "Rue oil",
+      "limitPct": 0.15,
+      "note": "强光敏，香水极少使用"
+    }
+  ]
+}

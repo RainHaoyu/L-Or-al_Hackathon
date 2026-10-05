@@ -1,0 +1,1125 @@
+{
+  "source": "数据层/天然香料cas.xlsx + 合成香料CAS.xlsx + 香精CAS.xlsx",
+  "entries": [
+    {
+      "cas": "23513-14-6",
+      "zh": "6-姜酚",
+      "en": "6-Gingerol",
+      "formula": "C17H26O4",
+      "source": "natural"
+    },
+    {
+      "cas": "61789-91-1",
+      "zh": "霍霍巴油",
+      "en": "jojoba oil from simmondsia chinensis",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "68855-99-2",
+      "zh": "山苍子油",
+      "en": "Litsea cubeba oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "73049-78-2",
+      "zh": "香茅精油",
+      "en": "Citronella oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8000-25-7",
+      "zh": "迷迭香油",
+      "en": "Rosemary oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8000-28-0",
+      "zh": "熏衣草油",
+      "en": "lavender oil from lavandula angusti-folia L.",
+      "formula": "C9H14ClN",
+      "source": "natural"
+    },
+    {
+      "cas": "8000-34-8",
+      "zh": "丁香油",
+      "en": "clove oil",
+      "formula": "C7H12ClN3O2",
+      "source": "natural"
+    },
+    {
+      "cas": "8000-48-4",
+      "zh": "柠檬桉油",
+      "en": "Eucalyptus Oil",
+      "formula": "C10H18O",
+      "source": "natural"
+    },
+    {
+      "cas": "8000-66-6",
+      "zh": "小豆蔻油",
+      "en": "CARDAMON OIL",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8006-87-9",
+      "zh": "檀香油",
+      "en": "Sandalwood Oil",
+      "formula": "C30H48O2",
+      "source": "natural"
+    },
+    {
+      "cas": "8006-90-4",
+      "zh": "薄荷素油",
+      "en": "Peppermint oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "2230756",
+      "zh": "姜油",
+      "en": "Ginger Oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8008-31-9",
+      "zh": "桔子油",
+      "en": "Mandarin oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8008-51-3",
+      "zh": "白樟油",
+      "en": "camphora oil from cinnamomum camphora",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8008-57-9",
+      "zh": "甜橙油",
+      "en": "Oil of Orange",
+      "formula": "C15H24O",
+      "source": "natural"
+    },
+    {
+      "cas": "2233340",
+      "zh": "广藿香油",
+      "en": "Patchouli oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8015-90-5",
+      "zh": "芹菜籽油",
+      "en": "Celery seed oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8016-84-0",
+      "zh": "万寿菊油",
+      "en": "Tagetes Oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8016-96-4",
+      "zh": "香根油",
+      "en": "Vetiver Oil Bourbon",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8022-96-6",
+      "zh": "茉莉油",
+      "en": "jasmine oil from jasminum grandiflorum L.",
+      "formula": "C10H16",
+      "source": "natural"
+    },
+    {
+      "cas": "8028-48-6",
+      "zh": "甜橙提取物",
+      "en": "Citrus aurantium dulcis",
+      "formula": "C15H22O",
+      "source": "natural"
+    },
+    {
+      "cas": "94-62-2",
+      "zh": "胡椒碱",
+      "en": "Piperine",
+      "formula": "C17H19NO3",
+      "source": "natural"
+    },
+    {
+      "cas": "84650-55-5",
+      "zh": "鼠李皮提取物",
+      "en": "Rhamnus purshiana, ext.",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "",
+      "zh": "杭白菊浸膏",
+      "en": "Hang-zhou chrysanthemum flower extract",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8002-72-0",
+      "zh": "洋葱油",
+      "en": "FEMA 2817",
+      "formula": "C8H12S2",
+      "source": "natural"
+    },
+    {
+      "cas": "68132-21-8",
+      "zh": "紫苏叶油",
+      "en": "Perilla oil",
+      "formula": "C24H38O4",
+      "source": "natural"
+    },
+    {
+      "cas": "68916-26-7",
+      "zh": "灵猫香分泌液",
+      "en": "CIVET",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8016-31-7",
+      "zh": "独活酊",
+      "en": "Angelica polyclada tincture",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8022-15-9",
+      "zh": "杂薰衣草油",
+      "en": "Lavandin oil natural",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "16695-41-3",
+      "zh": "(E)-十二碳-7-烯-1-基乙酸酯",
+      "en": "(E)-7-Dodecen-1-ol acetate",
+      "formula": "C14H26O2",
+      "source": "natural"
+    },
+    {
+      "cas": "68606-94-0",
+      "zh": "无萜甜橙油",
+      "en": "FEMA 2821",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "2593352",
+      "zh": "安息香胶",
+      "en": "BENZOIN",
+      "formula": "C14H12O2",
+      "source": "natural"
+    },
+    {
+      "cas": "8015-62-1",
+      "zh": "黄葵油",
+      "en": "Ambrette seed oil",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "9000-50-4",
+      "zh": "橡苔树脂油",
+      "en": "FEMA 2795",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "68916-04-1",
+      "zh": "酸橙提取物",
+      "en": "BITTER ORANGE",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "8023-83-4",
+      "zh": "河狸香油",
+      "en": "FEMA 2262",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "68648-39-5",
+      "zh": "柠檬提取物",
+      "en": "LEMON OIL",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "20770-40-5",
+      "zh": "甲基巴豆酸香茅酯",
+      "en": "CITRONELLYL-3-METHYLBUT-2-ENOATE",
+      "formula": "C15H26O2",
+      "source": "natural"
+    },
+    {
+      "cas": "68916-19-8",
+      "zh": "可乐果萃取物",
+      "en": "KOLA NUT EXTRACT",
+      "formula": "",
+      "source": "natural"
+    },
+    {
+      "cas": "103-61-7",
+      "zh": "丁酸桂酯",
+      "en": "Cinnamyl butyrate",
+      "formula": "C13H16O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "10338-69-9",
+      "zh": "4-苯基-1,2,3,6-四氢吡啶",
+      "en": "4-Phenyl-1,2,3,6-Tetrahydropyridine",
+      "formula": "C11H13N",
+      "source": "synthetic"
+    },
+    {
+      "cas": "104-62-1",
+      "zh": "甲酸2-苯乙酯",
+      "en": "phenethyl formate",
+      "formula": "C9H10O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "104-65-4",
+      "zh": "甲酸桂酯",
+      "en": "cinnamyl formate",
+      "formula": "C10H10O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "120-11-6",
+      "zh": "1-苄氧基-2-甲氧基-4-丙烯基苯",
+      "en": "benzyl 2-methoxy-4-prop-1-enylphenyl ether",
+      "formula": "C17H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "123-66-0",
+      "zh": "己酸乙酯",
+      "en": "ethyl caproate",
+      "formula": "C8H16O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "13238-84-1",
+      "zh": "2,5-二乙基吡嗪",
+      "en": "2,5-Diethylpyrazine",
+      "formula": "C8H12N2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "147700-58-1",
+      "zh": "反-3,5-二氟肉桂酸",
+      "en": "trans-3,5-difluorocinnamic acid",
+      "formula": "C9 H6 F2 O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "149947-19-3",
+      "zh": "4-溴-2-氟肉桂酸",
+      "en": "4-Bromo-2-fluorocinnamic acid",
+      "formula": "C9H6BrFO2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "158474-72-7",
+      "zh": "茉莉酮",
+      "en": "PROHYDROJASMON",
+      "formula": "C15H26O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "16491-54-6",
+      "zh": "1-辛烯-3-丁酸酯",
+      "en": "1-OCTEN-3-YL BUTYRATE",
+      "formula": "C12H22O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "1708-39-0",
+      "zh": "苯甲醛甘油缩醛",
+      "en": "2-phenyl-1,3-dioxolane-4-methanol",
+      "formula": "C10H12O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "17162-29-7",
+      "zh": "乳酸薄荷酯",
+      "en": "Menthyl lactate",
+      "formula": "C13H24O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "17511-60-3",
+      "zh": "丙酸三环癸烯酯",
+      "en": "Dicyclopentenyl Propionate",
+      "formula": "C13H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "18664-39-6",
+      "zh": "4-氰基肉桂酸",
+      "en": "Cyanocinnamicacid",
+      "formula": "C10H7NO2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "1878-18-8",
+      "zh": "2-甲基-1-丁硫醇",
+      "en": "2-Methyl-1-butanethiol",
+      "formula": "C5H12S",
+      "source": "synthetic"
+    },
+    {
+      "cas": "19552-10-4",
+      "zh": "4-溴苄硫醇",
+      "en": "(4-Bromobenzyl)mercaptan",
+      "formula": "C7H7BrS",
+      "source": "synthetic"
+    },
+    {
+      "cas": "19870-74-7",
+      "zh": "甲基柏木醚",
+      "en": "Cedryl Methyl Ether",
+      "formula": "C16H28O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "2050-08-0",
+      "zh": "水杨酸戊酯",
+      "en": "pentyl salicylate",
+      "formula": "C12H16O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "24342-03-8",
+      "zh": "乙烯基乙酸异丁酯",
+      "en": "3-Butenoic acid isobutyl ester",
+      "formula": "C8H14O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "26761-50-2",
+      "zh": "油酸异辛酯",
+      "en": "isooctyl oleate",
+      "formula": "C26H50O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "3027-13-2",
+      "zh": "3-甲氧基苯基丙酮",
+      "en": "3-Methoxyphenylacetone",
+      "formula": "C10H12O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "30950-27-7",
+      "zh": "紫苏葶",
+      "en": "perillartine",
+      "formula": "C10H15NO",
+      "source": "synthetic"
+    },
+    {
+      "cas": "35154-45-1",
+      "zh": "Z-3-甲基丁酸-3-己烯酯",
+      "en": "cis-3-hexenyl isovalerate",
+      "formula": "C11H20O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "42436-07-7",
+      "zh": "顺式-3-己烯醇苯乙酸酯",
+      "en": "cis-3-hexenyl phenylacetate",
+      "formula": "C14H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "43052-87-5",
+      "zh": "1-(2,6,6-三甲基-2-环己烯-1-基)-2-丁烯-1-酮",
+      "en": "ALPHA-Damascone",
+      "formula": "C13H20O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "498-16-8",
+      "zh": "熏衣草醇",
+      "en": "LAVANDULOL",
+      "formula": "C10H18O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "5445-22-7",
+      "zh": "2-溴辛酸甲酯",
+      "en": "Methyl 2-bromooctanoate",
+      "formula": "C9H17BrO2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "1298317",
+      "zh": "丁酸癸酯",
+      "en": "decyl butyrate",
+      "formula": "C14H28O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "61444-38-0",
+      "zh": "(Z)-己-3-烯醇(Z)-己-3-烯酸酯",
+      "en": "(Z)-Hex-3-enyl (Z)-hex-3-enoate",
+      "formula": "C12H20O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "623-19-8",
+      "zh": "丙酸糠酯",
+      "en": "furfuryl propionate",
+      "formula": "C8H10O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "6272-45-3",
+      "zh": "3-[4-(苄氧基)苯基]丙烯酸",
+      "en": "(2E)-3-(4-(benzyloxy)phenyl)prop-2-enoic acid",
+      "formula": "C16H14O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "67883-79-8",
+      "zh": "顺式-3-己烯醇 2-甲基-2-丁烯酸酯",
+      "en": "cis-3-hexenyl tiglate",
+      "formula": "C11H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "764-39-6",
+      "zh": "反-2-戊烯醛",
+      "en": "trans-2-penten-1-al;2-Pentanal;2-pentenal;gamma-methylcrotonaldehyde;Pent-2-enal;FEMA 3218;T2 PENTENAL;TRANS-2-PENTEN-1-AL;PENTENE-2-AL",
+      "formula": "C5H8O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "76788-46-0",
+      "zh": "4,5-二甲基-2-乙烷基-3-噻唑啉",
+      "en": "2-ethyl-2,5-dihydro-4,5-dimethylthiazole",
+      "formula": "C7H13NS",
+      "source": "synthetic"
+    },
+    {
+      "cas": "8024-32-6",
+      "zh": "鳄梨油",
+      "en": "Oils, avocado",
+      "formula": "",
+      "source": "synthetic"
+    },
+    {
+      "cas": "90-87-9",
+      "zh": "龙葵醛二甲醇缩醛",
+      "en": "2-phenylpropionaldehyde dimethyl acetal",
+      "formula": "C11H16O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "97985-66-5",
+      "zh": "3-溴肉桂醛",
+      "en": "3-Bromocinnamaldehyde",
+      "formula": "C9H7BrO",
+      "source": "synthetic"
+    },
+    {
+      "cas": "68489-09-8",
+      "zh": "N,2,3-Trimethyl-2-isopropylbutamide",
+      "en": "N,2,3-Trimethyl-2-isopropylbutamide",
+      "formula": "C18H27NO2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "68489-14-5",
+      "zh": "N-ethyl-2-(isopropyl)-5-methylcyclohexanecarboxamide",
+      "en": "N-ethyl-2-(isopropyl)-5-methylcyclohexanecarboxamide",
+      "formula": "C15H27NO3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "10339-55-6",
+      "zh": "3,7-二甲基-1,6-壬二烯-3-醇",
+      "en": "1,6-Nonadien-3-ol,3,7-dimethyl-",
+      "formula": "C11H20O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "94-47-3",
+      "zh": "苯甲酸-2-苯乙酯",
+      "en": "FEMA 2860",
+      "formula": "C15H14O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "64401-02-1",
+      "zh": "乙氧基化双酚A二丙烯酸酯",
+      "en": "ETHOXYLATED (10) BISPHENOL A DIACRYLATE",
+      "formula": "C25H28O6",
+      "source": "synthetic"
+    },
+    {
+      "cas": "63187-91-7",
+      "zh": "薄荷酮甘油缩酮",
+      "en": "Menthone 1,2-glycerol ketal",
+      "formula": "C13H24O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "10032-11-8",
+      "zh": "Z-3-甲基丁酸-3-己烯酯",
+      "en": "FEMA 3498",
+      "formula": "C11H20O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "34010-15-6",
+      "zh": "(Z)-11-十四碳烯-1-醇",
+      "en": "CIS-11-TETRADECEN-1-OL",
+      "formula": "C14H28O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "17373-84-1",
+      "zh": "丙二酸丁乙酯",
+      "en": "Propanedioic acid, butyl ethyl ester",
+      "formula": "C9H16O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "1322-17-4",
+      "zh": "茉莉酯",
+      "en": "JasMonyl",
+      "formula": "C11H22O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "23973-51-5",
+      "zh": "硫代乙酸烯丙酯",
+      "en": "Allylthioacetate",
+      "formula": "C5H8OS",
+      "source": "synthetic"
+    },
+    {
+      "cas": "1334-78-7",
+      "zh": "甲基苯甲醛",
+      "en": "TOLUALDEHYDES",
+      "formula": "C7H6O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "68141-26-4",
+      "zh": "异丁基喹啉",
+      "en": "6-ISOBUTYLQUINOLINE",
+      "formula": "C13H15N",
+      "source": "synthetic"
+    },
+    {
+      "cas": "51115-64-1",
+      "zh": "丁酸-2-甲基丁酯",
+      "en": "2-methylbutyl butyrate",
+      "formula": "C9H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "499-54-7",
+      "zh": "6-羟基-3,7-二甲基辛酸内酯",
+      "en": "7-isopropyl-4-methyloxepan-2-one",
+      "formula": "C10H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "59214-70-9",
+      "zh": "3-溴-1-苯并呋喃",
+      "en": "3-BROMO-1-BENZOFURAN",
+      "formula": "C8H5BrO",
+      "source": "synthetic"
+    },
+    {
+      "cas": "2177-77-7",
+      "zh": "2-甲基戊酸甲酯",
+      "en": "METHYL 2-METHYLPENTANOATE",
+      "formula": "C7H14O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "542-46-1",
+      "zh": "灵猫酮",
+      "en": "CIVETONE",
+      "formula": "C17H30O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "7493-76-7",
+      "zh": "10-十一碳烯酸烯丙酯",
+      "en": "ALLYL UNDECYLENATE",
+      "formula": "C14H24O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "115-99-1",
+      "zh": "3,7-二甲基-1,6-辛二烯-3-醇甲酸酯",
+      "en": "LINALYL FORMATE",
+      "formula": "C11H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "93820-97-4",
+      "zh": "鲸蜡硬脂醇硬脂酸酯",
+      "en": "TRIMETHYLOLPROPANE",
+      "formula": "C70H140O4",
+      "source": "synthetic"
+    },
+    {
+      "cas": "25166-87-4",
+      "zh": "反-4-己烯醛",
+      "en": "HEXENAL",
+      "formula": "C6H10O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "113048-68-3",
+      "zh": "间三氟甲基肉桂酸乙酯",
+      "en": "3-(3-TRIFLUOROMETHYL-PHENYL)-ACRYLIC ACID ETHYL ESTER",
+      "formula": "C12H11F3O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "111957-48-3",
+      "zh": "3-O-{2-O-[6-O-(p羟基-反-香豆酰)-葡萄糖基]-鼠李糖基}山奈酚",
+      "en": "3-O-{2-O-[6-O-(p-hydroxyl-E-coumaroyl)-glucosyl]-(1-2)rhamnosyl kaempferol",
+      "formula": "C36 H36 O17",
+      "source": "synthetic"
+    },
+    {
+      "cas": "1139-30-6",
+      "zh": "石竹素",
+      "en": "(-)-Caryophyllene Oxide",
+      "formula": "C15H24O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "21453-69-0",
+      "zh": "(+)-Syringaresinol",
+      "en": "(+)-Syringaresinol",
+      "formula": "C22H26O8",
+      "source": "synthetic"
+    },
+    {
+      "cas": "18826-61-4",
+      "zh": "3-甲基苯基丙酮",
+      "en": "3-Methylphenylacetone",
+      "formula": "C10H12O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "36781-67-6",
+      "zh": "反式-3-癸烯甲酯",
+      "en": "Methyl Trans-3-Nonenoate",
+      "formula": "C10H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "243977-21-1",
+      "zh": "4-氟-2-三氟甲基肉桂酸",
+      "en": "4-Fluoro-2-(Trifluoromethyl)Cinnamic Acid",
+      "formula": "C10H6F4O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "13026-23-8",
+      "zh": "4-苯乙烯酸",
+      "en": "4-Phenylcinnamic Acid",
+      "formula": "C15H12O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "5457-70-5",
+      "zh": "2-Phenylethyl Caprylate",
+      "en": "2-Phenylethyl Caprylate",
+      "formula": "C16H24O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "4112-89-4",
+      "zh": "苯乙酸-2-甲氧基苯酯",
+      "en": "FEMA 2535",
+      "formula": "C15H14O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "79-69-6",
+      "zh": "alpha-Irone",
+      "en": "alpha-Irone",
+      "formula": "C14H22O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "16909-09-4",
+      "zh": "(E)-3-(2,4-二甲氧基苯基)丙烯酸",
+      "en": "(E)-3-(2,4-dimethoxyphenyl)acrylic Acid",
+      "formula": "C11H12O4",
+      "source": "synthetic"
+    },
+    {
+      "cas": "7774-82-5",
+      "zh": "2-十三烯醛",
+      "en": "2-Tridecenal",
+      "formula": "C13H24O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "361525-84-0",
+      "zh": "3,6-二碘邻苯二酚",
+      "en": "1,2-Benzenediol, 3,6-diiodo-",
+      "formula": "C6H4I2O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "68186-14-1",
+      "zh": "树脂酸与松香酸的甲酯",
+      "en": "METHYL ABIETATE",
+      "formula": "C21H32O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "4219-24-3",
+      "zh": "顺式-3-己烯酸",
+      "en": "CIS-3-HEXENOIC ACID",
+      "formula": "C6H10O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "16400-72-9",
+      "zh": "5,6-二氢-6-戊基-2H-吡喃-2-酮",
+      "en": "5-HYDROXY-2-DECENOIC ACID LACTONE",
+      "formula": "C12H20O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "13481-87-3",
+      "zh": "壬烯酸甲酯",
+      "en": "FEMA 3710",
+      "formula": "C10H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "78761-39-4",
+      "zh": "丁酸桂酯",
+      "en": "FEMA 2296",
+      "formula": "C13H16O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "28959-02-6",
+      "zh": "2-甲基戊酸乙酯",
+      "en": "ETHYL 2-METHYLPENTANOATE",
+      "formula": "C8H16O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "5905-46-4",
+      "zh": "丙烯基丙基二硫醚",
+      "en": "FEMA 3227",
+      "formula": "C6H12S2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "42474-44-2",
+      "zh": "2,3,5-三硫杂己烷",
+      "en": "NISTC42474442",
+      "formula": "C3H8S3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "133-18-6",
+      "zh": "2-氨基-苯甲酸-2-苯乙酯",
+      "en": "Phenylethyl Anthranilate",
+      "formula": "C15H15NO2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "65505-25-1",
+      "zh": "肉桂酸四氢呋喃酯",
+      "en": "FEMA 3320",
+      "formula": "C14H16O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "32665-23-9",
+      "zh": "异戊酸异丙酯",
+      "en": "FEMA 2961",
+      "formula": "C8H16O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "5421-17-0",
+      "zh": "苯乙酸己醇酯",
+      "en": "FEMA 3457",
+      "formula": "C14H20O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "13341-72-5",
+      "zh": "5,6,7,7A-四氢-3,6-二甲基-2(4H)-苯呋喃酮",
+      "en": "FEMA 3764",
+      "formula": "C10H14O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "7493-82-5",
+      "zh": "庚酸戊酯",
+      "en": "Amyl Heptanoate",
+      "formula": "C12H24O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "21722-83-8",
+      "zh": "乙酸环己基乙酯",
+      "en": "FEMA 2348",
+      "formula": "C10H18O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "37617-03-1",
+      "zh": "反式-2-十一烯-1-醇",
+      "en": "TRANS-2-UNDECEN-1-OL",
+      "formula": "C11H22O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "7492-67-3",
+      "zh": "(3,7-二甲基-6-辛烯基)氧基乙醛",
+      "en": "FEMA 2310",
+      "formula": "C12H22O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "202268-34-6",
+      "zh": "4,4'-(15,20-二苯基卟啉-5,10-二基)二酚",
+      "en": "PHENOL, 4,4'-(15,20-DIPHENYL-21H,23H-PORPHINE-5,10-DIYL)BIS-",
+      "formula": "C44H30N4O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "94089-21-1",
+      "zh": "反式-2-己烯醛丙二醇缩醛",
+      "en": "(E)-4-methyl-2-(pent-1-enyl)-1,3-dioxolane",
+      "formula": "C9H16O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "2344711-15-3",
+      "zh": "Benzenamine, 4-(2-benzofuranyl)-N-[4-(2-benzofuranyl)phenyl]-",
+      "en": "Benzenamine, 4-(2-benzofuranyl)-N-[4-(2-benzofuranyl)phenyl]-",
+      "formula": "C28H19NO2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "120256-65-7",
+      "zh": "2,5-二巯基对苯二酚",
+      "en": "2,5-Dimercapto-1,4-hydroxyphenol",
+      "formula": "C6H6O2S2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "120-24-1",
+      "zh": "苯乙酸-2-甲氧基-4-(1-丙烯基)-苯基酯",
+      "en": "ISOEUGENYL PHENYLACETATE",
+      "formula": "C18H18O3",
+      "source": "synthetic"
+    },
+    {
+      "cas": "6790-58-5",
+      "zh": "降龙涎香醚",
+      "en": "Ambroxane",
+      "formula": "C16H28O",
+      "source": "synthetic"
+    },
+    {
+      "cas": "7786-47-2",
+      "zh": "异戊酸壬酯",
+      "en": "FEMA 2791",
+      "formula": "C14H28O2",
+      "source": "synthetic"
+    },
+    {
+      "cas": "65442-31-1",
+      "zh": "仲丁基喹啉",
+      "en": "Butyl quinoline secondary",
+      "formula": "C13H15N",
+      "source": "fragrance"
+    },
+    {
+      "cas": "93-19-6",
+      "zh": "6-仲丁基喹啉",
+      "en": "butyl quinoline secondary",
+      "formula": "C13H15N",
+      "source": "fragrance"
+    },
+    {
+      "cas": "2233887",
+      "zh": "印蒿油",
+      "en": "Davana oil",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "5502-75-0",
+      "zh": "4-异丙基环己烷甲醇",
+      "en": "4-Isopropylcyclohexylmethanol",
+      "formula": "C10H20O",
+      "source": "fragrance"
+    },
+    {
+      "cas": "28645-51-4",
+      "zh": "黄葵内酯",
+      "en": "isoambrettolide",
+      "formula": "C16H28O2",
+      "source": "fragrance"
+    },
+    {
+      "cas": "93164-89-7",
+      "zh": "假马齿苋",
+      "en": "Bacopa monnieri (L.) Pennell, extract",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "135-79-5",
+      "zh": "异丙基喹啉",
+      "en": "6-Isopropylquinoline",
+      "formula": "C12H13N",
+      "source": "fragrance"
+    },
+    {
+      "cas": "36306-87-3",
+      "zh": "4-(1-乙氧代乙烯基)-3,3,5,5-四甲基-环己酮",
+      "en": "Cyclohexanone,4-(1-ethoxyethenyl)-3,3,5,5-tetramethyl-SDS",
+      "formula": "C14H24O2",
+      "source": "fragrance"
+    },
+    {
+      "cas": "8014-19-5",
+      "zh": "玫瑰草油",
+      "en": "Palmarosa Oil",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "84775-52-0",
+      "zh": "姜黄根粉",
+      "en": "Turmeric Rhizome Extract",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "35044-58-7",
+      "zh": "藏红花酸乙酯",
+      "en": "ethyl dimethyl methylene cyclohexene carboxylate",
+      "formula": "C12H18O2",
+      "source": "fragrance"
+    },
+    {
+      "cas": "23787-90-8",
+      "zh": "异长叶烷酮",
+      "en": "isolongifolene ketone",
+      "formula": "C15H24O",
+      "source": "fragrance"
+    },
+    {
+      "cas": "68916-60-9",
+      "zh": "甲位甲基桂醇",
+      "en": "Oils, Cyperus scariosus",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "Ajwainoil",
+      "zh": "有机Ajwain油",
+      "en": "Ajwain oil",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "85815-73-8",
+      "zh": "甜橙香精",
+      "en": "Sweet orange essence",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "水溶性香精：",
+      "zh": "",
+      "en": "",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "102-20-5",
+      "zh": "苯乙酸苯乙酯",
+      "en": "phenethyl phenylacetate",
+      "formula": "C16H16O2",
+      "source": "fragrance"
+    },
+    {
+      "cas": "油溶性香精：",
+      "zh": "",
+      "en": "",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "109-52-4",
+      "zh": "正戊酸",
+      "en": "N-Valeric Acid",
+      "formula": "C5H10O2",
+      "source": "fragrance"
+    },
+    {
+      "cas": "2230569",
+      "zh": "柠檬草油",
+      "en": "lemongrass oil",
+      "formula": "W99",
+      "source": "fragrance"
+    },
+    {
+      "cas": "8008-99-9",
+      "zh": "大蒜精",
+      "en": "Garlic Oil",
+      "formula": "C6H10S3",
+      "source": "fragrance"
+    },
+    {
+      "cas": "8015-88-1",
+      "zh": "胡萝卜籽油",
+      "en": "Carrot seed oil| Carotol",
+      "formula": "",
+      "source": "fragrance"
+    },
+    {
+      "cas": "8023-77-6",
+      "zh": "辣椒油性树脂",
+      "en": "Oleo resin capsicum",
+      "formula": "W-99",
+      "source": "fragrance"
+    }
+  ]
+}

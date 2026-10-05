@@ -1,0 +1,1001 @@
+{
+  "source": "数据层/12款经典香水分析.docx",
+  "concentrationStandards": {
+    "Parfum": "20–40%",
+    "EDP": "15–20%",
+    "EDT": "5–15%",
+    "EDC": "2–5%"
+  },
+  "perfumes": [
+    {
+      "id": "eau-sauvage",
+      "no": "1",
+      "brand": "迪奥",
+      "name": "清新之水",
+      "en": "Eau Sauvage",
+      "familyZh": "柑橘馥奇调",
+      "familyEn": "Fougère Citrus",
+      "familyKey": "fougere",
+      "families": [
+        "fougere",
+        "citrus",
+        "floral",
+        "woody"
+      ],
+      "concentration": "EDP 15–18%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "香柠檬",
+              "family": "citrus"
+            },
+            {
+              "name": "香橼",
+              "family": "fougere"
+            },
+            {
+              "name": "苦橙叶",
+              "family": "citrus"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "薰衣草",
+              "family": "fougere"
+            },
+            {
+              "name": "天竺葵",
+              "family": "floral"
+            },
+            {
+              "name": "海利昂（Hedione）",
+              "family": "fougere"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "香根草",
+              "family": "woody"
+            },
+            {
+              "name": "广藿香",
+              "family": "woody"
+            },
+            {
+              "name": "没药",
+              "family": "oriental"
+            },
+            {
+              "name": "橡木苔（新版复刻）",
+              "family": "chypre"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "香柠檬精油",
+        "苦橙叶精油",
+        "薰衣草精油",
+        "天竺葵精油",
+        "海利昂",
+        "香根草精油",
+        "广藿香精油",
+        "没药树脂",
+        "合成麝香"
+      ],
+      "keywords": "薰衣草、苦橙叶、橡苔皂感",
+      "demoNote": "馥奇调标杆，清爽皂感草本柑橘，男士经典，适合入门馥奇品鉴"
+    },
+    {
+      "id": "chanel-no-5",
+      "no": "2",
+      "brand": "香奈儿",
+      "name": "五号",
+      "en": "Chanel No.5",
+      "familyZh": "醛香花香调",
+      "familyEn": "Aldehydic Floral",
+      "familyKey": "floral",
+      "families": [
+        "floral",
+        "woody",
+        "citrus",
+        "gourmand"
+      ],
+      "concentration": "EDP 15–18%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "乙醛混合物",
+              "family": "floral"
+            },
+            {
+              "name": "香柠檬",
+              "family": "citrus"
+            },
+            {
+              "name": "橙花油",
+              "family": "floral"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "玫瑰",
+              "family": "floral"
+            },
+            {
+              "name": "依兰",
+              "family": "floral"
+            },
+            {
+              "name": "鸢尾",
+              "family": "floral"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "香根草",
+              "family": "woody"
+            },
+            {
+              "name": "檀香",
+              "family": "woody"
+            },
+            {
+              "name": "香草",
+              "family": "gourmand"
+            },
+            {
+              "name": "琥珀",
+              "family": "oriental"
+            },
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "C8-C12 脂肪醛",
+        "香柠檬",
+        "橙花油",
+        "大花茉莉",
+        "大马士革玫瑰",
+        "依兰",
+        "鸢尾浸膏",
+        "檀香",
+        "香根草",
+        "香草",
+        "合成麝香",
+        "琥珀树脂"
+      ],
+      "keywords": "脂肪醛、茉莉玫瑰、鸢尾",
+      "demoNote": "醛香鼻祖，醛 + 白花 + 木质，讲解合成香料在香水工业的里程碑"
+    },
+    {
+      "id": "mitsouko",
+      "no": "3",
+      "brand": "娇兰",
+      "name": "蝴蝶夫人",
+      "en": "Mitsouko",
+      "familyZh": "西普调",
+      "familyEn": "Chypre",
+      "familyKey": "chypre",
+      "families": [
+        "floral",
+        "citrus",
+        "fruity",
+        "woody"
+      ],
+      "concentration": "EDP 15–18%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "香柠檬",
+              "family": "citrus"
+            },
+            {
+              "name": "佛手柑",
+              "family": "citrus"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "玫瑰",
+              "family": "floral"
+            },
+            {
+              "name": "桃子内酯",
+              "family": "fruity"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "橡木苔",
+              "family": "chypre"
+            },
+            {
+              "name": "广藿香",
+              "family": "woody"
+            },
+            {
+              "name": "香根草",
+              "family": "woody"
+            },
+            {
+              "name": "安息香",
+              "family": "oriental"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "香柠檬精油",
+        "茉莉浸膏",
+        "玫瑰精油",
+        "γ- 十一内酯（桃子香）",
+        "橡木苔提取物",
+        "广藿香",
+        "香根草",
+        "安息香树脂"
+      ],
+      "keywords": "桃子内酯、橡苔、广藿",
+      "demoNote": "经典西普模板：柑橘 + 花香 + 橡苔 + 广藿；西普调教学必选"
+    },
+    {
+      "id": "shalimar",
+      "no": "4",
+      "brand": "娇兰",
+      "name": "一千零一夜",
+      "en": "Shalimar",
+      "familyZh": "东方琥珀调",
+      "familyEn": "Oriental Amber",
+      "familyKey": "oriental",
+      "families": [
+        "floral",
+        "oriental",
+        "citrus",
+        "woody"
+      ],
+      "concentration": "EDP 15–18%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "香柠檬",
+              "family": "citrus"
+            },
+            {
+              "name": "柑橘",
+              "family": "citrus"
+            },
+            {
+              "name": "雪松",
+              "family": "woody"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "鸢尾",
+              "family": "floral"
+            },
+            {
+              "name": "茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "玫瑰",
+              "family": "floral"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "香草",
+              "family": "gourmand"
+            },
+            {
+              "name": "安息香",
+              "family": "oriental"
+            },
+            {
+              "name": "乳香",
+              "family": "oriental"
+            },
+            {
+              "name": "没药",
+              "family": "oriental"
+            },
+            {
+              "name": "琥珀",
+              "family": "oriental"
+            },
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "柑橘精油",
+        "雪松",
+        "鸢尾",
+        "茉莉",
+        "玫瑰",
+        "香草豆浸膏",
+        "安息香",
+        "乳香",
+        "没药",
+        "琥珀",
+        "多环麝香"
+      ],
+      "keywords": "香草、安息香、树脂",
+      "demoNote": "东方琥珀调教科书，温暖树脂甜香，厚重脂感"
+    },
+    {
+      "id": "do-son",
+      "no": "5",
+      "brand": "蒂普提克",
+      "name": "杜桑",
+      "en": "Do Son",
+      "familyZh": "白花香调",
+      "familyEn": "White Floral",
+      "familyKey": "floral",
+      "families": [
+        "floral",
+        "oriental",
+        "aromatic"
+      ],
+      "concentration": "EDP 15–18%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "橙花",
+              "family": "floral"
+            },
+            {
+              "name": "玫瑰",
+              "family": "floral"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "晚香玉",
+              "family": "floral"
+            },
+            {
+              "name": "茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "鸢尾",
+              "family": "floral"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "安息香",
+              "family": "oriental"
+            },
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            },
+            {
+              "name": "琥珀",
+              "family": "oriental"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "橙花精油",
+        "玫瑰",
+        "晚香玉浸膏",
+        "茉莉",
+        "鸢尾",
+        "安息香",
+        "合成麝香",
+        "琥珀"
+      ],
+      "keywords": "晚香玉、吲哚白花",
+      "demoNote": "晚香玉为主的白花，模拟大花夜间馥郁感，讲解白花的吲哚气息"
+    },
+    {
+      "id": "tobacco-vanille",
+      "no": "6",
+      "brand": "TF",
+      "name": "香草烟草",
+      "en": "Tobacco Vanille",
+      "familyZh": "美食调",
+      "familyEn": "Gourmand",
+      "familyKey": "gourmand",
+      "families": [
+        "gourmand",
+        "oriental",
+        "aromatic",
+        "woody"
+      ],
+      "concentration": "EDP 15–20%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "烟草叶",
+              "family": "aromatic"
+            },
+            {
+              "name": "辛香料",
+              "family": "oriental"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "可可",
+              "family": "gourmand"
+            },
+            {
+              "name": "零陵香豆",
+              "family": "gourmand"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "香草",
+              "family": "gourmand"
+            },
+            {
+              "name": "檀香",
+              "family": "woody"
+            },
+            {
+              "name": "干果",
+              "family": "fruity"
+            },
+            {
+              "name": "琥珀",
+              "family": "oriental"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "烟草提取物",
+        "小豆蔻",
+        "可可浸膏",
+        "零陵香豆",
+        "马达加斯加香草",
+        "檀香",
+        "琥珀",
+        "麝香"
+      ],
+      "keywords": "可可、零陵香豆、可食用甜",
+      "demoNote": "美食调代表，可食用感甜香，香草 + 烟草，最容易被受试者识别的香调"
+    },
+    {
+      "id": "wood-sage-sea-salt",
+      "no": "7",
+      "brand": "祖玛珑",
+      "name": "鼠尾草与海盐",
+      "en": "Wood Sage & Sea Salt",
+      "familyZh": "水生调",
+      "familyEn": "Aquatic",
+      "familyKey": "aquatic",
+      "families": [
+        "aquatic",
+        "aromatic",
+        "woody"
+      ],
+      "concentration": "EDC 3–5%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "黄葵籽",
+              "family": "aquatic"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "海盐",
+              "family": "aquatic"
+            },
+            {
+              "name": "鼠尾草",
+              "family": "aromatic"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "海藻",
+              "family": "aquatic"
+            },
+            {
+              "name": "雪松",
+              "family": "woody"
+            },
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "黄葵内酯",
+        "鼠尾草精油",
+        "海盐模拟香基",
+        "海藻香基",
+        "雪松",
+        "合成麝香"
+      ],
+      "keywords": "黄葵内酯、咸感",
+      "demoNote": "现代水生调，无传统花香，咸润空气感；演示 “香基” 在现代香水的应用"
+    },
+    {
+      "id": "tuscan-leather",
+      "no": "8",
+      "brand": "TF",
+      "name": "光影皮革",
+      "en": "Tuscan Leather",
+      "familyZh": "皮革调",
+      "familyEn": "Leather",
+      "familyKey": "leather",
+      "families": [
+        "floral",
+        "leather",
+        "oriental",
+        "woody"
+      ],
+      "concentration": "EDP 15–20%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "小豆蔻",
+              "family": "oriental"
+            },
+            {
+              "name": "藏红花",
+              "family": "floral"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "皮革香基",
+              "family": "leather"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "广藿香",
+              "family": "woody"
+            },
+            {
+              "name": "琥珀",
+              "family": "oriental"
+            },
+            {
+              "name": "香草",
+              "family": "gourmand"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "小豆蔻",
+        "藏红花",
+        "茉莉",
+        "合成皮革香基",
+        "广藿香",
+        "琥珀",
+        "香草",
+        "麝香"
+      ],
+      "keywords": "合成皮革、藏红花辛香",
+      "demoNote": "现代皮革，不是动物皮臭，是干燥鞣制皮革，辛香 + 皮革 + 木质"
+    },
+    {
+      "id": "encre-noire",
+      "no": "9",
+      "brand": "莱俪",
+      "name": "墨恋",
+      "en": "Encre Noire",
+      "familyZh": "木质馥奇",
+      "familyEn": "Woody Fougère",
+      "familyKey": "fougere",
+      "families": [
+        "woody",
+        "aromatic"
+      ],
+      "concentration": "EDT 10–12%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "柏木",
+              "family": "woody"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "香根草",
+              "family": "woody"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            },
+            {
+              "name": "愈创木",
+              "family": "woody"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "柏木精油",
+        "香根草精油",
+        "愈创木",
+        "合成麝香"
+      ],
+      "keywords": "柏木、香根草、泥土墨感",
+      "demoNote": "极简木质馥奇，几乎无花香，潮湿泥土、墨汁、干燥树根"
+    },
+    {
+      "id": "baccarat-rouge-540",
+      "no": "10",
+      "brand": "MFK",
+      "name": "红色百家乐 540",
+      "en": "Baccarat Rouge 540",
+      "familyZh": "木质乌木调",
+      "familyEn": "Woody Oud / Ambery Woody",
+      "familyKey": "woody",
+      "families": [
+        "floral",
+        "woody",
+        "fruity",
+        "oriental"
+      ],
+      "concentration": "EDP 18–20%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "藏红花",
+              "family": "floral"
+            },
+            {
+              "name": "苦杏仁",
+              "family": "fruity"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "雪松",
+              "family": "woody"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "乌木",
+              "family": "woody"
+            },
+            {
+              "name": "琥珀龙涎",
+              "family": "oriental"
+            },
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "藏红花",
+        "苦杏仁香基",
+        "茉莉",
+        "雪松",
+        "乌木香基",
+        "降龙涎香醚",
+        "合成麝香"
+      ],
+      "keywords": "藏红花、降龙涎香醚",
+      "demoNote": "现代琥珀木质，“水晶烟熏甜”，热门商业艺术香，演示大分子定香"
+    },
+    {
+      "id": "oolang-infini",
+      "no": "11",
+      "brand": "欧珑",
+      "name": "无极乌龙",
+      "en": "Oolang Infini",
+      "familyZh": "芳香草本调",
+      "familyEn": "Aromatic Herbaceous",
+      "familyKey": "aromatic",
+      "families": [
+        "aromatic",
+        "citrus",
+        "floral",
+        "leather"
+      ],
+      "concentration": "EDC 4–6%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "香柠檬",
+              "family": "citrus"
+            },
+            {
+              "name": "橙皮",
+              "family": "citrus"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "乌龙茶叶",
+              "family": "aromatic"
+            },
+            {
+              "name": "茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "皮革微息",
+              "family": "leather"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "烟草",
+              "family": "aromatic"
+            },
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            },
+            {
+              "name": "愈创木",
+              "family": "woody"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "香柠檬",
+        "橙皮",
+        "乌龙茶香基",
+        "茉莉",
+        "轻皮革香基",
+        "愈创木",
+        "麝香"
+      ],
+      "keywords": "乌龙茶叶、清苦柑橘",
+      "demoNote": "茶香代表，干净通透，适合对比厚重东方调"
+    },
+    {
+      "id": "j-adore",
+      "no": "12",
+      "brand": "迪奥",
+      "name": "真我",
+      "en": "J'adore",
+      "familyZh": "果香花香调",
+      "familyEn": "Fruity Floral",
+      "familyKey": "fruity",
+      "families": [
+        "floral",
+        "fruity",
+        "gourmand",
+        "woody"
+      ],
+      "concentration": "EDP 15–18%",
+      "pyramid": [
+        {
+          "layer": "前调",
+          "weight": 24,
+          "notes": [
+            {
+              "name": "梨",
+              "family": "fruity"
+            },
+            {
+              "name": "香瓜",
+              "family": "fruity"
+            },
+            {
+              "name": "香柠檬",
+              "family": "citrus"
+            }
+          ]
+        },
+        {
+          "layer": "中调",
+          "weight": 46,
+          "notes": [
+            {
+              "name": "大花茉莉",
+              "family": "floral"
+            },
+            {
+              "name": "晚香玉",
+              "family": "floral"
+            },
+            {
+              "name": "铃兰",
+              "family": "floral"
+            },
+            {
+              "name": "依兰",
+              "family": "floral"
+            }
+          ]
+        },
+        {
+          "layer": "后调",
+          "weight": 30,
+          "notes": [
+            {
+              "name": "香草",
+              "family": "gourmand"
+            },
+            {
+              "name": "雪松",
+              "family": "woody"
+            },
+            {
+              "name": "麝香",
+              "family": "aromatic"
+            }
+          ]
+        }
+      ],
+      "ingredients": [
+        "梨香基",
+        "甜瓜香基",
+        "香柠檬",
+        "茉莉",
+        "晚香玉",
+        "铃兰",
+        "依兰",
+        "香草",
+        "雪松",
+        "麝香"
+      ],
+      "keywords": "梨瓜果香、大花茉莉",
+      "demoNote": "商业果香白花，水果甜感 + 大花，大众接受度高，对比老式醛香花香"
+    }
+  ]
+}
