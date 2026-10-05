@@ -237,6 +237,39 @@ def build_perfumes():
     }
 
 
+# ---------------------------------------------------------------- CAS 校验与修正
+def cas_checksum_ok(cas: str) -> bool:
+    """校验 CAS 号的校验位（最后一位）。格式 N1-N2-N3。
+
+    校验位 = (Σ 从右往左第 i 位数字 × i) mod 10，i 从 1 开始，不含校验位本身。
+    """
+    parts = (cas or "").split("-")
+    if len(parts) != 3:
+        return False
+    n1, n2, n3 = parts
+    if not (n1.isdigit() and n2.isdigit() and len(n3) == 1 and n3.isdigit()):
+        return False
+    total = sum(int(d) * (i + 1) for i, d in enumerate(reversed(n1 + n2)))
+    return total % 10 == int(n3)
+
+
+# 源 xlsx 的禁用清单区（H/I/J 列）在导出时整体错位一行：
+# H 列的分段其实属于「上一行」的化合物，导致按行拼接出的 CAS 全部张冠李戴
+# （7 条里 5 条与实际物质不符，其中 1 条校验位非法）。
+# 以下为按中文名逐一核对后的正确值；值为 None 表示该物质无单一 CAS（天然原料等）。
+BANNED_CAS_CORRECTIONS: dict[str, str | None] = {
+    "葵子麝香": "83-66-9",        # 源写 120-58-1
+    "二甲苯麝香": "81-15-2",       # 源写 116-66-5
+    "酮麝香": "81-14-1",          # 源正确
+    "铃兰醛": "80-54-6",          # 源正确（Lilial / Butylphenyl methylpropional）
+    "海葵醛": "31906-04-4",       # 源写 10599-70-9（HICC / Lyral）
+    "天然麝香": None,             # 天然动物源原料，无单一 CAS
+    "天然灵猫香": None,
+    "当归根油": "8015-64-3",       # 源写 471-28-3（精油，CAS 为 EINECS 群组号）
+    "薄荷内酯": "13341-72-5",      # 源写 223743-5-7（非法校验位；源文件将 57 误敲为 5）
+}
+
+
 # ---------------------------------------------------------------- 2) IFRA 三表
 def build_ifra():
     rows = xlsx_rows(DATA_DIR / "IFRA 51st Amendment Cat4香水禁用清单.xlsx")
@@ -288,6 +321,23 @@ def build_ifra():
     banned = [b for b in banned if b["zh"] and "名称" not in b["zh"] and "CAS" not in b["zh"]
               and "Cat4" not in b["zh"] and "清单" not in b["zh"]][:9]
     natural = [x for x in natural if "原料" not in x["zh"] and "CAS" not in x["zh"]][:2]
+
+    # —— CAS 修正与校验 ——
+    # 禁用清单的 CAS 在源文件里错位，必须按中文名替换；并标记修正痕迹以便审计。
+    for b in banned:
+        fixed = BANNED_CAS_CORRECTIONS.get(b["zh"], b["cas"])
+        if fixed != b["cas"]:
+            b["casSource"] = b["cas"] or None      # 保留源值备查
+            b["cas"] = fixed
+        if b["cas"] and not cas_checksum_ok(b["cas"]):
+            b["casInvalid"] = True                 # 双重保险：仍非法则显式标记
+    # 限量与天然表的 CAS 一并做校验位体检（只报告，不改动）
+    bad_limits = [l["cas"] for l in limits if l["cas"] and not cas_checksum_ok(l["cas"])]
+    if bad_limits:
+        print(f"  !! 限量表 CAS 校验位异常 {len(bad_limits)} 条：{bad_limits}")
+    n_fixed = sum(1 for b in banned if "casSource" in b)
+    print(f"  禁用清单 CAS 修正 {n_fixed} 条（源文件错位）")
+
     return {"source": "数据层/IFRA 51st Amendment Cat4香水禁用清单.xlsx", "amendment": "IFRA 51st Amendment",
             "limits": limits, "banned": banned, "natural": natural}
 
