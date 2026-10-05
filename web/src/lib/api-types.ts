@@ -49,6 +49,9 @@ export interface HealthData {
   ifra_limits: number
   ifra_banned: number
   dictEntries: number
+  eu26?: number | undefined
+  ige?: number | undefined
+  materials?: number | undefined
 }
 
 export interface HealthResponse {

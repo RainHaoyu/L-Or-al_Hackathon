@@ -1,0 +1,95 @@
+{
+  "source": "数据层/IgE致敏原表格.xlsx",
+  "items": [
+    {
+      "category": "树脂类",
+      "zh": "秘鲁香脂",
+      "en": "Balsam of Peru",
+      "type": "树脂",
+      "families": "东方调、西普调",
+      "risk": "中（双重机制）",
+      "note": "可同时诱发 IgE‑Ⅰ 型 + Ⅳ 型迟发，临床报告最多"
+    },
+    {
+      "category": "树脂类",
+      "zh": "安息香树脂",
+      "en": "Benzoin resin",
+      "type": "树脂 / 净油",
+      "families": "东方调、美食调",
+      "risk": "中‑低",
+      "note": "树脂蛋白可诱发速发荨麻疹、呼吸道过敏"
+    },
+    {
+      "category": "树脂类",
+      "zh": "苏合香",
+      "en": "Storax",
+      "type": "树脂",
+      "families": "西普调、东方调",
+      "risk": "低",
+      "note": "树脂蛋白杂质，个案报道"
+    },
+    {
+      "category": "树脂类",
+      "zh": "没药",
+      "en": "Myrrh",
+      "type": "树脂",
+      "families": "焚香、木质东方调",
+      "risk": "低（罕见）",
+      "note": "个案 IgE 速发报道"
+    },
+    {
+      "category": "树脂类",
+      "zh": "乳香",
+      "en": "Frankincense",
+      "type": "树脂",
+      "families": "焚香、木质调",
+      "risk": "低（罕见）",
+      "note": "个案 IgE 速发报道"
+    },
+    {
+      "category": "树脂类",
+      "zh": "茉莉净油",
+      "en": "Jasmine absolute",
+      "type": "溶剂萃取净油",
+      "families": "白花、花香调",
+      "risk": "低（罕见）",
+      "note": "蒸馏茉莉油蛋白残留极低，风险远低于净油"
+    },
+    {
+      "category": "树脂类",
+      "zh": "玫瑰净油",
+      "en": "Rose absolute",
+      "type": "溶剂萃取净油",
+      "families": "花香调",
+      "risk": "低（罕见）",
+      "note": "同上，蒸馏玫瑰油风险低"
+    },
+    {
+      "category": "树脂类",
+      "zh": "晚香玉净油",
+      "en": "Tuberose absolute",
+      "type": "溶剂萃取净油",
+      "families": "白花、东方调",
+      "risk": "低（罕见）",
+      "note": "蛋白杂质诱发"
+    },
+    {
+      "category": "树脂类",
+      "zh": "依兰依兰净油",
+      "en": "Ylang‑ylang absolute",
+      "type": "溶剂萃取净油",
+      "families": "白花、东方调",
+      "risk": "低（罕见）",
+      "note": "蛋白杂质诱发"
+    },
+    {
+      "category": "树脂类",
+      "zh": "含花粉蛋白的植物提取物",
+      "en": "薰衣草、洋甘菊、金合欢等",
+      "type": "原料带入微量花粉蛋白，与花粉过敏人群交叉反应",
+      "families": "吸入香水挥发物后诱发过敏性鼻炎",
+      "risk": "",
+      "note": ""
+    }
+  ]
+}

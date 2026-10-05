@@ -319,6 +319,88 @@ def build_ingredients():
     return {"source": "数据层/天然香料cas.xlsx + 合成香料CAS.xlsx + 香精CAS.xlsx", "entries": entries}
 
 
+# ---------------------------------------------------------------- 4) 26 种致敏香料（EU 标注清单）
+def build_allergens26():
+    rows = xlsx_rows(DATA_DIR / "表格26种致敏香料.xlsx")
+    items = []
+    for cells in rows:
+        if not cells.get("B") or not cells.get("C"):
+            continue
+        if cells["B"] in ("INCI 英文名",) or cells["C"] in ("中文通用名",):
+            continue
+        cas = re.sub(r"[‒‑–—\u2010-\u2015]+", "-", cells.get("D", "").strip())
+        items.append({
+            "no": int(cells.get("A", "0") or 0),
+            "inci": cells["B"].strip(),
+            "zh": cells["C"].strip(),
+            "cas": cas,
+            "note": cells.get("E", "").strip(),
+        })
+    return {"source": "数据层/表格26种致敏香料.xlsx", "items": items[:26]}
+
+
+# ---------------------------------------------------------------- 5) IgE Ⅰ 型速发材料
+def build_ige():
+    rows = xlsx_rows(DATA_DIR / "IgE致敏原表格.xlsx")
+    items = []
+    category = ""
+    for cells in rows:
+        only_b = [k for k in cells if k != "A"]
+        if only_b == ["B"] and cells.get("B", "").strip().endswith(("类:", "类：", "类")):
+            category = cells["B"].strip().rstrip(":：")
+            continue
+        if not cells.get("B") or not cells.get("C"):
+            continue
+        if cells["B"].strip() in ("原料中文名", "原料类型"):
+            continue
+        items.append({
+            "category": category,
+            "zh": cells["B"].strip(),
+            "en": cells.get("C", "").strip(),
+            "type": cells.get("D", "").strip(),
+            "families": cells.get("E", "").strip(),
+            "risk": cells.get("F", "").strip(),
+            "note": cells.get("G", "").strip(),
+        })
+    return {"source": "数据层/IgE致敏原表格.xlsx", "items": items}
+
+
+# ---------------------------------------------------------------- 6) 香材词典（天然 + 合成单体）
+def build_materials():
+    paras = [t for _s, t in docx_paragraphs(DATA_DIR / "香水成分数据及过敏香料.docx")]
+    natural: list[str] = []
+    synthetic: dict[str, list[str]] = {}
+    state = None
+    category = ""
+    for t in paras:
+        t = t.strip()
+        if not t:
+            continue
+        if t.startswith("天然香料"):
+            state = "natural"
+            continue
+        if t.startswith("合成单体香料"):
+            state = "synthetic"
+            continue
+        if t.startswith(("辅料分类", "微量添加物", "防腐剂", "螯合剂", "光稳定剂")):
+            state = None
+            continue
+        if state == "natural" and len(t) <= 8 and not re.search(r"[：:（）()]", t) and not re.match(r"^.{1,3}类(香料|)$", t):
+            natural.append(t)
+        elif state == "synthetic":
+            if t.endswith("单体") and len(t) <= 14:
+                category = t
+                synthetic.setdefault(category, [])
+            elif category and re.search(r"[、,，]", t):
+                synthetic[category].extend(x.strip() for x in re.split(r"[、,，]\s*", t) if x.strip())
+    return {
+        "source": "数据层/香水成分数据及过敏香料.docx",
+        "natural": natural,
+        "synthetic": synthetic,
+        "syntheticCount": sum(len(v) for v in synthetic.values()),
+    }
+
+
 def main():
     if not DATA_DIR.exists():
         die(f"数据层目录不存在：{DATA_DIR}")
@@ -327,12 +409,16 @@ def main():
     perfumes = build_perfumes()
     ifra = build_ifra()
     ingredients = build_ingredients()
+    allergens26 = build_allergens26()
+    ige = build_ige()
+    materials = build_materials()
 
     (OUT_DIR / "perfumes.json").write_text(json.dumps(perfumes, ensure_ascii=False, indent=2), "utf-8")
-    (OUT_DIR / "fra.json").write_text("placeholder", "utf-8")  # 防呆占位（下两行立即覆盖）
     (OUT_DIR / "ifra.json").write_text(json.dumps(ifra, ensure_ascii=False, indent=2), "utf-8")
     (OUT_DIR / "ingredients.json").write_text(json.dumps(ingredients, ensure_ascii=False, indent=2), "utf-8")
-    (OUT_DIR / "fra.json").unlink()
+    (OUT_DIR / "allergens26.json").write_text(json.dumps(allergens26, ensure_ascii=False, indent=2), "utf-8")
+    (OUT_DIR / "ige.json").write_text(json.dumps(ige, ensure_ascii=False, indent=2), "utf-8")
+    (OUT_DIR / "materials.json").write_text(json.dumps(materials, ensure_ascii=False, indent=2), "utf-8")
 
     print(f"perfumes: {len(perfumes['perfumes'])} 款")
     for p in perfumes["perfumes"][:3]:
@@ -341,6 +427,11 @@ def main():
     for b in ifra["banned"]:
         print(f"  禁 {b['zh']} cas={b['cas']} {b['control']} {b['reason'][:24]}")
     print(f"ingredients: {len(ingredients['entries'])} 条")
+    print(f"allergens26: {len(allergens26['items'])} 条（EU 标注清单）")
+    print(f"ige: {len(ige['items'])} 条（Ⅰ 型速发材料）")
+    for it in ige["items"][:3]:
+        print(f"  IgE {it['zh']} [{it['category']}] {it['risk']}")
+    print(f"materials: 天然 {len(materials['natural'])} + 合成 {materials['syntheticCount']}（{len(materials['synthetic'])} 类）")
     if len(perfumes["perfumes"]) != 12:
         print(f"WARN: 期望 12 款，实际 {len(perfumes['perfumes'])}")
     if len(ifra["limits"]) != 20 or len(ifra["banned"]) != 9:

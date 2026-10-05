@@ -33,6 +33,9 @@ class HealthData(BaseModel):
     ifra_limits: int
     ifra_banned: int
     dictEntries: int
+    eu26: int = 0
+    ige: int = 0
+    materials: int = 0
 
 
 class HealthResponse(BaseModel):

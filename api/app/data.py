@@ -61,6 +61,9 @@ def _load(name: str) -> Any:
 PERFUMES: list[dict[str, Any]] = _load("perfumes.json")["perfumes"]
 IFRA: dict[str, Any] = _load("ifra.json")
 DICT_ENTRIES: list[dict[str, Any]] = _load("ingredients.json")["entries"]
+EU26: list[dict[str, Any]] = _load("allergens26.json")["items"]
+IGE: list[dict[str, Any]] = _load("ige.json")["items"]
+MATERIALS: dict[str, Any] = _load("materials.json")
 
 # 黄金算例教学样本（与前端 aura.ts GOLDEN_CASE 同源；点估计口径 = v3 报告算例）
 PERFUMES.append({

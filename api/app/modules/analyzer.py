@@ -40,9 +40,11 @@ def _profile(perfume: dict[str, Any]) -> dict[str, Any]:
         hit = any(_norm(l["zh"]) in _norm(i) or any(_norm(a) in _norm(i) for a in aliases.get(l["zh"], [])) for i in ingredients)
         if hit:
             limit_hits.append(l)
+    ige_hits = [g for g in D.IGE if any(_norm(g["zh"]) in _norm(i) or _norm(i) in _norm(g["zh"]) for i in ingredients if len(i or "") >= 2)]
     return {
         "banned": banned,
         "limitHits": limit_hits,
+        "igeHits": ige_hits,
         "terpene": any(_TERPENE_RE.search(i or "") for i in ingredients),
         "musk": any("麝香" in (i or "") for i in ingredients),
         "load": "high" if len(limit_hits) >= 2 else ("mid" if len(limit_hits) == 1 else "low"),
@@ -83,6 +85,9 @@ def evaluate(population: str, perfume: dict[str, Any], d: float) -> dict[str, An
         set_level("mid", f"孕期画像下致敏原负载偏高（{'、'.join(l['zh'] for l in prof['limitHits'])}），建议降低使用频率。", "QRA2 分位")
     if population == "rhinitis" and prof["load"] != "low":
         reasons.append("鼻炎画像：高挥发性醛类（柠檬醛、肉桂醛）已加呼吸道刺激标注。")
+    if population == "rhinitis" and prof.get("igeHits"):
+        names = "、".join(g["zh"] for g in prof["igeHits"])
+        reasons.append(f"含 IgE Ⅰ 型速发材料（{names}）：鼻炎/哮喘人群注意呼吸道速发反应（{prof['igeHits'][0].get('risk', '')}）。")
     if not reasons:
         reasons.append(f"四道闸门均未触发：未命中 {D.IFRA['amendment']} 禁用清单，{pop_name}画像下分位余量充足，氧化程度 D={d:.2f} 处于低风险区间。")
 
@@ -131,6 +136,12 @@ def build_ingredients(perfume: dict[str, Any], d: float, population: str) -> lis
         rows.append({"inci": "Musk", "zh": "麝香类", "conc": "未知", "level": "low",
                      "gate": "临床提示", "evidence": "documented",
                      "note": "孕期画像对麝香类保持保守（判定层为孕期黄灯）。", "limitPct": None})
+    for g in prof.get("igeHits", []):
+        rows.append({"inci": g.get("en", ""), "zh": g["zh"], "conc": "未知",
+                     "level": "mid" if str(g.get("risk", "")).replace(" ", "").startswith("中") else "low",
+                     "gate": "IgE Ⅰ 型速发", "evidence": "documented",
+                     "note": f"{g.get('category', '')}｜{g.get('type', '')}｜{g.get('risk', '')}：{g.get('note', '')}",
+                     "limitPct": None})
     if not rows:
         rows.append({"inci": "—", "zh": "未命中限量清单", "conc": "—", "level": "low",
                      "gate": "IFRA Cat4", "evidence": "documented",

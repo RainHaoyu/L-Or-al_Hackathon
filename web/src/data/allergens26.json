@@ -1,0 +1,187 @@
+{
+  "source": "数据层/表格26种致敏香料.xlsx",
+  "items": [
+    {
+      "no": 1,
+      "inci": "Amyl cinnamal",
+      "zh": "戊基肉桂醛",
+      "cas": "122-40-7",
+      "note": "茉莉花香；强迟发型致敏"
+    },
+    {
+      "no": 2,
+      "inci": "Amylcinnamyl alcohol",
+      "zh": "戊基肉桂醇",
+      "cas": "101-85-9",
+      "note": "甜花香；氧化转为戊基肉桂醛致敏"
+    },
+    {
+      "no": 3,
+      "inci": "Anisyl alcohol",
+      "zh": "大茴香醇",
+      "cas": "105-13-5",
+      "note": "茴香甜香；致敏相对低"
+    },
+    {
+      "no": 4,
+      "inci": "Benzyl alcohol",
+      "zh": "苯甲醇",
+      "cas": "100-51-6",
+      "note": "花香溶剂；轻度致敏，也作防腐剂"
+    },
+    {
+      "no": 5,
+      "inci": "Benzyl benzoate",
+      "zh": "苯甲酸苄酯",
+      "cas": "120-51-4",
+      "note": "定香剂；花香、东方调"
+    },
+    {
+      "no": 6,
+      "inci": "Benzyl cinnamate",
+      "zh": "肉桂酸苄酯",
+      "cas": "103-41-3",
+      "note": "蜂蜜香、香膏感"
+    },
+    {
+      "no": 7,
+      "inci": "Benzyl salicylate",
+      "zh": "水杨酸苄酯",
+      "cas": "118-58-1",
+      "note": "晚香玉、白花定香剂；香水高频"
+    },
+    {
+      "no": 8,
+      "inci": "Cinnamal (Cinnamaldehyde)",
+      "zh": "肉桂醛",
+      "cas": "104-55-2",
+      "note": "辛香肉桂；强 Ⅳ 型致敏原"
+    },
+    {
+      "no": 9,
+      "inci": "Cinnamyl alcohol",
+      "zh": "肉桂醇",
+      "cas": "104-54-1",
+      "note": "香脂辛香；皮肤氧化成肉桂醛起致敏"
+    },
+    {
+      "no": 10,
+      "inci": "Citral",
+      "zh": "柠檬醛",
+      "cas": "5392-40-5",
+      "note": "柑橘、柠檬草；易氧化致敏"
+    },
+    {
+      "no": 11,
+      "inci": "Citronellol",
+      "zh": "香茅醇",
+      "cas": "106-22-9",
+      "note": "玫瑰、天竺葵；氧化产物致敏升高"
+    },
+    {
+      "no": 12,
+      "inci": "Coumarin",
+      "zh": "香豆素",
+      "cas": "91-64-5",
+      "note": "零陵香豆、美食调；接触性皮炎 + 光敏感个案"
+    },
+    {
+      "no": 13,
+      "inci": "Eugenol",
+      "zh": "丁香酚",
+      "cas": "97-53-0",
+      "note": "丁香、康乃馨；顶级强 Ⅳ 型致敏，氧化加剧"
+    },
+    {
+      "no": 14,
+      "inci": "Farnesol",
+      "zh": "法尼醇",
+      "cas": "4602-84-0",
+      "note": "晚香玉、多种精油；易氧化"
+    },
+    {
+      "no": 15,
+      "inci": "Geraniol",
+      "zh": "香叶醇",
+      "cas": "106-24-1",
+      "note": "玫瑰天竺葵；香水最高频致敏之一，氧化后致敏暴涨"
+    },
+    {
+      "no": 16,
+      "inci": "Hexyl cinnamal",
+      "zh": "己基肉桂醛",
+      "cas": "101-86-0",
+      "note": "茉莉甜花香；广泛用于香水"
+    },
+    {
+      "no": 17,
+      "inci": "Hydroxycitronellal",
+      "zh": "羟基香茅醛",
+      "cas": "107-75-5",
+      "note": "铃兰白花；经典强接触致敏原"
+    },
+    {
+      "no": 18,
+      "inci": "Hydroxyisohexyl‑3‑Cyclohexene‑Carboxaldehyde (HICC)",
+      "zh": "新铃兰醛",
+      "cas": "31906-04-4",
+      "note": "合成白花；欧盟现已禁用"
+    },
+    {
+      "no": 19,
+      "inci": "Isoeugenol",
+      "zh": "异丁香酚",
+      "cas": "97-54-1",
+      "note": "丁香衍生物；极强迟发型致敏，IFRA 严格限用"
+    },
+    {
+      "no": 20,
+      "inci": "Linalool",
+      "zh": "芳樟醇",
+      "cas": "78-70-6",
+      "note": "薰衣草橙花柑橘；本体弱致敏，空气氧化过氧化物强致敏"
+    },
+    {
+      "no": 21,
+      "inci": "d‑Limonene",
+      "zh": "柠檬烯",
+      "cas": "5989-27-5",
+      "note": "柑橘果皮；氧化生成过氧化物，Ⅳ 型过敏原"
+    },
+    {
+      "no": 22,
+      "inci": "Methyl‑2‑octynoate(Methyl heptine carbonate)",
+      "zh": "甲基‑2‑辛炔酸酯",
+      "cas": "111-12-6",
+      "note": "紫罗兰叶，水生青香；使用量低"
+    },
+    {
+      "no": 23,
+      "inci": "α‑Isomethyl ionone",
+      "zh": "α‑异甲基紫罗兰酮",
+      "cas": "127-51-5",
+      "note": "紫罗兰香；香水高频"
+    },
+    {
+      "no": 24,
+      "inci": "Butylphenyl Methylpropional (Lilial)",
+      "zh": "铃兰醛",
+      "cas": "80-54-6",
+      "note": "铃兰；欧盟现已禁用"
+    },
+    {
+      "no": 25,
+      "inci": "Oakmoss extract",
+      "zh": "橡苔提取物",
+      "cas": "90028-68-5",
+      "note": "西普 / 馥奇调；天然混合物，强致敏，IFRA 大幅限用"
+    },
+    {
+      "no": 26,
+      "inci": "Treemoss extract",
+      "zh": "树苔提取物",
+      "cas": "90028-67-4",
+      "note": "同橡苔，天然树脂苔藓混合物；高致敏"
+    }
+  ]
+}

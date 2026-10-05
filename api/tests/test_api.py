@@ -90,3 +90,16 @@ def test_llm_fallback_template_without_key(monkeypatch):
 def test_unknown_product_reported_in_meta():
     r = client.post("/api/v1/analyze", json={"product_id": "nope"}).json()
     assert r["data"] is None and "未知香水" in r["meta"]["error"]
+
+
+def test_ige_integration_rhinitis():
+    """IgE 数据层整合：一千零一夜（含安息香/乳香/没药）×鼻炎 → 速发理由 + IgE 行"""
+    r = client.post("/api/v1/analyze", json={"product_id": "shalimar", "population": "rhinitis"}).json()
+    assert any("IgE" in x for x in r["data"]["verdict"]["reasons"])
+    ige_rows = [x for x in r["data"]["ingredients"] if x["gate"] == "IgE Ⅰ 型速发"]
+    assert ige_rows and "安息香" in "、".join(x["zh"] for x in ige_rows)
+
+
+def test_health_counts_new_layers():
+    r = client.get("/api/v1/health").json()["data"]
+    assert r["eu26"] == 26 and r["ige"] == 10 and r["materials"] >= 140

@@ -8,6 +8,9 @@
 import rawPerfumes from '../data/perfumes.json'
 import rawIfra from '../data/ifra.json'
 import rawIngredients from '../data/ingredients.json'
+import rawAllergens26 from '../data/allergens26.json'
+import rawIge from '../data/ige.json'
+import rawMaterials from '../data/materials.json'
 import { analyzeIngredient } from './qra2/engine'
 import { lookupTox } from './qra2/nesil'
 
@@ -92,6 +95,63 @@ export interface DictEntry {
 }
 export const INGREDIENT_DICT = rawIngredients as unknown as { entries: DictEntry[] }
 
+/* ---------------- EU 26 标注致敏原 / IgE Ⅰ 型速发材料 / 香材词典 ---------------- */
+
+export interface Eu26Item {
+  no: number
+  inci: string
+  zh: string
+  cas: string
+  note: string
+}
+export interface IgeItem {
+  category: string
+  zh: string
+  en: string
+  type: string
+  families: string
+  risk: string
+  note: string
+}
+export interface MaterialsFile {
+  natural: string[]
+  synthetic: Record<string, string[]>
+  syntheticCount: number
+}
+
+export const EU26 = (rawAllergens26 as unknown as { items: Eu26Item[] }).items
+export const IGE = (rawIge as unknown as { items: IgeItem[] }).items
+export const MATERIALS = rawMaterials as unknown as MaterialsFile
+
+export function lookupEu26(name: string): Eu26Item | null {
+  const n = norm(name)
+  if (n.length < 3) return null
+  return EU26.find((a) => n.includes(norm(a.zh)) || (a.inci && n.includes(norm(a.inci)))) ?? null
+}
+
+export function lookupIge(ingredient: string): IgeItem | null {
+  const n = norm(ingredient)
+  if (n.length < 2) return null
+  const direct = IGE.find((g) => n.includes(norm(g.zh)) || (g.en && n.includes(norm(g.en))))
+  if (direct) return direct
+  const reverse = IGE.find((g) => norm(g.zh).includes(n) && n.length >= 2 && g.zh.length <= n.length + 4)
+  return reverse ?? null
+}
+
+export function lookupMaterial(name: string): { kind: '天然香材' | '合成单体'; category: string } | null {
+  const n = norm(name)
+  if (n.length < 2) return null
+  if (MATERIALS.natural.some((m) => n.includes(norm(m)) || norm(m).includes(n))) {
+    return { kind: '天然香材', category: '天然香料词典' }
+  }
+  for (const [cat, list] of Object.entries(MATERIALS.synthetic)) {
+    if (list.some((m) => n.includes(norm(m)) || norm(m).includes(n))) {
+      return { kind: '合成单体', category: cat }
+    }
+  }
+  return null
+}
+
 /** 限量成分的中文别名（成分清单 → IFRA 中文名） */
 const LIMIT_ALIASES: Record<string, string[]> = {
   香豆素: ['零陵香豆'],
@@ -142,6 +202,7 @@ export interface PerfumeEntry {
     terpene: boolean
     muskCaution: boolean
     limitHits: IfraLimit[]
+    igeHits: IgeItem[]
     load: 'high' | 'mid' | 'low'
   }
   synthetic?: boolean
@@ -186,10 +247,11 @@ function buildSynthesis(p: {
 function buildProfile(ingredients: string[]): PerfumeEntry['profile'] {
   const banned = IFRA.banned.filter((b) => ingredients.some((i) => hitBanned(i, b)))
   const limitHits = IFRA.limits.filter((l) => ingredients.some((i) => hitLimit(i, l)))
+  const igeHits = IGE.filter((g) => ingredients.some((i) => lookupIge(i)?.zh === g.zh))
   const terpene = ingredients.some((i) => /柠檬|香柠檬|佛手柑|柑橘|苦橙|橙皮|橙花|薰衣草/.test(i))
   const muskCaution = ingredients.some((i) => i.includes('麝香'))
   const load = limitHits.length >= 2 ? 'high' : limitHits.length === 1 ? 'mid' : 'low'
-  return { banned, terpene, muskCaution, limitHits, load }
+  return { banned, terpene, muskCaution, limitHits, igeHits, load }
 }
 
 interface RawPerfume {
@@ -220,8 +282,7 @@ function toEntry(r: RawPerfume): PerfumeEntry {
 const REAL_PERFUMES = (rawPerfumes as unknown as { perfumes: RawPerfume[] }).perfumes.map(toEntry)
 
 /** 黄金算例（教学样本，数据为 v3 报告算例口径） */
-const GOLDEN_CASE: PerfumeEntry = {
-  id: 'golden-case',
+const GOLDEN_CASE: PerfumeEntry = {  id: 'golden-case',
   brand: '黄金算例',
   name: '柠檬烯 5% 样本',
   en: 'Limonene 5%',
@@ -245,7 +306,7 @@ const GOLDEN_CASE: PerfumeEntry = {
     { dim: '持久', v: 4 },
   ],
   synesthesia: '刚剥开的柠檬皮，汁水溅在晨光里，干净得只剩一点木。',
-  profile: { banned: [], terpene: true, muskCaution: false, limitHits: [], load: 'low' },
+  profile: { banned: [], terpene: true, muskCaution: false, limitHits: [], igeHits: [], load: 'low' },
   synthetic: true,
 }
 
@@ -336,6 +397,11 @@ export function evaluate(population: PopulationKey, perfumeId: string, d: number
   if (population === 'rhinitis' && p.profile.load !== 'low') {
     reasons.push('鼻炎画像：高挥发性醛类（柠檬醛、肉桂醛）已加呼吸道刺激标注。')
   }
+  if (population === 'rhinitis' && p.profile.igeHits.length > 0) {
+    reasons.push(
+      `含 IgE Ⅰ 型速发材料（${p.profile.igeHits.map((g) => g.zh).join('、')}）：鼻炎/哮喘人群注意呼吸道速发反应（${p.profile.igeHits[0].risk}）。`,
+    )
+  }
 
   if (reasons.length === 0) {
     reasons.push(`四道闸门均未触发：未命中 ${IFRA.amendment} 禁用清单，${popName}画像下分位余量充足，氧化程度 D=${d.toFixed(2)} 处于低风险区间。`)
@@ -407,6 +473,18 @@ export function buildIngredients(perfumeId: string, d: number, population: Popul
       gate: '临床提示',
       evidence: 'documented',
       note: '孕期画像对麝香类保持保守（判定层为孕期黄灯）。',
+      limitPct: null,
+    })
+  }
+  for (const g of p.profile.igeHits) {
+    rows.push({
+      inci: g.en,
+      zh: g.zh,
+      conc: '未知',
+      level: g.risk.replace(/\s/g, '').startsWith('中') ? 'mid' : 'low',
+      gate: 'IgE Ⅰ 型速发',
+      evidence: 'documented',
+      note: `${g.category}｜${g.type}｜${g.risk}：${g.note}`,
       limitPct: null,
     })
   }
@@ -482,7 +560,7 @@ export function parseManualIngredients(text: string): ParsedIngredient[] {
 
 export interface ManualMatch extends ParsedIngredient {
   matched: boolean
-  kind?: 'banned' | 'limit' | 'dict'
+  kind?: 'banned' | 'limit' | 'eu26' | 'ige' | 'dict' | 'material'
   zh?: string
   level?: RiskLevel
   gate?: string
@@ -491,7 +569,9 @@ export interface ManualMatch extends ParsedIngredient {
   limitPct?: number | null
 }
 
-const norm = (s: string) => s.toLowerCase().replace(/[\s\-–]/g, '')
+function norm(s: string): string {
+  return s.toLowerCase().replace(/[\s\-–]/g, '')
+}
 
 /** 真实数据匹配：IFRA 禁用 → IFRA 限量（QRA2 引擎实算）→ CAS 词典，均未命中则不静默 */
 export function matchManualIngredient(item: ParsedIngredient, population: PopulationKey): ManualMatch {
@@ -555,6 +635,52 @@ export function matchManualIngredient(item: ParsedIngredient, population: Popula
       gate: 'CAS 词典收录',
       evidence: 'documented',
       note: `收录于${dict.source === 'natural' ? '天然' : dict.source === 'synthetic' ? '合成' : '香精'}香料词典（CAS ${dict.cas}），IFRA Cat4 未设限。`,
+    }
+  }
+
+  // EU 26 标注致敏原（未进上面分支的，如大茴香醇/苯甲酸苄酯等）
+  const eu = lookupEu26(item.name)
+  if (eu) {
+    return {
+      ...item,
+      matched: true,
+      kind: 'eu26',
+      zh: eu.zh,
+      level: 'mid',
+      gate: 'EU 26 标注清单',
+      evidence: 'documented',
+      note: `${eu.note}。欧盟驻留类产品 >0.01% 需单独标注（CAS ${eu.cas}）；敏感人群留意。`,
+    }
+  }
+
+  // IgE Ⅰ 型速发材料（树脂/净油类）
+  const ige = lookupIge(item.name)
+  if (ige) {
+    const level: RiskLevel = ige.risk.replace(/\s/g, '').startsWith('中') ? 'mid' : 'low'
+    return {
+      ...item,
+      matched: true,
+      kind: 'ige',
+      zh: ige.zh,
+      level,
+      gate: 'IgE Ⅰ 型速发',
+      evidence: 'documented',
+      note: `${ige.category}｜${ige.type}｜${ige.risk}：${ige.note}`,
+    }
+  }
+
+  // 香材词典（天然 / 合成单体）
+  const mat = lookupMaterial(item.name)
+  if (mat) {
+    return {
+      ...item,
+      matched: true,
+      kind: 'material',
+      zh: item.name,
+      level: 'low',
+      gate: mat.kind,
+      evidence: 'documented',
+      note: `收录于${mat.category}（${mat.kind}），无限值与速发记录。`,
     }
   }
 

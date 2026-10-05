@@ -1,0 +1,10 @@
+﻿文件,更新时间,接入情况
+12款经典香水分析.docx,10-04,✅ → perfumes.json（12 款香水：品牌/香调/浓度/前中后调/成分/品鉴关键词）
+IFRA 51st Amendment Cat4香水禁用清单.xlsx,10-04,✅ → ifra.json（限量 20 / 禁用 9 / 天然精油 2）
+香型HEX色值及对应画面效果.docx,10-04,✅ → 十二香型色板（aura.ts FAMILIES，手工录入）
+香精 水溶性及油溶性香精CAS.xlsx,09-18,✅ → ingredients.json（26 条香精词典）
+天然香料cas.xlsx,09-18,✅ → ingredients.json（39 条）
+合成香料CAS.xlsx,09-18,✅ → ingredients.json（101 条，合计 160 条）
+香水成分数据及过敏香料.docx,08-30,✅ → materials.json（天然 72 + 合成 76 香材词典）
+表格26种致敏香料.xlsx,08-30,✅ → allergens26.json（EU 26 标注清单）
+IgE致敏原表格.xlsx,08-30,✅ → ige.json（Ⅰ 型速发材料 10 条）

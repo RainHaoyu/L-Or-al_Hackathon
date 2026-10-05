@@ -18,7 +18,9 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 def health() -> dict:
     return {"data": {"status": "ok", "engine": analyzer.ENGINE_VERSION,
                      "perfumes": len(D.PERFUMES), "ifra_limits": len(D.IFRA["limits"]),
-                     "ifra_banned": len(D.IFRA["banned"]), "dictEntries": len(D.DICT_ENTRIES)},
+                     "ifra_banned": len(D.IFRA["banned"]), "dictEntries": len(D.DICT_ENTRIES),
+                     "eu26": len(D.EU26), "ige": len(D.IGE),
+                     "materials": len(D.MATERIALS["natural"]) + int(D.MATERIALS.get("syntheticCount", 0))},
             "meta": {"engine": analyzer.ENGINE_VERSION}}
 
 
