@@ -14,7 +14,10 @@
       "zh": "香豆素",
       "en": "Coumarin",
       "limitPct": 1.6,
-      "note": "零陵香豆、甜橙油"
+      "note": "零陵香豆、甜橙油",
+      "aliases": [
+        "零陵香豆"
+      ]
     },
     {
       "cas": "106-24-1",
@@ -63,7 +66,10 @@
       "zh": "香兰素",
       "en": "Vanillin",
       "limitPct": 10.0,
-      "note": "香草，限值宽松"
+      "note": "香草，限值宽松",
+      "aliases": [
+        "香草"
+      ]
     },
     {
       "cas": "78-70-6",
@@ -98,14 +104,23 @@
       "zh": "d-柠檬烯",
       "en": "d-Limonene",
       "limitPct": 15.0,
-      "note": "柑橘类，氧化致敏升高"
+      "note": "柑橘类，氧化致敏升高",
+      "aliases": [
+        "柠檬烯",
+        "limonene"
+      ]
     },
     {
       "cas": "101-86-0",
       "zh": "α-己基肉桂醛",
       "en": "Alpha-hexyl cinnamaldehyde",
       "limitPct": 4.0,
-      "note": "花香，经典醛香"
+      "note": "花香，经典醛香",
+      "aliases": [
+        "己基肉桂醛",
+        "Hexyl Cinnamal",
+        "hexyl cinnamal"
+      ]
     },
     {
       "cas": "122-40-7",
@@ -172,7 +187,13 @@
       "zh": "铃兰醛",
       "en": "Butylphenyl",
       "control": "完全禁用",
-      "reason": "50修正案起禁用，生殖毒性"
+      "reason": "50修正案起禁用，生殖毒性",
+      "aliases": [
+        "Lilial",
+        "lilial",
+        "p-BMHCA",
+        "Butylphenyl methylpropional"
+      ]
     },
     {
       "cas": "31906-04-4",
@@ -180,7 +201,14 @@
       "en": "Hydroxyisohexyl",
       "control": "完全禁用",
       "reason": "49修正案起禁用，强致敏",
-      "casSource": "10599-70-9"
+      "casSource": "10599-70-9",
+      "aliases": [
+        "HICC",
+        "Lyral",
+        "新铃兰醛",
+        "hydroxyisohexyl",
+        "hydroxyisohexyl 3-cyclohexene carboxaldehyde"
+      ]
     },
     {
       "cas": null,

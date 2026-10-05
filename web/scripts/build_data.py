@@ -270,6 +270,27 @@ BANNED_CAS_CORRECTIONS: dict[str, str | None] = {
 }
 
 
+# ---------------------------------------------------------------- IFRA 别名表
+# 源 xlsx 只给「中文名 + 英文名」，但成分清单里常写别的名字或缩写。
+# 缺别名会导致两类后果：
+#   漏检禁用物：Lilial / HICC / Lyral 是业内最通用的叫法，匹配不上就会漏报禁用；
+#   用错限值：α-己基肉桂醛 的 en 写作 "Alpha-hexyl cinnamaldehyde"，
+#             而清单常写 "Hexyl Cinnamal"，匹配不上就会退到「肉桂醛」的 0.05% 上限（实际 4%）。
+# 别名属于数据，落在 ifra.json 里由前端 TS 与后端 Python 共读。
+IFRA_LIMIT_ALIASES: dict[str, list[str]] = {
+    "d-柠檬烯": ["柠檬烯", "limonene"],
+    "香豆素": ["零陵香豆"],
+    "香兰素": ["香草"],
+    "α-己基肉桂醛": ["己基肉桂醛", "Hexyl Cinnamal", "hexyl cinnamal"],
+}
+
+IFRA_BANNED_ALIASES: dict[str, list[str]] = {
+    "铃兰醛": ["Lilial", "lilial", "p-BMHCA", "Butylphenyl methylpropional"],
+    "海葵醛": ["HICC", "Lyral", "新铃兰醛",
+               "hydroxyisohexyl", "hydroxyisohexyl 3-cyclohexene carboxaldehyde"],
+}
+
+
 # ---------------------------------------------------------------- 2) IFRA 三表
 def build_ifra():
     rows = xlsx_rows(DATA_DIR / "IFRA 51st Amendment Cat4香水禁用清单.xlsx")
@@ -331,12 +352,20 @@ def build_ifra():
             b["cas"] = fixed
         if b["cas"] and not cas_checksum_ok(b["cas"]):
             b["casInvalid"] = True                 # 双重保险：仍非法则显式标记
+        alias = IFRA_BANNED_ALIASES.get(b["zh"])
+        if alias:
+            b["aliases"] = alias
+    for l in limits:
+        alias = IFRA_LIMIT_ALIASES.get(l["zh"])
+        if alias:
+            l["aliases"] = alias
     # 限量与天然表的 CAS 一并做校验位体检（只报告，不改动）
     bad_limits = [l["cas"] for l in limits if l["cas"] and not cas_checksum_ok(l["cas"])]
     if bad_limits:
         print(f"  !! 限量表 CAS 校验位异常 {len(bad_limits)} 条：{bad_limits}")
     n_fixed = sum(1 for b in banned if "casSource" in b)
-    print(f"  禁用清单 CAS 修正 {n_fixed} 条（源文件错位）")
+    n_alias = sum(1 for b in banned if "aliases" in b) + sum(1 for l in limits if "aliases" in l)
+    print(f"  禁用清单 CAS 修正 {n_fixed} 条（源文件错位）；写入别名 {n_alias} 条")
 
     return {"source": "数据层/IFRA 51st Amendment Cat4香水禁用清单.xlsx", "amendment": "IFRA 51st Amendment",
             "limits": limits, "banned": banned, "natural": natural}

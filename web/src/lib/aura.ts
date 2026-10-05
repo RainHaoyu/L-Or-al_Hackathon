@@ -123,48 +123,106 @@ export const EU26 = (rawAllergens26 as unknown as { items: Eu26Item[] }).items
 export const IGE = (rawIge as unknown as { items: IgeItem[] }).items
 export const MATERIALS = rawMaterials as unknown as MaterialsFile
 
+/* ---------------- 匹配工具（最长键优先） ---------------- */
+
+/** 限量成分的中文别名（成分清单 → IFRA 中文名）；数据自带 aliases 时以数据为准。 */
+const LIMIT_ALIASES: Record<string, string[]> = {
+  香豆素: ['零陵香豆'],
+  香兰素: ['香草'],
+}
+
+/** 归一化：小写 + 去掉空白与各类连字符。 */
+function norm(s: string): string {
+  return s.toLowerCase().replace(/[\s\-–_/]/g, '')
+}
+
+/**
+ * 归一化后的名字 → 条目索引，按键长降序（最长优先）。
+ *
+ * 子串匹配（`n.includes(key)`）在长名包含短名时会误命中，且「首个命中」取到的是
+ * 数组里更靠前的短名条目。实测 IFRA 限值表的三处错误：
+ *   异丁香酚(0.05%)  被判成 丁香酚(0.5%)      → 偏宽松 10×，可能漏判超标
+ *   α-己基肉桂醛(4%) 被判成 肉桂醛(0.05%)     → 偏严格 80×，误报红灯
+ *   戊基肉桂醛(1%)   被判成 肉桂醛(0.05%)     → 偏严格 20×，误报红灯
+ * 按长度降序取首个命中即可让更具体的键优先。
+ */
+function buildIndex<T>(rows: T[], keysOf: (row: T) => string[]) {
+  const idx: { key: string; row: T }[] = []
+  for (const row of rows) {
+    for (const k of keysOf(row)) {
+      const nk = norm(k)
+      if (nk) idx.push({ key: nk, row })
+    }
+  }
+  idx.sort((a, b) => b.key.length - a.key.length)
+  return idx
+}
+
+function longestHit<T>(index: { key: string; row: T }[], n: string): T | null {
+  for (const { key, row } of index) if (n.includes(key)) return row
+  return null
+}
+
+type RowAliases = { zh: string; en?: string | null; aliases?: string[] }
+
+/** 一行的全部匹配键：中文名 + 英文名 + 数据自带 aliases + 代码内别名。 */
+const rowKeys = (r: RowAliases) =>
+  [r.zh, r.en ?? '', ...(r.aliases ?? []), ...(LIMIT_ALIASES[r.zh] ?? [])]
+
+const EU26_INDEX = buildIndex(EU26, (a) => [a.zh, a.inci ?? ''])
+const IGE_INDEX = buildIndex(IGE, (g) => [g.zh, g.en ?? ''])
+const DICT_INDEX = buildIndex(INGREDIENT_DICT.entries, (e) => [e.zh ?? '', e.en ?? ''])
+const LIMIT_INDEX = buildIndex(IFRA.limits as unknown as RowAliases[], rowKeys)
+const BANNED_INDEX = buildIndex(IFRA.banned as unknown as RowAliases[], rowKeys)
+
+/** 解析成分名对应的 IFRA 限值条目（最长键优先）。 */
+export function resolveLimit(ingredient: string): IfraLimit | null {
+  const n = norm(ingredient)
+  if (!n) return null
+  return longestHit(LIMIT_INDEX, n) as IfraLimit | null
+}
+
+/** 解析成分名对应的 IFRA 禁用条目（最长键优先）。 */
+export function resolveBanned(ingredient: string): IfraBanned | null {
+  const n = norm(ingredient)
+  if (!n) return null
+  return longestHit(BANNED_INDEX, n) as IfraBanned | null
+}
+
+
 export function lookupEu26(name: string): Eu26Item | null {
   const n = norm(name)
   if (n.length < 3) return null
-  return EU26.find((a) => n.includes(norm(a.zh)) || (a.inci && n.includes(norm(a.inci)))) ?? null
+  return longestHit(EU26_INDEX, n)
 }
 
 export function lookupIge(ingredient: string): IgeItem | null {
   const n = norm(ingredient)
   if (n.length < 2) return null
-  const direct = IGE.find((g) => n.includes(norm(g.zh)) || (g.en && n.includes(norm(g.en))))
+  const direct = longestHit(IGE_INDEX, n)
   if (direct) return direct
-  const reverse = IGE.find((g) => norm(g.zh).includes(n) && n.length >= 2 && g.zh.length <= n.length + 4)
+  // 反向：成分名是条目的前缀片段（如清单写作简称）
+  const reverse = IGE.find((g) => norm(g.zh).includes(n) && g.zh.length <= n.length + 4)
   return reverse ?? null
 }
 
 export function lookupMaterial(name: string): { kind: '天然香材' | '合成单体'; category: string } | null {
   const n = norm(name)
   if (n.length < 2) return null
-  if (MATERIALS.natural.some((m) => n.includes(norm(m)) || norm(m).includes(n))) {
-    return { kind: '天然香材', category: '天然香料词典' }
-  }
+  const nat = MATERIALS.natural.find((m) => n.includes(norm(m)))
+  if (nat) return { kind: '天然香材', category: '天然香料词典' }
   for (const [cat, list] of Object.entries(MATERIALS.synthetic)) {
-    if (list.some((m) => n.includes(norm(m)) || norm(m).includes(n))) {
-      return { kind: '合成单体', category: cat }
-    }
+    if (list.some((m) => n.includes(norm(m)))) return { kind: '合成单体', category: cat }
   }
   return null
 }
 
-/** 限量成分的中文别名（成分清单 → IFRA 中文名） */
-const LIMIT_ALIASES: Record<string, string[]> = {
-  香豆素: ['零陵香豆'],
-  香兰素: ['香草'],
-}
-
 function hitLimit(ingredient: string, l: IfraLimit): boolean {
-  if (ingredient.includes(l.zh)) return true
-  return (LIMIT_ALIASES[l.zh] ?? []).some((a) => ingredient.includes(a))
+  return resolveLimit(ingredient)?.zh === l.zh
 }
 
 function hitBanned(ingredient: string, b: IfraBanned): boolean {
-  return ingredient.includes(b.zh) || (b.en !== '' && ingredient.toLowerCase().includes(b.en.toLowerCase()))
+  return resolveBanned(ingredient)?.zh === b.zh
 }
 
 /* ---------------- 香水（真实 12 款 + 黄金算例） ---------------- */
@@ -569,21 +627,10 @@ export interface ManualMatch extends ParsedIngredient {
   limitPct?: number | null
 }
 
-function norm(s: string): string {
-  return s.toLowerCase().replace(/[\s\-–]/g, '')
-}
-
 /** 真实数据匹配：IFRA 禁用 → IFRA 限量（QRA2 引擎实算）→ CAS 词典，均未命中则不静默 */
 export function matchManualIngredient(item: ParsedIngredient, population: PopulationKey): ManualMatch {
-  const n = norm(item.name)
-  const tox = lookupTox(item.name)
-
-  const ban = IFRA.banned.find(
-    (b) =>
-      n.includes(norm(b.zh)) ||
-      (b.en && n.includes(norm(b.en))) ||
-      (tox && norm(b.zh).includes(norm(tox.zh))),
-  )
+  // 最长键优先（见 resolveBanned/resolveLimit 的说明）
+  const ban = resolveBanned(item.name)
   if (ban) {
     return {
       ...item,
@@ -597,12 +644,7 @@ export function matchManualIngredient(item: ParsedIngredient, population: Popula
     }
   }
 
-  const lim = IFRA.limits.find(
-    (l) =>
-      n.includes(norm(l.zh)) ||
-      (l.en && n.includes(norm(l.en))) ||
-      (tox && norm(l.zh).includes(norm(tox.zh))),
-  )
+  const lim = resolveLimit(item.name)
   if (lim && lim.limitPct != null) {
     const r = analyzeIngredient({ name: item.name, concPct: item.pct, population, ifraLimitPct: lim.limitPct })
     const parts: string[] = []
@@ -624,7 +666,7 @@ export function matchManualIngredient(item: ParsedIngredient, population: Popula
     }
   }
 
-  const dict = INGREDIENT_DICT.entries.find((e) => (e.zh && n.includes(norm(e.zh))) || (e.en && n.includes(norm(e.en))))
+  const dict = longestHit(DICT_INDEX, norm(item.name))
   if (dict) {
     return {
       ...item,

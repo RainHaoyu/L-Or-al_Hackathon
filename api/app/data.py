@@ -117,25 +117,51 @@ def lookup_tox(name: str) -> dict[str, Any] | None:
     return None
 
 
+# IFRA 限值 / 禁用：同样按「最长键优先」建索引。
+# 限值表原用「子串包含 + 首个命中」，实测三处误匹配（与前端 aura.ts 同源问题）：
+#   异丁香酚(0.05%)  被判成 丁香酚(0.5%)    → 偏宽松 10×，可能漏判超标
+#   α-己基肉桂醛(4%) 被判成 肉桂醛(0.05%)   → 偏严格 80×，误报红灯
+#   戊基肉桂醛(1%)   被判成 肉桂醛(0.05%)   → 偏严格 20×，误报红灯
+_LIMIT_ALIASES: dict[str, list[str]] = {
+    "香豆素": ["零陵香豆"],
+    "香兰素": ["香草"],
+}
+
+def _row_keys(row: dict[str, Any]) -> list[str]:
+    """一行的全部匹配键：中文名 + 英文名 + 数据自带 aliases + 代码内别名。"""
+    return [
+        row["zh"], row.get("en") or "",
+        *(row.get("aliases") or []),
+        *_LIMIT_ALIASES.get(row["zh"], []),
+    ]
+
+
+_LIMIT_KEYS: list[tuple[str, dict[str, Any]]] = sorted(
+    ((_norm(k), l) for l in IFRA["limits"] for k in _row_keys(l)),
+    key=lambda kv: -len(kv[0]),
+)
+
+_BANNED_KEYS: list[tuple[str, dict[str, Any]]] = sorted(
+    ((_norm(k), b) for b in IFRA["banned"] for k in _row_keys(b)),
+    key=lambda kv: -len(kv[0]),
+)
+
+
 def lookup_ifra_limit(name: str) -> dict[str, Any] | None:
     n = _norm(name)
-    tox = lookup_tox(name)
-    for l in IFRA["limits"]:
-        if n and (_norm(l["zh"]) in n or (l.get("en") and _norm(l["en"]) and _norm(l["en"]) in n)):
-            return l
-        if tox and _norm(tox["zh"]) and _norm(tox["zh"]) in _norm(l["zh"]):
+    if not n:
+        return None
+    for key, l in _LIMIT_KEYS:
+        if key and key in n:
             return l
     return None
 
 
 def lookup_banned(name: str) -> dict[str, Any] | None:
     n = _norm(name)
-    tox = lookup_tox(name)
-    for b in IFRA["banned"]:
-        if n and _norm(b["zh"]) and _norm(b["zh"]) in n:
-            return b
-        if b.get("en") and n and _norm(b["en"]) and _norm(b["en"]) in n:
-            return b
-        if tox and _norm(tox["zh"]) and _norm(tox["zh"]) in _norm(b["zh"]):
+    if not n:
+        return None
+    for key, b in _BANNED_KEYS:
+        if key and key in n:
             return b
     return None
