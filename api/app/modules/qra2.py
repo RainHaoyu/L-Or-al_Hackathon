@@ -268,6 +268,13 @@ def analyze_ingredient(name: str, conc_pct: float | None, population: str,
     res.update(p50=s["p50"], p90=s["p90"], p99=s["p99"])
     res["marginPoint"] = ael / res["pointCEL"]
     res["marginP99"] = ael / s["p99"]
+    # 黄线 = 人群判定线：AEL / CEL[policy] / T_pop < 1（见 docs/IMPROVEMENT_PLAN.md P0-3）
+    #   policy 管「保护到哪条尾部」：healthy→P90，脆弱人群→P99
+    #   T_pop  管「余量阈值」：越大要求越严
+    #
+    # 注意（已记录在 docs/IMPROVEMENT_PLAN.md）：连续分布下 CEL_P90 < CEL_P99 恒成立，
+    # 因此「P90 触黄而 P99 未触红」的窗口数学上不可达——QRA2 这条路径几乎只出绿/红两档。
+    # 实际黄灯由另外两条闸门路径提供：IFRA 八成上限（mid）与「数据不足」保守黄。
     policy_cel = s["p90"] if pop["policy"] == "P90" else s["p99"]
     res["marginPolicy"] = ael / policy_cel / tp
 

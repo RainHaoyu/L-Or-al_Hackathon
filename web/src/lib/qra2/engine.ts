@@ -169,6 +169,15 @@ export function analyzeIngredient(opts: AnalyzeOptions): AnalyzeResult {
   base.p99 = s.p99
   base.marginPoint = ael / base.pointCEL
   base.marginP99 = ael / s.p99
+  // 黄线 = 人群判定线：AEL / CEL[policy] / T_pop < 1（见 docs/IMPROVEMENT_PLAN.md P0-3）
+  //   policy 管「保护到哪条尾部」：healthy→P90，脆弱人群→P99
+  //   T_pop  管「余量阈值」：越大要求越严
+  //
+  // 注意（已记录在 docs/IMPROVEMENT_PLAN.md）：连续分布下 CEL_P90 < CEL_P99 恒成立，
+  // 因此「P90 触黄而 P99 未触红」的窗口数学上不可达——QRA2 这条路径几乎只出绿/红两档。
+  // 实际黄灯由另外两条闸门路径提供：IFRA 八成分成（mid）与「数据不足」保守黄。
+  // 本判据保留是为了让 policy/T_pop 在 IFRA 与数据不足之外的场景仍参与分级，
+  // 并用 tests 固定其真实可达性，不做超出规格的改写。
   const policyCel = pop.policy === 'P90' ? s.p90 : s.p99
   base.marginPolicy = ael / policyCel / tp
 
