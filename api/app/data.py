@@ -24,38 +24,32 @@ FAMILIES: dict[str, dict[str, Any]] = {
     "aromatic": {"name": "芳香调", "main": "#697C57", "accents": ["#9484B7", "#A39478"], "scene": "阳光晾晒的草本药草，清苦干爽", "mood": "干爽、草本", "shape": "针叶"},
 }
 
-SAF = 100
-DEMO_PENALTY = 3
-
-# NESIL 文献值（μg/cm²，RIFM/Api2008 系；None = demo 估计 → ÷3 惩罚）
-TOX: list[dict[str, Any]] = [
-    {"keys": ["limonene", "柠檬烯"], "zh": "柠檬烯", "nesil": 10000, "demo": False},
-    {"keys": ["linalool", "芳樟醇"], "zh": "芳樟醇", "nesil": 15000, "demo": False},
-    {"keys": ["citral", "柠檬醛"], "zh": "柠檬醛", "nesil": 1400, "demo": False},
-    {"keys": ["coumarin", "香豆素"], "zh": "香豆素", "nesil": 3500, "demo": False},
-    {"keys": ["eugenol", "丁香酚"], "zh": "丁香酚", "nesil": 5900, "demo": False},
-    {"keys": ["isoeugenol", "异丁香酚"], "zh": "异丁香酚", "nesil": 250, "demo": False},
-    {"keys": ["geraniol", "香叶醇"], "zh": "香叶醇", "nesil": 11800, "demo": False},
-    {"keys": ["citronellol", "香茅醇"], "zh": "香茅醇", "nesil": 29500, "demo": False},
-    {"keys": ["vanillin", "香兰素"], "zh": "香兰素", "nesil": 5314, "demo": False},
-    {"keys": ["benzylalcohol", "苯甲醇"], "zh": "苯甲醇", "nesil": 5900, "demo": False},
-    {"keys": ["cinnamal", "肉桂醛"], "zh": "肉桂醛", "nesil": 591, "demo": False},
-    {"keys": ["cinnamylalcohol", "肉桂醇"], "zh": "肉桂醇", "nesil": 3000, "demo": False},
-    {"keys": ["farnesol", "法尼醇"], "zh": "法尼醇", "nesil": 2700, "demo": False},
-    {"keys": ["benzylsalicylate", "水杨酸苄酯"], "zh": "水杨酸苄酯", "nesil": 17700, "demo": False},
-    {"keys": ["benzylacetate", "乙酸苄酯"], "zh": "乙酸苄酯", "nesil": None, "demo": True},
-    {"keys": ["hexylcinnamal", "己基肉桂醛"], "zh": "己基肉桂醛", "nesil": 23600, "demo": False},
-    {"keys": ["amylcinnamal", "戊基肉桂醛"], "zh": "戊基肉桂醛", "nesil": 23600, "demo": False},
-    {"keys": ["citronellylacetate", "乙酸香茅酯"], "zh": "乙酸香茅酯", "nesil": None, "demo": True},
-    {"keys": ["geranylacetate", "乙酸香叶酯"], "zh": "乙酸香叶酯", "nesil": None, "demo": True},
-    {"keys": ["benzaldehyde", "苯甲醛"], "zh": "苯甲醛", "nesil": 590, "demo": False},
-    {"keys": ["butylphenylmethylpropional", "铃兰醛", "lilial"], "zh": "铃兰醛", "nesil": 4100, "demo": False},
-    {"keys": ["hydroxyisohexyl", "新铃兰醛", "lyral"], "zh": "新铃兰醛（海葵醛）", "nesil": 4000, "demo": False},
-]
-
-
 def _load(name: str) -> Any:
     return json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
+
+
+# ---- 毒理参数：与前端引擎共用同一份数据文件（web/src/data/tox.json）----
+# 此前 TS 侧 nesil.ts 与 Python 侧本文件各手写一份 22 条 NESIL，
+# 属重复事实源，任一侧改动都可能静默漂移。现统一为单一来源。
+_TOX_DOC: dict[str, Any] = _load("tox.json")
+
+SAF: int = _TOX_DOC["saf"]
+DEMO_PENALTY: int = _TOX_DOC["demoPenalty"]
+SAF_BASIS: str = _TOX_DOC["safBasis"]
+
+
+def _to_internal(e: dict[str, Any]) -> dict[str, Any]:
+    """转成引擎内部表示：把 source 归一为 demo 布尔（引擎判定用）。"""
+    return {
+        "keys": e["keys"],
+        "zh": e["zh"],
+        "nesil": e["nesil"],
+        "demo": e["source"] != "documented",
+        **({"k25": e["k25"]} if "k25" in e else {}),
+    }
+
+
+TOX: list[dict[str, Any]] = [_to_internal(e) for e in _TOX_DOC["entries"]]
 
 
 PERFUMES: list[dict[str, Any]] = _load("perfumes.json")["perfumes"]
@@ -64,6 +58,7 @@ DICT_ENTRIES: list[dict[str, Any]] = _load("ingredients.json")["entries"]
 EU26: list[dict[str, Any]] = _load("allergens26.json")["items"]
 IGE: list[dict[str, Any]] = _load("ige.json")["items"]
 MATERIALS: dict[str, Any] = _load("materials.json")
+
 
 # 黄金算例教学样本（与前端 aura.ts GOLDEN_CASE 同源；点估计口径 = v3 报告算例）
 PERFUMES.append({
@@ -91,11 +86,34 @@ def _norm(s: str) -> str:
     return "".join(ch for ch in s.lower() if ch.isalnum())
 
 
+# 匹配键按长度降序预排（最长优先），与前端 nesil.ts 的 KEYS 同法。
+# 子串匹配在归一化（去掉连字符）后会互相包含，导致误判：
+#   - `isoeugenol` 含 `eugenol`      → 异丁香酚被误判成丁香酚（真实值小 23 倍，危险方向）
+#   - `hexylcinnamal` 含 `cinnamal`  → 己基肉桂醛被误判成肉桂醛（AEL 被压 40 倍）
+#   - `amylcinnamal` 含 `cinnamal`   → 同上
+#   - `新铃兰醛` 含 `铃兰醛`          → 被误判成铃兰醛
+_KEYS: list[tuple[str, dict[str, Any]]] = sorted(
+    ((_norm(k), t) for t in TOX for k in t["keys"]),
+    key=lambda kv: -len(kv[0]),
+)
+
+_HICC_KEYS = sorted(
+    (_norm(k) for k in ("hicc", "lyral", "hydroxyisohexyl", "新铃兰醛", "海葵醛", "新铃兰醛（海葵醛）")),
+    key=len, reverse=True,
+)
+_HICC_ENTRY = next((t for t in TOX if t["zh"].startswith("新铃兰醛")), None)
+
+
 def lookup_tox(name: str) -> dict[str, Any] | None:
     n = _norm(name)
-    for t in TOX:
-        if any(_norm(k) in n for k in t["keys"]):
-            return t
+    if not n:
+        return None
+    # HICC / Lyral 常以缩写出现，先按别名归一到新铃兰醛条目
+    if _HICC_ENTRY and any(k in n for k in _HICC_KEYS):
+        return _HICC_ENTRY
+    for key, entry in _KEYS:
+        if key in n:
+            return entry
     return None
 
 

@@ -14,7 +14,7 @@
 | 旧实现 | `legacy/`（保底，含 71 条致敏原 / 21 款香水数据资产） |
 | 上游数据 | `D:\L'Oréal_Hackathon\数据层\`（9 个 xlsx/docx，仓库上一级） |
 | 数据管线 | ✅ **可重跑且幂等**（重跑后 `git diff` 为空） |
-| 测试 | 后端 **44 passed / 19 skipped**；前端 **41 passed** |
+| 测试 | 后端 **69 passed / 19 skipped**；前端 **51 passed** |
 | 分支同步 | 与 `origin/feat/wanxiang-aura-v2` 一致 |
 
 ### 启动与验证
@@ -65,7 +65,6 @@ python web/scripts/build_data.py
 **新增回归测试** `api/tests/test_distributions.py`（44 条）：数值断言 + 中心分支未被压平的专项守卫 + 与 TS 实测基准对齐。
 
 ### 3. IFRA 禁用清单 CAS 错位 → 已修（提交 `8482b4f`）
-
 源 xlsx 的禁用清单区（H/I/J 列）在导出时**整体错位一行**，按行拼接得到的 CAS 张冠李戴。
 用 CAS 校验位算法核对：**7 条里 5 条错误**，其中 1 条校验位非法（根本不是有效 CAS）。
 
@@ -82,6 +81,36 @@ python web/scripts/build_data.py
 **影响面**：全仓库无代码引用这些 CAS（匹配走 zh/en 名称），故判定结果不变。
 **新增守卫** `web/src/lib/ifra-data.test.ts`（6 条）：校验位合法性 + 5 条修正值 + 审计痕迹。
 
+### 4. 毒理表单源化 + 修复子串误匹配（A1/A3，本次）
+
+**4a. 单一数据源**：毒理表此前在 `web/src/lib/qra2/nesil.ts` 与 `api/app/data.py`
+**各手写一份 22 条 NESIL**。现统一为 `web/src/data/tox.json`，两端共读
+（TS 直接 import，Python 读同一文件）。SAF / 惩罚系数也一并落地，不再散落在两处代码。
+
+**4b. 修复查找误匹配（安全相关）**：原逻辑为「子串包含 + 首个命中」，
+归一化去掉连字符后长名会包含短名，实测造成 5 处错误：
+
+| 输入 | 修复前匹配到 | 应为 | 后果 |
+| --- | --- | --- | --- |
+| `Isoeugenol` | 丁香酚（5900） | 异丁香酚（250） | **危险方向**：真实值小 23 倍，被低估 |
+| `Hexyl Cinnamal` | 肉桂醛（591） | 己基肉桂醛（23600） | AEL 被压 40 倍 |
+| `Amyl Cinnamal` | 肉桂醛（591） | 戊基肉桂醛（23600） | 同上 |
+| `新铃兰醛` | 铃兰醛（4100） | 新铃兰醛（4000） | 匹配到另一物质 |
+| `HICC` | **null** | 新铃兰醛（4000） | **漏检禁用物** |
+
+根因：`isoeugenol` 含 `eugenol`、`hexylcinnamal` 含 `cinnamal`、`新铃兰醛` 含 `铃兰醛`；
+数据里本有正确 keys，但被靠前的条目抢先命中。
+
+修复：**最长键优先**（匹配键按长度降序预排）+ HICC/Lyral 缩写归一。
+两端同步修改，实测 **38 个探针在 Python 与 TS 上结果完全一致**。
+
+**新增守卫**：`web/src/lib/tox-match.test.ts`（10 条）+ `api/tests/test_tox_parity.py`（25 条），
+锁住单源一致性、5 处误匹配、HICC 别名、正常命中不受影响。
+
+> 说明：A2（3 条 demo 估计值）**经核查无需修改**——三方比对（Python / TS / legacy）
+> 的 22 条 NESIL **完全一致**，且这 3 条在 legacy 里确实无真实值，
+> 当前已正确标 `demo_estimate` + `nesil=null` + 走 `insufficient`，处理是诚实的。
+
 ---
 
 ## 三、项目还缺什么
@@ -92,12 +121,13 @@ python web/scripts/build_data.py
 
 | # | 缺口 | 说明 |
 | --- | --- | --- |
-| 🔴 A1 | **毒理表内嵌在代码里** | `api/app/data.py` 内嵌 22 条 NESIL（手写），改一个数要动代码。应迁到数据文件（如 `数据层/` 或 `web/src/data/`） |
-| 🔴 A2 | **3 条 NESIL 为演示估计值** | 22 条中 3 条 `demo=True`（÷3 惩罚）。需补真实文献出处或明确标注为估计 |
-| 🟠 A3 | **成分匹配是子串匹配** | `data.py` 用 `_norm(k) in n`，存在误命中风险（如短词命中长名）。应改为精确 + 别名 + 边界匹配 |
-| 🟠 A4 | **per-product 浓度仍非真实** | 香水成分浓度来自 docx/文献典型值，非逐款实测。答辩若被追问需有说法 |
-| 🟡 A5 | **氧化速率是单一标定系数** | 用 `K25_TERPENE` 一个系数 + Q10，而非成分级 k_ox（协作者台账已列此项） |
-| 🟡 A6 | **legacy 71 条致敏原未评估合并** | 覆盖面比现有 26 条大，但含 36 条按 tier 生造的 NESIL，需挑着用 |
+| ~~A1~~ | ~~毒理表内嵌在代码里~~ | ✅ **本次已修**：统一为 `web/src/data/tox.json`，两端共读 |
+| ~~A2~~ | ~~3 条 NESIL 为演示估计值~~ | ✅ **核查后无需修**：三方比对一致，且 legacy 确无真实值，当前处理诚实 |
+| ~~A3~~ | ~~成分匹配是子串匹配~~ | ✅ **本次已修**：毒理查找改为最长键优先（另发现 5 处误匹配，含 1 处漏检禁用物） |
+| 🟠 A3b | **IFRA 限值/禁用的匹配仍是子串** | `lookup_ifra_limit` / `lookup_banned` 仍用 `_norm(x) in n`，同样有误匹配风险（未逐条验证） |
+| 🟠 A4 | per-product 浓度仍非逐款实测 | 香水成分浓度来自 docx/文献典型值，非实测。答辩若被追问需有说法 |
+| 🟡 A5 | 氧化速率是单一标定系数 | 用 `K25_TERPENE` 一个系数 + Q10，而非成分级 k_ox（tox.json 已预留 `k25` 字段，目前仅柠檬烯/芳樟醇有值） |
+| 🟡 A6 | legacy 71 条致敏原未评估合并 | 覆盖面比现有 26 条大，但含 36 条按 tier 生造的 NESIL，需挑着用 |
 
 ### B. 代码与工程
 
@@ -137,8 +167,10 @@ python web/scripts/build_data.py
 | 前端 | `src/lib/vision/engine.test.ts` | 9 | 可视化映射 |
 | 前端 | `src/lib/allergens-extra.test.ts` | 8 | 三份数据层整合 + 手动通道新分支 |
 | 前端 | `src/lib/ifra-data.test.ts` | 6 | **本次新增**：IFRA CAS 质量守卫 |
+| 前端 | `src/lib/tox-match.test.ts` | 10 | **本次新增**：毒理单源 + 最长键优先 + HICC 别名 |
 | 后端 | `api/tests/test_api.py` | 13 | 端点 / 信封 / 错误隔离 / mock 确定性 |
 | 后端 | `api/tests/test_distributions.py` | 44（+19 skip） | **本次新增**：分布基元数值断言 + 双引擎对齐 |
+| 后端 | `api/tests/test_tox_parity.py` | 25 | **本次新增**：毒理单源 + 双引擎查找一致 + 数据诚实 |
 
 **交叉验证现状**：`normal_inv` 与 `sample_cel` 已用 TS 实测值锁住；但**其余模块（闸门判定、人群策略、氧化）尚无跨引擎对齐测试**。
 
@@ -146,7 +178,7 @@ python web/scripts/build_data.py
 
 ## 五、建议的下一步顺序
 
-1. **A1 + A2**（毒理表外置 + 3 条估计值处理）—— 影响答辩可信度，且顺手
+1. **A3b**（IFRA 限值/禁用的匹配同样改为最长键优先）—— 刚在毒理上证明这类子串误匹配真实存在，限值/禁用表大概率同病
 2. **B1 补全对齐测试**（闸门 / 人群 / 氧化的跨引擎一致性）—— 防止两份实现再次漂移
 3. **C1 百炼 Key 冒烟** —— 演示前必做
 4. **B2 + B5**（包名、清 zip）—— 收尾
