@@ -1,26 +1,68 @@
 #!/usr/bin/env python3
 """万象 Aura · 数据层 → 前端 JSON 管线（纯标准库，幂等可重跑）
 
-输入：数据层/ 下 5 个真实数据文件
+输入：数据层/ 下 5 个真实数据文件（目录不入库，见 find_data_dir）
   - 12款经典香水分析.docx      → src/data/perfumes.json（12 款真实香水）
   - IFRA 51st Amendment Cat4香水禁用清单.xlsx → src/data/ifra.json（限量20/禁用9/天然2）
   - 天然香料cas.xlsx / 合成香料CAS.xlsx / 香精 水溶性及油溶性香精CAS.xlsx → src/data/ingredients.json
 
 用法：python3 scripts/build_data.py
+      数据层不在默认位置时：set AURA_DATA_DIR=D:\\path\\to\\数据层
 """
 
 import html
 import json
+import os
 import re
 import sys
 import zipfile
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-ROOT = Path(__file__).resolve().parent.parent            # aura/web
-WS = ROOT.parent.parent                                   # 欧莱雅黑客松
-DATA_DIR = WS / "数据层"
+ROOT = Path(__file__).resolve().parent.parent            # <仓库>/web
+REPO = ROOT.parent                                       # <仓库>
+WS = REPO.parent                                         # 欧莱雅黑客松（数据层常在这一层）
 OUT_DIR = ROOT / "src" / "data"
+
+# 数据层目录名是中文，且不入库（体积大、含内部资料），所以不写死单一路径，
+# 而是按锚点文件去找。这段逻辑刻意留在 Python 而不是 .bat 里：.bat 必须
+# ASCII-only（cmd.exe 按系统 OEM 代码页解码脚本字节），中文目录名只有
+# Python 能安全处理。
+DATA_ANCHORS = ("12款经典香水分析.docx", "IFRA 51st Amendment Cat4香水禁用清单.xlsx")
+DATA_DIR: "Path | None" = None                            # 由 ensure_data_dir() 填充
+
+
+def ensure_data_dir() -> Path:
+    """定位并缓存数据层目录：先看 AURA_DATA_DIR，再按锚点文件在候选位置找。"""
+    global DATA_DIR
+    if DATA_DIR is not None:
+        return DATA_DIR
+    env = os.environ.get("AURA_DATA_DIR")
+    roots = ([Path(env)] if env else []) + [WS, REPO, WS.parent, REPO.parent]
+    seen: set[str] = set()
+    tried: list[Path] = []
+    for r in roots:
+        try:
+            cands = [r] + sorted(p for p in r.iterdir() if p.is_dir())
+        except OSError:
+            continue
+        for d in cands:
+            key = str(d).lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            tried.append(d)
+            if all((d / a).exists() for a in DATA_ANCHORS):
+                DATA_DIR = d
+                return d
+    listing = "\n".join(f"  - {p}" for p in tried) or "  （无）"
+    die(
+        "找不到数据层目录：需要同时包含以下锚点文件的目录\n"
+        f"  {'、'.join(DATA_ANCHORS)}\n"
+        f"已查找：\n{listing}\n"
+        "数据层不入库（体积大、含内部资料）。请向数据负责人索取后放到 <仓库同级>/数据层/，\n"
+        "或指定环境变量后重跑：set AURA_DATA_DIR=D:\\path\\to\\数据层"
+    )
 NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 M = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
@@ -480,9 +522,20 @@ def build_materials():
     }
 
 
+def write_json(name: str, obj: object) -> None:
+    """写 JSON：UTF-8 无 BOM、强制 LF。
+
+    强制 LF 是必要的：Windows 上默认的文本模式会把 \\n 翻成 CRLF，于是
+    每次重跑都会让 6 个 JSON 在 git 里显示为改动（.gitattributes 里
+     `*.json text eol=lf`），队友会误以为数据变了。
+    """
+    with (OUT_DIR / name).open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(obj, ensure_ascii=False, indent=2))
+
+
 def main():
-    if not DATA_DIR.exists():
-        die(f"数据层目录不存在：{DATA_DIR}")
+    data_dir = ensure_data_dir()
+    print(f"数据层：{data_dir}")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     perfumes = build_perfumes()
@@ -492,12 +545,12 @@ def main():
     ige = build_ige()
     materials = build_materials()
 
-    (OUT_DIR / "perfumes.json").write_text(json.dumps(perfumes, ensure_ascii=False, indent=2), "utf-8")
-    (OUT_DIR / "ifra.json").write_text(json.dumps(ifra, ensure_ascii=False, indent=2), "utf-8")
-    (OUT_DIR / "ingredients.json").write_text(json.dumps(ingredients, ensure_ascii=False, indent=2), "utf-8")
-    (OUT_DIR / "allergens26.json").write_text(json.dumps(allergens26, ensure_ascii=False, indent=2), "utf-8")
-    (OUT_DIR / "ige.json").write_text(json.dumps(ige, ensure_ascii=False, indent=2), "utf-8")
-    (OUT_DIR / "materials.json").write_text(json.dumps(materials, ensure_ascii=False, indent=2), "utf-8")
+    write_json("perfumes.json", perfumes)
+    write_json("ifra.json", ifra)
+    write_json("ingredients.json", ingredients)
+    write_json("allergens26.json", allergens26)
+    write_json("ige.json", ige)
+    write_json("materials.json", materials)
 
     print(f"perfumes: {len(perfumes['perfumes'])} 款")
     for p in perfumes["perfumes"][:3]:

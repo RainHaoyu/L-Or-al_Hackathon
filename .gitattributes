@@ -5,9 +5,12 @@
 # `'xxx' is not recognized as an internal or external command`。
 # 这类问题排查成本很高（看起来像路径或编码问题），故用 git 机制兜住。
 #
-# 另：.bat 内容应保持 ASCII-only。cmd.exe 按系统 OEM 代码页（中文系统为 GBK）
-# 解析文件字节，UTF-8 中文会被误解码并可能吞掉整行。
-# 需要引用中文文件名的场景，用 "??" 通配符（Windows 下 ?? 匹配一个 CJK 字符）。
+# 另：.bat **内容**必须 ASCII-only。cmd.exe 按系统 OEM 代码页（中文系统为 GBK）
+# 解析脚本字节，UTF-8 中文会被误解码并可能吞掉整行。所以根目录的中文名 .bat
+# 只是三行薄壳，逻辑写在 scripts\*.bat 里，薄壳按 ASCII 路径 call 核心。
+#   文件名本身是中文没有问题（文件名走 UTF-16，不经过代码页）；
+#   反过来，靠通配符/子串去「认」中文文件名不可行——?? 在 call 里无效，
+#   *端.bat 会同时匹配前端与后端脚本。
 
 # —— Windows 脚本：强制 CRLF ——
 *.bat text eol=crlf

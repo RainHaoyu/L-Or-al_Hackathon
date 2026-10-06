@@ -15,7 +15,7 @@
 | 旧实现 | `legacy/`（保底，含 71 条致敏原 / 21 款香水数据资产） |
 | 上游数据 | `D:\L'Oréal_Hackathon\数据层\`（9 个 xlsx/docx，仓库上一级） |
 | 数据管线 | ✅ **可重跑且幂等**（重跑后 `git diff` 为空） |
-| 测试 | 后端 **171 passed / 19 skipped**；前端 **65 passed** |
+| 测试 | 后端 **171 passed / 19 skipped**；前端 **72 passed** |
 | 分支同步 | 与 `origin/feat/wanxiang-aura-v2` 一致 |
 
 ### 启动与验证
@@ -23,19 +23,20 @@
 ```bash
 # 前端（可脱离后端独立演示）
 cd web && npm install && npm run dev        # → http://localhost:3000
-npm run test                                # 41 条
+npm run test                                # 72 条
 
 # 后端（可选；仅拍照识别与 AI 文案需要）
 cd api && pip install -r requirements.txt
 .venv/Scripts/python -m uvicorn app.main:app --port 8001
-.venv/Scripts/python -m pytest -q           # 44 条
+.venv/Scripts/python -m pytest -q           # 171 条
 
 # 数据管线（改了 数据层/ 之后；幂等可重跑）
 python web/scripts/build_data.py
 ```
 
 > ⚠️ 两个约定容易踩坑：
-> 1. `数据层/` 必须在**仓库上一级**（脚本用 `ROOT.parent.parent` 定位），不是仓库内。
+> 1. `数据层/` **不入库**，`build_data.py` 会按锚点文件在多个候选位置自动查找
+>    （含**仓库上一级**），找不到时打印所有查过的路径；也可用 `AURA_DATA_DIR` 指定。
 > 2. 后端端口 **8001**、前端端口 **3000**（不是旧实现的 8000 / 5173）。
 
 ---
@@ -184,7 +185,7 @@ python web/scripts/build_data.py
 | **qwen-vl-max 瓶身识别** | ✅ `provider='qwen-vl-max'`，未静默降级，约 1.1 s |
 | 额度耗尽时 | ✅ **优雅降级**：文案 722 ms 落规则模板，识别落 mock，**不报错不崩** |
 
-#### 7b. 前端 2 秒超时会截断全部 LLM 文案（★ 影响演示）
+#### 7b. 前端 2 秒超时会截断全部 LLM 文案（★ 影响可用性）
 
 实测 `/analyze` 端到端 **8.9–11.0 s**（5/5 用例，复测 3 次稳定），而
 `web/src/lib/api.ts` 的 `TIMEOUT` 原为 **2000 ms** ⟹ 有 Key 时请求必被 abort
@@ -194,7 +195,8 @@ python web/scripts/build_data.py
 - `TIMEOUT` 2000 → **15 000**，并在注释里写明实测依据与"为什么不能取 2 s"
 - `AnalyzeFlow.tsx` 增加**分阶段加载提示**（0s 连接 → 2s 计算闸门 → 5s 生成文案），
   带 `role="status" aria-live="polite"`，避免面对静止按钮以为卡死
-- 后端 `llm.py` 的 `_TIMEOUT=10` 未改（需决策，见"已知但暂不处理"）
+- 后端 `llm.py` 的 `_TIMEOUT` 10 → **5**（每个 tier 各 5 s，两档合计约 10 s，仍在前端 15 s 预算内；
+  实测 qwen-max 单次 2.8–4.5 s、失嗅模式 7.7–9.6 s，故失嗅走 `qwen-max` 单档时不会误判超时）
 
 #### 7c. 所有启动脚本（.bat/.sh/.command）无法使用 —— 已修
 
@@ -210,16 +212,44 @@ python web/scripts/build_data.py
 - 四个 `.bat` 全部转为 **CRLF**，并改为 **ASCII-only**（含注释）——cmd.exe 按系统 OEM
   代码页（中文系统 GBK）解析文件字节，UTF-8 中文会被误解码并可能吞掉整行
 - 路径去掉 `aura\`；前端端口统一 **3000**
-- 引用中文文件名改用 **`??` 通配符**（Windows 下 `??` 匹配一个 CJK 字符），
-  彻底避开中文在 bat 里的编码风险
+- 引用中文文件名当时改用 **`??` 通配符**（第一轮方案，**已被第二轮取代**，原因见下）
 - 后端脚本改用 `requirements.txt`（原脚本硬装 `fastapi uvicorn httpx pytest`，
   绕过了我们对 Windows 的依赖修正），并显式提示 `DASHSCOPE_API_KEY` 的传递方式
 - 数据管线脚本增加"仓库上一级缺 `数据层/`"的显式报错与指引
 - **新增 `.gitattributes`**：`*.bat → eol=crlf`、`*.sh/.command → eol=lf`、二进制不转换
   —— 用 git 机制守住这个坑，避免复发
 
-**验证**：用一个纯 ASCII 测试 bat 套用**完全相同的通配符写法**实测，
-`??前端.bat` / `??后端.bat` / `..\??层` 全部解析成功，`RESULT_ALL_PASSED`。
+**第二轮：ASCII-only + 「薄壳 / 核心」拆分（本方案为最终方案）**
+
+第一轮的 `??` 通配符写法**在 `call` 里根本无效**——实测
+`call "%~dp0_probe??端.bat"` 直接 `The system cannot find the path specified.`（exit 1），
+`??` 只在 `if exist` 这类路径判断中可用。而且通配符本身有歧义：
+`for %%f in ("%~dp0*端.bat")` 会**同时**匹配 `启动前端.bat` 与 `启动后端.bat`（贪婪匹配），
+所以 `*端.bat` 也无法区分前后端。
+
+于是改成**完全不依赖文件名匹配**的结构：
+
+| 角色 | 文件 | 约束 |
+| --- | --- | --- |
+| 薄壳（给人双击） | 根目录 `一键启动.bat` / `启动前端.bat` / `启动后端.bat` / `数据重生成.bat` | 中文名 + **内容 ASCII-only**，最多三行 |
+| 核心（真逻辑） | `scripts/start-frontend.bat` / `start-backend.bat` / `regenerate-data.bat` | ASCII 名，被薄壳按 ASCII 路径 `call` |
+
+这样**任何 `.bat` 都不必写出中文文件名**，整类编码风险从根上消失
+（文件名本身是中文没问题：文件名走 UTF-16，不经过代码页）。
+另外把「定位中文名数据层目录」的逻辑从 bat 移进 Python
+（`build_data.py::ensure_data_dir()`，按锚点文件在多个候选位置查找，支持 `AURA_DATA_DIR`）。
+
+**验证（是实跑过的，不是"应该能跑"）**：
+- 直接跑 `一键启动.bat`：后端在新窗口起在 **8001**、前端在本窗口起在 **3000**；
+  `http://localhost:3000` 返回 **200**，`/api/v1/health` 返回 **200** 且 `status=ok`
+  （无 Key 时 `models.synesthesia=template`，即按设计优雅降级）
+- 字节审计：全部 `.bat` = **0 个裸 LF / 0 个非 ASCII 字节**
+- 新增 `web/src/lib/launchers.test.ts`（7 条）把这三类约束变成**会失败的测试**：
+  CRLF、ASCII-only、薄壳只 call 核心、端口与 `vite.config.ts` / `api.ts` 一致
+
+**顺带修掉的「假 diff」**：`build_data.py` 原用 `write_text()`，Windows 文本模式会把 `\n`
+翻成 CRLF，于是每次重跑 6 个 JSON 都显示为改动（`.gitattributes` 里已声明 `*.json eol=lf`）。
+现改为显式 `newline="\n"`，重跑后 `git status -- web/src/data` 为空。
 
 ---
 
@@ -314,7 +344,7 @@ python web/scripts/build_data.py
 | 🟠 B-2 | 会场断网预案实测（回退机制已具备但未实测） | — |
 | 🟠 B-3 | 移动端细调 + Lighthouse 无障碍 ≥90 | — |
 | 🟠 B-4 | 前端包名 `my-app` / `index.html` 标题等脚手架残留 | — |
-| ✅ 脚本 | ~~启动脚本（.bat/.sh/.command）无法使用~~ | ✅ **已修**（见 §二.7c）：CRLF + 路径 + 端口 三处根因，已实测通过 |
+| ✅ 脚本 | ~~启动脚本（.bat/.sh/.command）无法使用~~ | ✅ **已修**（见 §二.7c）：CRLF + 路径 + 端口三处根因；第二轮再改为 ASCII-only 薄壳 + `scripts\` 核心，并实跑验证通过 |
 | 🟡 B-5 | 仓库根 3 个冗余 zip 清理（3.3MB） | — |
 | 🟡 B-6 | 聚合暴露开关 UI | — |
 
@@ -325,4 +355,5 @@ python web/scripts/build_data.py
 ## 六、已知但暂不处理的
 
 - `legacy/` 保留在仓库内（约 800KB 源码 + 300KB 数据），作为数据资产来源；不再参与构建。
-- `数据层/` 位于仓库外一层，因此 **clone 仓库不会带数据层**。若需他人复现数据管线，需单独提供该目录（或改为仓库内并同步调整两个脚本的路径常量）。
+- `数据层/` 位于仓库外一层，因此 **clone 仓库不会带数据层**。`build_data.py` 现在会按锚点文件
+  自动查找（含仓库上一级），也可用 `AURA_DATA_DIR` 指定；若改为仓库内则无需改任何路径常量。
