@@ -1,6 +1,6 @@
 /**
  * 万象 Aura · 数据层（真实数据接入版）
- * - 12 款真实香水 / IFRA 51st Cat4 三表 / 160 条 CAS 词典
+ * - 12 款真实香水 / IFRA 51st Cat4 三表 / 158 条 CAS 词典
  *   全部来自 数据层/ 原始文件，经 scripts/build_data.py 生成 src/data/*.json
  * - 五维雷达由族先验按组成加权生成；风险画像（萜烯/麝香/限值命中）由真实成分清单推导
  */
@@ -119,6 +119,14 @@ export interface MaterialsFile {
   syntheticCount: number
 }
 
+/** 香材词典命中结果。带 `name` 是必需的：只给 kind/category 时，
+ *  被「更长条目」遮住造成的误配在测试里看不出来（见 dict-selfhit.test.ts）。 */
+export interface MaterialHit {
+  name: string
+  kind: '天然香材' | '合成单体'
+  category: string
+}
+
 export const EU26 = (rawAllergens26 as unknown as { items: Eu26Item[] }).items
 export const IGE = (rawIge as unknown as { items: IgeItem[] }).items
 export const MATERIALS = rawMaterials as unknown as MaterialsFile
@@ -174,6 +182,16 @@ const IGE_INDEX = buildIndex(IGE, (g) => [g.zh, g.en ?? ''])
 const DICT_INDEX = buildIndex(INGREDIENT_DICT.entries, (e) => [e.zh ?? '', e.en ?? ''])
 const LIMIT_INDEX = buildIndex(IFRA.limits as unknown as RowAliases[], rowKeys)
 const BANNED_INDEX = buildIndex(IFRA.banned as unknown as RowAliases[], rowKeys)
+/** 香材词典（天然 + 合成单体）也走同一套「最长键优先」索引 */
+const MATERIAL_INDEX = buildIndex<MaterialHit>(
+  [
+    ...MATERIALS.natural.map((m) => ({ name: m, kind: '天然香材' as const, category: '天然香料词典' })),
+    ...Object.entries(MATERIALS.synthetic).flatMap(([cat, list]) =>
+      list.map((m) => ({ name: m, kind: '合成单体' as const, category: cat })),
+    ),
+  ],
+  (row) => [row.name],
+)
 
 /** 解析成分名对应的 IFRA 限值条目（最长键优先）。 */
 export function resolveLimit(ingredient: string): IfraLimit | null {
@@ -196,6 +214,13 @@ export function lookupEu26(name: string): Eu26Item | null {
   return longestHit(EU26_INDEX, n)
 }
 
+/** CAS 词典匹配（香料成分词典，最长键优先）。 */
+export function lookupDict(name: string): DictEntry | null {
+  const n = norm(name)
+  if (!n) return null
+  return longestHit(DICT_INDEX, n)
+}
+
 export function lookupIge(ingredient: string): IgeItem | null {
   const n = norm(ingredient)
   if (n.length < 2) return null
@@ -206,15 +231,17 @@ export function lookupIge(ingredient: string): IgeItem | null {
   return reverse ?? null
 }
 
-export function lookupMaterial(name: string): { kind: '天然香材' | '合成单体'; category: string } | null {
+/**
+ * 香材词典匹配（天然香材 / 合成单体）。
+ *
+ * 与毒理、IFRA、EU26、IgE、CAS 词典一样走**最长键优先**的统一规则：
+ * 原实现是"按数组顺序取首个 includes 命中"，长名会被更靠前的短名抢走
+ * （同 IFRA 那批子串误配的根因）。字典顺序不该决定匹配结果。
+ */
+export function lookupMaterial(name: string): MaterialHit | null {
   const n = norm(name)
   if (n.length < 2) return null
-  const nat = MATERIALS.natural.find((m) => n.includes(norm(m)))
-  if (nat) return { kind: '天然香材', category: '天然香料词典' }
-  for (const [cat, list] of Object.entries(MATERIALS.synthetic)) {
-    if (list.some((m) => n.includes(norm(m)))) return { kind: '合成单体', category: cat }
-  }
-  return null
+  return longestHit(MATERIAL_INDEX, n)
 }
 
 function hitLimit(ingredient: string, l: IfraLimit): boolean {
@@ -666,7 +693,7 @@ export function matchManualIngredient(item: ParsedIngredient, population: Popula
     }
   }
 
-  const dict = longestHit(DICT_INDEX, norm(item.name))
+  const dict = lookupDict(item.name)
   if (dict) {
     return {
       ...item,

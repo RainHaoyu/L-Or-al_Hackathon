@@ -15,7 +15,7 @@
 | 旧实现 | `legacy/`（保底，含 71 条致敏原 / 21 款香水数据资产） |
 | 上游数据 | `D:\L'Oréal_Hackathon\数据层\`（9 个 xlsx/docx，仓库上一级） |
 | 数据管线 | ✅ **可重跑且幂等**（重跑后 `git diff` 为空） |
-| 测试 | 后端 **171 passed / 19 skipped**；前端 **72 passed** |
+| 测试 | 后端 **181 passed / 19 skipped**；前端 **88 passed** |
 | 分支同步 | 与 `origin/feat/wanxiang-aura-v2` 一致 |
 
 ### 启动与验证
@@ -23,12 +23,12 @@
 ```bash
 # 前端（可脱离后端独立演示）
 cd web && npm install && npm run dev        # → http://localhost:3000
-npm run test                                # 72 条
+npm run test                                # 88 条
 
 # 后端（可选；仅拍照识别与 AI 文案需要）
 cd api && pip install -r requirements.txt
 .venv/Scripts/python -m uvicorn app.main:app --port 8001
-.venv/Scripts/python -m pytest -q           # 171 条
+.venv/Scripts/python -m pytest -q           # 181 条
 
 # 数据管线（改了 数据层/ 之后；幂等可重跑）
 python web/scripts/build_data.py
@@ -253,6 +253,112 @@ python web/scripts/build_data.py
 
 ---
 
+### 8. 失嗅模式没走后端 + 超时一刀切 → 已修（待办 1-1 / 1-2，本次）
+
+#### 8a. 「失嗅模式走 AI」实际上从未生效（1-1）
+
+`AnalyzeFlow.tsx` 调 `/analyze` 时把 `mode` **写死成 `'normal'`**，顶栏选的模式没传下去。
+后端本来就是按 mode 选 prompt 的（`schemas.py` 已有 `mode` 字段并转发给 `llm.synthesize`），
+所以失嗅模式那段"更长的文案"其实是前端本地 `buildSynesthesia` 拼的。
+
+**修复**：从 `useApp()` 取真实 `mode` 并传入（后端无需改动）。
+
+#### 8b. 超时一刀切（1-2）——先量出来，再定值
+
+修 1-1 会立刻暴露 1-2。本次补测到一个关键数字：**关掉 Key、走规则模板时，
+`/analyze` 仍需 4445–5037 ms**（5 次实测：4922 / 5037 / 4445 / 4537 / 4864）。
+也就是说**引擎（QRA2 蒙特卡洛）本身就要约 5 s，与云端无关**。
+所以前端预算必须是「引擎 + LLM」两段相加，不能只按 LLM 耗时估——这也是
+原来"全局 15 s"看起来够、实际在失嗅模式上偶发落模板的原因。
+
+| 模式 | LLM 实测（qwen-max 单次） | 预算（引擎 5 s + LLM） | 前端超时 |
+| --- | --- | --- | --- |
+| normal | 2.9–4.5 s | 5 + 6 = 11 s | **13 s** |
+| sensitive | 2.8–3.6 s | 5 + 6 = 11 s | **13 s** |
+| anosmia | 7.7–9.6 s | 5 + 12 = 17 s | **19 s** |
+
+**后端 `llm.py`：由「每档超时 5 s」改为「两档共享一个总预算」`_BUDGET[mode]`。**
+旧写法（每档 5 s）在第二档还会重来一遍，最坏翻倍；而且 anosmia 单次就要 7.7–9.6 s，
+**第一档必然被 abort**。现在每档拿到的是**剩余**预算，总耗时被预算封顶；
+剩余不足 `_MIN_ATTEMPT = 0.4 s` 就直接落模板，不让前端白等（快速失败时预算充足，
+仍会正常尝试第二档）。
+
+**验证**：
+- 新增 `api/tests/test_llm_budget.py`（7 条）：预算按模式区分、两档共享预算、
+  第一档快速失败仍会尝试第二档、单档 timeout 不超过总预算；
+  并且**读 `web/src/lib/api.ts`** 断言跨语言不变式「前端超时 > 引擎 5 s + 后端预算」
+- 新增 `web/src/lib/analyze-timeout.test.ts`（6 条）：三种模式都有超时值、
+  真实 mode 进入请求体、同一时刻 normal 已 abort 而 anosmia 仍在等、
+  `AnalyzeFlow` 中不再出现 `mode: 'normal'`、阶段提示用的是按模式推导的预算
+- 全量：前端 **78 条**、后端 **178 条** 全绿，`tsc -b` 通过
+
+### 9. 后端测试不隔离网络 → 已修（待办 1-3，本次）
+
+`/analyze` 与 `/recognition/image` 会走到 `llm.synthesize` / `QwenVLProvider`，
+两者都读进程环境变量 `DASHSCOPE_API_KEY`。开发机上只要设了这个变量，
+跑测试就**真的请求百炼**：真实消耗额度，且结果取决于网络与账户状态
+（换机器 / CI 上不可复现）。
+
+**修复**（新增 `api/tests/conftest.py`，两层防护）：
+1. autouse fixture 删掉 `DASHSCOPE_API_KEY`，让代码走本地兜底分支；
+2. 同时把模块级 `httpx.post` 换成守卫：真发起外部请求时立刻抛错，
+   并把 URL 记进 `EXTERNAL_CALLS`；session 结束时断言该列表为空（不静默放过）。
+
+显式需要联网时：`AURA_ALLOW_LLM_TESTS=1 pytest tests/ -q`。
+只替换 `httpx.post` 而不动 `httpx.Client.request`——starlette 的 `TestClient`
+继承自 `httpx.Client`，换掉它会连测试客户端一起打掉。
+
+**验证**（新增 `api/tests/test_network_isolation.py`，3 条）：
+- `test_api_key_is_removed_inside_tests`：**故意在环境里设一个假 Key** 后跑，
+  测试进程里仍读不到它
+- `test_external_http_post_is_blocked`：守卫确实拦截并记录（连 URL 都对得上）
+- `test_analyze_falls_back_to_template`：离线时 `/analyze` 仍有结果，`isLlm=false`
+- 实跑：环境带假 Key 跑隔离相关用例 10 条全绿，12.1 s
+
+> 另记一个观察（属于 3-3，已用 `--durations=10` 定位）：**后端全量本身并不快**。
+> 无 Key 全量实测 **512 s**，最慢的 10 条全是"打整条引擎"的用例：
+> `test_yellow_reachability_is_bounded_by_tpop` 50.7 s、
+> `test_population_divergence_on_same_input` 39.7 s、
+> `test_population_divergence_backend` 33.6 s、`test_analyze_falls_back_to_template` 17.1 s……
+> 即每条用例内部要跑好几次 `analyze`，而**单次引擎（LHS n=10000）在干净环境实测 4.4–5.0 s**。
+> 因此早先那句「设了 Key 之后 171 条从约 130 秒变成 511 秒」**是错的**——
+> 511 s 无 Key 也是这个量级（另一次与前端测试并发时量到 1238 s，量测受负载影响很大），
+> 变慢的是引擎本身，与 Key 无关。提速方向由此明确：共享夹具 / 测试用更小的 n。
+
+### 10. 四类词典交叉探测 → 已做，并揪出 2 条假词条 + 1 处同名撞车（待办 1-5，本次）
+
+1-5 的疑问是「EU26 / IgE / 香材词典 / CAS 词典这几处虽然也改成了最长优先，但没逐条验证过」。
+验证方式最便宜也最直接：**拿每个条目自己的名字去查自己**，命中别人或命中 null 都显式暴露。
+新增 `web/src/lib/dict-selfhit.test.ts`（10 条），覆盖 EU26（26）/ IgE（10）/
+CAS 词典（158）/ 香材词典（148），每条用中文名与英文/INCI 名各查一次。
+
+**探测出两类真问题**：
+
+1. **香材词典压根没走最长优先**：原实现是「按数组顺序取首个 `includes` 命中」，
+   也就是**字典顺序决定匹配结果**——与毒理/IFRA 那批子串误配同一个根因，
+   只是这次还没被触发。已改为与其余词典同一套 `buildIndex` / `longestHit` 索引。
+   同时给 `lookupMaterial` 补上 `name` 字段：只返回 kind/category 时，
+   「到底命中了哪一条」根本看不出来，自探测也无从断言。
+2. **CAS 词典里有 2 条不是成分**：源表的分节标签行被当成数据行写进了
+   `ingredients.json`——`{"cas": "水溶性香精：", "zh": "", "en": ""}` 与
+   `{"cas": "油溶性香精：", ...}`，中英文名全空、公式为空（既查不到也匹配不上）。
+   已在管线侧修正：`build_ingredients` 跳过「没有任何名字」或「CAS 列写的是中文标签」
+   的行，并打印跳过条数。词条数 **160 → 158**。
+
+**一处存疑但故意不动**：源 xlsx 给 CAS `65442-31-1`（仲丁基喹啉）与
+CAS `93-19-6`（6-仲丁基喹啉）写了**同一个英文名** `Butyl quinoline secondary`，
+归一化后两键完全相同，只能命中一条。没有可靠来源可以改写化学名（编一个比留着歧义更糟），
+所以不改数据，而是把歧义**显式记录**并用测试锁住确定性结果：
+商品名 → 通用品 `65442-31-1`，`6-仲丁基喹啉` → `93-19-6`。CAS 只出现在说明文字里、
+不参与限值判定，影响面有限。
+
+**顺带**：`AnalyzeFlow` 里「160 条 CAS 词典」的硬编码文案改为读
+`INGREDIENT_DICT.entries.length`，避免数据一变文案就说谎。
+
+**验证**：前端 88 条全绿（含 10 条自探测）、`tsc -b` 通过；数据管线重跑后 `git status` 为空。
+
+---
+
 ## 三、项目还缺什么
 
 分为四类。**🔴 = 影响可信度或可用性，建议优先**；🟠 中等；🟡 收尾。
@@ -275,7 +381,7 @@ python web/scripts/build_data.py
 | --- | --- | --- |
 | 🟠 B1 | **双引擎同步的人工风险** | 对齐测试已补齐（见 §二.6），但两份实现仍是**肉眼同步**：任何一侧改动都必须手工同步另一侧，否则再次漂移。长期应改为单一实现 + 代码生成 |
 | 🟠 B2 | **前端包名是脚手架残留** | `web/package.json` 的 `name` 仍是 `my-app`、`version` 为 `0.0.0`，应改为项目名 |
-| 🟠 B3 | **后端测试偏慢** | 171 条需约 130 秒，主要是 LHS 抽样（每次 ~0.7s）。可考虑共享 fixture 或降低测试用 n |
+| 🟠 B3 | **后端测试偏慢** | 181 条无 Key 实测约 510 s；最慢 10 条都是整条引擎用例（单条 17–51 s），单次 analyze 的引擎开销实测 4.4–5.0 s。方向：共享夹具 / 测试用更小的 n |
 | 🟡 B4 | **无 lint / CI** | 前端有 eslint 配置但未纳入流程；无 CI 跑测试 |
 | 🟡 B5 | **仓库根冗余 zip** | `万象Aura-工程包.zip`(1.52MB) / `万象Aura-全套包-Windows.zip`(1.52MB) / `万象Aura工程包-20261005.zip`(0.25MB)。内容均已落盘，共 3.3MB 重复 |
 

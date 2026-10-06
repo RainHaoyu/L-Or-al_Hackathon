@@ -1,13 +1,14 @@
 """阶段 5 · LLM 编排：通感文案
 
 - Prompt 按三种 VisionMode 外置（PROMPTS 常量，调优不改代码）
-- 三级兜底：qwen-max → qwen-plus → 规则模板（断网/无 Key 全链路可演示）
+- 三级兜底：qwen-max → qwen-plus → 规则模板（无 Key / 断网时全链路仍可用）
 - LLM 不参与风险判定，只生成通感文字
 """
 
 from __future__ import annotations
 
 import os
+import time
 from typing import Any
 
 import httpx
@@ -34,16 +35,24 @@ PROMPTS: dict[str, str] = {
 
 _TIER = ["qwen-max", "qwen-plus"]
 _URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
-# 每档超时 5 s（两档串行，最坏 10 s）。
+# LLM 阶段**总预算**（秒），两档共享；不是「每档各自重来一遍」。
 #
-# 取值依据（实测 2026-10-05）：
-#   - 直连 qwen-max 生成通感文案约 2.4–3.4 s，正常情况 5 s 足够
-#   - 原为 10 s：两档串行最坏 20 s，会超过前端 15 s 超时
-#     （web/src/lib/api.ts），导致「后端还在算、前端已回退本地引擎」
-#   - 5 s × 2 档 = 最坏 10 s，留 5 s 余量给网络与后续处理
-# 模型偶发慢于 5 s 时会落规则模板——宁可快速给出模板，
-# 也不要让用户面对超过前端超时的长等待。
-_TIMEOUT = 5
+# 取值依据（实测 2026-10-05，qwen-max 单次调用）：
+#   normal    2.9–4.5 s（输出 85–126 字）
+#   sensitive 2.8–3.6 s（84–126 字）
+#   anosmia   7.7–9.6 s（296–371 字：prompt 要求四五句具体意象，输出长约 3 倍）
+#
+# 前端 web/src/lib/api.ts 的 ANALYZE_TIMEOUT 按「引擎约 5 s + 本预算」推导：
+#   normal / sensitive：13 s > 5 + 6
+#   anosmia           ：19 s > 5 + 12
+# 该不变式（前端超时 > 引擎 5 s + 本预算）由 api/tests/test_llm_budget.py 读前端文件断言。
+#
+# 为什么是「总预算」而不是「每档超时」：两档串行时，若每档各自超时，
+# 第一档耗尽超时后第二档还会再来一遍，最坏耗时直接翻倍并超过前端超时
+# （旧值 _TIMEOUT=5 就是这个毛病：anosmia 实测 7.7–9.6 s，第一档必被 abort）。
+_BUDGET: dict[str, float] = {"normal": 6.0, "sensitive": 6.0, "anosmia": 12.0}
+# 剩余预算低于此值就不再尝试下一档：与其发一个几乎注定超时的请求，不如立刻落模板
+_MIN_ATTEMPT = 0.4
 
 
 def _fill_prompt(mode: str, perfume: dict[str, Any]) -> str:
@@ -95,18 +104,26 @@ def _template(perfume: dict[str, Any], mode: str) -> str:
 
 
 def synthesize(perfume: dict[str, Any], mode: str) -> tuple[str, str, bool]:
-    """返回 (文案, 实际使用的模型, 是否 LLM)。三级兜底，任何异常都落模板。"""
+    """返回 (文案, 实际使用的模型, 是否 LLM)。三级兜底，任何异常都落模板。
+
+    两档模型共享 `_BUDGET[mode]` 的总预算：每档拿到的是**剩余**预算，
+    因此无论第一档是快速失败（额度/网络）还是慢到超时，总耗时都被预算封顶。
+    """
     key = os.environ.get("DASHSCOPE_API_KEY", "")
     if not key:
         return _template(perfume, mode), "template", False
     prompt = _fill_prompt(mode, perfume)
+    deadline = time.monotonic() + _BUDGET.get(mode, _BUDGET["normal"])
     for model in _TIER:
+        left = deadline - time.monotonic()
+        if left < _MIN_ATTEMPT:
+            break  # 预算已用尽：宁可立刻给模板，也不让前端等到超时
         try:
             r = httpx.post(
                 _URL,
                 headers={"Authorization": f"Bearer {key}"},
                 json={"model": model, "messages": [{"role": "user", "content": prompt}], "temperature": 0.8},
-                timeout=_TIMEOUT,
+                timeout=left,
             )
             r.raise_for_status()
             text = r.json()["choices"][0]["message"]["content"].strip()

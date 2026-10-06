@@ -2,10 +2,11 @@ import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { Camera, Keyboard, ScanBarcode, Search } from 'lucide-react'
 import { useApp } from '../lib/state'
-import { api } from '../lib/api'
+import { ANALYZE_TIMEOUT, ENGINE_BUDGET_MS, api } from '../lib/api'
 import type { Candidate } from '../lib/api-types'
 import {
   IFRA,
+  INGREDIENT_DICT,
   PERFUMES,
   POPULATIONS,
   STORAGE_OPTIONS,
@@ -76,6 +77,7 @@ export function AnalyzeFlow() {
   const {
     population,
     setPopulation,
+    mode,
     perfumeId,
     setPerfumeId,
     openedMonths,
@@ -103,20 +105,25 @@ export function AnalyzeFlow() {
   /**
    * 生成报告：后端引擎优先（版本信封），超时/断网自动回退本地引擎。
    *
-   * 超时为 15 s（见 lib/api.ts 注释）：配了 DASHSCOPE_API_KEY 时，
-   * qwen-max 生成通感文案会让 /analyze 耗时 9–11 s；此处配合阶段提示，
-   * 否则用户面对静止按钮会以为卡死。
+   * mode 必须传真实模式：后端按 mode 选 prompt，写死 'normal' 会让失嗅模式的
+   * AI 文案静默失效（那段长文案其实是前端本地拼的）。
+   * 超时也按模式取（见 lib/api.ts 的 ANALYZE_TIMEOUT）：引擎约 5 s，
+   * 失嗅模式文案长约 3 倍、耗时也约 3 倍，所以它的预算比另两种模式高。
    */
   const generateReport = async () => {
     if (reportBusy) return
     setReportBusy(true)
+    const timeoutMs = ANALYZE_TIMEOUT[mode]
+    const llmBudgetS = Math.round((timeoutMs - ENGINE_BUDGET_MS) / 1000)
     // 阶段提示按实测耗时切分：0s 连接 → 2s 计算闸门 → 5s 生成文案
-    // 实测（2026-10-05，qwen-max）：normal 约 2.9–4.5 s、sensitive 约 2.8–3.6 s；
-    // 后端 llm.py 每档超时 5 s，最坏 10 s（两档串行），前端 15 s。
+    // （引擎实测 4.4–5.0 s，之后才是 LLM；anosmia 的 LLM 预算更长）
     const stages: [number, string][] = [
       [0, '正在连接后端引擎…'],
-      [2000, '正在计算暴露量与四道闸门…'],
-      [5000, '正在生成通感文案…（AI 模型响应较慢，最长约 10 秒）'],
+      [2000, '正在计算暴露量与四道闸门…（引擎约需 5 秒）'],
+      [
+        5000,
+        `正在生成通感文案…（${mode === 'anosmia' ? '失嗅模式文案更长' : 'AI 模型响应较慢'}，最长约 ${llmBudgetS} 秒）`,
+      ],
     ]
     const timers = stages.map(([ms, text]) => setTimeout(() => setReportStage(text), ms))
     try {
@@ -125,7 +132,7 @@ export function AnalyzeFlow() {
         population,
         opened_months: openedMonths,
         storage,
-        mode: 'normal',
+        mode,
       })
       if (r.data) {
         setEngineMeta({ source: 'backend', engine: r.meta.engine ?? 'backend', models: r.data.synesthesia.model })
@@ -447,7 +454,7 @@ export function AnalyzeFlow() {
                           </ul>
                           {hits.length < total && (
                             <p className="mt-3 text-xs text-muted-foreground">
-                              其余 {total - hits.length} 条未命中 IFRA/词典（当前已接入 {IFRA.amendment} Cat4 三表与 160 条 CAS 词典；正式版由后端 71 条致敏原库与模糊匹配接管，未命中按「数据不足」黄灯处理，不静默放行）。
+                              其余 {total - hits.length} 条未命中 IFRA/词典（当前已接入 {IFRA.amendment} Cat4 三表与 {INGREDIENT_DICT.entries.length} 条 CAS 词典；正式版由后端 71 条致敏原库与模糊匹配接管，未命中按「数据不足」黄灯处理，不静默放行）。
                             </p>
                           )}
                         </>

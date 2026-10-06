@@ -422,21 +422,31 @@ def norm_cas(cas: str) -> str:
 def build_ingredients():
     specs = [("天然香料cas.xlsx", "natural"), ("合成香料CAS.xlsx", "synthetic"), ("香精 水溶性及油溶性香精CAS.xlsx", "fragrance")]
     entries, seen = [], set()
+    n_label = 0
     for fname, src in specs:
         rows = xlsx_rows(DATA_DIR / fname)
         for cells in rows[1:]:
             vals = [cells.get(c, "") for c in ("A", "B", "C", "D")]
             cas = norm_cas(vals[0])
             zh = vals[1].strip()
+            en = vals[2].strip()
             if not cas and not zh:
                 continue
             if zh in ("中文名", "CAS") or cas in ("CAS",):
+                continue
+            # 段落标题行不是成分：源表里「水溶性香精：」「油溶性香精：」这类
+            # 分节标签会落进 CAS 列（原本被当成 160 条里的两条，且中英文名全空，
+            # 既查不到也匹配不上）。判据：没有任何名字，或 CAS 列写的是中文标签。
+            if (not zh and not en) or re.search(r"[\u4e00-\u9fff]", cas):
+                n_label += 1
                 continue
             key = (cas, zh)
             if key in seen:
                 continue
             seen.add(key)
-            entries.append({"cas": cas, "zh": zh, "en": vals[2].strip(), "formula": vals[3].strip(), "source": src})
+            entries.append({"cas": cas, "zh": zh, "en": en, "formula": vals[3].strip(), "source": src})
+    if n_label:
+        print(f"  跳过 {n_label} 行段落标题（无成分名或 CAS 列是中文标签）")
     return {"source": "数据层/天然香料cas.xlsx + 合成香料CAS.xlsx + 香精CAS.xlsx", "entries": entries}
 
 
