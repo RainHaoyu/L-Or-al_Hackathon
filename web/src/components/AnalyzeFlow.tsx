@@ -90,6 +90,8 @@ export function AnalyzeFlow() {
   const [barcode, setBarcode] = useState('')
   const [manualParsed, setManualParsed] = useState<ManualMatch[] | null>(null)
   const [reportBusy, setReportBusy] = useState(false)
+  /** 等待期间的阶段性提示（有 Key 时 /analyze 实测需 9–11 s，须给用户进度感） */
+  const [reportStage, setReportStage] = useState('')
   const [photoBusy, setPhotoBusy] = useState(false)
   const [photoResult, setPhotoResult] = useState<{
     status: 'ok' | 'confirm' | 'error'
@@ -98,10 +100,23 @@ export function AnalyzeFlow() {
     candidates: Candidate[]
   } | null>(null)
 
-  /** 生成报告：后端引擎优先（版本信封），2s 超时/断网自动回退本地引擎 */
+  /**
+   * 生成报告：后端引擎优先（版本信封），超时/断网自动回退本地引擎。
+   *
+   * 超时为 15 s（见 lib/api.ts 注释）：配了 DASHSCOPE_API_KEY 时，
+   * qwen-max 生成通感文案会让 /analyze 耗时 9–11 s；此处配合阶段提示，
+   * 否则用户面对静止按钮会以为卡死。
+   */
   const generateReport = async () => {
     if (reportBusy) return
     setReportBusy(true)
+    // 阶段提示按实测耗时切分：0s 连接 → 2s 计算闸门 → 5s 生成文案
+    const stages: [number, string][] = [
+      [0, '正在连接后端引擎…'],
+      [2000, '正在计算暴露量与四道闸门…'],
+      [5000, '正在为失嗅人群生成通感文案…（AI 模型响应较慢，最长 15 秒）'],
+    ]
+    const timers = stages.map(([ms, text]) => setTimeout(() => setReportStage(text), ms))
     try {
       const r = await api.analyze({
         product_id: perfumeId,
@@ -118,6 +133,8 @@ export function AnalyzeFlow() {
     } catch {
       setEngineMeta({ source: 'local', engine: 'aura-web-local/1.0' })
     } finally {
+      timers.forEach(clearTimeout)
+      setReportStage('')
       setReportBusy(false)
       navigate('/report')
     }
@@ -495,10 +512,11 @@ export function AnalyzeFlow() {
         </div>
 
         {/* —— 生成（后端引擎优先，断网回退本地） —— */}
-        <div className="flex flex-wrap gap-4 border-t border-border pt-8">
+        <div className="flex flex-wrap items-center gap-4 border-t border-border pt-8">
           <button
             onClick={generateReport}
             disabled={reportBusy}
+            aria-busy={reportBusy}
             className={cn(
               'focus-visible-strong inline-flex min-h-12 items-center rounded-full bg-ink px-7 font-medium text-paper transition-transform',
               !reportBusy && 'hover:scale-[1.03]',
@@ -513,6 +531,13 @@ export function AnalyzeFlow() {
           >
             查看香气显影
           </Link>
+          {reportBusy && (
+            <p role="status" aria-live="polite"
+              className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span aria-hidden className="inline-block h-2 w-2 animate-pulse rounded-full bg-ink" />
+              {reportStage || '正在准备…'}
+            </p>
+          )}
         </div>
       </div>
     </section>

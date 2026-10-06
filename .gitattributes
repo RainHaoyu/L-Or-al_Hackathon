@@ -1,0 +1,40 @@
+# 换行符策略（重要，勿删）
+#
+# 背景：.bat 必须是 CRLF。若被写成裸 LF，cmd.exe 会按 CRLF 切行而读错位，
+# 导致「每一行都被截断」——表现为脚本点了就闪退或报一堆
+# `'xxx' is not recognized as an internal or external command`。
+# 这类问题排查成本很高（看起来像路径或编码问题），故用 git 机制兜住。
+#
+# 另：.bat 内容应保持 ASCII-only。cmd.exe 按系统 OEM 代码页（中文系统为 GBK）
+# 解析文件字节，UTF-8 中文会被误解码并可能吞掉整行。
+# 需要引用中文文件名的场景，用 "??" 通配符（Windows 下 ?? 匹配一个 CJK 字符）。
+
+# —— Windows 脚本：强制 CRLF ——
+*.bat text eol=crlf
+
+# —— Unix 脚本：强制 LF ——
+*.sh    text eol=lf
+*.command text eol=lf
+
+# —— 源码与数据：仓库内统一 LF ——
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.js   text eol=lf
+*.json text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+
+# —— 二进制：不做换行转换 ——
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary
+*.pdf  binary
+*.xlsx binary
+*.docx binary
+*.zip  binary

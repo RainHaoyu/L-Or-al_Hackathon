@@ -173,6 +173,54 @@ python web/scripts/build_data.py
 
 **新增**：`api/tests/test_engine_parity.py`（57 条）。
 
+### 7. A-1 百炼 Key 冒烟 ✅　+ 启动脚本修复 ✅　+ 前端超时修复 ✅（本次）
+
+#### 7a. A-1 真实 Key 冒烟（此前全程 mock）
+
+| 通道 | 结果 |
+| --- | --- |
+| Key 连通性 | ✅ HTTP 200 |
+| **qwen-max 通感文案** | ✅ 真实产出（敏感肌模式还主动提示"脂肪醛可能刺激，建议先小范围试用"） |
+| **qwen-vl-max 瓶身识别** | ✅ `provider='qwen-vl-max'`，未静默降级，约 1.1 s |
+| 额度耗尽时 | ✅ **优雅降级**：文案 722 ms 落规则模板，识别落 mock，**不报错不崩** |
+
+#### 7b. 前端 2 秒超时会截断全部 LLM 文案（★ 影响演示）
+
+实测 `/analyze` 端到端 **8.9–11.0 s**（5/5 用例，复测 3 次稳定），而
+`web/src/lib/api.ts` 的 `TIMEOUT` 原为 **2000 ms** ⟹ 有 Key 时请求必被 abort
+⟹ **用户永远看不到 qwen-max 生成的文案，只看到规则模板**。
+
+**修复**：
+- `TIMEOUT` 2000 → **15 000**，并在注释里写明实测依据与"为什么不能取 2 s"
+- `AnalyzeFlow.tsx` 增加**分阶段加载提示**（0s 连接 → 2s 计算闸门 → 5s 生成文案），
+  带 `role="status" aria-live="polite"`，避免面对静止按钮以为卡死
+- 后端 `llm.py` 的 `_TIMEOUT=10` 未改（需决策，见"已知但暂不处理"）
+
+#### 7c. 所有启动脚本（.bat/.sh/.command）无法使用 —— 已修
+
+**三个叠加的根因**（按发现顺序）：
+
+| # | 根因 | 后果 |
+| --- | --- | --- |
+| 1 | **换行符是裸 LF，不是 CRLF** | ★ **真正主因**：cmd.exe 按 CRLF 切行 ⟹ 每行被读错位、命令截断，报一堆 `'xxx' is not recognized`、点了就闪退 |
+| 2 | 路径写死 `%~dp0aura\web` / `aura\api` | 方案 B 把 `web/`、`api/` 平移到了仓库根，`aura\` 层级已不存在 ⟹ `cd` 失败 |
+| 3 | 前端端口 5199 ≠ `vite.config.ts` 的 3000 | 即使路径修好，也会打开空白页 |
+
+**修复**：
+- 四个 `.bat` 全部转为 **CRLF**，并改为 **ASCII-only**（含注释）——cmd.exe 按系统 OEM
+  代码页（中文系统 GBK）解析文件字节，UTF-8 中文会被误解码并可能吞掉整行
+- 路径去掉 `aura\`；前端端口统一 **3000**
+- 引用中文文件名改用 **`??` 通配符**（Windows 下 `??` 匹配一个 CJK 字符），
+  彻底避开中文在 bat 里的编码风险
+- 后端脚本改用 `requirements.txt`（原脚本硬装 `fastapi uvicorn httpx pytest`，
+  绕过了我们对 Windows 的依赖修正），并显式提示 `DASHSCOPE_API_KEY` 的传递方式
+- 数据管线脚本增加"仓库上一级缺 `数据层/`"的显式报错与指引
+- **新增 `.gitattributes`**：`*.bat → eol=crlf`、`*.sh/.command → eol=lf`、二进制不转换
+  —— 用 git 机制守住这个坑，避免复发
+
+**验证**：用一个纯 ASCII 测试 bat 套用**完全相同的通配符写法**实测，
+`??前端.bat` / `??后端.bat` / `..\??层` 全部解析成功，`RESULT_ALL_PASSED`。
+
 ---
 
 ## 三、项目还缺什么
@@ -251,7 +299,7 @@ python web/scripts/build_data.py
 
 | 优先级 | 任务 | 阻塞项 |
 | --- | --- | --- |
-| 🔴 A-1 | **百炼 Key 真实冒烟**（识别 + 文案 + 延迟）—— 当前全程 mock，从未真实跑过 | 需要 `DASHSCOPE_API_KEY` |
+| ~~A-1~~ | ~~百炼 Key 真实冒烟~~ | ✅ **已完成**（见 §二.7a）：qwen-max / qwen-vl-max 均真实调通；额度耗尽优雅降级，不报错 |
 | 🟠 A-2 | 毒理表 19 条 `documented` 补逐条文献出处 | — |
 | 🟠 A-3 | per-product 浓度（现为文献典型值，非实测） | — |
 | 🟡 A-4 | 成分级氧化速率（`tox.json` 已预留 `k25`） | — |
@@ -266,6 +314,7 @@ python web/scripts/build_data.py
 | 🟠 B-2 | 会场断网预案实测（回退机制已具备但未实测） | — |
 | 🟠 B-3 | 移动端细调 + Lighthouse 无障碍 ≥90 | — |
 | 🟠 B-4 | 前端包名 `my-app` / `index.html` 标题等脚手架残留 | — |
+| ✅ 脚本 | ~~启动脚本（.bat/.sh/.command）无法使用~~ | ✅ **已修**（见 §二.7c）：CRLF + 路径 + 端口 三处根因，已实测通过 |
 | 🟡 B-5 | 仓库根 3 个冗余 zip 清理（3.3MB） | — |
 | 🟡 B-6 | 聚合暴露开关 UI | — |
 

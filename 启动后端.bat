@@ -1,16 +1,33 @@
 @echo off
-chcp 65001 >nul
+rem ============================================================
+rem  Wanxiang Aura - backend (optional, Windows)
+rem  NOTE: keep ASCII-only. cmd.exe mis-decodes UTF-8 Chinese
+rem  under the system OEM codepage (GBK on zh-CN).
+rem ============================================================
 setlocal EnableDelayedExpansion
-title 万象 Aura - 后端(可选)
-cd /d %~dp0aura\api
+title Wanxiang Aura - Backend
+rem Repo root IS the package root: web/ and api/ sit next to this file
+cd /d %~dp0api
+if errorlevel 1 (echo [ERROR] cannot cd into api\ & pause & exit /b 1)
 set PY=python
 where py >nul 2>nul && set PY=py -3
-%PY% --version >nul 2>nul || (echo [跳过] 未检测到 Python，前端将以本地引擎独立运行（功能完整，只是不走后端计算）& pause & exit /b 0)
+%PY% --version >nul 2>nul || (echo [SKIP] Python not found: frontend runs standalone with local engine & pause & exit /b 0)
 if not exist .venv (
-  echo 首次运行：创建虚拟环境并安装 FastAPI（约 1 分钟）...
-  %PY% -m venv .venv || (echo venv 创建失败 & pause & exit /b 1)
-  call .venv\Scripts\pip install -q fastapi "uvicorn[standard]" httpx pytest || (echo 依赖安装失败 & pause & exit /b 1)
+  echo First run: creating venv and installing deps ^(1-2 min^)...
+  %PY% -m venv .venv || (echo [ERROR] venv creation failed & pause & exit /b 1)
+  call .venv\Scripts\pip install -q -r requirements.txt || (echo [ERROR] pip install failed & pause & exit /b 1)
 )
-echo 后端启动 http://localhost:8001/api/v1/health （关闭本窗口即停止）
+echo.
+if defined DASHSCOPE_API_KEY (
+  echo [AI] DASHSCOPE_API_KEY detected: recognition uses qwen-vl-max, text uses qwen-max
+  echo      Note: /analyze with AI text takes about 9-11 seconds.
+) else (
+  echo [AI] DASHSCOPE_API_KEY not set: recognition falls back to mock, text to rule template.
+  echo      For real AI, run this first in the same window:
+  echo        set DASHSCOPE_API_KEY=your-bailian-key
+  echo      then re-run this script.
+)
+echo.
+echo Backend: http://localhost:8001/api/v1/health  ^(close this window to stop^)
 call .venv\Scripts\uvicorn app.main:app --port 8001
 pause
