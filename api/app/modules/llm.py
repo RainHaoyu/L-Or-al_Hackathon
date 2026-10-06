@@ -34,7 +34,16 @@ PROMPTS: dict[str, str] = {
 
 _TIER = ["qwen-max", "qwen-plus"]
 _URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
-_TIMEOUT = 10
+# 每档超时 5 s（两档串行，最坏 10 s）。
+#
+# 取值依据（实测 2026-10-05）：
+#   - 直连 qwen-max 生成通感文案约 2.4–3.4 s，正常情况 5 s 足够
+#   - 原为 10 s：两档串行最坏 20 s，会超过前端 15 s 超时
+#     （web/src/lib/api.ts），导致「后端还在算、前端已回退本地引擎」
+#   - 5 s × 2 档 = 最坏 10 s，留 5 s 余量给网络与后续处理
+# 模型偶发慢于 5 s 时会落规则模板——宁可快速给出模板，
+# 也不要让用户面对超过前端超时的长等待。
+_TIMEOUT = 5
 
 
 def _fill_prompt(mode: str, perfume: dict[str, Any]) -> str:

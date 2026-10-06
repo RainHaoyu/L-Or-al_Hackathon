@@ -111,10 +111,12 @@ export function AnalyzeFlow() {
     if (reportBusy) return
     setReportBusy(true)
     // 阶段提示按实测耗时切分：0s 连接 → 2s 计算闸门 → 5s 生成文案
+    // 实测（2026-10-05，qwen-max）：normal 约 2.9–4.5 s、sensitive 约 2.8–3.6 s；
+    // 后端 llm.py 每档超时 5 s，最坏 10 s（两档串行），前端 15 s。
     const stages: [number, string][] = [
       [0, '正在连接后端引擎…'],
       [2000, '正在计算暴露量与四道闸门…'],
-      [5000, '正在为失嗅人群生成通感文案…（AI 模型响应较慢，最长 15 秒）'],
+      [5000, '正在生成通感文案…（AI 模型响应较慢，最长约 10 秒）'],
     ]
     const timers = stages.map(([ms, text]) => setTimeout(() => setReportStage(text), ms))
     try {
