@@ -25,7 +25,7 @@ api/         后端（FastAPI + Pydantic，**可选**）
   app/modules/analyzer.py     编排：双核心错误隔离 + meta 信封
   app/schemas.py              对外契约（openapi 唯一真源）
   scripts/gen_api_types.py    openapi → web/src/lib/api-types.ts
-  tests/                      pytest（178 条）
+  tests/                      pytest（192 条）
 
 scripts/     ★ 启动脚本的 ASCII 核心（`start-*.bat`）；根目录中文名 `.bat` 只是薄壳
 docs/        文档
@@ -81,7 +81,7 @@ python -m venv .venv
 .venv/Scripts/pip install -r requirements.txt      # Windows
 # .venv/bin/pip install -r requirements.txt        # macOS / Linux
 .venv/Scripts/python -m uvicorn app.main:app --port 8001
-.venv/Scripts/python -m pytest tests/ -q           # 181 条
+.venv/Scripts/python -m pytest tests/ -q           # 192 条
 ```
 
 **接入阿里云百炼（可选，但演示前必须冒烟）**：
@@ -130,7 +130,7 @@ cd api && .venv/bin/python scripts/gen_api_types.py  # openapi → web/src/lib/a
 | 层 | 命令 | 规模 | 覆盖 |
 | --- | --- | --- | --- |
 | 前端 | `cd web && npm run test` | **88** | QRA2 引擎 / 可视化映射 / 数据层整合 / IFRA 与毒理匹配 / 启动脚本守卫 / 模式接线与超时 / 词典自探测 |
-| 后端 | `cd api && pytest -q` | **181** | 端点与信封 / 分布基元 / 双引擎对齐 / 匹配正确性 / LLM 预算不变式 / 网络隔离 |
+| 后端 | `cd api && pytest -q` | **192** | 端点与信封 / 分布基元 / 双引擎对齐 / 匹配正确性 / LLM 预算不变式 / 网络隔离 / 数据管线拒错 |
 | 跨引擎 | 同上 | 内含 | 分布基元、闸门 19 用例×14 字段、人群策略、氧化 24 项、毒理与 IFRA 查找 |
 
 > 改动 `web/src/lib/qra2/*` 或 `api/app/modules/qra2.py` 中**任何一侧**，
@@ -173,7 +173,7 @@ cd api && .venv/bin/python scripts/gen_api_types.py  # openapi → web/src/lib/a
 | B-4 | ~~前端超时按模式区分~~（与 B-3 同批） | ✅ 已完成 |
 | B-5 | 前端包名与 `index.html` 元信息（现仍为脚手架残留 `my-app`） | 待做 |
 | B-6 | ~~词典类查找逐条验证（EU26 / IgE / 香材 / CAS 四类）~~ | ✅ 已完成 |
-| B-7 | IFRA 禁用清单解析根因（现靠人工修正表兜住已知错位） | 待做 |
+| B-7 | ~~IFRA 禁用清单解析根因~~（解析改为按内容模式 + 源值指纹校验，不通过就拒绝产出） | ✅ 已完成 |
 | B-8 | 聚合暴露开关 UI（引擎已支持 `aggregateFactor`） | 待做 |
 | B-9 | 响应式与无障碍（`prefers-reduced-motion`、aria、对比度） | 待做 |
 
@@ -207,7 +207,7 @@ feat/wanxiang-aura-v2     集成分支
 
 ```bash
 cd web && npm run test && npm run build     # 88 条 + 构建
-cd api && .venv/Scripts/python -m pytest -q # 181 条
+cd api && .venv/Scripts/python -m pytest -q # 192 条
 ```
 
 改了 `web/src/lib/qra2/` 或 `api/app/modules/qra2.py` 时，**必须同步另一侧并重跑两端测试**。

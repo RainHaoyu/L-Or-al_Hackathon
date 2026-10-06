@@ -15,7 +15,7 @@
 | 旧实现 | `legacy/`（保底，含 71 条致敏原 / 21 款香水数据资产） |
 | 上游数据 | `D:\L'Oréal_Hackathon\数据层\`（9 个 xlsx/docx，仓库上一级） |
 | 数据管线 | ✅ **可重跑且幂等**（重跑后 `git diff` 为空） |
-| 测试 | 后端 **181 passed / 19 skipped**；前端 **88 passed** |
+| 测试 | 后端 **192 passed / 19 skipped**；前端 **88 passed** |
 | 分支同步 | 与 `origin/feat/wanxiang-aura-v2` 一致 |
 
 ### 启动与验证
@@ -28,7 +28,7 @@ npm run test                                # 88 条
 # 后端（可选；仅拍照识别与 AI 文案需要）
 cd api && pip install -r requirements.txt
 .venv/Scripts/python -m uvicorn app.main:app --port 8001
-.venv/Scripts/python -m pytest -q           # 181 条
+.venv/Scripts/python -m pytest -q           # 192 条
 
 # 数据管线（改了 数据层/ 之后；幂等可重跑）
 python web/scripts/build_data.py
@@ -290,7 +290,7 @@ python web/scripts/build_data.py
 - 新增 `web/src/lib/analyze-timeout.test.ts`（6 条）：三种模式都有超时值、
   真实 mode 进入请求体、同一时刻 normal 已 abort 而 anosmia 仍在等、
   `AnalyzeFlow` 中不再出现 `mode: 'normal'`、阶段提示用的是按模式推导的预算
-- 全量：前端 **78 条**、后端 **178 条** 全绿，`tsc -b` 通过
+- 全量：前端 **88 条**、后端 **181 条**（当时）全绿，`tsc -b` 通过
 
 ### 9. 后端测试不隔离网络 → 已修（待办 1-3，本次）
 
@@ -315,15 +315,15 @@ python web/scripts/build_data.py
 - `test_analyze_falls_back_to_template`：离线时 `/analyze` 仍有结果，`isLlm=false`
 - 实跑：环境带假 Key 跑隔离相关用例 10 条全绿，12.1 s
 
-> 另记一个观察（属于 3-3，已用 `--durations=10` 定位）：**后端全量本身并不快**。
-> 无 Key 全量实测 **512 s**，最慢的 10 条全是"打整条引擎"的用例：
-> `test_yellow_reachability_is_bounded_by_tpop` 50.7 s、
-> `test_population_divergence_on_same_input` 39.7 s、
-> `test_population_divergence_backend` 33.6 s、`test_analyze_falls_back_to_template` 17.1 s……
+> 另记一个观察（属于 3-3，已用 `--durations=10` 定位）：**后端全量本身就不快，且受负载影响很大**。
+> 同一套用例、都不带 Key：**干净机器 190 s**（192 条，19 skip），
+> 与前端测试/构建并发时 **512 s**（181 条时的一次量测）、另一次并发时 1238 s。
+> 最慢的 10 条全是"打整条引擎"的用例：`test_yellow_reachability_is_bounded_by_tpop` 50.7 s、
+> `test_population_divergence_on_same_input` 39.7 s、`test_population_divergence_backend` 33.6 s……
 > 即每条用例内部要跑好几次 `analyze`，而**单次引擎（LHS n=10000）在干净环境实测 4.4–5.0 s**。
 > 因此早先那句「设了 Key 之后 171 条从约 130 秒变成 511 秒」**是错的**——
-> 511 s 无 Key 也是这个量级（另一次与前端测试并发时量到 1238 s，量测受负载影响很大），
-> 变慢的是引擎本身，与 Key 无关。提速方向由此明确：共享夹具 / 测试用更小的 n。
+> 511 s 与 Key 无关，是并发负载下的量测；变慢的是引擎本身。提速方向由此明确：
+> 共享夹具 / 测试用更小的 n。**报耗时请注明是否与其他任务并发**，否则数字没法比较。
 
 ### 10. 四类词典交叉探测 → 已做，并揪出 2 条假词条 + 1 处同名撞车（待办 1-5，本次）
 
@@ -357,6 +357,53 @@ CAS `93-19-6`（6-仲丁基喹啉）写了**同一个英文名** `Butyl quinolin
 
 **验证**：前端 88 条全绿（含 10 条自探测）、`tsc -b` 通过；数据管线重跑后 `git status` 为空。
 
+### 11. IFRA 禁用清单解析的根因 → 已修（待办 1-4，本次）
+
+1-4 之前的兜法是「人工核对表盖住已知错位」。它盖不住的是：**源文件再变一次，
+产出会重新变错，而且没人知道**——因为「校验位合法」≠「化合物正确」
+（`120-58-1` 就是一个合法但错误的 CAS）。本次把根因拆成两件事修掉。
+
+#### 11a. 解析改成「按内容模式」，不再按列位置
+
+源表把 CAS 拆成三格（`"120" | "58" | "1"`），而**无 CAS 的行不拆**——同一个逻辑字段
+在不同行落在不同列。旧代码「按行列位置拼」，所以源表一挪行列就整片错位。
+
+新的 `classify_ban_row()` 只按内容判定：先吃掉行首纯数字（CAS 分段，整串一格或三段都支持），
+再把余下单元格按「中文名 / 英文名 / 管控类型 / 备注」分类。行/列怎么挪都不再错位。
+
+**顺带修掉两个真实的数据缺陷**（旧解析只取"尾巴的第一行"，把后面的都丢了）：
+
+| 条目 | 修复前 `en` | 修复后 `en` | 后果 |
+| --- | --- | --- | --- |
+| 葵子麝香 | `Musk` | `Musk ambrette` | 键 `musk` 只有 4 字符，任何含 musk 的成分名都会命中它 |
+| 二甲苯麝香 | `Musk` | `Musk xylene` | 同上：查 `Musk xylene` 会被判成葵子麝香 |
+| 铃兰醛 | `Butylphenyl` | `Butylphenyl methylpropional(Lilial)` | 英文名残缺，只能靠别名兜 |
+| 海葵醛 | `Hydroxyisohexyl` | `Hydroxyisohexyl 3 cyclohexene carboxaldehyde(Lyral)` | 同上 |
+| 天然麝香 / 天然灵猫香 | `Natural`（且原因丢失） | `Natural musk` / `Natural civet`，原因 `动物源` | 键 `natural` 会误命中一切含 natural 的名字 |
+
+#### 11b. 核对表升级为「源值指纹 + 允许清单」，不通过就拒绝产出
+
+`BANNED_CAS_VERIFIED` 每条同时记录**核对时看到的源值**与正确值，并在写盘前做四道校验：
+
+1. 解析出的每条 CAS 必须与核对时记录的**源值**一致 → 不一致说明源布局又变了，`die()`；
+2. 禁用条目的**名字集合**必须与核对表完全一致 → 新增/丢失条目，`die()`；
+3. 核对表里的正确值必须通过 CAS 校验位；
+4. 任何一条不通过 → 中止，**一个 JSON 都不写**（`main()` 先全量构建、最后统一落盘）。
+
+报错信息直接给出下一步动作（重新核对后更新 `BANNED_CAS_VERIFIED`，不要改产出 JSON）。
+
+**验证**（新增 `api/tests/test_build_data_ifra.py`，11 条）：
+- 8 条解析器单测：三格 CAS、整串一格 CAS、**整行左移一列**、无 CAS 行、含"禁用"二字的备注
+  不被当成管控类型、标题/表头/空行不是数据、CAS 只解析出两段要标记可疑、没有中文名要拒绝
+- 3 条端到端：**拿真实 xlsx 复制一份改坏后重跑管线**
+  - 未改动 → 退出码 0，9 条 CAS 与核对表逐条一致，5 条带 `casSource` 审计痕迹
+  - CAS 分段整体错位一行（复现历史事故）→ 非 0 退出，点名葵子麝香，命中「与核对时不一致」这道理
+  - CAS 分段被抹成两段 → 非 0 退出，命中「CAS 分段」这道理
+  - 两种改坏都必须**不落盘任何 JSON**
+
+> 过程中确认了一个容易踩的坑：该 xlsx 的**第一个 `<row>` 是 `r="2"`**（第 1 行没被序列化），
+> 所以"按行号定位"的测试脚本会改错行。现在测试一律按内容找目标行。
+
 ---
 
 ## 三、项目还缺什么
@@ -381,7 +428,7 @@ CAS `93-19-6`（6-仲丁基喹啉）写了**同一个英文名** `Butyl quinolin
 | --- | --- | --- |
 | 🟠 B1 | **双引擎同步的人工风险** | 对齐测试已补齐（见 §二.6），但两份实现仍是**肉眼同步**：任何一侧改动都必须手工同步另一侧，否则再次漂移。长期应改为单一实现 + 代码生成 |
 | 🟠 B2 | **前端包名是脚手架残留** | `web/package.json` 的 `name` 仍是 `my-app`、`version` 为 `0.0.0`，应改为项目名 |
-| 🟠 B3 | **后端测试偏慢** | 181 条无 Key 实测约 510 s；最慢 10 条都是整条引擎用例（单条 17–51 s），单次 analyze 的引擎开销实测 4.4–5.0 s。方向：共享夹具 / 测试用更小的 n |
+| 🟠 B3 | **后端测试偏慢** | 192 条都不带 Key 时：干净机器约 190 s，与前端测试/构建并发时 510-1240 s（量测受负载影响很大）。最慢 10 条都是整条引擎用例（单条 17-51 s），单次 analyze 的引擎开销实测 4.4-5.0 s。方向：共享夹具 / 测试用更小的 n |
 | 🟡 B4 | **无 lint / CI** | 前端有 eslint 配置但未纳入流程；无 CI 跑测试 |
 | 🟡 B5 | **仓库根冗余 zip** | `万象Aura-工程包.zip`(1.52MB) / `万象Aura-全套包-Windows.zip`(1.52MB) / `万象Aura工程包-20261005.zip`(0.25MB)。内容均已落盘，共 3.3MB 重复 |
 

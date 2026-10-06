@@ -17,12 +17,15 @@ import re
 import sys
 import zipfile
 from pathlib import Path
+from typing import Any
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent            # <仓库>/web
 REPO = ROOT.parent                                       # <仓库>
 WS = REPO.parent                                         # 欧莱雅黑客松（数据层常在这一层）
-OUT_DIR = ROOT / "src" / "data"
+# 产出目录默认写回仓库；测试要拿被改坏的源文件跑一遍管线，绝不能覆盖已入库的 JSON，
+# 所以留一个 AURA_OUT_DIR 出口（仅测试/对比构建用）。
+OUT_DIR = Path(os.environ["AURA_OUT_DIR"]) if os.environ.get("AURA_OUT_DIR") else ROOT / "src" / "data"
 
 # 数据层目录名是中文，且不入库（体积大、含内部资料），所以不写死单一路径，
 # 而是按锚点文件去找。这段逻辑刻意留在 Python 而不是 .bat 里：.bat 必须
@@ -295,20 +298,28 @@ def cas_checksum_ok(cas: str) -> bool:
     return total % 10 == int(n3)
 
 
-# 源 xlsx 的禁用清单区（H/I/J 列）在导出时整体错位一行：
-# H 列的分段其实属于「上一行」的化合物，导致按行拼接出的 CAS 全部张冠李戴
+# 源 xlsx 的禁用清单区（H/I/J 列）在导出时 CAS 分段整体错位：
+# 分段其实属于「上一行」的化合物，导致按行拼出的 CAS 张冠李戴
 # （7 条里 5 条与实际物质不符，其中 1 条校验位非法）。
-# 以下为按中文名逐一核对后的正确值；值为 None 表示该物质无单一 CAS（天然原料等）。
-BANNED_CAS_CORRECTIONS: dict[str, str | None] = {
-    "葵子麝香": "83-66-9",        # 源写 120-58-1
-    "二甲苯麝香": "81-15-2",       # 源写 116-66-5
-    "酮麝香": "81-14-1",          # 源正确
-    "铃兰醛": "80-54-6",          # 源正确（Lilial / Butylphenyl methylpropional）
-    "海葵醛": "31906-04-4",       # 源写 10599-70-9（HICC / Lyral）
-    "天然麝香": None,             # 天然动物源原料，无单一 CAS
-    "天然灵猫香": None,
-    "当归根油": "8015-64-3",       # 源写 471-28-3（精油，CAS 为 EINECS 群组号）
-    "薄荷内酯": "13341-72-5",      # 源写 223743-5-7（非法校验位；源文件将 57 误敲为 5）
+#
+# 这张表是**人工逐条核对**的唯一结论来源，两个字段各有职责：
+#   源值  = 核对时在源文件里看到的字符串。它同时是「源结构指纹」：
+#           上游换版本、行列再挪一次，源值就对不上 → 管线**报错中止**，
+#           而不是像以前那样被修正表悄悄盖住（那正是"只修了一半"的地方：
+#           校验位合法 ≠ 化合物正确，120-58-1 就是一个合法但错误的 CAS）。
+#   正确值 = 按中文名逐一核对后的 CAS；None 表示该物质无单一 CAS（天然动物源原料等）。
+#
+# 表里的名字集合也是**允许清单**：源文件新增/丢失禁用条目时必须人工核对后更新本表。
+BANNED_CAS_VERIFIED: dict[str, tuple[str | None, str | None]] = {
+    "葵子麝香": ("120-58-1", "83-66-9"),        # Musk ambrette
+    "二甲苯麝香": ("116-66-5", "81-15-2"),       # Musk xylene
+    "酮麝香": ("81-14-1", "81-14-1"),           # Musk ketone（源值本就正确）
+    "铃兰醛": ("80-54-6", "80-54-6"),           # Lilial / Butylphenyl methylpropional（源值正确）
+    "海葵醛": ("10599-70-9", "31906-04-4"),     # HICC / Lyral
+    "天然麝香": (None, None),                   # 天然动物源原料，无单一 CAS
+    "天然灵猫香": (None, None),
+    "当归根油": ("471-28-3", "8015-64-3"),       # 精油，源值是别的物质
+    "薄荷内酯": ("223743-5-7", "13341-72-5"),    # 源文件把 57 误敲成 5，校验位非法
 }
 
 
@@ -333,10 +344,130 @@ IFRA_BANNED_ALIASES: dict[str, list[str]] = {
 }
 
 
+# ---------------------------------------------------------------- IFRA 禁用区解析
+# 源表把 CAS 拆成三格（"120" | "58" | "1"），而"无 CAS"的行不拆——同一个逻辑字段
+# 在不同行落在不同列。所以这里**不按列位置取字段，按内容判定**：
+# 先吃掉行首的纯数字（CAS 分段），再把余下的单元格按「中文名 / 英文名 / 管控类型 / 备注」分类。
+# 这样上游插入空行、把 CAS 合成一格、或整行挪列，都不会再静默错位。
+_BAN_COLS = tuple("GHIJKLM")
+_CAS_WHOLE_RE = re.compile(r"^\d{2,7}-\d{2}-\d$")
+_CAS_PIECE_RE = re.compile(r"^\d{1,7}$")
+_CJK_RE = re.compile(r"[\u4e00-\u9fff]")
+_BAN_CONTROL_RE = re.compile(r"^(?:完全)?禁用$|^限制$|^限用$|^管控$")
+_BAN_HEADER_EXACT = ("CAS号", "CAS", "中文名称", "英文名称", "管控类型", "备注")
+_BAN_HEADER_MARK = ("禁用清单", "Cat4")
+
+
+def _is_ban_header(vals: list[str]) -> bool:
+    """表头/标题判定：按整格相等或标题词，避免把数据里的普通词误杀。"""
+    if any(v in _BAN_HEADER_EXACT for v in vals):
+        return True
+    return any(any(m in v for m in _BAN_HEADER_MARK) for v in vals)
+
+
+def classify_ban_row(cells: dict[str, str]) -> dict[str, Any] | None:
+    """按内容模式把禁用清单的一行解析为 {cas, zh, en, control, reason}。
+
+    返回 None 表示这行不是数据行（标题/表头/空行）。
+    带 "malformed" 键表示"像数据行但解析不出关键字段"——交给调用方报错中止，绝不猜。
+    """
+    vals = [v for v in (cells.get(c, "").strip() for c in _BAN_COLS) if v]
+    if not vals:
+        return None
+    if _is_ban_header(vals):
+        return None
+
+    # 1) 行首的 CAS：整串一格，或按 '-' 拆成三段（源文件是三格）
+    cas: str | None = None
+    idx = 0
+    if _CAS_WHOLE_RE.match(vals[0]):
+        cas, idx = vals[0], 1
+    else:
+        pieces: list[str] = []
+        while idx < len(vals) and _CAS_PIECE_RE.match(vals[idx]):
+            pieces.append(vals[idx])
+            idx += 1
+        if len(pieces) == 3:
+            cas = "-".join(pieces)
+        elif pieces:
+            return {"cas": None, "zh": None, "en": None, "control": None, "reason": None,
+                    "raw": " ".join(vals), "malformed": f"CAS 分段是 {pieces}，既不是整串也不是三段"}
+
+    # 2) 余下单元格按内容分类（一个单元格内部还可能有多行）
+    segs: list[str] = []
+    for v in vals[idx:]:
+        segs.extend(s.strip() for s in re.split(r"[\r\n]+", v) if s.strip())
+    zh = next((s for s in segs if _CJK_RE.search(s) and not _BAN_CONTROL_RE.match(s)), None)
+    if zh is None:
+        return {"cas": cas, "zh": None, "en": None, "control": None, "reason": None,
+                "raw": " ".join(vals), "malformed": "找不到中文名"}
+
+    en_parts: list[str] = []
+    reason_parts: list[str] = []
+    control: str | None = None
+    for seg in segs[segs.index(zh) + 1:]:
+        if _BAN_CONTROL_RE.match(seg):
+            control = control or seg
+        elif _CJK_RE.search(seg):
+            reason_parts.append(seg)   # 备注；可能含"禁用"二字，但那不是管控类型
+        else:
+            en_parts.append(seg)       # 英文名可能被拆到多格/多行
+    return {"cas": cas, "zh": zh, "en": " ".join(en_parts).strip() or None,
+            "control": control or "完全禁用", "reason": "；".join(reason_parts)}
+
+
+def verify_banned(ban_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """核对禁用清单：任何一处可疑都拒绝产出（宁可不写，也不写可疑数据）。
+
+    这是 1-4 的根因修复——旧代码用人工修正表"盖住"已知错位，源文件再变一次就会
+    静默产出错误的 CAS（校验位合法 ≠ 化合物正确，120-58-1 就是合法但错误的 CAS）。
+    """
+    problems: list[str] = []
+    for b in ban_rows:
+        if "malformed" in b:
+            problems.append(f"{b.get('zh') or b.get('raw')}：{b['malformed']}")
+    rows = [b for b in ban_rows if "malformed" not in b and b.get("zh")]
+    names = [b["zh"] for b in rows]
+
+    if len(rows) != len(BANNED_CAS_VERIFIED):
+        problems.append(f"解析出 {len(rows)} 条禁用条目，核对表里是 {len(BANNED_CAS_VERIFIED)} 条")
+    for n in names:
+        if n not in BANNED_CAS_VERIFIED:
+            problems.append(f"{n}：不在核对表里——新出现的禁用物必须人工核对 CAS 后补进 BANNED_CAS_VERIFIED")
+    for n in BANNED_CAS_VERIFIED:
+        if n not in names:
+            problems.append(f"{n}：核对表里有，但源文件里没解析出来（被删除/改名/挪走了？）")
+    if problems:
+        die("IFRA 禁用清单校验失败，拒绝产出：\n  - " + "\n  - ".join(problems))
+
+    out: list[dict[str, Any]] = []
+    for b in rows:
+        src_cas, fixed = BANNED_CAS_VERIFIED[b["zh"]]
+        if (b["cas"] or None) != (src_cas or None):
+            die(
+                f"IFRA 禁用清单的 CAS 与核对时不一致：{b['zh']} 现在解析出 {b['cas'] or '无'}，"
+                f"核对时记录的是 {src_cas or '无'}。\n"
+                "  这说明源文件的行列布局又变了（历史事故就是 CAS 分段整体错位）。\n"
+                "  请人工重新核对这条的 CAS，然后更新 web/scripts/build_data.py 的 "
+                "BANNED_CAS_VERIFIED（不要改 web/src/data/*.json，那是产出物）。"
+            )
+        if fixed is not None and not cas_checksum_ok(fixed):
+            die(f"核对表里的 CAS 校验位非法：{b['zh']} → {fixed}")
+        if fixed != b["cas"]:
+            b["casSource"] = b["cas"] or None      # 保留源值备查（审计痕迹）
+        b["cas"] = fixed
+        alias = IFRA_BANNED_ALIASES.get(b["zh"])
+        if alias:
+            b["aliases"] = alias
+        out.append(b)
+    return out
+
+
 # ---------------------------------------------------------------- 2) IFRA 三表
 def build_ifra():
     rows = xlsx_rows(DATA_DIR / "IFRA 51st Amendment Cat4香水禁用清单.xlsx")
-    limits, banned, natural = [], [], []
+    limits, natural = [], []
+    ban_rows: list[dict[str, Any]] = []
     for cells in rows:
         # 表1 限量（B–F）
         if cells.get("B") and cells.get("C"):
@@ -351,26 +482,10 @@ def build_ifra():
                 limit = None
             limits.append({"cas": cells.get("B", "").strip(), "zh": zh.strip(), "en": en.strip(),
                            "limitPct": limit, "note": cells.get("F", "").strip()})
-        # 表2 禁用（H–L）：CAS 碎片修复
-        raw = [cells.get(c, "") for c in ("H", "I", "J", "K", "L")]
-        vals = [v.strip() for v in raw if v.strip()]
-        if vals:
-            cas, idx = None, 0
-            pieces = []
-            while idx < len(vals) and re.fullmatch(r"\d{1,7}", vals[idx]):
-                pieces.append(vals[idx]); idx += 1
-            if pieces:
-                cas = "-".join(pieces)
-            rest = vals[idx:]
-            if rest:
-                zh2 = rest[0]
-                tail = rest[1] if len(rest) > 1 else ""
-                segs = [s.strip() for s in re.split(r"[\n\r]+", tail) if s.strip()]
-                en2 = segs[0] if segs else ""
-                kind = next((s for s in segs if "禁" in s), "完全禁用")
-                reason = segs[-1] if len(segs) > 1 else ""
-                if zh2 and not zh2.isdigit():
-                    banned.append({"cas": cas, "zh": zh2, "en": en2, "control": kind, "reason": reason})
+        # 表2 禁用（H–L）：按内容模式解析，不按列位置
+        b = classify_ban_row(cells)
+        if b is not None:
+            ban_rows.append(b)
         # 表3 天然精油（N–Q）
         if cells.get("N") and cells.get("O"):
             try:
@@ -381,22 +496,11 @@ def build_ifra():
                             "limitPct": lim, "note": cells.get("Q", "").strip()})
     # 过滤误入的表头/空行 + 去重
     limits = [l for l in limits if l["zh"] and "名称" not in l["zh"] and "CAS" not in l["zh"]][:20]
-    banned = [b for b in banned if b["zh"] and "名称" not in b["zh"] and "CAS" not in b["zh"]
-              and "Cat4" not in b["zh"] and "清单" not in b["zh"]][:9]
     natural = [x for x in natural if "原料" not in x["zh"] and "CAS" not in x["zh"]][:2]
 
-    # —— CAS 修正与校验 ——
-    # 禁用清单的 CAS 在源文件里错位，必须按中文名替换；并标记修正痕迹以便审计。
-    for b in banned:
-        fixed = BANNED_CAS_CORRECTIONS.get(b["zh"], b["cas"])
-        if fixed != b["cas"]:
-            b["casSource"] = b["cas"] or None      # 保留源值备查
-            b["cas"] = fixed
-        if b["cas"] and not cas_checksum_ok(b["cas"]):
-            b["casInvalid"] = True                 # 双重保险：仍非法则显式标记
-        alias = IFRA_BANNED_ALIASES.get(b["zh"])
-        if alias:
-            b["aliases"] = alias
+    # —— 禁用清单：核对通过才产出（条数与名字集合都必须是人工核对过的那一套）——
+    banned = verify_banned(ban_rows)
+
     for l in limits:
         alias = IFRA_LIMIT_ALIASES.get(l["zh"])
         if alias:
@@ -407,7 +511,7 @@ def build_ifra():
         print(f"  !! 限量表 CAS 校验位异常 {len(bad_limits)} 条：{bad_limits}")
     n_fixed = sum(1 for b in banned if "casSource" in b)
     n_alias = sum(1 for b in banned if "aliases" in b) + sum(1 for l in limits if "aliases" in l)
-    print(f"  禁用清单 CAS 修正 {n_fixed} 条（源文件错位）；写入别名 {n_alias} 条")
+    print(f"  禁用清单 {len(banned)} 条已与核对表逐条对上（其中 {n_fixed} 条修正了源 CAS）；写入别名 {n_alias} 条")
 
     return {"source": "数据层/IFRA 51st Amendment Cat4香水禁用清单.xlsx", "amendment": "IFRA 51st Amendment",
             "limits": limits, "banned": banned, "natural": natural}

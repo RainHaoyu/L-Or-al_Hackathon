@@ -162,7 +162,7 @@
     {
       "cas": "83-66-9",
       "zh": "葵子麝香",
-      "en": "Musk",
+      "en": "Musk ambrette",
       "control": "完全禁用",
       "reason": "硝基麝香，光毒性",
       "casSource": "120-58-1"
@@ -170,7 +170,7 @@
     {
       "cas": "81-15-2",
       "zh": "二甲苯麝香",
-      "en": "Musk",
+      "en": "Musk xylene",
       "control": "完全禁用",
       "reason": "硝基麝香",
       "casSource": "116-66-5"
@@ -178,14 +178,14 @@
     {
       "cas": "81-14-1",
       "zh": "酮麝香",
-      "en": "Musk",
+      "en": "Musk ketone",
       "control": "完全禁用",
       "reason": "硝基麝香"
     },
     {
       "cas": "80-54-6",
       "zh": "铃兰醛",
-      "en": "Butylphenyl",
+      "en": "Butylphenyl methylpropional(Lilial)",
       "control": "完全禁用",
       "reason": "50修正案起禁用，生殖毒性",
       "aliases": [
@@ -198,7 +198,7 @@
     {
       "cas": "31906-04-4",
       "zh": "海葵醛",
-      "en": "Hydroxyisohexyl",
+      "en": "Hydroxyisohexyl 3 cyclohexene carboxaldehyde(Lyral)",
       "control": "完全禁用",
       "reason": "49修正案起禁用，强致敏",
       "casSource": "10599-70-9",
@@ -213,21 +213,21 @@
     {
       "cas": null,
       "zh": "天然麝香",
-      "en": "Natural",
+      "en": "Natural musk",
       "control": "完全禁用",
-      "reason": ""
+      "reason": "动物源"
     },
     {
       "cas": null,
       "zh": "天然灵猫香",
-      "en": "Natural",
+      "en": "Natural civet",
       "control": "完全禁用",
-      "reason": ""
+      "reason": "动物源"
     },
     {
       "cas": "8015-64-3",
       "zh": "当归根油",
-      "en": "Angelica",
+      "en": "Angelica root oil",
       "control": "完全禁用",
       "reason": "光毒性禁用",
       "casSource": "471-28-3"
