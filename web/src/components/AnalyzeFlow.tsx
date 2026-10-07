@@ -86,6 +86,7 @@ export function AnalyzeFlow() {
     setStorage,
     oxidationD,
     setEngineMeta,
+    setBackendText,
   } = useApp()
   const [channel, setChannel] = useState<Channel>('search')
   const [query, setQuery] = useState('')
@@ -126,6 +127,8 @@ export function AnalyzeFlow() {
       ],
     ]
     const timers = stages.map(([ms, text]) => setTimeout(() => setReportStage(text), ms))
+    /** 输入快照：后端文案必须与它绑定，Vision 页只在快照仍匹配时才显示 */
+    const snapshot = { perfumeId, population, openedMonths, storage, mode }
     try {
       const r = await api.analyze({
         product_id: perfumeId,
@@ -136,11 +139,20 @@ export function AnalyzeFlow() {
       })
       if (r.data) {
         setEngineMeta({ source: 'backend', engine: r.meta.engine ?? 'backend', models: r.data.synesthesia.model })
+        // 后端算出的 AI 文案真正接上屏（此前只取了 model 做徽标，正文仍是本地拼的）
+        setBackendText({
+          ...snapshot,
+          text: r.data.synesthesia.text ?? '',
+          model: r.data.synesthesia.model ?? 'backend',
+          engine: r.meta.engine,
+        })
       } else {
         setEngineMeta({ source: 'local', engine: 'aura-web-local/1.0' })
+        setBackendText(null)
       }
     } catch {
       setEngineMeta({ source: 'local', engine: 'aura-web-local/1.0' })
+      setBackendText(null)
     } finally {
       timers.forEach(clearTimeout)
       setReportStage('')

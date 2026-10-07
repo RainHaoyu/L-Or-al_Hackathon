@@ -15,7 +15,8 @@
 | 旧实现 | `legacy/`（保底，含 71 条致敏原 / 21 款香水数据资产） |
 | 上游数据 | `D:\L'Oréal_Hackathon\数据层\`（9 个 xlsx/docx，仓库上一级） |
 | 数据管线 | ✅ **可重跑且幂等**（重跑后 `git diff` 为空） |
-| 测试 | 后端 **192 passed / 19 skipped**；前端 **88 passed** |
+| 测试 | 后端 **192 passed / 19 skipped**；前端 **103 passed** |
+| 版本线 | 本条线 = `main`（含本轮全部修复）；协作者 20261006 工程包是**分叉**，不入库、不并入（见 §二.12c） |
 | 分支同步 | 与 `origin/feat/wanxiang-aura-v2` 一致 |
 
 ### 启动与验证
@@ -23,7 +24,7 @@
 ```bash
 # 前端（可脱离后端独立演示）
 cd web && npm install && npm run dev        # → http://localhost:3000
-npm run test                                # 88 条
+npm run test                                # 103 条
 
 # 后端（可选；仅拍照识别与 AI 文案需要）
 cd api && pip install -r requirements.txt
@@ -403,6 +404,52 @@ CAS `93-19-6`（6-仲丁基喹啉）写了**同一个英文名** `Butyl quinolin
 
 > 过程中确认了一个容易踩的坑：该 xlsx 的**第一个 `<row>` 是 `r="2"`**（第 1 行没被序列化），
 > 所以"按行号定位"的测试脚本会改错行。现在测试一律按内容找目标行。
+
+### 12. 后端 AI 文案真正上屏 + 版本分离（本次）
+
+#### 12a. AI 文案此前"算得出、看不到"
+
+现象：`AnalyzeFlow` 调用 `/analyze` 后只把 `r.data.synesthesia.model` 存进 `engineMeta` 做徽标，
+**正文从来没被使用**；Vision 页渲染的是本地 `picked.synesthesia` 或本地 `buildSynesthesia()`。
+而页面上还写着"文案由 qwen-max 生成"——**界面在说假话**：配了 Key 的用户看到徽标
+"文案 qwen-max"，读到的却是本地规则拼的文字。1-1 修好了"mode 传对"，
+但"AI 文案上屏"这一步当时没做，本次补上。
+
+修法（最小接线，不搬协作者整套 view model）：
+- 新增 `web/src/lib/synesthesia-text.ts`：`resolveSynesthesiaText(perfume, 当前选择, 后端文案)`
+  返回 `{ text, source, model }`，**后端 AI 优先、本地规则兜底**；
+- `state.tsx` 增加 `backendText`（文案 + 其输入快照）；`AnalyzeFlow` 成功后连快照一起存入，
+  失败/降级两条路径都置 `null`；Vision 页显示解析结果，**朗读按钮同步用 AI 文案**；
+- 页面那句"文案由 qwen-max 生成"改为**按实际来源动态显示**（后端 AI 标出模型名，
+  本地兜底说明原因）——从"说假话"改成"说实话"。
+
+#### 12b. 两条安全边界（都有测试钉住）
+
+1. **新鲜度**：后端文案只在快照与当前选择（香水 / 人群 / 开封月数 / 存放 / 模式）
+   **逐项一致**时才显示，否则回退本地文案——避免用户改了人群或香水后，
+   报告页把上一次的 AI 文案当成本次的事实。
+2. **只写文字、不参与判定**：解析结果**只有 text / source / model 三个字段**，
+   该路径不携带任何数值；`aura.ts` 与 `qra2/*` 也不得 import 本模块（架构上喂不进去），
+   LLM 输出永远不进入 `evaluate()` / `buildIngredients()`；页面按文本节点渲染，不走 innerHTML。
+
+另外：后端自己降级成 `template` 时不冒充 AI 文案（`model === 'template'` 一律回退本地）。
+
+**验证**：新增 `web/src/lib/synesthesia-text.test.ts`（15 条）——快照 5 个字段逐个变动都必须回退、
+空文案不算有效、`template` 不冒充、解析结果字段白名单、判定与成分明细在有无 AI 文案时逐字段相同、
+以及两条**源码守卫**（`AnalyzeFlow` 必须真的 `setBackendText`，Vision 必须用 `resolveSynesthesiaText`）。
+前端 **103 条**全绿，`tsc -b` 与 `npm run build` 通过。
+
+> 为什么加源码守卫：1-1 那类缺陷就是"接线漏了一行"，类型检查和业务测试都不会报错。
+
+#### 12c. 版本分离（本次的处理原则）
+
+- 本轮改动放在**独立分支** `feat/ai-text-onscreen`，可单独评审、单独合，不改动 main 现状。
+- 协作者的 **20261006 工程包是另一条版本线（分叉，与我们差异 +1121/−1111 行）**，
+  不是同源演进：它工程化更完整（单进程静态托管、离线 wheel、golden 对拍、
+  `@lru_cache` 引擎缓存、数据字典），但缺本轮全部正确性修复与 12 个回归守卫。
+  因此**不并入、不覆盖**，只记录可借鉴项（见附录"版本线"）。
+- 该工程包 zip 此前被直接推到 main（12.5 MB）。现从 git 移除跟踪、**本地文件保留**，
+  并把 `*.zip` 加入忽略——让"代码线"和"交付包线"分开放。
 
 ---
 

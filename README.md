@@ -69,7 +69,7 @@ legacy/      旧实现归档（已退出主线，仅供数据/代码参考）
 cd web
 npm install
 npm run dev        # http://localhost:3000
-npm run test       # vitest，88 条
+npm run test       # vitest，103 条
 npm run build
 ```
 
@@ -129,7 +129,7 @@ cd api && .venv/bin/python scripts/gen_api_types.py  # openapi → web/src/lib/a
 
 | 层 | 命令 | 规模 | 覆盖 |
 | --- | --- | --- | --- |
-| 前端 | `cd web && npm run test` | **88** | QRA2 引擎 / 可视化映射 / 数据层整合 / IFRA 与毒理匹配 / 启动脚本守卫 / 模式接线与超时 / 词典自探测 |
+| 前端 | `cd web && npm run test` | **103** | QRA2 引擎 / 可视化映射 / 数据层整合 / IFRA 与毒理匹配 / 启动脚本守卫 / 模式接线与超时 / 词典自探测 / AI 文案接线上屏 |
 | 后端 | `cd api && pytest -q` | **192** | 端点与信封 / 分布基元 / 双引擎对齐 / 匹配正确性 / LLM 预算不变式 / 网络隔离 / 数据管线拒错 |
 | 跨引擎 | 同上 | 内含 | 分布基元、闸门 19 用例×14 字段、人群策略、氧化 24 项、毒理与 IFRA 查找 |
 
@@ -206,7 +206,7 @@ feat/wanxiang-aura-v2     集成分支
 ### 收工检查（每次提交前）
 
 ```bash
-cd web && npm run test && npm run build     # 88 条 + 构建
+cd web && npm run test && npm run build     # 103 条 + 构建
 cd api && .venv/Scripts/python -m pytest -q # 192 条
 ```
 

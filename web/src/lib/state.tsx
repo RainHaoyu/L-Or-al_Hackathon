@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import { STORAGE_ENV, computeD } from './qra2/oxidation'
 import type { PopulationKey } from './aura'
+import type { BackendText } from './synesthesia-text'
 
 export type Mode = 'normal' | 'anosmia' | 'sensitive'
 export type TextSize = 'md' | 'lg' | 'xl'
@@ -27,6 +28,13 @@ export interface Analysis {
   oxidationD: number
   engineMeta: EngineMeta | null
   setEngineMeta: (m: EngineMeta | null) => void
+  /**
+   * 后端返回的通感文案 + 其输入快照（含 null = 未取得/已失效）。
+   * 只在快照与当前选择一致时才显示，判定与数值不受它影响：
+   * 见 lib/synesthesia-text.ts 的两条边界说明。
+   */
+  backendText: BackendText | null
+  setBackendText: (b: BackendText | null) => void
 }
 
 interface AppState extends Analysis {
@@ -46,6 +54,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [openedMonths, setOpenedMonths] = useState(14)
   const [storage, setStorage] = useState<StorageKey>('room')
   const [engineMeta, setEngineMeta] = useState<EngineMeta | null>(null)
+  const [backendText, setBackendText] = useState<BackendText | null>(null)
 
   useEffect(() => {
     document.documentElement.dataset.mode = mode
@@ -99,6 +108,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         oxidationD,
         engineMeta,
         setEngineMeta,
+        backendText,
+        setBackendText,
       }}
     >
       {children}

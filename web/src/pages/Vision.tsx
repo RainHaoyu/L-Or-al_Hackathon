@@ -5,7 +5,8 @@ import { Radar, RadarChart, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Responsi
 import { Square, Volume2 } from 'lucide-react'
 import { useApp, useRegister } from '../lib/state'
 import { POPULATIONS, evaluate, familyOf, getPerfume, type FamilyKey } from '../lib/aura'
-import { buildSynesthesia, buildVisualSpec } from '../lib/vision/engine'
+import { buildVisualSpec } from '../lib/vision/engine'
+import { resolveSynesthesiaText } from '../lib/synesthesia-text'
 import { RiskMark } from '../components/RiskMark'
 
 /* ---------- 颜色工具 ---------- */
@@ -274,7 +275,7 @@ function BottleVisual({ layers }: { layers: { weight: number; color: string }[] 
 
 export default function Vision() {
   useRegister('light')
-  const { population, perfumeId, mode, oxidationD } = useApp()
+  const { population, perfumeId, mode, openedMonths, storage, backendText, oxidationD } = useApp()
   const reduced = useReducedMotion()
   const picked = getPerfume(perfumeId)
   const declared = familyOf(picked.familyKey)
@@ -293,7 +294,16 @@ export default function Vision() {
 
   /** 三模式差异化：失嗅 = 加长叙事（嗅觉替代通道）；敏感 = 风险条前置 */
   const isAnosmic = mode === 'anosmia'
-  const synthText = isAnosmic ? buildSynesthesia(picked, 'anosmia') : picked.synesthesia
+  /**
+   * 文案来源：后端 AI（仅当快照与当前选择一致）优先，否则本地规则兜底。
+   * 判定与数值不受文案影响——AI 只写文字（lib/synesthesia-text.ts）。
+   */
+  const synth = resolveSynesthesiaText(
+    picked,
+    { perfumeId, population, openedMonths, storage, mode },
+    backendText,
+  )
+  const synthText = synth.text
   const verdict = mode === 'sensitive' ? evaluate(population, perfumeId, oxidationD) : null
 
   const rise = (delay: number) =>
@@ -504,7 +514,10 @@ export default function Vision() {
               )}
               <p className={`mt-4 leading-loose ${isAnosmic ? 'text-base' : 'text-lg'}`}>{synthText}</p>
               <p className="mt-4 text-sm text-muted-foreground">
-                文案由 qwen-max 生成，规则模板兜底；失嗅模式下色彩对比与字号已自动放大。
+                {synth.source === 'backend'
+                  ? `文案由 ${synth.model} 生成（后端 AI）。判定与分位数仍由引擎给出，AI 只负责写文字。`
+                  : '文案由本地规则模板生成（未配 Key、后端不可达，或后端自己降级了）。判定与分位数由引擎给出。'}
+                {isAnosmic ? ' 失嗅模式下色彩对比与字号已自动放大。' : ''}
               </p>
             </div>
             <div className="mt-6">
