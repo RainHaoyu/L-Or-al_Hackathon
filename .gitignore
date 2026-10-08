@@ -17,6 +17,8 @@ dist/
 
 # 交付包 / 归档（版本分离：工程包走独立交付线，代码线不带二进制大包）
 *.zip
+# 离线 wheel：只进交付包（scripts/make_release.py 会带上），不入库
+api/vendor/
 
 # 编辑器 / 系统
 .DS_Store

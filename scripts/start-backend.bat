@@ -38,10 +38,25 @@ if not exist "web\dist\index.html" (
 )
 
 cd api
-if not exist .venv (
-  echo First run: creating venv and installing deps ^(1-2 min^)...
-  %PY% -m venv .venv || (echo [ERROR] venv creation failed & pause & exit /b 1)
-  call .venv\Scripts\pip install -q -r requirements.txt || (echo [ERROR] pip install failed & pause & exit /b 1)
+rem First run: create the venv and install deps. Offline wheels in api\vendor are
+rem tried first so the delivery package also works on a machine without internet.
+rem .venv\.deps_ok marks a finished install (a half-installed venv must be retried).
+if not exist ".venv\.deps_ok" (
+  if not exist ".venv\Scripts\python.exe" (
+    echo First run: creating the virtual environment...
+    %PY% -m venv .venv || (echo [ERROR] venv creation failed & pause & exit /b 1)
+  )
+  set NEED_ONLINE=1
+  if exist vendor (
+    echo Installing dependencies from the bundled offline wheels...
+    call .venv\Scripts\pip install -q --no-index --find-links vendor -r requirements.txt && set NEED_ONLINE=
+  )
+  if defined NEED_ONLINE (
+    echo Installing dependencies from the internet ^(mirror is used if that fails^)...
+    call .venv\Scripts\pip install -q -r requirements.txt || call .venv\Scripts\pip install -q -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+  )
+  call .venv\Scripts\python.exe -c "import fastapi, uvicorn, pydantic, httpx" 2>nul || (echo [ERROR] dependencies incomplete: check the messages above & pause & exit /b 1)
+  echo ok> ".venv\.deps_ok"
 )
 
 rem LAN address for phones. "IPv4" stays ASCII even on a localized Windows.
