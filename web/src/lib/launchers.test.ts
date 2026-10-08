@@ -14,7 +14,7 @@
  * 全在 scripts\ 下的 ASCII 名文件里，薄壳只按 ASCII 路径去 call 它们。
  * （文件名本身是中文没有问题：文件名是 UTF-16，不经过代码页。）
  */
-import { readFileSync, readdirSync } from "node:fs"
+import { existsSync, readFileSync, readdirSync } from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { describe, expect, it } from "vitest"
@@ -128,5 +128,31 @@ describe("Windows 启动脚本", () => {
 
     const backend = text(path.join(SCRIPTS, "start-backend.bat"))
     expect(backend).toContain(`--port ${port}`)
+  })
+
+  it("交付/手机形态：同源 API 前缀 + 监听所有网卡", () => {
+    const env = text(path.join(REPO, "web", ".env.production"))
+    const value = /^VITE_API_BASE=(.*)$/m.exec(env)?.[1]?.trim()
+    expect(value, ".env.production 必须显式设置 VITE_API_BASE").toBeDefined()
+    expect(
+      value,
+      "必须是带 /api/v1 前缀的相对路径：写死 localhost 会让手机上的请求指向手机自己；留空会丢掉 /api/v1 前缀",
+    ).toBe("/api/v1")
+
+    const backend = text(path.join(SCRIPTS, "start-backend.bat"))
+    expect(backend, "手机要能访问就必须监听 0.0.0.0（只绑 127.0.0.1 时手机连不上）").toContain(
+      "--host 0.0.0.0",
+    )
+  })
+
+  it("构建产物里不得残留 localhost:8001（有 dist 时才检查）", () => {
+    const assets = path.join(REPO, "web", "dist", "assets")
+    if (!existsSync(assets)) return // 未构建（CI 常见）时跳过
+    for (const f of readdirSync(assets).filter((n) => n.endsWith(".js"))) {
+      const js = readFileSync(path.join(assets, f), "utf8")
+      expect(js, `${f} 里出现了 localhost:8001：手机打开时 API 会指向手机自己`).not.toContain(
+        "localhost:8001",
+      )
+    }
   })
 })

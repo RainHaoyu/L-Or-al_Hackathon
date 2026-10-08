@@ -15,7 +15,7 @@
 | 旧实现 | `legacy/`（保底，含 71 条致敏原 / 21 款香水数据资产） |
 | 上游数据 | `D:\L'Oréal_Hackathon\数据层\`（9 个 xlsx/docx，仓库上一级） |
 | 数据管线 | ✅ **可重跑且幂等**（重跑后 `git diff` 为空） |
-| 测试 | 后端 **192 passed / 19 skipped**；前端 **103 passed** |
+| 测试 | 后端 **199 passed / 19 skipped**；前端 **105 passed** |
 | 版本线 | 本条线 = `main`（含本轮全部修复）；协作者 20261006 工程包是**分叉**，不入库、不并入（见 §二.12c） |
 | 分支同步 | 与 `origin/feat/wanxiang-aura-v2` 一致 |
 
@@ -450,6 +450,36 @@ CAS `93-19-6`（6-仲丁基喹啉）写了**同一个英文名** `Butyl quinolin
   因此**不并入、不覆盖**，只记录可借鉴项（见附录"版本线"）。
 - 该工程包 zip 此前被直接推到 main（12.5 MB）。现从 git 移除跟踪、**本地文件保留**，
   并把 `*.zip` 加入忽略——让"代码线"和"交付包线"分开放。
+
+### 13. 交付形态 + 手机可用（本次）
+
+要求是"一个进程、一个端口、手机同 Wi-Fi 就能演示，且只需 Python"。做了四件事：
+
+| 改动 | 文件 | 说明 |
+| --- | --- | --- |
+| 单进程静态托管 + SPA 回退 | `api/app/main.py` | `web/dist` 与 `/api/v1` 同源同端口；`/report` 刷新不 404；未知 `/api/*` 返回 **JSON 404**（否则前端拿到 200 HTML 会解析失败）；路径穿越读不到 dist 之外；未构建时给可照做的 **503** |
+| dotenv | `api/app/main.py` | 读 `api/.env`（**该文件已 gitignore，绝不入库**），队友把 Key 写进去即可上真实 AI |
+| 同源构建 | `web/.env.production` | `VITE_API_BASE=/api/v1`——相对路径，手机访问时请求打到同一台机器。写死 `localhost` 会让手机请求指向手机自己；留空则丢掉 `/api/v1` 前缀 |
+| 监听所有网卡 + 内网地址提示 | `scripts/start-backend.bat` | `--host 0.0.0.0`，启动时打印手机地址与防火墙放行命令（保持 ASCII-only + CRLF） |
+
+**验证**（本机实测）：
+- `api/tests/test_static_hosting.py`（7 条）全绿：`/` 与客户端路由回退、静态资源、未知 `/api/*` 判 JSON 404、
+  真实 API 不被兜底遮蔽、`..` 穿越被拦、未构建时 503 带指引
+- 前端 **105 条**全绿（新增两条交付守卫：`.env.production` 必须是 `/api/v1` 相对前缀；
+  存在 `dist` 时里面不得残留 `localhost:8001`）
+- 服务实测：监听 `0.0.0.0:8001`，`http://localhost:8001/api/v1/health` → 200，首页返回应用页面
+- **防火墙是真障碍，已确认**：WLAN 网络类别为「公用」、无入站放行规则 →
+  内网 IP 的 8001 连不上（`TcpTestSucceeded=False`，ping 也不通）。需管理员执行一次：
+  `netsh advfirewall firewall add rule name="WanxiangAura-8001" dir=in action=allow protocol=TCP localport=8001`
+  （或把该 Wi-Fi 改为「专用」）。启动脚本已把这行打印出来。
+
+#### 13b. 协作者 20261007 包的安全事故（记录在案）
+
+协作者把**填了真实 Key 的 `aura/api/.env` 打进交付包并提交到公开仓库的 main**
+（提交信息写着"api key已配置好"）。实测：包内 `.env` 的 `DASHSCOPE_API_KEY` 已填值（长度 116），
+仓库 `private: false`。**该 Key 必须立刻吊销/轮换**——删文件不算止损，它已进 git 历史与爬虫。
+结构性对策：交付包只放 `.env.example`（空模板）、包内加 `.gitignore`；
+并注意 **GitHub 网页上传不看本地 `.gitignore`**（这次就是这么漏出去的）。
 
 ---
 

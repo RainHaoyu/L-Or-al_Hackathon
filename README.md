@@ -63,6 +63,25 @@ legacy/      旧实现归档（已退出主线，仅供数据/代码参考）
 > 两条硬约束由 `web/src/lib/launchers.test.ts` 守着：
 > **`.bat` 必须 CRLF + ASCII-only**，**端口必须与 `vite.config.ts` / `api.ts` 一致**。
 
+### 手机 / 同 Wi-Fi 访问（交付形态：一个进程、一个端口，只需 Python）
+
+1. 构建同源页面（只需一次；交付包里已带预构建 `web/dist`）：
+   `cd web && npm install && npm run build`
+2. 起服务：双击 `启动后端.bat`（或 `python -m uvicorn app.main:app --host 0.0.0.0 --port 8001`）
+   —— 同一进程同时提供页面与 API，控制台会打印本机地址与手机地址。
+3. 手机连**同一个 Wi-Fi**，浏览器打开 `http://<电脑内网IP>:8001`。
+
+> **手机打不开时，99% 是 Windows 防火墙**：入站 8001 默认被拦（网络类别为「公用」时更严，
+> 连 ping 都不回）。用**管理员**身份跑一次即可：
+> ```
+> netsh advfirewall firewall add rule name="WanxiangAura-8001" dir=in action=allow protocol=TCP localport=8001
+> ```
+> 或者把该 Wi-Fi 的网络配置文件改成「专用」，并在弹窗里允许 Python。
+>
+> 构建必须走 `web/.env.production`（`VITE_API_BASE=/api/v1`）：写死 `http://localhost:8001`
+> 时，手机上的 `localhost` 指的是手机自己 → 永远连不上后端、只能本地降级。这条由
+> `launchers.test.ts` 守着。
+
 **前端**（也可手动起；**不依赖后端**）：
 
 ```bash
@@ -129,8 +148,8 @@ cd api && .venv/bin/python scripts/gen_api_types.py  # openapi → web/src/lib/a
 
 | 层 | 命令 | 规模 | 覆盖 |
 | --- | --- | --- | --- |
-| 前端 | `cd web && npm run test` | **103** | QRA2 引擎 / 可视化映射 / 数据层整合 / IFRA 与毒理匹配 / 启动脚本守卫 / 模式接线与超时 / 词典自探测 / AI 文案接线上屏 |
-| 后端 | `cd api && pytest -q` | **192** | 端点与信封 / 分布基元 / 双引擎对齐 / 匹配正确性 / LLM 预算不变式 / 网络隔离 / 数据管线拒错 |
+| 前端 | `cd web && npm run test` | **105** | QRA2 引擎 / 可视化映射 / 数据层整合 / IFRA 与毒理匹配 / 启动脚本与交付守卫 / 模式接线与超时 / 词典自探测 / AI 文案接线上屏 |
+| 后端 | `cd api && pytest -q` | **199** | 端点与信封 / 分布基元 / 双引擎对齐 / 匹配正确性 / LLM 预算不变式 / 网络隔离 / 数据管线拒错 / 静态托管与 SPA 回退 |
 | 跨引擎 | 同上 | 内含 | 分布基元、闸门 19 用例×14 字段、人群策略、氧化 24 项、毒理与 IFRA 查找 |
 
 > 改动 `web/src/lib/qra2/*` 或 `api/app/modules/qra2.py` 中**任何一侧**，
