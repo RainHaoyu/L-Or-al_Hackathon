@@ -1,4 +1,4 @@
-# 万象 Aura · Web（aura/web）
+# 万象 Aura · Web（`web/`）
 
 > 2026 欧莱雅美妆科技黑客松 · 赛道三「无界体验家」
 > 双核心 Demo 前端：**致敏预警（QRA2 迷你闸门）+ 香气显影（组成驱动可视化）**
@@ -6,7 +6,7 @@
 ## 快速开始
 
 ```bash
-npm run dev            # 开发服务器（Vite，默认 5173；--port 5199 自定义）
+npm run dev            # 开发服务器（Vite，端口 3000 —— 见 vite.config.ts，勿改成 5199）
 npm run build          # 类型检查 + 产物构建（tsc -b && vite build）
 npm run preview        # 预览构建产物
 ```
